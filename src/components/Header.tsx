@@ -1,6 +1,5 @@
 "use client";
 
-import { SpecularButton } from "./SpecularButton";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -247,17 +246,14 @@ export function Header() {
 
         <div className="hidden items-center gap-3 xl:flex">
           <RegionToggle overlay={overlay} />
-          <SpecularButton
+          <Link
             href="/contact"
-            radius={8}
-            lineColor={overlay ? "#ffffff" : "#8fe37c"}
-            baseColor={overlay ? "#cccccc" : "#525252"}
-            className={`px-5 py-2.5 text-[14px] font-semibold transition-colors duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-brand-hover hover:text-ink ${
+            className={`rounded-lg px-5 py-2.5 text-[14px] font-semibold transition-colors duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-brand-hover hover:text-ink ${
               overlay ? "bg-white text-ink" : "bg-ink text-white"
             }`}
           >
             Request a call back
-          </SpecularButton>
+          </Link>
         </div>
 
         <button
