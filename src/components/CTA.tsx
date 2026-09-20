@@ -37,10 +37,8 @@ export function CTA() {
       <div className="container-px relative mx-auto max-w-[1760px] py-14 lg:py-20">
         <div className="flex flex-col items-center gap-8 text-center">
           <Reveal as="span" variant="mask" className="block">
-            <h2 className="mx-auto max-w-2xl text-4xl font-semibold leading-[1.05] tracking-tight text-white sm:text-[3.25rem]">
-              Begin your
-              <br />
-              energy transition
+            <h2 className="mx-auto max-w-4xl text-4xl font-semibold leading-[1.05] tracking-tight text-white sm:text-[3.25rem]">
+              Begin your energy transition
             </h2>
           </Reveal>
           <Link
