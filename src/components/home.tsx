@@ -405,17 +405,9 @@ export function BrandPromise() {
 
       <div className="container-px pointer-events-none relative mx-auto flex max-w-5xl flex-col items-center py-36 text-center lg:py-52">
         <RevealText
-          text="Energy as an asset."
+          text="Engineering the bottom line."
           className="block max-w-3xl text-[2.25rem] font-semibold leading-[1.08] tracking-tight text-white sm:text-[3rem]"
         />
-        <Reveal variant="up" delay={60}>
-          <p className="mx-auto mt-6 max-w-3xl text-2xl leading-relaxed text-white/75">
-            We see energy infrastructure as a business asset. A roof, a parcel
-            of land, a load curve or a tariff can all create value when they are
-            understood together. Our job is to turn that opportunity into a
-            practical, investable energy solution.
-          </p>
-        </Reveal>
       </div>
     </section>
   );
