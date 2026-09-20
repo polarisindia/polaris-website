@@ -1,8 +1,15 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Link from "next/link";
-import { ArrowRight } from "./ui";
+
+import { CountUp } from "./motion/CountUp";
+
+const heroStats = [
+  { value: "650+", label: "Successful projects" },
+  { value: "100 MW+", label: "Installed capacity" },
+  { value: "100+", label: "Team members" },
+  { value: "2", label: "Continents" },
+];
 
 export function Hero() {
   const ref = useRef<HTMLDivElement>(null);
@@ -66,7 +73,7 @@ export function Hero() {
   return (
     <section
       ref={ref}
-      className="relative flex h-screen min-h-[620px] items-center justify-center overflow-hidden bg-brand-dark"
+      className="relative flex h-screen min-h-[620px] items-center justify-center overflow-hidden bg-brand-dark pb-32 sm:pb-40"
     >
       <video
         ref={videoRef}
@@ -84,8 +91,6 @@ export function Hero() {
       {/* scrims */}
       <div className="absolute inset-0 bg-black/28" />
       <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-transparent to-black/40" />
-      {/* melt into the airy section below */}
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-[rgba(125,204,94,0.16)] to-transparent" />
 
       <div
         className="container-px relative z-10 mx-auto flex max-w-[1200px] flex-col items-center text-center"
@@ -94,10 +99,6 @@ export function Hero() {
           opacity: 1 - prog * 0.9,
         }}
       >
-        <p className="mb-6 text-xs font-semibold uppercase tracking-[0.24em] text-white/85 sm:text-sm">
-          Engineering the Bottom Line
-        </p>
-
         <h1
           aria-label="Energy as an asset, an advantage, a return."
           className="text-[10.92vw] font-semibold tracking-tight leading-[0.95] text-white sm:text-[5.46rem] lg:text-[6.72rem]"
@@ -115,23 +116,29 @@ export function Hero() {
 
         <p className="mt-8 max-w-xl text-base text-white/80 sm:text-2xl">
           Energy engineering for Commercial &amp; Industrial and Utility-Scale
-          projects, across India and Morocco.
+          projects globally.
         </p>
+      </div>
 
-        <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
-          <Link
-            href="/contact"
-            className="inline-flex items-center gap-2 rounded-lg bg-white px-7 py-3.5 text-base font-semibold text-ink transition-colors duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-brand-hover"
-          >
-            Get a proposal
-            <ArrowRight className="h-4 w-4" />
-          </Link>
-          <Link
-            href="/projects"
-            className="inline-flex items-center gap-2 rounded-lg bg-white/15 px-7 py-3.5 text-base font-semibold text-white backdrop-blur transition-colors duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-white/25"
-          >
-            See our projects
-          </Link>
+      {/* stats folded into the video: fully transparent at the top edge,
+          easing into solid green at the bottom */}
+      <div className="absolute inset-x-0 bottom-0 z-10 bg-gradient-to-b from-[#15371b]/0 via-[#15371b]/80 to-[#15371b] pb-8 pt-24 lg:pb-10 lg:pt-32">
+        <div className="container-px mx-auto max-w-[1760px]">
+          <dl className="grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-4">
+            {heroStats.map((it) => (
+              <div key={it.label} className="text-center">
+                <dt>
+                  <CountUp
+                    value={it.value}
+                    className="text-3xl font-semibold tracking-tight text-white sm:text-5xl"
+                  />
+                </dt>
+                <dd className="mt-1 text-base leading-snug text-white/60">
+                  {it.label}
+                </dd>
+              </div>
+            ))}
+          </dl>
         </div>
       </div>
     </section>

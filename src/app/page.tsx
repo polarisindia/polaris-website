@@ -11,14 +11,12 @@ import {
   ImpactBand,
   Testimonials,
   LatestNews,
-  StatsBand,
 } from "@/components/home";
 
 export default function HomePage() {
   return (
     <>
       <Hero />
-      <StatsBand />
       <IntroStatement />
       <ClientStrip />
       <Expertise />

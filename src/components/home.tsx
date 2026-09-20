@@ -116,13 +116,6 @@ const illos: React.ReactNode[] = [
 
 /* ---------- Intro statement ---------- */
 
-const introStats = [
-  { value: "650+", label: "Successful projects" },
-  { value: "100 MW+", label: "Installed capacity" },
-  { value: "100+", label: "Team members" },
-  { value: "2", label: "Continents" },
-];
-
 export function IntroStatement() {
   return (
     <section className="bg-paper">
@@ -591,32 +584,6 @@ export function LatestNews() {
             </Reveal>
           ))}
         </div>
-      </div>
-    </section>
-  );
-}
-
-/* ---------- Homepage-only stat strip, directly under the hero ---------- */
-
-export function StatsBand() {
-  return (
-    <section className="bg-[#15371b] py-8 lg:py-10">
-      <div className="container-px mx-auto max-w-[1760px]">
-        <dl className="grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-4">
-          {introStats.map((it) => (
-            <div key={it.label} className="text-center">
-              <dt>
-                <CountUp
-                  value={it.value}
-                  className="text-3xl font-semibold tracking-tight text-white sm:text-5xl"
-                />
-              </dt>
-              <dd className="mt-1 text-base leading-snug text-white/50">
-                {it.label}
-              </dd>
-            </div>
-          ))}
-        </dl>
       </div>
     </section>
   );
