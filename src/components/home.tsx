@@ -123,7 +123,7 @@ export function IntroStatement() {
         <div>
           <RevealText
             text="Engineering a cleaner energy future"
-            className="block max-w-3xl text-3xl font-semibold tracking-tight text-ink sm:text-[58px]"
+            className="block max-w-3xl text-3xl font-semibold tracking-tight text-[#26502e] sm:text-[58px]"
           />
           <Reveal variant="up" delay={60}>
             <p className="mt-5 max-w-2xl text-base leading-relaxed text-ink-soft">
@@ -346,7 +346,7 @@ export function Process() {
         <div>
           <RevealText
             text={"From assessment\nto performance"}
-            className="block max-w-2xl text-3xl font-semibold tracking-tight text-ink sm:text-[58px]"
+            className="block max-w-2xl text-3xl font-semibold tracking-tight text-[#26502e] sm:text-[58px]"
           />
         </div>
         <Reveal variant="fade">
@@ -469,7 +469,7 @@ export function ProjectsRail() {
         <div className="flex flex-wrap items-end justify-between gap-6">
           <RevealText
             text="Our projects"
-            className="text-3xl font-semibold tracking-tight text-ink sm:text-[58px]"
+            className="text-3xl font-semibold tracking-tight text-[#26502e] sm:text-[58px]"
           />
           <Reveal variant="fade">
             <ArrowLink href="/projects">Discover our projects</ArrowLink>
@@ -541,7 +541,7 @@ export function LatestNews() {
         <div className="flex flex-wrap items-end justify-between gap-6">
           <RevealText
             text="Latest insights"
-            className="text-3xl font-semibold tracking-tight text-ink sm:text-[58px]"
+            className="text-3xl font-semibold tracking-tight text-[#26502e] sm:text-[58px]"
           />
           <Reveal variant="fade">
             <ArrowLink href="/insights">See all insights</ArrowLink>
