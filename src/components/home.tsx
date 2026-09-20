@@ -251,32 +251,6 @@ export function Footprint() {
   );
 }
 
-/* ---------- Careers nudge ---------- */
-
-export function CareersStrip() {
-  return (
-    <section className="bg-[#faf9f3]">
-      <div className="container-px mx-auto max-w-[1760px] py-10 lg:py-12">
-        <Reveal
-          variant="fade"
-          className="flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between"
-        >
-          <div>
-            <p className="text-2xl font-semibold tracking-tight text-ink">
-              Polaris is growing, across India and Morocco.
-            </p>
-            <p className="mt-1 text-base text-ink-soft">
-              Engineers, project managers and energy analysts who want to own
-              outcomes, not tickets.
-            </p>
-          </div>
-          <ArrowLink href="/careers">See how we hire</ArrowLink>
-        </Reveal>
-      </div>
-    </section>
-  );
-}
-
 /* ---------- Our solutions ---------- */
 
 const offeringIcons = [illos[0], illos[2], illos[1], illos[4]];

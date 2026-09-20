@@ -11,7 +11,6 @@ import {
   ImpactBand,
   Testimonials,
   LatestNews,
-  CareersStrip,
   StatsBand,
 } from "@/components/home";
 
@@ -30,7 +29,6 @@ export default function HomePage() {
       <Testimonials />
       <Footprint />
       <LatestNews />
-      <CareersStrip />
       <CTA />
     </>
   );
