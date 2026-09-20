@@ -178,7 +178,7 @@ export default function AboutPage() {
           <RevealText
             as="h1"
             text="Engineering energy solutions around how businesses actually operate."
-            className="mt-6 block max-w-3xl text-4xl font-semibold leading-[1.08] tracking-tight text-ink sm:text-[3.25rem]"
+            className="mt-6 block max-w-3xl text-4xl font-semibold leading-[1.08] tracking-tight text-[#26502e] sm:text-[3.25rem]"
           />
           <Reveal variant="up" delay={90}>
             <p className="mt-5 max-w-2xl text-lg leading-relaxed text-ink-soft">
@@ -197,7 +197,7 @@ export default function AboutPage() {
                   <dt>
                     <CountUp
                       value={it.value}
-                      className="text-2xl font-semibold tracking-tight text-ink sm:text-3xl"
+                      className="text-2xl font-semibold tracking-tight text-[#26502e] sm:text-3xl"
                     />
                   </dt>
                   <dd className="mt-1 text-xs leading-snug text-ink-faint">
@@ -250,7 +250,7 @@ export default function AboutPage() {
       </Section>
 
       {/* Milestones */}
-      <div className="bg-[#FAFBF6]">
+      <div className="on-dark bg-[#15371b]">
         <Section>
           <SectionHeading eyebrow="Journey" title="Milestones" />
           <div className="relative mt-12 pl-8" data-timeline-track>
@@ -262,7 +262,7 @@ export default function AboutPage() {
             <ol className="space-y-8">
               {milestones.map((m) => (
                 <Reveal as="li" key={m.year} variant="up" className="relative">
-                  <span className="absolute -left-10 top-1 h-4 w-4 rounded-full border-2 border-brand bg-[#FAFBF6]" />
+                  <span className="absolute -left-10 top-1 h-4 w-4 rounded-full border-2 border-brand bg-[#15371b]" />
                   <div className="text-lg font-semibold tracking-tight text-brand-strong">
                     {m.year}
                     <span className="text-ink"> · {m.title}</span>
@@ -298,7 +298,7 @@ export default function AboutPage() {
       </Section>
 
       {/* Advantage */}
-      <div className="bg-[#FAFBF6]">
+      <div className="on-dark bg-[#15371b]">
         <Section>
           <SectionHeading eyebrow="Why Polaris" title="The Polaris advantage" />
           <div className="mt-14 grid gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
@@ -332,7 +332,7 @@ export default function AboutPage() {
 
         <div className="mt-20 border-t border-ink/10 pt-16">
           <Reveal as="span" variant="mask" className="block">
-            <h3 className="text-2xl font-semibold tracking-tight text-ink sm:text-[2rem]">
+            <h3 className="text-2xl font-semibold tracking-tight text-[#26502e] sm:text-[2rem]">
               Leadership Team
             </h3>
           </Reveal>

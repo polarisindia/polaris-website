@@ -88,7 +88,7 @@ export default function SustainabilityPage() {
           <RevealText
             as="h1"
             text="Energy is now a business decision, not just a utility bill."
-            className="mt-6 block max-w-3xl text-4xl font-semibold leading-[1.08] tracking-tight text-ink sm:text-[3.25rem]"
+            className="mt-6 block max-w-3xl text-4xl font-semibold leading-[1.08] tracking-tight text-[#26502e] sm:text-[3.25rem]"
           />
           <Reveal variant="up" delay={90}>
             <p className="mt-5 max-w-2xl text-lg leading-relaxed text-ink-soft">
@@ -160,7 +160,7 @@ export default function SustainabilityPage() {
         </div>
       </Section>
 
-      <div className="bg-[#FAFBF6]">
+      <div className="on-dark bg-[#15371b]">
         <Section>
           <SectionHeading eyebrow="The business case" title="The full picture" />
           <Reveal variant="up" delay={80}>

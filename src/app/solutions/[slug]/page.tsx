@@ -7,6 +7,7 @@ import { RevealText } from "@/components/RevealText";
 import { CountUp } from "@/components/motion/CountUp";
 import { CTA } from "@/components/CTA";
 import { ProjectCard } from "@/components/ProjectCard";
+import { BorderGlow } from "@/components/BorderGlow";
 import { offerings, solutions, projects, opportunity } from "@/lib/content";
 
 export function generateStaticParams() {
@@ -57,7 +58,7 @@ export default async function OfferingDetail({
           <RevealText
             as="h1"
             text={offering.title}
-            className="mt-6 block max-w-3xl text-4xl font-semibold leading-[1.08] tracking-tight text-ink sm:text-[3.25rem]"
+            className="mt-6 block max-w-3xl text-4xl font-semibold leading-[1.08] tracking-tight text-[#26502e] sm:text-[3.25rem]"
           />
           <Reveal variant="up" delay={90}>
             <p className="mt-5 max-w-2xl text-lg leading-relaxed text-ink-soft">
@@ -112,28 +113,37 @@ export default async function OfferingDetail({
               </h2>
               <div className="mt-6 grid gap-4 sm:grid-cols-2">
                 {related.map((s) => (
-                  <div
+                  <BorderGlow
                     key={s.slug}
-                    className="rounded-lg border border-line/70 bg-paper p-5"
+                    className="on-light h-full"
+                    backgroundColor="#ffffff"
+                    borderRadius={8}
+                    glowColor="112 55% 42%"
+                    glowRadius={28}
+                    glowIntensity={0.9}
+                    fillOpacity={0.15}
+                    colors={["#5fcf4b", "#0f4338", "#a3e635"]}
                   >
-                    <h3 className="text-[15px] font-semibold tracking-tight text-ink">
-                      {s.title}
-                    </h3>
-                    <p className="mt-1.5 text-sm leading-relaxed text-ink-soft">
-                      {s.summary}
-                    </p>
-                    <ul className="mt-3 space-y-1.5 border-t border-line/70 pt-3">
-                      {s.points.map((p) => (
-                        <li
-                          key={p}
-                          className="flex gap-2 text-[13px] leading-relaxed text-ink-faint"
-                        >
-                          <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-brand" />
-                          {p}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                    <div className="p-5">
+                      <h3 className="text-[15px] font-semibold tracking-tight text-ink">
+                        {s.title}
+                      </h3>
+                      <p className="mt-1.5 text-sm leading-relaxed text-ink-soft">
+                        {s.summary}
+                      </p>
+                      <ul className="mt-3 space-y-1.5 border-t border-line/70 pt-3">
+                        {s.points.map((p) => (
+                          <li
+                            key={p}
+                            className="flex gap-2 text-[13px] leading-relaxed text-ink-faint"
+                          >
+                            <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-brand" />
+                            {p}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </BorderGlow>
                 ))}
               </div>
             </div>
@@ -143,10 +153,10 @@ export default async function OfferingDetail({
 
       {/* Commercial & Industrial — rooftop project proof */}
       {slug === "commercial-industrial" && rooftopProjects.length > 0 && (
-        <div className="bg-[#FAFBF6]">
+        <div className="on-dark bg-[#15371b]">
           <Section>
             <div className="flex flex-wrap items-end justify-between gap-6">
-              <h2 className="text-2xl font-semibold tracking-tight text-ink sm:text-3xl">
+              <h2 className="text-2xl font-semibold tracking-tight text-[#26502e] sm:text-3xl">
                 Recent rooftop deployments
               </h2>
               <ArrowLink href="/projects">See all projects</ArrowLink>
@@ -164,10 +174,10 @@ export default async function OfferingDetail({
 
       {/* Utility Scale — ground-mount project proof */}
       {slug === "utility-scale" && groundMountProjects.length > 0 && (
-        <div className="bg-[#FAFBF6]">
+        <div className="on-dark bg-[#15371b]">
           <Section>
             <div className="flex flex-wrap items-end justify-between gap-6">
-              <h2 className="text-2xl font-semibold tracking-tight text-ink sm:text-3xl">
+              <h2 className="text-2xl font-semibold tracking-tight text-[#26502e] sm:text-3xl">
                 Ground-mounted deployments
               </h2>
               <ArrowLink href="/projects">See all projects</ArrowLink>
@@ -185,9 +195,9 @@ export default async function OfferingDetail({
 
       {/* Finance Solutions — the actual numbers */}
       {slug === "finance-solutions" && (
-        <div className="bg-[#FAFBF6]">
+        <div className="on-dark bg-[#15371b]">
           <Section>
-            <h2 className="text-2xl font-semibold tracking-tight text-ink sm:text-3xl">
+            <h2 className="text-2xl font-semibold tracking-tight text-[#26502e] sm:text-3xl">
               How we build the business case
             </h2>
             <dl className="mt-10 grid grid-cols-2 gap-x-6 gap-y-10 border-t border-ink/10 pt-8 sm:grid-cols-3 lg:grid-cols-5 lg:gap-x-0">
@@ -222,29 +232,39 @@ export default async function OfferingDetail({
 
       {/* Energy Optimisation Consultant — P-ESS promo */}
       {slug === "energy-optimisation-consultant" && (
-        <div className="bg-[#FAFBF6]">
+        <div className="on-dark bg-[#15371b]">
           <Section>
-            <div className="grid items-center gap-10 rounded-lg border border-line/70 bg-paper p-8 lg:grid-cols-[1fr_auto] lg:p-10">
-              <div>
-                <h2 className="text-2xl font-semibold tracking-tight text-ink sm:text-3xl">
-                  P-ESS, the dedicated storage practice
-                </h2>
-                <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-ink-soft">
-                  Battery storage and time-of-day optimisation, modelled with
-                  the same financial rigour as every Polaris system. The full
-                  P-ESS practice is unveiling soon.
-                </p>
+            <BorderGlow
+              backgroundColor="rgba(7, 26, 20, 0.4)"
+              borderRadius={8}
+              glowColor="105 70% 62%"
+              glowRadius={32}
+              glowIntensity={0.9}
+              fillOpacity={0.2}
+              colors={["#5fcf4b", "#a3e635", "#2dd4bf"]}
+            >
+              <div className="grid items-center gap-10 p-8 lg:grid-cols-[1fr_auto] lg:p-10">
+                <div>
+                  <h2 className="text-2xl font-semibold tracking-tight text-[#26502e] sm:text-3xl">
+                    P-ESS, the dedicated storage practice
+                  </h2>
+                  <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-ink-soft">
+                    Battery storage and time-of-day optimisation, modelled with
+                    the same financial rigour as every Polaris system. The full
+                    P-ESS practice is unveiling soon.
+                  </p>
+                </div>
+                <div className="relative aspect-[4/5] w-40 shrink-0 overflow-hidden rounded-lg bg-deep-navy sm:w-48">
+                  <Image
+                    src="/img/p-ess-teaser.jpg"
+                    alt="P-ESS teaser"
+                    fill
+                    sizes="192px"
+                    className="object-cover"
+                  />
+                </div>
               </div>
-              <div className="relative aspect-[4/5] w-40 shrink-0 overflow-hidden rounded-lg bg-deep-navy sm:w-48">
-                <Image
-                  src="/img/p-ess-teaser.jpg"
-                  alt="P-ESS teaser"
-                  fill
-                  sizes="192px"
-                  className="object-cover"
-                />
-              </div>
-            </div>
+            </BorderGlow>
             <div className="mt-8">
               <ArrowLink href="/p-ess">Learn about P-ESS</ArrowLink>
             </div>

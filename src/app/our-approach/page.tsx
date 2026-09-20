@@ -67,7 +67,7 @@ export default function OurApproachPage() {
           <RevealText
             as="h1"
             text="One accountable team, from first assessment to long-term performance."
-            className="mt-6 block max-w-3xl text-4xl font-semibold leading-[1.08] tracking-tight text-ink sm:text-[3.25rem]"
+            className="mt-6 block max-w-3xl text-4xl font-semibold leading-[1.08] tracking-tight text-[#26502e] sm:text-[3.25rem]"
           />
           <Reveal variant="up" delay={90}>
             <p className="mt-5 max-w-2xl text-lg leading-relaxed text-ink-soft">
@@ -114,7 +114,7 @@ export default function OurApproachPage() {
                   </span>
                 </Reveal>
                 <Reveal as="span" variant="mask" className="mt-3 block">
-                  <h2 className="text-2xl font-semibold tracking-tight text-ink sm:text-3xl">
+                  <h2 className="text-2xl font-semibold tracking-tight text-[#26502e] sm:text-3xl">
                     {s.title}
                   </h2>
                 </Reveal>
@@ -143,14 +143,14 @@ export default function OurApproachPage() {
       </Section>
 
       {/* By the numbers */}
-      <div className="bg-[#FAFBF6]">
+      <div className="on-dark bg-[#15371b]">
         <Section>
           <Reveal variant="fade">
             <span className="pill">The results</span>
           </Reveal>
           <RevealText
             text="This is what the approach has delivered."
-            className="mt-5 block max-w-2xl text-3xl font-semibold tracking-tight text-ink sm:text-[2.5rem]"
+            className="mt-5 block max-w-2xl text-3xl font-semibold tracking-tight text-[#26502e] sm:text-[2.5rem]"
           />
           <dl className="mt-14 grid grid-cols-2 gap-x-8 gap-y-10 sm:grid-cols-3">
             {glance.map((it) => (

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Reveal } from "./Reveal";
+import { BorderGlow } from "./BorderGlow";
 
 export function ArrowRight({ className = "h-4 w-4" }: { className?: string }) {
   return (
@@ -21,7 +22,12 @@ export function ArrowRight({ className = "h-4 w-4" }: { className?: string }) {
 // Material Design "arrow_back" glyph (Material Icons/Symbols outline set).
 export function ArrowLeft({ className = "h-5 w-5" }: { className?: string }) {
   return (
-    <svg className={className} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      aria-hidden="true"
+    >
       <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" />
     </svg>
   );
@@ -63,7 +69,9 @@ export function SectionHeading({
 }) {
   return (
     <div
-      className={align === "center" ? "mx-auto max-w-2xl text-center" : "max-w-2xl"}
+      className={
+        align === "center" ? "mx-auto max-w-2xl text-center" : "max-w-2xl"
+      }
     >
       {eyebrow && (
         <Reveal variant="fade">
@@ -71,7 +79,7 @@ export function SectionHeading({
         </Reveal>
       )}
       <Reveal as="span" variant="mask" className="mt-3 block">
-        <h2 className="text-balance text-3xl font-semibold tracking-tight text-ink sm:text-[2.5rem]">
+        <h2 className="text-balance text-3xl font-semibold tracking-tight text-[#26502e] sm:text-[2.5rem]">
           {title}
         </h2>
       </Reveal>
@@ -103,7 +111,8 @@ export function Button({
     "inline-flex items-center justify-center gap-2 rounded-lg px-6 py-3 text-[15px] font-semibold transition-colors duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]";
   const styles = {
     primary: "bg-ink text-white hover:bg-brand-hover hover:text-ink",
-    ghost: "border border-ink/20 text-ink hover:border-brand-hover hover:bg-brand-hover hover:text-ink",
+    ghost:
+      "border border-ink/20 text-ink hover:border-brand-hover hover:bg-brand-hover hover:text-ink",
     quiet: "bg-white text-ink hover:bg-brand-hover",
   }[variant];
   return (
@@ -173,10 +182,19 @@ export function Card({
   className?: string;
 }) {
   return (
-    <div
-      className={`u-card rounded-lg border border-line/70 bg-paper p-6 ${className}`}
+    <BorderGlow
+      className="on-light h-full"
+      backgroundColor="#ffffff"
+      borderRadius={8}
+      glowColor="112 55% 42%"
+      glowRadius={28}
+      glowIntensity={0.9}
+      fillOpacity={0.15}
+      colors={["#5fcf4b", "#0f4338", "#a3e635"]}
     >
-      {children}
-    </div>
+      <div className={`${/\bp-\d/.test(className) ? "" : "p-6 "}${className}`}>
+        {children}
+      </div>
+    </BorderGlow>
   );
 }

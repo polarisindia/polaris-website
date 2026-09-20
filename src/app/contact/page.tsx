@@ -3,6 +3,7 @@ import { Section } from "@/components/ui";
 import { Reveal } from "@/components/Reveal";
 import { RevealText } from "@/components/RevealText";
 import { ContactForm } from "@/components/ContactForm";
+import { BorderGlow } from "@/components/BorderGlow";
 import { socialIcon } from "@/components/SocialIcons";
 import { offices, socials } from "@/lib/content";
 
@@ -98,7 +99,7 @@ export default function ContactPage() {
           <RevealText
             as="h1"
             text="Tell us what you're trying to build"
-            className="mt-6 block max-w-3xl text-4xl font-semibold leading-[1.08] tracking-tight text-ink sm:text-[3.25rem]"
+            className="mt-6 block max-w-3xl text-4xl font-semibold leading-[1.08] tracking-tight text-[#26502e] sm:text-[3.25rem]"
           />
           <Reveal variant="up" delay={90}>
             <p className="mt-5 max-w-2xl text-lg leading-relaxed text-ink-soft">
@@ -118,44 +119,52 @@ export default function ContactPage() {
           <Reveal variant="up" delay={80}>
             <aside className="space-y-6">
               {offices.map((o) => (
-                <div
+                <BorderGlow
                   key={o.name}
-                  className="rounded-lg border border-line/70 bg-paper p-6"
+                  backgroundColor="#ffffff"
+                  borderRadius={8}
+                  glowColor="112 55% 42%"
+                  glowRadius={28}
+                  glowIntensity={0.9}
+                  fillOpacity={0.15}
+                  colors={["#5fcf4b", "#0f4338", "#a3e635"]}
                 >
-                  <h2 className="text-lg font-semibold tracking-tight text-ink">
-                    {o.name}
-                  </h2>
-                  <ul className="mt-4 space-y-3 text-sm text-ink-soft">
-                    <li className="flex gap-3">
-                      <span className="mt-0.5 shrink-0 text-ink-faint">
-                        <PinIcon />
-                      </span>
-                      <span className="leading-relaxed">{o.address}</span>
-                    </li>
-                    <li className="flex gap-3">
-                      <span className="mt-0.5 shrink-0 text-ink-faint">
-                        <PhoneIcon />
-                      </span>
-                      <a
-                        href={`tel:${o.phone.replace(/[^+\d]/g, "")}`}
-                        className="transition-colors hover:text-brand-strong"
-                      >
-                        {o.phone}
-                      </a>
-                    </li>
-                    <li className="flex gap-3">
-                      <span className="mt-0.5 shrink-0 text-ink-faint">
-                        <MailIcon />
-                      </span>
-                      <a
-                        href={`mailto:${o.email}`}
-                        className="transition-colors hover:text-brand-strong"
-                      >
-                        {o.email}
-                      </a>
-                    </li>
-                  </ul>
-                </div>
+                  <div className="p-6">
+                    <h2 className="text-lg font-semibold tracking-tight text-ink">
+                      {o.name}
+                    </h2>
+                    <ul className="mt-4 space-y-3 text-sm text-ink-soft">
+                      <li className="flex gap-3">
+                        <span className="mt-0.5 shrink-0 text-ink-faint">
+                          <PinIcon />
+                        </span>
+                        <span className="leading-relaxed">{o.address}</span>
+                      </li>
+                      <li className="flex gap-3">
+                        <span className="mt-0.5 shrink-0 text-ink-faint">
+                          <PhoneIcon />
+                        </span>
+                        <a
+                          href={`tel:${o.phone.replace(/[^+\d]/g, "")}`}
+                          className="transition-colors hover:text-brand-strong"
+                        >
+                          {o.phone}
+                        </a>
+                      </li>
+                      <li className="flex gap-3">
+                        <span className="mt-0.5 shrink-0 text-ink-faint">
+                          <MailIcon />
+                        </span>
+                        <a
+                          href={`mailto:${o.email}`}
+                          className="transition-colors hover:text-brand-strong"
+                        >
+                          {o.email}
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </BorderGlow>
               ))}
 
               <div>

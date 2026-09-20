@@ -58,7 +58,7 @@ export default async function InsightPost({
               <time dateTime={post.date}>{formatDate(post.date)}</time>
             </div>
 
-            <h1 className="mt-4 text-balance text-4xl font-semibold leading-[1.1] tracking-tight text-ink sm:text-[2.75rem]">
+            <h1 className="mt-4 text-balance text-4xl font-semibold leading-[1.1] tracking-tight text-[#26502e] sm:text-[2.75rem]">
               {post.title}
             </h1>
 

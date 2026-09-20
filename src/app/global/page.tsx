@@ -122,7 +122,7 @@ export default function GlobalPage() {
           <RevealText
             as="h1"
             text={global.title}
-            className="mt-6 block max-w-3xl text-4xl font-semibold leading-[1.08] tracking-tight text-ink sm:text-[3.25rem]"
+            className="mt-6 block max-w-3xl text-4xl font-semibold leading-[1.08] tracking-tight text-[#26502e] sm:text-[3.25rem]"
           />
           <Reveal variant="up" delay={90}>
             <p className="mt-5 max-w-2xl text-lg leading-relaxed text-ink-soft">
@@ -158,7 +158,7 @@ export default function GlobalPage() {
       </Section>
 
       {/* The entity */}
-      <div className="bg-brand-tint">
+      <div className="on-dark bg-[#15371b]">
         <div className="container-px mx-auto max-w-[1760px] py-20 lg:py-28">
           <div className="grid gap-10 lg:grid-cols-[1.1fr_1fr] lg:items-center">
             <div>
@@ -220,7 +220,7 @@ export default function GlobalPage() {
       )}
 
       {/* Why global */}
-      <div className="bg-[#FAFBF6]">
+      <div className="on-dark bg-[#15371b]">
         <Section>
           <SectionHeading eyebrow="How it works" title="One approach, every market" />
           <div className="mt-14 grid gap-x-10 gap-y-12 md:grid-cols-3">

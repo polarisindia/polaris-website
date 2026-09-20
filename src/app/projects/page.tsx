@@ -36,7 +36,7 @@ export default function ProjectsPage() {
           <RevealText
             as="h1"
             text="650+ projects. 100 MW+ commissioned."
-            className="mt-6 block max-w-3xl text-4xl font-semibold leading-[1.08] tracking-tight text-ink sm:text-[3.25rem]"
+            className="mt-6 block max-w-3xl text-4xl font-semibold leading-[1.08] tracking-tight text-[#26502e] sm:text-[3.25rem]"
           />
           <Reveal variant="up" delay={90}>
             <p className="mt-5 max-w-2xl text-lg leading-relaxed text-ink-soft">
@@ -80,7 +80,7 @@ export default function ProjectsPage() {
         )}
       </Section>
 
-      <div className="bg-[#FAFBF6]">
+      <div className="on-dark bg-[#15371b]">
         <Section>
           <Reveal variant="fade">
             <h2 className="text-sm font-semibold uppercase tracking-[0.2em] text-brand-strong">
