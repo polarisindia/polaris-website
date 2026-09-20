@@ -125,12 +125,9 @@ export function IntroStatement() {
     <section className="bg-paper">
       <div className="container-px mx-auto grid max-w-[1760px] items-center gap-12 py-20 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.82fr)] lg:py-32">
         <div>
-          <Reveal variant="fade">
-            <span className="pill">What we do</span>
-          </Reveal>
           <RevealText
             text="We engineer, finance and operate commercial & industrial solar."
-            className="mt-5 block max-w-3xl text-3xl font-semibold tracking-tight text-ink sm:text-[58px]"
+            className="block max-w-3xl text-3xl font-semibold tracking-tight text-ink sm:text-[58px]"
           />
           <Reveal variant="up" delay={60}>
             <p className="mt-5 max-w-2xl text-base leading-relaxed text-ink-soft">
@@ -203,12 +200,9 @@ export function Footprint() {
 
         <div className="mt-10 grid gap-12 lg:grid-cols-[0.95fr_1fr] lg:items-center lg:gap-24 xl:gap-32">
           <div>
-            <Reveal variant="fade">
-              <span className="pill">Global reach</span>
-            </Reveal>
             <RevealText
               text="Built in India. Growing internationally."
-              className="mt-5 block max-w-xl text-3xl font-semibold tracking-tight text-ink sm:text-[58px]"
+              className="block max-w-xl text-3xl font-semibold tracking-tight text-ink sm:text-[58px]"
             />
             <Reveal variant="up" delay={60}>
               <p className="mt-5 max-w-xl text-base leading-relaxed text-ink-soft">
@@ -325,12 +319,9 @@ export function TrustRow() {
   return (
     <section className="bg-paper">
       <div className="container-px mx-auto max-w-[1760px] py-20 lg:py-28">
-        <Reveal variant="fade">
-          <span className="pill">Why Polaris</span>
-        </Reveal>
         <RevealText
           text="Discipline you can underwrite."
-          className="mt-5 block max-w-2xl text-3xl font-semibold tracking-tight text-ink sm:text-[58px]"
+          className="block max-w-2xl text-3xl font-semibold tracking-tight text-ink sm:text-[58px]"
         />
 
         <div className="mt-14 grid gap-x-16 gap-y-12 sm:grid-cols-2 lg:grid-cols-4 lg:gap-x-20">
@@ -433,12 +424,9 @@ export function Process() {
     >
       <div className="flex flex-wrap items-end justify-between gap-6">
         <div>
-          <Reveal variant="fade">
-            <span className="pill">How we deliver</span>
-          </Reveal>
           <RevealText
             text="One accountable team, from first assessment to long-term performance."
-            className="mt-5 block max-w-2xl text-3xl font-semibold tracking-tight text-ink sm:text-[58px]"
+            className="block max-w-2xl text-3xl font-semibold tracking-tight text-ink sm:text-[58px]"
           />
         </div>
         <Reveal variant="fade">
@@ -457,7 +445,7 @@ export function Process() {
 
 export function ImpactBand() {
   return (
-    <section className="relative isolate overflow-hidden bg-gradient-to-br from-[#08251c] via-brand-dark to-brand py-[76px] text-white lg:py-[105px]">
+    <section className="relative isolate overflow-hidden bg-gradient-to-br from-[#08251c] via-brand-dark to-brand py-[56px] text-white lg:py-[82px]">
       {/* brand mark watermark — visible against the dark background, not
           just a hint of texture */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -470,12 +458,9 @@ export function ImpactBand() {
       <div className="container-px relative z-10 mx-auto max-w-[1760px]">
         <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-end lg:gap-16">
           <div>
-            <Reveal variant="fade">
-              <span className="pill">Impact</span>
-            </Reveal>
             <RevealText
               text="Clean energy that compounds."
-              className="mt-5 block max-w-xl text-3xl font-semibold tracking-tight sm:text-[58px]"
+              className="block max-w-xl text-3xl font-semibold tracking-tight sm:text-[58px]"
             />
             <Reveal variant="up" delay={80}>
               <p className="mt-4 max-w-md text-2xl leading-relaxed text-white/70">
@@ -485,7 +470,7 @@ export function ImpactBand() {
             </Reveal>
           </div>
 
-          <div className="grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid grid-cols-2 gap-x-6 gap-y-10">
             {impact.items.map((it, i) => (
               <Reveal key={it.label} variant="up" delay={i * 80}>
                 <CountUp
