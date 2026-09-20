@@ -390,7 +390,14 @@ export function ImpactBand() {
 
 export function BrandPromise() {
   return (
-    <section className="relative isolate overflow-hidden bg-[#FAFBF6]">
+    <section
+      className="relative isolate overflow-hidden bg-[#F6F8EE]"
+      style={{
+        // the orb's lime-to-teal palette, carried across the whole section
+        backgroundImage:
+          "radial-gradient(60% 75% at 12% 18%, rgba(200,245,70,0.5), transparent 70%), radial-gradient(60% 75% at 90% 88%, rgba(120,210,190,0.55), transparent 70%)",
+      }}
+    >
       {/* full-bleed Orb backdrop */}
       <div aria-hidden="true" className="absolute inset-0 -z-10">
         <Orb
