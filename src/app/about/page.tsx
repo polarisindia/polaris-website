@@ -375,10 +375,10 @@ export default function AboutPage() {
           </Reveal>
           <div className="mt-10 space-y-10">
             {team.map((g) => (
-              <div key={g.region}>
+              <div key={g.department}>
                 <Reveal variant="fade">
                   <h4 className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-strong">
-                    {g.region}
+                    {g.department}
                   </h4>
                 </Reveal>
                 <ul className="mt-6 grid gap-x-8 gap-y-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -401,7 +401,7 @@ export default function AboutPage() {
                             {m.name}
                           </h5>
                           <p className="text-sm leading-snug text-brand-strong">
-                            {m.role}
+                            {m.location}
                           </p>
                         </div>
                       </div>

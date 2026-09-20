@@ -831,54 +831,55 @@ export const founders = [
   },
 ];
 
-// Wider team, from the "Our Team" page of the Polaris India Company Deck
-// 2026. Excluded on purpose: Ronak Sanghvi and Rhythm Kothari.
-// Designations: the deck lists function headings above the names. Sales /
-// Finance names line up unambiguously; for the operations, delivery,
-// procurement and Morocco rows the deck doesn't say which name sits under
-// which of the two headings, so those carry the combined function label
-// until each person's exact title is confirmed.
+// Wider team, grouped by department, from the "Our Team" page of the Polaris
+// India Company Deck 2026. Excluded on purpose: Ronak Sanghvi and Rhythm
+// Kothari. Where the deck shows two related departments above a row of names
+// without saying who sits under which, they're merged into one group rather
+// than guessed at.
 export const team = [
   {
-    region: "India",
+    department: "Marketing, Sales & Business Development",
     members: [
-      { name: "Vivek Bachke", role: "Marketing, Sales & Business Development" },
-      {
-        name: "Yogesh Dusane",
-        role: "Marketing, Sales & Business Development",
-      },
-      {
-        name: "Sandeep Lavate",
-        role: "Marketing, Sales & Business Development",
-      },
-      { name: "Archana Agaste", role: "Finance, Accounting & Compliance" },
-      { name: "Rutuja Diwan", role: "Finance, Accounting & Compliance" },
-      { name: "Akshay Tajanpure", role: "Operations & Regulatory Liaison" },
-      { name: "Ankush Shinde", role: "Operations & Regulatory Liaison" },
-      { name: "Lalit Awari", role: "Operations & Regulatory Liaison" },
-      { name: "Gajanan Ganore", role: "Operations & Regulatory Liaison" },
-      { name: "Mukesh Kumar", role: "Project Delivery & Procurement" },
-      { name: "Abhishek Kolpe", role: "Project Delivery & Procurement" },
-      { name: "Raosaheb Bhoye", role: "Project Delivery & Procurement" },
-      { name: "Dnayneshwar Pardhe", role: "Project Delivery & Procurement" },
-      { name: "Ameya Kadve", role: "Project Delivery & Procurement" },
-      { name: "Mayur Patil", role: "Project Delivery & Procurement" },
-      { name: "Vishal Dalvi", role: "Project Delivery & Procurement" },
-      { name: "Sanket Kharat", role: "Project Delivery & Procurement" },
+      { name: "Vivek Bachke", location: "India" },
+      { name: "Yogesh Dusane", location: "India" },
+      { name: "Sandeep Lavate", location: "India" },
     ],
   },
   {
-    region: "Morocco",
+    department: "Finance, Accounting & Compliance",
     members: [
-      {
-        name: "Khalid Belkiss",
-        role: "Strategic Growth & Business Development",
-      },
-      {
-        name: "Tawfik Sellam",
-        role: "Strategic Growth & Business Development",
-      },
-      { name: "Hiba Oulkiss", role: "Strategic Growth & Business Development" },
+      { name: "Archana Agaste", location: "India" },
+      { name: "Rutuja Diwan", location: "India" },
+    ],
+  },
+  {
+    department: "Operations & Regulatory Liaison",
+    members: [
+      { name: "Akshay Tajanpure", location: "India" },
+      { name: "Ankush Shinde", location: "India" },
+      { name: "Lalit Awari", location: "India" },
+      { name: "Gajanan Ganore", location: "India" },
+    ],
+  },
+  {
+    department: "Project Delivery & Procurement",
+    members: [
+      { name: "Mukesh Kumar", location: "India" },
+      { name: "Abhishek Kolpe", location: "India" },
+      { name: "Raosaheb Bhoye", location: "India" },
+      { name: "Dnayneshwar Pardhe", location: "India" },
+      { name: "Ameya Kadve", location: "India" },
+      { name: "Mayur Patil", location: "India" },
+      { name: "Vishal Dalvi", location: "India" },
+      { name: "Sanket Kharat", location: "India" },
+    ],
+  },
+  {
+    department: "Strategic Growth & Business Development",
+    members: [
+      { name: "Khalid Belkiss", location: "Morocco" },
+      { name: "Tawfik Sellam", location: "Morocco" },
+      { name: "Hiba Oulkiss", location: "Morocco" },
     ],
   },
 ];
