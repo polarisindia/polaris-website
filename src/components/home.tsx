@@ -417,33 +417,36 @@ export function ImpactBand() {
 
 export function BrandPromise() {
   return (
-    <section className="relative isolate overflow-hidden bg-[#071a14]">
-      {/* full-bleed Orb backdrop on a dark ground, as in the React Bits demo */}
-      <div aria-hidden="true" className="absolute inset-0 -z-10">
-        <Orb
-          hue={109}
-          hoverIntensity={1.85}
-          rotateOnHover={false}
-          forceHoverState={false}
-          backgroundColor="#071a14"
-          className="absolute inset-0"
-        />
-      </div>
+    // white margin above and below; only the dark panel itself is inset
+    <section className="bg-paper py-8 lg:py-12">
+      <div className="relative isolate overflow-hidden bg-[#071a14]">
+        {/* full-bleed Orb backdrop on a dark ground, as in the React Bits demo */}
+        <div aria-hidden="true" className="absolute inset-0 -z-10">
+          <Orb
+            hue={109}
+            hoverIntensity={1.85}
+            rotateOnHover={false}
+            forceHoverState={false}
+            backgroundColor="#071a14"
+            className="absolute inset-0"
+          />
+        </div>
 
-      <div className="container-px pointer-events-none relative mx-auto flex max-w-5xl flex-col items-center py-36 text-center lg:py-52">
-        <RevealText
-          text="Engineering the bottom line."
-          className="block max-w-3xl text-[2.25rem] font-semibold leading-[1.08] tracking-tight text-white sm:text-[3rem]"
-        />
-        <Reveal variant="up" delay={60}>
-          <Link
-            href="/projects"
-            className="pointer-events-auto mt-10 inline-flex items-center gap-2 rounded-lg bg-white px-7 py-3.5 text-[15px] font-semibold text-ink transition-colors duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-brand-hover"
-          >
-            See our projects
-            <ArrowRight className="h-4 w-4" />
-          </Link>
-        </Reveal>
+        <div className="container-px pointer-events-none relative mx-auto flex max-w-5xl flex-col items-center py-36 text-center lg:py-52">
+          <RevealText
+            text="Engineering the bottom line."
+            className="block max-w-3xl text-[2.25rem] font-semibold leading-[1.08] tracking-tight text-white sm:text-[3rem]"
+          />
+          <Reveal variant="up" delay={60}>
+            <Link
+              href="/projects"
+              className="pointer-events-auto mt-10 inline-flex items-center gap-2 rounded-lg bg-white px-7 py-3.5 text-[15px] font-semibold text-ink transition-colors duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-brand-hover"
+            >
+              See our projects
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </Reveal>
+        </div>
       </div>
     </section>
   );
