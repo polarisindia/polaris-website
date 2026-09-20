@@ -1,25 +1,46 @@
 import Link from "next/link";
 import { ArrowRight } from "./ui";
 import { Reveal } from "./Reveal";
+import { Grainient } from "./Grainient";
 
 export function CTA() {
   return (
     <section className="relative overflow-hidden bg-[#15371b]">
-      {/* brand mark watermark — visible against the dark background */}
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src="/img/impact-mark.svg"
-        alt=""
-        aria-hidden="true"
-        className="pointer-events-none absolute right-[-2rem] top-1/2 h-[24rem] w-auto -translate-y-1/2 opacity-[0.06] brightness-0 invert sm:h-[30rem] lg:h-[36rem]"
-      />
+      {/* grainy warped green gradient, same as the impact section */}
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+        <Grainient
+          color1="#0e3b16"
+          color2="#065d40"
+          color3="#053726"
+          timeSpeed={1.8}
+          colorBalance={0.0}
+          warpStrength={1.0}
+          warpFrequency={5.0}
+          warpSpeed={2.0}
+          warpAmplitude={50.0}
+          blendAngle={0.0}
+          blendSoftness={0.05}
+          rotationAmount={500.0}
+          noiseScale={2.0}
+          grainAmount={0.1}
+          grainScale={2.0}
+          grainAnimated={false}
+          contrast={1.5}
+          gamma={1.0}
+          saturation={1.0}
+          centerX={0.0}
+          centerY={0.0}
+          zoom={0.9}
+        />
+      </div>
 
       <div className="container-px relative mx-auto max-w-[1760px] py-10 lg:py-[72px]">
         <div className="flex flex-col gap-10 lg:flex-row lg:items-center lg:justify-between">
           <Reveal as="span" variant="mask" className="block">
             <h2 className="max-w-2xl text-4xl font-semibold leading-[1.05] tracking-tight text-white sm:text-[3.25rem]">
-              Begin your{" "}
-              <span className="text-active-green">energy transition</span>
+              Begin your
+              <br />
+              energy transition
             </h2>
           </Reveal>
           <Link
