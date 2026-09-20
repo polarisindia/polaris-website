@@ -327,7 +327,7 @@ export function Process() {
       <div className="flex flex-wrap items-end justify-between gap-6">
         <div>
           <RevealText
-            text="From Assessment to Performance"
+            text="From assessment to performance"
             gradient
             className="block max-w-2xl text-3xl font-semibold tracking-tight text-brand-dark sm:text-[58px]"
           />
@@ -359,18 +359,12 @@ export function ImpactBand() {
         className="pointer-events-none absolute right-[-3rem] top-1/2 h-[34rem] w-auto -translate-y-1/2 opacity-[0.06] brightness-0 invert sm:h-[42rem] lg:right-[-1rem] lg:h-[54rem]"
       />
       <div className="container-px relative z-10 mx-auto max-w-[1760px]">
-        <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-end lg:gap-16">
+        <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center lg:gap-16">
           <div>
             <RevealText
-              text="Clean energy that compounds."
+              text="Clean energy, lasting impact."
               className="block max-w-xl text-3xl font-semibold tracking-tight sm:text-[58px]"
             />
-            <Reveal variant="up" delay={80}>
-              <p className="mt-4 max-w-md text-2xl leading-relaxed text-white/70">
-                Every Polaris system keeps generating, and displacing grid
-                carbon, for the full operating life of the asset.
-              </p>
-            </Reveal>
           </div>
 
           <div className="grid grid-cols-2 gap-x-6 gap-y-10">
@@ -387,10 +381,6 @@ export function ImpactBand() {
             ))}
           </div>
         </div>
-
-        <Reveal variant="fade" delay={120}>
-          <p className="mt-10 text-xs text-white/40">{impact.note}</p>
-        </Reveal>
       </div>
     </section>
   );
