@@ -7,6 +7,8 @@ import { CountUp } from "./motion/CountUp";
 import { ArrowLink, ArrowRight } from "./ui";
 import { RevealText } from "./RevealText";
 import { BorderGlow } from "./BorderGlow";
+import { PixelSnow } from "./PixelSnow";
+import { SpecularButton } from "./SpecularButton";
 import { SolarSystemLines } from "./SolarSystemLines";
 import { TestimonialCarousel } from "./TestimonialCarousel";
 import {
@@ -145,7 +147,16 @@ export function IntroStatement() {
               solution around them.
             </p>
             <div className="mt-8">
-              <ArrowLink href="/about">About Polaris</ArrowLink>
+              <SpecularButton
+                href="/about"
+                radius={8}
+                lineColor="#2e7d32"
+                baseColor="#8d94a4"
+                className="gap-2 border border-ink/20 px-6 py-3 text-base font-semibold text-ink transition-colors duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-brand-tint"
+              >
+                About Polaris
+                <ArrowRight className="h-4 w-4" />
+              </SpecularButton>
             </div>
           </Reveal>
         </div>
@@ -365,6 +376,19 @@ export function Process() {
 export function ImpactBand() {
   return (
     <section className="relative isolate overflow-hidden bg-[#15371b] py-[56px] text-white lg:py-[82px]">
+      {/* pixel snow drifting behind the stats */}
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+        <PixelSnow
+          color="#ffffff"
+          flakeSize={0.01}
+          minFlakeSize={1.25}
+          pixelResolution={200}
+          speed={1.25}
+          density={0.3}
+          direction={125}
+          brightness={0.9}
+        />
+      </div>
       <div className="container-px relative z-10 mx-auto max-w-[1760px]">
         <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center lg:gap-16">
           <div>
