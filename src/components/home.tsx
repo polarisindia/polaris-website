@@ -23,11 +23,13 @@ import {
 
 /* ---------- flat illustrations (Uber-style, brand green) ---------- */
 
+// Palette for the solution icons, which sit on dark-green cards: the usual
+// near-black accents flip to white and a deeper green so they stay visible.
 const IL = {
   pale: "#cdeec2",
   green: "#5fcf4b",
-  dark: "#0f4338",
-  ink: "#0e0e0e",
+  dark: "#06231c",
+  ink: "#ffffff",
 };
 
 const illos: React.ReactNode[] = [
@@ -296,26 +298,26 @@ export function Expertise() {
             >
               <BorderGlow
                 className="group h-full cursor-pointer"
-                backgroundColor="#e7f7e0"
+                backgroundColor="#0f4338"
                 borderRadius={12}
-                glowColor="112 55% 42%"
+                glowColor="105 70% 62%"
                 glowRadius={32}
                 glowIntensity={0.9}
-                colors={["#5fcf4b", "#0f4338", "#a3e635"]}
+                colors={["#5fcf4b", "#a3e635", "#2dd4bf"]}
               >
                 <div className="relative flex flex-1 flex-col p-5 sm:p-6 lg:p-8">
                   <span className="block h-14 w-14 [&>svg]:h-full [&>svg]:w-full">
                     {offeringIcons[i]}
                   </span>
-                  <h3 className="mt-6 text-xl font-semibold tracking-tight text-ink transition-colors duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:text-brand-strong">
+                  <h3 className="mt-6 text-xl font-semibold tracking-tight text-white transition-colors duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:text-active-green">
                     {s.title}
                   </h3>
-                  <p className="mt-3 text-base leading-relaxed text-ink-soft">
+                  <p className="mt-3 text-base leading-relaxed text-white/70">
                     {s.summary}
                   </p>
                   <Link
                     href={`/solutions/${s.slug}`}
-                    className="mt-auto inline-block w-fit border-b border-ink/25 pb-1 pt-6 text-base font-medium text-ink transition-colors duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] after:absolute after:inset-0 after:content-[''] hover:border-ink group-hover:border-brand-strong"
+                    className="mt-auto inline-block w-fit border-b border-white/30 pb-1 pt-6 text-base font-medium text-white transition-colors duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] after:absolute after:inset-0 after:content-[''] group-hover:border-active-green"
                   >
                     Learn more
                   </Link>
