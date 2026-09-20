@@ -24,11 +24,11 @@ import {
 /* ---------- flat illustrations (Uber-style, brand green) ---------- */
 
 // Palette for the solution icons, which sit on dark-green cards: the usual
-// near-black accents flip to white and a deeper green so they stay visible.
+// near-black accents flip to white and a lighter green so they stay visible.
 const IL = {
   pale: "#cdeec2",
   green: "#5fcf4b",
-  dark: "#06231c",
+  dark: "#1b5a4a",
   ink: "#ffffff",
 };
 
@@ -297,7 +297,7 @@ export function Expertise() {
             >
               <BorderGlow
                 className="group h-full cursor-pointer"
-                backgroundColor="#0f4338"
+                backgroundColor="#08251c"
                 borderRadius={12}
                 glowColor="105 70% 62%"
                 glowRadius={32}
