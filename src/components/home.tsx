@@ -379,14 +379,15 @@ export function ImpactBand() {
       {/* pixel snow drifting behind the stats */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0">
         <PixelSnow
-          color="#ffffff"
+          color="#4fd442"
           flakeSize={0.01}
           minFlakeSize={1.25}
           pixelResolution={200}
           speed={1.25}
-          density={0.3}
+          density={0.2}
           direction={125}
-          brightness={0.9}
+          brightness={1}
+          variant="round"
         />
       </div>
       <div className="container-px relative z-10 mx-auto max-w-[1760px]">
