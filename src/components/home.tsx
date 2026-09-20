@@ -426,8 +426,8 @@ export function ImpactBand() {
 export function BrandPromise() {
   return (
     // same dark green as the orb panel, so the margin reads as one section
-    <section className="bg-[#071a14] py-8 lg:py-12">
-      <div className="relative isolate overflow-hidden bg-[#071a14]">
+    <section className="bg-[#152a14] py-8 lg:py-12">
+      <div className="relative isolate overflow-hidden bg-[#152a14]">
         {/* full-bleed Orb backdrop on a dark ground, as in the React Bits demo */}
         <div aria-hidden="true" className="absolute inset-0 -z-10">
           <Orb
@@ -435,7 +435,7 @@ export function BrandPromise() {
             hoverIntensity={1.85}
             rotateOnHover={false}
             forceHoverState={false}
-            backgroundColor="#071a14"
+            backgroundColor="#152a14"
             className="absolute inset-0"
           />
         </div>
