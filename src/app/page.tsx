@@ -9,7 +9,6 @@ import {
   BrandPromise,
   ProjectsRail,
   ImpactBand,
-  TrustRow,
   Testimonials,
   LatestNews,
   CareersStrip,
@@ -27,7 +26,6 @@ export default function HomePage() {
       <Process />
       <BrandPromise />
       <ProjectsRail />
-      <TrustRow />
       <ImpactBand />
       <Testimonials />
       <Footprint />
