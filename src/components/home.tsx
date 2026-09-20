@@ -8,7 +8,6 @@ import { ArrowLink, ArrowRight } from "./ui";
 import { RevealText } from "./RevealText";
 import { BorderGlow } from "./BorderGlow";
 import { Grainient } from "./Grainient";
-import { SolarSystemLines } from "./SolarSystemLines";
 import { TestimonialCarousel } from "./TestimonialCarousel";
 import {
   offerings,
@@ -143,7 +142,14 @@ export function IntroStatement() {
         </div>
 
         <Reveal variant="fade" delay={120} className="hidden lg:block">
-          <SolarSystemLines className="ml-auto" />
+          <Image
+            src="/img/intro-engineer.webp"
+            alt="Illustration of an engineer with a tablet reviewing a solar array, battery storage and substation."
+            width={1536}
+            height={1024}
+            sizes="(min-width: 1024px) 45vw, 100vw"
+            className="ml-auto h-auto w-full rounded-lg"
+          />
         </Reveal>
       </div>
     </section>
