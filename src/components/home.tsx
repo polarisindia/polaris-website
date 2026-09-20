@@ -28,7 +28,7 @@ import {
 const IL = {
   pale: "#cdeec2",
   green: "#5fcf4b",
-  dark: "#1b5a4a",
+  dark: "#3f7d49",
   ink: "#ffffff",
 };
 
@@ -280,7 +280,7 @@ const offeringIcons = [illos[0], illos[2], illos[1], illos[4]];
 
 export function Expertise() {
   return (
-    <section className="bg-[#08251c]">
+    <section className="bg-[#26502e]">
       <div className="container-px mx-auto max-w-[1760px] py-20 lg:py-28">
         <RevealText
           text="Our solutions"
@@ -297,7 +297,7 @@ export function Expertise() {
             >
               <BorderGlow
                 className="group h-full cursor-pointer"
-                backgroundColor="#08251c"
+                backgroundColor="#26502e"
                 borderRadius={12}
                 glowColor="105 70% 62%"
                 glowRadius={32}
