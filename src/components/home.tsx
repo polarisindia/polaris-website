@@ -207,7 +207,7 @@ export function Footprint() {
         <div className="mt-10 grid gap-12 lg:grid-cols-[0.95fr_1fr] lg:items-center lg:gap-24 xl:gap-32">
           <div>
             <RevealText
-              text="From India to the world"
+              text={"From India to\nthe world"}
               gradient
               className="block max-w-xl text-3xl font-semibold tracking-tight text-brand-dark sm:text-[58px]"
             />
