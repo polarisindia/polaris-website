@@ -100,18 +100,10 @@ export function Hero() {
         }}
       >
         <h1
-          aria-label="Energy as an asset, an advantage, a return."
-          className="text-[10.92vw] font-semibold tracking-tight leading-[0.95] text-white sm:text-[5.46rem] lg:text-[6.72rem]"
+          aria-label="Energy as an asset."
+          className="whitespace-nowrap text-[8.2vw] font-semibold leading-[0.95] tracking-tight text-white sm:text-[5.46rem] lg:text-[6.72rem]"
         >
-          <span aria-hidden="true">
-            Energy as
-            <br />
-            <span className="word-rotator">
-              <span>an asset</span>
-              <span>an advantage</span>
-              <span>a return</span>
-            </span>
-          </span>
+          Energy as <span className="text-brand">an asset</span>
         </h1>
 
         <p className="mt-8 max-w-xl text-base text-white/80 sm:text-2xl">
