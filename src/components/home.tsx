@@ -398,12 +398,12 @@ export function Expertise() {
               as="article"
               key={s.title}
               delay={(i % 4) * 70}
-              className="flex h-full flex-col"
+              className="group -m-6 flex h-full flex-col rounded-lg p-6 transition-colors duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-white"
             >
               <span className="block h-14 w-14 [&>svg]:h-full [&>svg]:w-full">
                 {offeringIcons[i]}
               </span>
-              <h3 className="mt-6 text-xl font-semibold tracking-tight text-ink">
+              <h3 className="mt-6 text-xl font-semibold tracking-tight text-ink transition-colors duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:text-brand-strong">
                 {s.title}
               </h3>
               <p className="mt-3 text-base leading-relaxed text-ink-soft">
@@ -411,7 +411,7 @@ export function Expertise() {
               </p>
               <Link
                 href={`/solutions/${s.slug}`}
-                className="mt-auto inline-block w-fit border-b border-ink/25 pb-1 pt-6 text-base font-medium text-ink transition-colors hover:border-ink"
+                className="mt-auto inline-block w-fit border-b border-ink/25 pb-1 pt-6 text-base font-medium text-ink transition-colors duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] hover:border-ink group-hover:border-brand-strong"
               >
                 Learn more
               </Link>
