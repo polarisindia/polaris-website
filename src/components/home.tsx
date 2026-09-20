@@ -604,7 +604,7 @@ export function StatsBand() {
       <div className="container-px mx-auto max-w-[1760px]">
         <dl className="grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-4">
           {introStats.map((it) => (
-            <div key={it.label}>
+            <div key={it.label} className="text-center">
               <dt>
                 <CountUp
                   value={it.value}
