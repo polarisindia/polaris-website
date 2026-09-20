@@ -308,7 +308,7 @@ export function Expertise() {
                 colors={["#5fcf4b", "#a3e635", "#2dd4bf"]}
               >
                 <div className="relative flex flex-1 flex-col p-5 sm:p-6 lg:p-8">
-                  <span className="block h-14 w-14 [&>svg]:h-full [&>svg]:w-full">
+                  <span className="block h-[70px] w-[70px] [&>svg]:h-full [&>svg]:w-full">
                     {offeringIcons[i]}
                   </span>
                   <h3 className="mt-6 text-xl font-semibold tracking-tight text-white transition-colors duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:text-active-green">
