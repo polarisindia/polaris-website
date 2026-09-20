@@ -6,6 +6,7 @@ import Orb from "./Orb";
 import { CountUp } from "./motion/CountUp";
 import { ArrowLink, ArrowRight } from "./ui";
 import { RevealText } from "./RevealText";
+import { BorderGlow } from "./BorderGlow";
 import { SolarSystemLines } from "./SolarSystemLines";
 import { TestimonialCarousel } from "./TestimonialCarousel";
 import {
@@ -291,23 +292,35 @@ export function Expertise() {
               as="article"
               key={s.title}
               delay={(i % 4) * 70}
-              className="group relative flex h-full cursor-pointer flex-col rounded-lg p-0 transition-colors duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-brand-dark/[0.06] sm:p-6 lg:p-8"
+              className="h-full"
             >
-              <span className="block h-14 w-14 [&>svg]:h-full [&>svg]:w-full">
-                {offeringIcons[i]}
-              </span>
-              <h3 className="mt-6 text-xl font-semibold tracking-tight text-ink transition-colors duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:text-brand-strong">
-                {s.title}
-              </h3>
-              <p className="mt-3 text-base leading-relaxed text-ink-soft">
-                {s.summary}
-              </p>
-              <Link
-                href={`/solutions/${s.slug}`}
-                className="mt-auto inline-block w-fit after:absolute after:inset-0 after:content-[''] border-b border-ink/25 pb-1 pt-6 text-base font-medium text-ink transition-colors duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] hover:border-ink group-hover:border-brand-strong"
+              <BorderGlow
+                className="group h-full cursor-pointer"
+                backgroundColor="#e7f7e0"
+                borderRadius={12}
+                glowColor="112 55% 42%"
+                glowRadius={32}
+                glowIntensity={0.9}
+                colors={["#5fcf4b", "#0f4338", "#a3e635"]}
               >
-                Learn more
-              </Link>
+                <div className="relative flex flex-1 flex-col p-5 sm:p-6 lg:p-8">
+                  <span className="block h-14 w-14 [&>svg]:h-full [&>svg]:w-full">
+                    {offeringIcons[i]}
+                  </span>
+                  <h3 className="mt-6 text-xl font-semibold tracking-tight text-ink transition-colors duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:text-brand-strong">
+                    {s.title}
+                  </h3>
+                  <p className="mt-3 text-base leading-relaxed text-ink-soft">
+                    {s.summary}
+                  </p>
+                  <Link
+                    href={`/solutions/${s.slug}`}
+                    className="mt-auto inline-block w-fit border-b border-ink/25 pb-1 pt-6 text-base font-medium text-ink transition-colors duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] after:absolute after:inset-0 after:content-[''] hover:border-ink group-hover:border-brand-strong"
+                  >
+                    Learn more
+                  </Link>
+                </div>
+              </BorderGlow>
             </Reveal>
           ))}
         </div>
