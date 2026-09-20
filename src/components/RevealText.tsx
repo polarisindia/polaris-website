@@ -21,6 +21,7 @@ export function RevealText({
   as: Tag = "h2",
   className = "",
   gradient = false,
+  animated = false,
 }: {
   text: string;
   as?: "h1" | "h2" | "h3";
@@ -28,6 +29,9 @@ export function RevealText({
   /** Paint the heading with one dark-to-light brand-green gradient that
    *  runs across the whole heading, not restarting on every word. */
   gradient?: boolean;
+  /** With `gradient`: slide the colours back and forth across the heading
+   *  (a CSS-only take on React Bits' GradientText, no extra dependency). */
+  animated?: boolean;
 }) {
   const ref = useRef<HTMLHeadingElement>(null);
 
@@ -48,10 +52,18 @@ export function RevealText({
       words.forEach((w, i) => {
         const inner = w.firstElementChild as HTMLElement | null;
         if (!inner) return;
-        inner.style.backgroundSize = `${width}px 100%`;
-        inner.style.backgroundPosition = `${-(rects[i].left - box.left)}px 0`;
+        const x = rects[i].left - box.left;
+        if (animated) {
+          // the stylesheet slides the fill using these two numbers
+          inner.style.setProperty("--wx", `${x}`);
+          inner.style.setProperty("--ww", `${width}`);
+        } else {
+          inner.style.backgroundSize = `${width}px 100%`;
+          inner.style.backgroundPosition = `${-x}px 0`;
+        }
       });
       el.dataset.g = "true";
+      if (animated) el.dataset.gAnim = "true";
     };
 
     paint();
@@ -59,7 +71,7 @@ export function RevealText({
     ro.observe(el);
     document.fonts?.ready.then(paint).catch(() => {});
     return () => ro.disconnect();
-  }, [text, gradient]);
+  }, [text, gradient, animated]);
 
   useIsoLayoutEffect(() => {
     const el = ref.current;

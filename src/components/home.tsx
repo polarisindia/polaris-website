@@ -130,6 +130,7 @@ export function IntroStatement() {
           <RevealText
             text="Engineering a cleaner energy future"
             gradient
+            animated
             className="block max-w-3xl text-3xl font-semibold tracking-tight text-brand-dark sm:text-[58px]"
           />
           <Reveal variant="up" delay={60}>

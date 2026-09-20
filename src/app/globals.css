@@ -409,6 +409,42 @@ a {
   -webkit-text-fill-color: transparent;
   color: transparent;
 }
+/* Animated variant: one brand-green gradient (start colour repeated at the
+   end so it loops cleanly) slides back and forth across the whole heading.
+   --t runs 0 -> 1 on the heading and is inherited by every word. */
+@property --t {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 0;
+}
+@keyframes gradient-text-slide {
+  from {
+    --t: 0;
+  }
+  to {
+    --t: 1;
+  }
+}
+.reveal-text[data-g-anim="true"] {
+  animation: gradient-text-slide 4s ease-in-out infinite alternate;
+}
+.reveal-text[data-g-anim="true"] .reveal-text__word > span {
+  background-image: linear-gradient(
+    90deg,
+    var(--color-brand-dark),
+    var(--color-brand),
+    #a3e635,
+    var(--color-brand),
+    var(--color-brand-dark)
+  );
+  background-size: calc(var(--ww) * 3px) 100%;
+  background-position: calc(var(--wx) * -1px - var(--t) * var(--ww) * 2px) 0;
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal-text[data-g-anim="true"] {
+    animation: none;
+  }
+}
 @media (prefers-reduced-motion: reduce) {
   .reveal-text[data-armed="true"] .reveal-text__word > span {
     transform: none;
