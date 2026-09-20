@@ -280,12 +280,11 @@ const offeringIcons = [illos[0], illos[2], illos[1], illos[4]];
 
 export function Expertise() {
   return (
-    <section className="bg-brand-tint">
+    <section className="bg-[#08251c]">
       <div className="container-px mx-auto max-w-[1760px] py-20 lg:py-28">
         <RevealText
           text="Our solutions"
-          gradient
-          className="text-3xl font-semibold tracking-tight text-brand-dark sm:text-[58px]"
+          className="text-3xl font-semibold tracking-tight text-white sm:text-[58px]"
         />
 
         <div className="mt-10 grid gap-y-10 sm:grid-cols-2 sm:gap-x-4 sm:gap-y-4 lg:-mx-8">
