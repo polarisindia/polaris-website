@@ -397,6 +397,18 @@ a {
 .reveal-text[data-armed="true"][data-in="true"] .reveal-text__word > span {
   transform: translateY(0);
 }
+.reveal-text[data-g="true"] .reveal-text__word > span {
+  background-image: linear-gradient(
+    90deg,
+    var(--color-brand-dark),
+    var(--color-brand)
+  );
+  background-repeat: no-repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
 @media (prefers-reduced-motion: reduce) {
   .reveal-text[data-armed="true"] .reveal-text__word > span {
     transform: none;

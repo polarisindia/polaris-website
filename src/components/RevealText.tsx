@@ -20,12 +20,46 @@ export function RevealText({
   text,
   as: Tag = "h2",
   className = "",
+  gradient = false,
 }: {
   text: string;
   as?: "h1" | "h2" | "h3";
   className?: string;
+  /** Paint the heading with one dark-to-light brand-green gradient that
+   *  runs across the whole heading, not restarting on every word. */
+  gradient?: boolean;
 }) {
   const ref = useRef<HTMLHeadingElement>(null);
+
+  useIsoLayoutEffect(() => {
+    const el = ref.current;
+    if (!el || !gradient) return;
+
+    // Each word is its own clipped box, so a plain background-clip on the
+    // heading can't span them. Give every word the full-width gradient and
+    // shift it by that word's offset so they read as one continuous fill.
+    const paint = () => {
+      const words = Array.from(
+        el.querySelectorAll<HTMLElement>(".reveal-text__word"),
+      );
+      const box = el.getBoundingClientRect();
+      const rects = words.map((w) => w.getBoundingClientRect());
+      const width = Math.max(1, ...rects.map((r) => r.right - box.left));
+      words.forEach((w, i) => {
+        const inner = w.firstElementChild as HTMLElement | null;
+        if (!inner) return;
+        inner.style.backgroundSize = `${width}px 100%`;
+        inner.style.backgroundPosition = `${-(rects[i].left - box.left)}px 0`;
+      });
+      el.dataset.g = "true";
+    };
+
+    paint();
+    const ro = new ResizeObserver(paint);
+    ro.observe(el);
+    document.fonts?.ready.then(paint).catch(() => {});
+    return () => ro.disconnect();
+  }, [text, gradient]);
 
   useIsoLayoutEffect(() => {
     const el = ref.current;

@@ -127,7 +127,8 @@ export function IntroStatement() {
         <div>
           <RevealText
             text="We engineer, finance and operate commercial & industrial solar."
-            className="block max-w-3xl text-3xl font-semibold tracking-tight text-ink sm:text-[58px]"
+            gradient
+            className="block max-w-3xl text-3xl font-semibold tracking-tight text-brand-dark sm:text-[58px]"
           />
           <Reveal variant="up" delay={60}>
             <p className="mt-5 max-w-2xl text-base leading-relaxed text-ink-soft">
@@ -202,7 +203,8 @@ export function Footprint() {
           <div>
             <RevealText
               text="Built in India. Growing internationally."
-              className="block max-w-xl text-3xl font-semibold tracking-tight text-ink sm:text-[58px]"
+              gradient
+              className="block max-w-xl text-3xl font-semibold tracking-tight text-brand-dark sm:text-[58px]"
             />
             <Reveal variant="up" delay={60}>
               <p className="mt-5 max-w-xl text-base leading-relaxed text-ink-soft">
@@ -321,7 +323,8 @@ export function TrustRow() {
       <div className="container-px mx-auto max-w-[1760px] py-20 lg:py-28">
         <RevealText
           text="Discipline you can underwrite."
-          className="block max-w-2xl text-3xl font-semibold tracking-tight text-ink sm:text-[58px]"
+          gradient
+          className="block max-w-2xl text-3xl font-semibold tracking-tight text-brand-dark sm:text-[58px]"
         />
 
         <div className="mt-14 grid gap-x-16 gap-y-12 sm:grid-cols-2 lg:grid-cols-4 lg:gap-x-20">
@@ -380,7 +383,8 @@ export function Expertise() {
       <div className="container-px mx-auto max-w-[1760px] py-20 lg:py-28">
         <RevealText
           text="Our solutions"
-          className="text-3xl font-semibold tracking-tight text-ink sm:text-[58px]"
+          gradient
+          className="text-3xl font-semibold tracking-tight text-brand-dark sm:text-[58px]"
         />
 
         <div className="mt-14 grid gap-x-10 gap-y-14 sm:grid-cols-2 lg:grid-cols-4">
@@ -426,7 +430,8 @@ export function Process() {
         <div>
           <RevealText
             text="One accountable team, from first assessment to long-term performance."
-            className="block max-w-2xl text-3xl font-semibold tracking-tight text-ink sm:text-[58px]"
+            gradient
+            className="block max-w-2xl text-3xl font-semibold tracking-tight text-brand-dark sm:text-[58px]"
           />
         </div>
         <Reveal variant="fade">
@@ -513,13 +518,14 @@ export function BrandPromise() {
       <div className="container-px pointer-events-none relative mx-auto flex max-w-5xl flex-col items-center py-36 text-center lg:py-52">
         <RevealText
           text="Energy as an asset."
-          className="block max-w-3xl text-[2.25rem] font-semibold leading-[1.08] tracking-tight text-ink sm:text-[3rem]"
+          gradient
+          className="block max-w-3xl text-[2.25rem] font-semibold leading-[1.08] tracking-tight text-brand-dark sm:text-[3rem]"
         />
         <Reveal variant="up" delay={60}>
           <p className="mx-auto mt-6 max-w-3xl text-2xl leading-relaxed text-ink/80">
             We see energy infrastructure as a business asset. A roof, a parcel
-            of land, a load curve or a tariff can all create value when they
-            are understood together. Our job is to turn that opportunity into a
+            of land, a load curve or a tariff can all create value when they are
+            understood together. Our job is to turn that opportunity into a
             practical, investable energy solution.
           </p>
         </Reveal>
@@ -537,7 +543,8 @@ export function ProjectsRail() {
         <div className="flex flex-wrap items-end justify-between gap-6">
           <RevealText
             text="Our projects"
-            className="text-3xl font-semibold tracking-tight text-ink sm:text-[58px]"
+            gradient
+            className="text-3xl font-semibold tracking-tight text-brand-dark sm:text-[58px]"
           />
           <Reveal variant="fade">
             <ArrowLink href="/projects">Discover our projects</ArrowLink>
@@ -609,7 +616,8 @@ export function LatestNews() {
         <div className="flex flex-wrap items-end justify-between gap-6">
           <RevealText
             text="Latest insights"
-            className="text-3xl font-semibold tracking-tight text-ink sm:text-[58px]"
+            gradient
+            className="text-3xl font-semibold tracking-tight text-brand-dark sm:text-[58px]"
           />
           <Reveal variant="fade">
             <ArrowLink href="/insights">See all insights</ArrowLink>
