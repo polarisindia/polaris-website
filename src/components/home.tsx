@@ -116,7 +116,7 @@ const introStats = [
   { value: "650+", label: "Successful projects" },
   { value: "100 MW+", label: "Installed capacity" },
   { value: "100+", label: "Team members" },
-  { value: "2015", label: "Founded in India" },
+  { value: "2", label: "Continents" },
 ];
 
 export function IntroStatement() {
@@ -291,7 +291,7 @@ export function Expertise() {
               as="article"
               key={s.title}
               delay={(i % 4) * 70}
-              className="group flex h-full flex-col rounded-lg p-0 transition-colors duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-brand-dark/[0.06] sm:p-6 lg:p-8"
+              className="group relative flex h-full cursor-pointer flex-col rounded-lg p-0 transition-colors duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-brand-dark/[0.06] sm:p-6 lg:p-8"
             >
               <span className="block h-14 w-14 [&>svg]:h-full [&>svg]:w-full">
                 {offeringIcons[i]}
@@ -304,7 +304,7 @@ export function Expertise() {
               </p>
               <Link
                 href={`/solutions/${s.slug}`}
-                className="mt-auto inline-block w-fit border-b border-ink/25 pb-1 pt-6 text-base font-medium text-ink transition-colors duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] hover:border-ink group-hover:border-brand-strong"
+                className="mt-auto inline-block w-fit after:absolute after:inset-0 after:content-[''] border-b border-ink/25 pb-1 pt-6 text-base font-medium text-ink transition-colors duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] hover:border-ink group-hover:border-brand-strong"
               >
                 Learn more
               </Link>
@@ -378,7 +378,7 @@ export function ImpactBand() {
               <Reveal key={it.label} variant="up" delay={i * 80}>
                 <CountUp
                   value={it.value}
-                  className="block text-[2rem] font-semibold tracking-tight text-brand sm:text-4xl"
+                  className="block text-[2rem] font-semibold tracking-tight text-white sm:text-4xl"
                 />
                 <span className="mt-2 block text-sm text-white/60">
                   {it.label}
@@ -560,7 +560,7 @@ export function LatestNews() {
 
 export function StatsBand() {
   return (
-    <section className="bg-brand-strong py-8 lg:py-10">
+    <section className="bg-gradient-to-br from-[#08251c] via-brand-dark to-brand py-8 lg:py-10">
       <div className="container-px mx-auto max-w-[1760px]">
         <dl className="grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-4">
           {introStats.map((it) => (
