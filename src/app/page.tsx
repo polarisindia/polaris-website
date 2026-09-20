@@ -27,8 +27,8 @@ export default function HomePage() {
       <BrandPromise />
       <ProjectsRail />
       <ImpactBand />
-      <Footprint />
       <Testimonials />
+      <Footprint />
       <LatestNews />
       <CareersStrip />
       <CTA />

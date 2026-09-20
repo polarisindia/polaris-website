@@ -204,19 +204,46 @@ export function Footprint() {
           />
         </Reveal>
 
-        <div className="mt-10">
-          <RevealText
-            text="From India to the world"
-            gradient
-            className="block max-w-xl text-3xl font-semibold tracking-tight text-brand-dark sm:text-[58px]"
-          />
-          <Reveal variant="up" delay={60}>
-            <p className="mt-5 max-w-xl text-base leading-relaxed text-ink-soft">
-              {globalReach.intro}
-            </p>
-            <div className="mt-8">
-              <ArrowLink href="/global">Explore Polaris Global</ArrowLink>
-            </div>
+        <div className="mt-10 grid gap-12 lg:grid-cols-[0.95fr_1fr] lg:items-center lg:gap-24 xl:gap-32">
+          <div>
+            <RevealText
+              text="Built in India. Growing internationally."
+              gradient
+              className="block max-w-xl text-3xl font-semibold tracking-tight text-brand-dark sm:text-[58px]"
+            />
+            <Reveal variant="up" delay={60}>
+              <p className="mt-5 max-w-xl text-base leading-relaxed text-ink-soft">
+                {globalReach.intro}
+              </p>
+              <div className="mt-8">
+                <ArrowLink href="/global">Explore Polaris Global</ArrowLink>
+              </div>
+            </Reveal>
+          </div>
+
+          <Reveal
+            variant="up"
+            delay={100}
+            className="divide-y divide-ink/10 border-y border-ink/10"
+          >
+            {globalReach.presence
+              .filter((m) => m.market !== "India")
+              .map((m) => (
+                <div
+                  key={m.market}
+                  className="grid gap-2 py-5 sm:grid-cols-[9rem_1fr] sm:gap-5"
+                >
+                  <div>
+                    <p className="font-semibold text-ink">{m.market}</p>
+                    <p className="mt-0.5 text-xs font-semibold uppercase tracking-wide text-brand-strong">
+                      {m.status}
+                    </p>
+                  </div>
+                  <p className="text-base leading-relaxed text-ink-soft">
+                    {m.detail}
+                  </p>
+                </div>
+              ))}
           </Reveal>
         </div>
       </div>
