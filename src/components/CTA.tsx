@@ -4,10 +4,7 @@ import { Reveal } from "./Reveal";
 
 export function CTA() {
   return (
-    <section className="relative overflow-hidden bg-brand-dark">
-      {/* fresh green glow */}
-      <div className="pointer-events-none absolute -left-40 -top-40 h-[38rem] w-[38rem] rounded-full bg-active-green/25 blur-[120px]" />
-      <div className="pointer-events-none absolute -bottom-48 left-1/3 h-[34rem] w-[44rem] rounded-full bg-active-green/15 blur-[130px]" />
+    <section className="relative overflow-hidden bg-[#15371b]">
       {/* brand mark watermark — visible against the dark background */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img

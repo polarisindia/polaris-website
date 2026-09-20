@@ -362,7 +362,7 @@ export function Process() {
 
 export function ImpactBand() {
   return (
-    <section className="relative isolate overflow-hidden bg-gradient-to-br from-[#08251c] via-brand-dark to-brand py-[56px] text-white lg:py-[82px]">
+    <section className="relative isolate overflow-hidden bg-[#15371b] py-[56px] text-white lg:py-[82px]">
       {/* brand mark watermark — visible against the dark background, not
           just a hint of texture */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -555,7 +555,7 @@ export function LatestNews() {
 
 export function StatsBand() {
   return (
-    <section className="bg-gradient-to-br from-[#08251c] via-brand-dark to-brand py-8 lg:py-10">
+    <section className="bg-[#15371b] py-8 lg:py-10">
       <div className="container-px mx-auto max-w-[1760px]">
         <dl className="grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-4">
           {introStats.map((it) => (
