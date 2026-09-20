@@ -14,7 +14,8 @@ type Step = {
  * "Squeeze" carousel, à la Stripe's "What's happening" band: every step
  * shares one fixed row of space — the active panel expands and the rest
  * compress to slivers. Nothing scrolls; width is just redistributed. The
- * active panel's title and copy sit over the image on a soft bottom scrim.
+ * active panel's title and copy appear over the image, on a soft bottom
+ * scrim, when the panel is hovered (always visible on touch devices).
  */
 export function ProcessRail({ steps }: { steps: Step[] }) {
   const [active, setActive] = useState(0);
@@ -80,7 +81,7 @@ export function ProcessRail({ steps }: { steps: Step[] }) {
               <div
                 className={`pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t to-transparent transition-all duration-500 ${
                   isActive
-                    ? "h-3/5 from-black/75 via-black/20"
+                    ? "h-3/5 from-black/75 via-black/20 opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 [@media(hover:none)]:opacity-100"
                     : "h-2/5 from-black/45 via-transparent"
                 }`}
               />
@@ -116,7 +117,9 @@ export function ProcessRail({ steps }: { steps: Step[] }) {
               {/* active caption — on the image */}
               <span
                 className={`pointer-events-none absolute inset-x-0 bottom-0 block p-6 transition-opacity duration-500 sm:p-8 ${
-                  isActive ? "opacity-100 delay-150" : "opacity-0"
+                  isActive
+                    ? "opacity-0 group-hover:opacity-100 group-hover:delay-150 group-focus-visible:opacity-100 [@media(hover:none)]:opacity-100"
+                    : "opacity-0"
                 }`}
               >
                 <span className="block text-xl font-semibold leading-tight tracking-tight text-white sm:text-2xl">
