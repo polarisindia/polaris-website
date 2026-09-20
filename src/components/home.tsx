@@ -283,8 +283,38 @@ const offeringIcons = [illos[0], illos[2], illos[1], illos[4]];
 
 export function Expertise() {
   return (
-    <section className="bg-[#15371b]">
-      <div className="container-px mx-auto max-w-[1760px] py-20 lg:py-28">
+    <section className="relative isolate overflow-hidden bg-[#15371b]">
+      {/* grainy warped green gradient behind the cards */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 -z-10"
+      >
+        <Grainient
+          color1="#0e3b16"
+          color2="#065d40"
+          color3="#053726"
+          timeSpeed={1.8}
+          colorBalance={0.0}
+          warpStrength={1.0}
+          warpFrequency={5.0}
+          warpSpeed={2.0}
+          warpAmplitude={50.0}
+          blendAngle={0.0}
+          blendSoftness={0.05}
+          rotationAmount={500.0}
+          noiseScale={2.0}
+          grainAmount={0.1}
+          grainScale={2.0}
+          grainAnimated={false}
+          contrast={1.5}
+          gamma={1.0}
+          saturation={1.0}
+          centerX={0.0}
+          centerY={0.0}
+          zoom={0.9}
+        />
+      </div>
+      <div className="container-px relative mx-auto max-w-[1760px] py-20 lg:py-28">
         <RevealText
           text="Our solutions"
           className="text-3xl font-semibold tracking-tight text-white sm:text-[58px]"
@@ -300,7 +330,7 @@ export function Expertise() {
             >
               <BorderGlow
                 className="group h-full cursor-pointer"
-                backgroundColor="#15371b"
+                backgroundColor="rgba(7, 26, 20, 0.4)"
                 borderRadius={12}
                 glowColor="105 70% 62%"
                 glowRadius={32}
