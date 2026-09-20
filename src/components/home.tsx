@@ -193,59 +193,64 @@ export function ClientStrip() {
 
 export function Footprint() {
   return (
-    <section className="relative overflow-hidden bg-paper">
-      <div className="container-px relative mx-auto max-w-[1760px] rounded-lg bg-[#FAFBF6] p-6 pb-8 lg:p-8 lg:pb-10">
-        <Reveal variant="scale" className="overflow-hidden rounded-lg">
-          <Image
-            src="/img/global-reach.jpg"
-            alt="Illustrated montage of world landmarks with wind turbines, solar panels, a container port, rail and power infrastructure."
-            width={1800}
-            height={1009}
-            sizes="(max-width: 1760px) 100vw, 1760px"
-            className="h-[228px] w-full object-cover sm:h-[288px] lg:h-[360px]"
+    <section className="relative isolate overflow-hidden bg-[#0d2414]">
+      {/* full-bleed illustration, with the copy laid over it */}
+      <Image
+        src="/img/global-reach.jpg"
+        alt="Illustrated montage of world landmarks with wind turbines, solar panels, a container port, rail and power infrastructure."
+        fill
+        sizes="100vw"
+        className="-z-20 object-cover"
+      />
+      {/* overlay keeps the white text legible over the busy artwork */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 -z-10 bg-gradient-to-r from-[#0a1f10]/90 via-[#0a1f10]/70 to-[#0a1f10]/50"
+      />
+      <div
+        aria-hidden="true"
+        className="absolute inset-x-0 bottom-0 -z-10 h-1/2 bg-gradient-to-t from-[#0a1f10]/70 to-transparent"
+      />
+
+      <div className="container-px relative mx-auto flex min-h-[520px] max-w-[1760px] flex-col justify-center gap-12 py-20 lg:min-h-[640px] lg:grid lg:grid-cols-[0.95fr_1fr] lg:items-center lg:gap-24 lg:py-28 xl:gap-32">
+        <div>
+          <RevealText
+            text={"From India to\nthe world"}
+            className="block max-w-xl text-3xl font-semibold tracking-tight text-white sm:text-[58px]"
           />
-        </Reveal>
-
-        <div className="mt-10 grid gap-12 lg:grid-cols-[0.95fr_1fr] lg:items-center lg:gap-24 xl:gap-32">
-          <div>
-            <RevealText
-              text={"From India to\nthe world"}
-              gradient
-              animated
-              className="block max-w-xl text-3xl font-semibold tracking-tight text-brand-dark sm:text-[58px]"
-            />
-            <Reveal variant="up" delay={60}>
-              <div className="mt-8">
-                <ArrowLink href="/global">Explore Polaris Global</ArrowLink>
-              </div>
-            </Reveal>
-          </div>
-
-          <Reveal
-            variant="up"
-            delay={100}
-            className="divide-y divide-ink/10 border-y border-ink/10"
-          >
-            {globalReach.presence
-              .filter((m) => m.market === "Morocco")
-              .map((m) => (
-                <div
-                  key={m.market}
-                  className="grid gap-2 py-5 sm:grid-cols-[9rem_1fr] sm:gap-5"
-                >
-                  <div>
-                    <p className="font-semibold text-ink">{m.market}</p>
-                    <p className="mt-0.5 text-xs font-semibold uppercase tracking-wide text-brand-strong">
-                      {m.status}
-                    </p>
-                  </div>
-                  <p className="text-base leading-relaxed text-ink-soft">
-                    {m.detail}
-                  </p>
-                </div>
-              ))}
+          <Reveal variant="up" delay={60}>
+            <div className="mt-8">
+              <ArrowLink href="/global" tone="light">
+                Explore Polaris Global
+              </ArrowLink>
+            </div>
           </Reveal>
         </div>
+
+        <Reveal
+          variant="up"
+          delay={100}
+          className="divide-y divide-white/20 border-y border-white/20"
+        >
+          {globalReach.presence
+            .filter((m) => m.market === "Morocco")
+            .map((m) => (
+              <div
+                key={m.market}
+                className="grid gap-2 py-5 sm:grid-cols-[9rem_1fr] sm:gap-5"
+              >
+                <div>
+                  <p className="font-semibold text-white">{m.market}</p>
+                  <p className="mt-0.5 text-xs font-semibold uppercase tracking-wide text-active-green">
+                    {m.status}
+                  </p>
+                </div>
+                <p className="text-base leading-relaxed text-white/85">
+                  {m.detail}
+                </p>
+              </div>
+            ))}
+        </Reveal>
       </div>
     </section>
   );
