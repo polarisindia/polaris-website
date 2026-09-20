@@ -372,7 +372,7 @@ export function ImpactBand() {
           color1="#0e3b16"
           color2="#065d40"
           color3="#053726"
-          timeSpeed={2.05}
+          timeSpeed={1.8}
           colorBalance={0.0}
           warpStrength={1.0}
           warpFrequency={5.0}
