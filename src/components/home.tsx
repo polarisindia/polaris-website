@@ -196,7 +196,7 @@ export function Footprint() {
     <section className="relative isolate overflow-hidden bg-[#0d2414]">
       {/* full-bleed illustration, with the copy laid over it */}
       <Image
-        src="/img/global-reach.jpg"
+        src="/img/global-reach.webp"
         alt="Illustrated montage of world landmarks with wind turbines, solar panels, a container port, rail and power infrastructure."
         fill
         sizes="100vw"
@@ -205,7 +205,7 @@ export function Footprint() {
       {/* overlay keeps the white text legible over the busy artwork */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 -z-10 bg-gradient-to-r from-[#0a1f10]/90 via-[#0a1f10]/70 to-[#0a1f10]/50"
+        className="absolute inset-0 -z-10 bg-gradient-to-r from-[#0a1f10]/90 via-[#0a1f10]/75 to-[#0a1f10]/60"
       />
       <div
         aria-hidden="true"
@@ -215,7 +215,7 @@ export function Footprint() {
       <div className="container-px relative mx-auto flex min-h-[520px] max-w-[1760px] flex-col justify-center gap-12 py-20 lg:min-h-[640px] lg:grid lg:grid-cols-[0.95fr_1fr] lg:items-center lg:gap-24 lg:py-28 xl:gap-32">
         <div>
           <RevealText
-            text={"From India to\nthe world"}
+            text={"From India\nto the world"}
             className="block max-w-xl text-3xl font-semibold tracking-tight text-white sm:text-[58px]"
           />
           <Reveal variant="up" delay={60}>
