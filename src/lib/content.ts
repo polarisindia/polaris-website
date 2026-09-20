@@ -832,35 +832,54 @@ export const founders = [
 ];
 
 // Wider team, from the "Our Team" page of the Polaris India Company Deck
-// 2026. Names only: the deck's function groupings couldn't be matched to
-// individual names reliably. Leadership above is listed separately.
-// Excluded on purpose: Ronak Sanghvi and Rhythm Kothari.
+// 2026. Excluded on purpose: Ronak Sanghvi and Rhythm Kothari.
+// Designations: the deck lists function headings above the names. Sales /
+// Finance names line up unambiguously; for the operations, delivery,
+// procurement and Morocco rows the deck doesn't say which name sits under
+// which of the two headings, so those carry the combined function label
+// until each person's exact title is confirmed.
 export const team = [
   {
     region: "India",
     members: [
-      "Vivek Bachke",
-      "Yogesh Dusane",
-      "Sandeep Lavate",
-      "Archana Agaste",
-      "Rutuja Diwan",
-      "Akshay Tajanpure",
-      "Ankush Shinde",
-      "Lalit Awari",
-      "Gajanan Ganore",
-      "Mukesh Kumar",
-      "Abhishek Kolpe",
-      "Raosaheb Bhoye",
-      "Dnayneshwar Pardhe",
-      "Ameya Kadve",
-      "Mayur Patil",
-      "Vishal Dalvi",
-      "Sanket Kharat",
+      { name: "Vivek Bachke", role: "Marketing, Sales & Business Development" },
+      {
+        name: "Yogesh Dusane",
+        role: "Marketing, Sales & Business Development",
+      },
+      {
+        name: "Sandeep Lavate",
+        role: "Marketing, Sales & Business Development",
+      },
+      { name: "Archana Agaste", role: "Finance, Accounting & Compliance" },
+      { name: "Rutuja Diwan", role: "Finance, Accounting & Compliance" },
+      { name: "Akshay Tajanpure", role: "Operations & Regulatory Liaison" },
+      { name: "Ankush Shinde", role: "Operations & Regulatory Liaison" },
+      { name: "Lalit Awari", role: "Operations & Regulatory Liaison" },
+      { name: "Gajanan Ganore", role: "Operations & Regulatory Liaison" },
+      { name: "Mukesh Kumar", role: "Project Delivery & Procurement" },
+      { name: "Abhishek Kolpe", role: "Project Delivery & Procurement" },
+      { name: "Raosaheb Bhoye", role: "Project Delivery & Procurement" },
+      { name: "Dnayneshwar Pardhe", role: "Project Delivery & Procurement" },
+      { name: "Ameya Kadve", role: "Project Delivery & Procurement" },
+      { name: "Mayur Patil", role: "Project Delivery & Procurement" },
+      { name: "Vishal Dalvi", role: "Project Delivery & Procurement" },
+      { name: "Sanket Kharat", role: "Project Delivery & Procurement" },
     ],
   },
   {
     region: "Morocco",
-    members: ["Khalid Belkiss", "Tawfik Sellam", "Hiba Oulkiss"],
+    members: [
+      {
+        name: "Khalid Belkiss",
+        role: "Strategic Growth & Business Development",
+      },
+      {
+        name: "Tawfik Sellam",
+        role: "Strategic Growth & Business Development",
+      },
+      { name: "Hiba Oulkiss", role: "Strategic Growth & Business Development" },
+    ],
   },
 ];
 

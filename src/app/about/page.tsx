@@ -381,12 +381,30 @@ export default function AboutPage() {
                     {g.region}
                   </h4>
                 </Reveal>
-                <ul className="mt-4 grid gap-x-8 gap-y-3 sm:grid-cols-2 lg:grid-cols-4">
-                  {g.members.map((name, i) => (
-                    <Reveal as="li" key={name} delay={(i % 4) * 50}>
-                      <span className="text-[15px] font-medium text-ink">
-                        {name}
-                      </span>
+                <ul className="mt-6 grid gap-x-8 gap-y-6 sm:grid-cols-2 lg:grid-cols-4">
+                  {g.members.map((m, i) => (
+                    <Reveal as="li" key={m.name} delay={(i % 4) * 50}>
+                      <div className="flex items-center gap-3">
+                        {/* photo placeholder: initials until real photos arrive */}
+                        <div
+                          aria-hidden="true"
+                          className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-brand-tint text-base font-semibold text-brand-strong"
+                        >
+                          {m.name
+                            .split(" ")
+                            .map((w) => w[0])
+                            .slice(0, 2)
+                            .join("")}
+                        </div>
+                        <div>
+                          <h5 className="text-[15px] font-semibold tracking-tight text-ink">
+                            {m.name}
+                          </h5>
+                          <p className="text-sm leading-snug text-brand-strong">
+                            {m.role}
+                          </p>
+                        </div>
+                      </div>
                     </Reveal>
                   ))}
                 </ul>
