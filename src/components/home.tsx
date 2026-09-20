@@ -128,7 +128,7 @@ export function IntroStatement() {
       <div className="container-px mx-auto grid max-w-[1760px] items-center gap-12 py-20 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.82fr)] lg:py-32">
         <div>
           <RevealText
-            text="We engineer, finance and operate commercial & industrial solar."
+            text="Engineering a cleaner energy future"
             gradient
             className="block max-w-3xl text-3xl font-semibold tracking-tight text-brand-dark sm:text-[58px]"
           />
@@ -143,6 +143,9 @@ export function IntroStatement() {
               profile, site conditions and investment goals, then build the
               solution around them.
             </p>
+            <div className="mt-8">
+              <ArrowLink href="/about">About Polaris</ArrowLink>
+            </div>
           </Reveal>
         </div>
 
@@ -201,46 +204,19 @@ export function Footprint() {
           />
         </Reveal>
 
-        <div className="mt-10 grid gap-12 lg:grid-cols-[0.95fr_1fr] lg:items-center lg:gap-24 xl:gap-32">
-          <div>
-            <RevealText
-              text="Built in India. Growing internationally."
-              gradient
-              className="block max-w-xl text-3xl font-semibold tracking-tight text-brand-dark sm:text-[58px]"
-            />
-            <Reveal variant="up" delay={60}>
-              <p className="mt-5 max-w-xl text-base leading-relaxed text-ink-soft">
-                {globalReach.intro}
-              </p>
-              <div className="mt-8">
-                <ArrowLink href="/global">Explore Polaris Global</ArrowLink>
-              </div>
-            </Reveal>
-          </div>
-
-          <Reveal
-            variant="up"
-            delay={100}
-            className="divide-y divide-ink/10 border-y border-ink/10"
-          >
-            {globalReach.presence
-              .filter((m) => m.market !== "India")
-              .map((m) => (
-                <div
-                  key={m.market}
-                  className="grid gap-2 py-5 sm:grid-cols-[9rem_1fr] sm:gap-5"
-                >
-                  <div>
-                    <p className="font-semibold text-ink">{m.market}</p>
-                    <p className="mt-0.5 text-xs font-semibold uppercase tracking-wide text-brand-strong">
-                      {m.status}
-                    </p>
-                  </div>
-                  <p className="text-base leading-relaxed text-ink-soft">
-                    {m.detail}
-                  </p>
-                </div>
-              ))}
+        <div className="mt-10">
+          <RevealText
+            text="From India to the world"
+            gradient
+            className="block max-w-xl text-3xl font-semibold tracking-tight text-brand-dark sm:text-[58px]"
+          />
+          <Reveal variant="up" delay={60}>
+            <p className="mt-5 max-w-xl text-base leading-relaxed text-ink-soft">
+              {globalReach.intro}
+            </p>
+            <div className="mt-8">
+              <ArrowLink href="/global">Explore Polaris Global</ArrowLink>
+            </div>
           </Reveal>
         </div>
       </div>
@@ -341,7 +317,7 @@ export function Process() {
       <div className="flex flex-wrap items-end justify-between gap-6">
         <div>
           <RevealText
-            text="From assessment to performance"
+            text={"From assessment\nto performance"}
             gradient
             className="block max-w-2xl text-3xl font-semibold tracking-tight text-brand-dark sm:text-[58px]"
           />
@@ -363,15 +339,6 @@ export function Process() {
 export function ImpactBand() {
   return (
     <section className="relative isolate overflow-hidden bg-[#15371b] py-[56px] text-white lg:py-[82px]">
-      {/* brand mark watermark — visible against the dark background, not
-          just a hint of texture */}
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src="/img/impact-mark.svg"
-        alt=""
-        aria-hidden="true"
-        className="pointer-events-none absolute right-[-3rem] top-1/2 h-[22rem] w-auto -translate-y-1/2 opacity-[0.06] brightness-0 invert sm:h-[26rem] lg:right-[2rem] lg:h-[30rem]"
-      />
       <div className="container-px relative z-10 mx-auto max-w-[1760px]">
         <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center lg:gap-16">
           <div>
@@ -422,6 +389,15 @@ export function BrandPromise() {
           text="Engineering the bottom line."
           className="block max-w-3xl text-[2.25rem] font-semibold leading-[1.08] tracking-tight text-white sm:text-[3rem]"
         />
+        <Reveal variant="up" delay={60}>
+          <Link
+            href="/projects"
+            className="pointer-events-auto mt-10 inline-flex items-center gap-2 rounded-lg bg-white px-7 py-3.5 text-[15px] font-semibold text-ink transition-colors duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-brand-hover"
+          >
+            See our projects
+            <ArrowRight className="h-4 w-4" />
+          </Link>
+        </Reveal>
       </div>
     </section>
   );

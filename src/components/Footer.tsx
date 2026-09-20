@@ -69,14 +69,14 @@ export function Footer() {
                   >
                     {o.phone}
                   </a>
+                  <a
+                    href={`mailto:${o.email}`}
+                    className="mt-1 block transition-colors hover:text-brand-strong"
+                  >
+                    {o.email}
+                  </a>
                 </div>
               ))}
-              <a
-                href={`mailto:${company.email}`}
-                className="block transition-colors hover:text-brand-strong"
-              >
-                {company.email}
-              </a>
             </div>
 
             <h3 className="mt-8 text-sm font-semibold text-ink">Follow us</h3>

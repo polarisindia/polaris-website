@@ -18,8 +18,8 @@ export function CTA() {
         <div className="flex flex-col gap-10 lg:flex-row lg:items-center lg:justify-between">
           <Reveal as="span" variant="mask" className="block">
             <h2 className="max-w-2xl text-4xl font-semibold leading-[1.05] tracking-tight text-white sm:text-[3.25rem]">
-              Start your <span className="text-active-green">clean energy</span>{" "}
-              build today.
+              Begin your{" "}
+              <span className="text-active-green">energy transition</span>
             </h2>
           </Reveal>
           <Link

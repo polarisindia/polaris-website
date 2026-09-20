@@ -134,29 +134,6 @@ export function Hero() {
           </Link>
         </div>
       </div>
-
-      <div
-        className="absolute inset-x-0 bottom-7 flex justify-center"
-        style={{ opacity: 1 - prog * 2 }}
-      >
-        <span className="flex h-10 w-10 items-center justify-center rounded-full border border-white/40 text-white/80">
-          <svg
-            width="12"
-            height="12"
-            viewBox="0 0 12 12"
-            fill="none"
-            aria-hidden="true"
-          >
-            <path
-              d="M6 1v10M2 7l4 4 4-4"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-        </span>
-      </div>
     </section>
   );
 }

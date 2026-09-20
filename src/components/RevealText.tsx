@@ -121,16 +121,28 @@ export function RevealText({
     };
   }, [text]);
 
-  const words = text.split(" ");
+  // "\n" in the text forces a line break; words are numbered across lines
+  // so the stagger runs continuously.
+  const lines = text.split("\n").map((l) => l.split(" "));
+  let n = 0;
 
   return (
-    <Tag ref={ref} className={`reveal-text ${className}`} aria-label={text}>
-      {words.map((word, i) => (
-        <Fragment key={i}>
-          <span className="reveal-text__word" aria-hidden="true">
-            <span style={{ transitionDelay: `${i * 42}ms` }}>{word}</span>
-          </span>
-          {i < words.length - 1 ? " " : null}
+    <Tag
+      ref={ref}
+      className={`reveal-text ${className}`}
+      aria-label={text.replace(/\n/g, " ")}
+    >
+      {lines.map((words, li) => (
+        <Fragment key={li}>
+          {li > 0 ? <br /> : null}
+          {words.map((word, i) => (
+            <Fragment key={i}>
+              <span className="reveal-text__word" aria-hidden="true">
+                <span style={{ transitionDelay: `${n++ * 42}ms` }}>{word}</span>
+              </span>
+              {i < words.length - 1 ? " " : null}
+            </Fragment>
+          ))}
         </Fragment>
       ))}
     </Tag>
