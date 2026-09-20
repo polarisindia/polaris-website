@@ -425,8 +425,8 @@ export function ImpactBand() {
 
 export function BrandPromise() {
   return (
-    // dark green margin above and below the (near-black) orb panel
-    <section className="bg-[#15371b] py-8 lg:py-12">
+    // same dark green as the orb panel, so the margin reads as one section
+    <section className="bg-[#071a14] py-8 lg:py-12">
       <div className="relative isolate overflow-hidden bg-[#071a14]">
         {/* full-bleed Orb backdrop on a dark ground, as in the React Bits demo */}
         <div aria-hidden="true" className="absolute inset-0 -z-10">
