@@ -309,6 +309,7 @@ export function Expertise() {
                 glowColor="105 70% 62%"
                 glowRadius={32}
                 glowIntensity={0.9}
+                fillOpacity={0.2}
                 colors={["#5fcf4b", "#a3e635", "#2dd4bf"]}
               >
                 <div className="relative flex flex-1 flex-col p-5 sm:p-6 lg:p-8">

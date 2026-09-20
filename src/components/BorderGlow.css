@@ -74,13 +74,21 @@
       (100 - var(--color-sensitivity))
   );
 
-  mask-image: conic-gradient(
-    from var(--cursor-angle) at center,
-    black calc(var(--cone-spread) * 1%),
-    transparent calc((var(--cone-spread) + 15) * 1%),
-    transparent calc((100 - var(--cone-spread) - 15) * 1%),
-    black calc((100 - var(--cone-spread)) * 1%)
-  );
+  /* Border ring only: the cone of light, intersected with (border-box minus
+     padding-box), so the gradient never fills the card's interior. That
+     matters when the card background is translucent. */
+  mask-image:
+    conic-gradient(
+      from var(--cursor-angle) at center,
+      black calc(var(--cone-spread) * 1%),
+      transparent calc((var(--cone-spread) + 15) * 1%),
+      transparent calc((100 - var(--cone-spread) - 15) * 1%),
+      black calc((100 - var(--cone-spread)) * 1%)
+    ),
+    linear-gradient(#000 0 0),
+    linear-gradient(#000 0 0);
+  mask-clip: border-box, padding-box, border-box;
+  mask-composite: intersect, exclude;
 }
 
 /* coloured mesh-gradient background fill near the edges */
