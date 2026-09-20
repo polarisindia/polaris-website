@@ -8,7 +8,6 @@ import { ArrowLink, ArrowRight } from "./ui";
 import { RevealText } from "./RevealText";
 import { BorderGlow } from "./BorderGlow";
 import { Aurora } from "./Aurora";
-import { SpecularButton } from "./SpecularButton";
 import { SolarSystemLines } from "./SolarSystemLines";
 import { TestimonialCarousel } from "./TestimonialCarousel";
 import {
@@ -147,16 +146,7 @@ export function IntroStatement() {
               solution around them.
             </p>
             <div className="mt-8">
-              <SpecularButton
-                href="/about"
-                radius={8}
-                lineColor="#2e7d32"
-                baseColor="#8d94a4"
-                className="gap-2 border border-ink/20 px-6 py-3 text-base font-semibold text-ink transition-colors duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-brand-tint"
-              >
-                About Polaris
-                <ArrowRight className="h-4 w-4" />
-              </SpecularButton>
+              <ArrowLink href="/about">About Polaris</ArrowLink>
             </div>
           </Reveal>
         </div>
