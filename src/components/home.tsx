@@ -7,7 +7,7 @@ import { CountUp } from "./motion/CountUp";
 import { ArrowLink, ArrowRight } from "./ui";
 import { RevealText } from "./RevealText";
 import { BorderGlow } from "./BorderGlow";
-import { PixelSnow } from "./PixelSnow";
+import { Aurora } from "./Aurora";
 import { SpecularButton } from "./SpecularButton";
 import { SolarSystemLines } from "./SolarSystemLines";
 import { TestimonialCarousel } from "./TestimonialCarousel";
@@ -376,18 +376,13 @@ export function Process() {
 export function ImpactBand() {
   return (
     <section className="relative isolate overflow-hidden bg-[#15371b] py-[56px] text-white lg:py-[82px]">
-      {/* pixel snow drifting behind the stats */}
+      {/* aurora glowing up from the bottom edge */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0">
-        <PixelSnow
-          color="#4fd442"
-          flakeSize={0.01}
-          minFlakeSize={1.25}
-          pixelResolution={200}
-          speed={1.25}
-          density={0.2}
-          direction={125}
-          brightness={1}
-          variant="round"
+        <Aurora
+          colorStops={["#7cff67", "#016745", "#EAB308"]}
+          blend={0.5}
+          amplitude={1.0}
+          speed={0.5}
         />
       </div>
       <div className="container-px relative z-10 mx-auto max-w-[1760px]">
