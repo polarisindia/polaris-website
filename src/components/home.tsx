@@ -402,7 +402,7 @@ export function ImpactBand() {
         <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center lg:gap-16">
           <div>
             <RevealText
-              text="Clean energy, lasting impact."
+              text={"Clean energy,\nlasting impact."}
               className="block max-w-xl text-3xl font-semibold tracking-tight sm:text-[58px]"
             />
           </div>
