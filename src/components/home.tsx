@@ -370,7 +370,7 @@ export function ImpactBand() {
         src="/img/impact-mark.svg"
         alt=""
         aria-hidden="true"
-        className="pointer-events-none absolute right-[-3rem] top-1/2 h-[34rem] w-auto -translate-y-1/2 opacity-[0.06] brightness-0 invert sm:h-[42rem] lg:right-[-1rem] lg:h-[54rem]"
+        className="pointer-events-none absolute right-[-3rem] top-1/2 h-[22rem] w-auto -translate-y-1/2 opacity-[0.06] brightness-0 invert sm:h-[26rem] lg:right-[2rem] lg:h-[30rem]"
       />
       <div className="container-px relative z-10 mx-auto max-w-[1760px]">
         <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center lg:gap-16">
