@@ -831,6 +831,39 @@ export const founders = [
   },
 ];
 
+// Wider team, from the "Our Team" page of the Polaris India Company Deck
+// 2026. Names only: the deck's function groupings couldn't be matched to
+// individual names reliably. Leadership above is listed separately.
+// Excluded on purpose: Ronak Sanghvi and Rhythm Kothari.
+export const team = [
+  {
+    region: "India",
+    members: [
+      "Vivek Bachke",
+      "Yogesh Dusane",
+      "Sandeep Lavate",
+      "Archana Agaste",
+      "Rutuja Diwan",
+      "Akshay Tajanpure",
+      "Ankush Shinde",
+      "Lalit Awari",
+      "Gajanan Ganore",
+      "Mukesh Kumar",
+      "Abhishek Kolpe",
+      "Raosaheb Bhoye",
+      "Dnayneshwar Pardhe",
+      "Ameya Kadve",
+      "Mayur Patil",
+      "Vishal Dalvi",
+      "Sanket Kharat",
+    ],
+  },
+  {
+    region: "Morocco",
+    members: ["Khalid Belkiss", "Tawfik Sellam", "Hiba Oulkiss"],
+  },
+];
+
 export const leadership = [
   {
     name: "CA Archana Choudhary",

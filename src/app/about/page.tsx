@@ -13,6 +13,7 @@ import {
   values,
   founders,
   leadership,
+  team,
   advantages,
 } from "@/lib/content";
 
@@ -213,10 +214,7 @@ export default function AboutPage() {
       {/* Story */}
       <Section>
         <div className="grid gap-12 lg:grid-cols-[1fr_1.4fr]">
-          <SectionHeading
-            eyebrow="Foreword"
-            title="A note from the founders"
-          />
+          <SectionHeading eyebrow="Foreword" title="A note from the founders" />
           <div className="space-y-5 text-base leading-relaxed text-ink-soft">
             <p>
               When we started Polaris in 2015, we were working around a
@@ -360,6 +358,39 @@ export default function AboutPage() {
                   {p.bio}
                 </p>
               </Reveal>
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-20 border-t border-ink/10 pt-16">
+          <Reveal as="span" variant="mask" className="block">
+            <h3 className="text-2xl font-semibold tracking-tight text-[#26502e] sm:text-[2rem]">
+              Our Team
+            </h3>
+          </Reveal>
+          <Reveal variant="up" delay={60}>
+            <p className="mt-4 max-w-2xl text-base leading-relaxed text-ink-soft">
+              A multidisciplinary team working across India and Morocco.
+            </p>
+          </Reveal>
+          <div className="mt-10 space-y-10">
+            {team.map((g) => (
+              <div key={g.region}>
+                <Reveal variant="fade">
+                  <h4 className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-strong">
+                    {g.region}
+                  </h4>
+                </Reveal>
+                <ul className="mt-4 grid gap-x-8 gap-y-3 sm:grid-cols-2 lg:grid-cols-4">
+                  {g.members.map((name, i) => (
+                    <Reveal as="li" key={name} delay={(i % 4) * 50}>
+                      <span className="text-[15px] font-medium text-ink">
+                        {name}
+                      </span>
+                    </Reveal>
+                  ))}
+                </ul>
+              </div>
             ))}
           </div>
         </div>
