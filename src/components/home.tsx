@@ -390,22 +390,15 @@ export function ImpactBand() {
 
 export function BrandPromise() {
   return (
-    <section
-      className="relative isolate overflow-hidden bg-[#F6F8EE]"
-      style={{
-        // the orb's lime-to-teal palette, carried across the whole section
-        backgroundImage:
-          "radial-gradient(60% 75% at 12% 18%, rgba(200,245,70,0.5), transparent 70%), radial-gradient(60% 75% at 90% 88%, rgba(120,210,190,0.55), transparent 70%)",
-      }}
-    >
-      {/* full-bleed Orb backdrop */}
+    <section className="relative isolate overflow-hidden bg-[#071a14]">
+      {/* full-bleed Orb backdrop on a dark ground, as in the React Bits demo */}
       <div aria-hidden="true" className="absolute inset-0 -z-10">
         <Orb
           hue={109}
           hoverIntensity={1.85}
           rotateOnHover={false}
           forceHoverState={false}
-          backgroundColor="#FAFBF6"
+          backgroundColor="#071a14"
           className="absolute inset-0"
         />
       </div>
@@ -413,11 +406,10 @@ export function BrandPromise() {
       <div className="container-px pointer-events-none relative mx-auto flex max-w-5xl flex-col items-center py-36 text-center lg:py-52">
         <RevealText
           text="Energy as an asset."
-          gradient
-          className="block max-w-3xl text-[2.25rem] font-semibold leading-[1.08] tracking-tight text-brand-dark sm:text-[3rem]"
+          className="block max-w-3xl text-[2.25rem] font-semibold leading-[1.08] tracking-tight text-white sm:text-[3rem]"
         />
         <Reveal variant="up" delay={60}>
-          <p className="mx-auto mt-6 max-w-3xl text-2xl leading-relaxed text-ink/80">
+          <p className="mx-auto mt-6 max-w-3xl text-2xl leading-relaxed text-white/75">
             We see energy infrastructure as a business asset. A roof, a parcel
             of land, a load curve or a tariff can all create value when they are
             understood together. Our job is to turn that opportunity into a
