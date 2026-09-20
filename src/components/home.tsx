@@ -327,7 +327,7 @@ export function Process() {
       <div className="flex flex-wrap items-end justify-between gap-6">
         <div>
           <RevealText
-            text="One accountable team, from first assessment to long-term performance."
+            text="From Assessment to Performance"
             gradient
             className="block max-w-2xl text-3xl font-semibold tracking-tight text-brand-dark sm:text-[58px]"
           />
