@@ -142,7 +142,10 @@ void main() {
           float flakeSizeRatio = uFlakeSize / flakeSize;
           float intensity = exp2(-(t + toIntersection) * invDepthFade) *
                            min(1.0, flakeSizeRatio * flakeSizeRatio) * uBrightness;
-          fragColor = vec4(uColor * pow(vec3(intensity), vec3(uGamma)), 1.0);
+          // Distant flakes fade to transparent (premultiplied) rather than to
+          // black, so they don't show up as dark boxes on a coloured ground.
+          float a = pow(intensity, uGamma);
+          fragColor = vec4(uColor * a, a);
           return;
         }
       }
@@ -229,7 +232,12 @@ export function PixelSnow({
 
     // dpr 1: the shader quantises to a coarse pixel grid anyway, and the
     // ray-march is costly per device pixel.
-    const renderer = new Renderer({ alpha: true, dpr: 1, antialias: false });
+    const renderer = new Renderer({
+      alpha: true,
+      premultipliedAlpha: true,
+      dpr: 1,
+      antialias: false,
+    });
     const gl = renderer.gl;
     gl.clearColor(0, 0, 0, 0);
     container.appendChild(gl.canvas);
