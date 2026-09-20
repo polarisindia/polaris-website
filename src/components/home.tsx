@@ -7,7 +7,7 @@ import { CountUp } from "./motion/CountUp";
 import { ArrowLink, ArrowRight } from "./ui";
 import { RevealText } from "./RevealText";
 import { BorderGlow } from "./BorderGlow";
-import { Aurora } from "./Aurora";
+import { Grainient } from "./Grainient";
 import { SolarSystemLines } from "./SolarSystemLines";
 import { TestimonialCarousel } from "./TestimonialCarousel";
 import {
@@ -366,13 +366,31 @@ export function Process() {
 export function ImpactBand() {
   return (
     <section className="relative isolate overflow-hidden bg-[#15371b] py-[56px] text-white lg:py-[82px]">
-      {/* aurora glowing up from the bottom edge */}
+      {/* grainy warped green gradient */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0">
-        <Aurora
-          colorStops={["#7cff67", "#016745", "#EAB308"]}
-          blend={0.5}
-          amplitude={1.0}
-          speed={0.5}
+        <Grainient
+          color1="#0e3b16"
+          color2="#065d40"
+          color3="#053726"
+          timeSpeed={2.05}
+          colorBalance={0.0}
+          warpStrength={1.0}
+          warpFrequency={5.0}
+          warpSpeed={2.0}
+          warpAmplitude={50.0}
+          blendAngle={0.0}
+          blendSoftness={0.05}
+          rotationAmount={500.0}
+          noiseScale={2.0}
+          grainAmount={0.1}
+          grainScale={2.0}
+          grainAnimated={false}
+          contrast={1.5}
+          gamma={1.0}
+          saturation={1.0}
+          centerX={0.0}
+          centerY={0.0}
+          zoom={0.9}
         />
       </div>
       <div className="container-px relative z-10 mx-auto max-w-[1760px]">
