@@ -210,12 +210,10 @@ export function Footprint() {
             <RevealText
               text={"From India to\nthe world"}
               gradient
+              animated
               className="block max-w-xl text-3xl font-semibold tracking-tight text-brand-dark sm:text-[58px]"
             />
             <Reveal variant="up" delay={60}>
-              <p className="mt-5 max-w-xl text-base leading-relaxed text-ink-soft">
-                {globalReach.intro}
-              </p>
               <div className="mt-8">
                 <ArrowLink href="/global">Explore Polaris Global</ArrowLink>
               </div>
@@ -228,7 +226,7 @@ export function Footprint() {
             className="divide-y divide-ink/10 border-y border-ink/10"
           >
             {globalReach.presence
-              .filter((m) => m.market !== "India")
+              .filter((m) => m.market === "Morocco")
               .map((m) => (
                 <div
                   key={m.market}
@@ -441,6 +439,7 @@ export function ProjectsRail() {
           <RevealText
             text="Our projects"
             gradient
+            animated
             className="text-3xl font-semibold tracking-tight text-brand-dark sm:text-[58px]"
           />
           <Reveal variant="fade">
@@ -514,6 +513,7 @@ export function LatestNews() {
           <RevealText
             text="Latest insights"
             gradient
+            animated
             className="text-3xl font-semibold tracking-tight text-brand-dark sm:text-[58px]"
           />
           <Reveal variant="fade">
