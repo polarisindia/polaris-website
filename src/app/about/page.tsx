@@ -19,7 +19,7 @@ import {
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Polaris Renewable Solutions is a solar EPC and energy-engineering firm founded in Nashik in 2015, operating across India and Morocco.",
+    "Polaris Renewable Solutions was founded in 2015 and is headquartered in Nashik, Maharashtra, delivering renewable energy projects for commercial, industrial and utility-scale customers across India and Morocco.",
 };
 
 /* ---------- flat illustrations, same family as the homepage icons ---------- */
@@ -160,10 +160,10 @@ const advantageIcons: React.ReactNode[] = [
 ];
 
 const heroStats = [
-  { value: "650+", label: "Projects delivered" },
+  { value: "650+", label: "Successful projects" },
   { value: "100 MW+", label: "Installed capacity" },
   { value: "100+", label: "Team members" },
-  { value: "2", label: "Countries, India & Morocco" },
+  { value: "2015", label: "Founded in India" },
 ];
 
 export default function AboutPage() {
@@ -177,14 +177,17 @@ export default function AboutPage() {
           </Reveal>
           <RevealText
             as="h1"
-            text="An energy-engineering firm, not a commodity installer"
+            text="Engineering energy solutions around how businesses actually operate."
             className="mt-6 block max-w-3xl text-4xl font-semibold leading-[1.08] tracking-tight text-ink sm:text-[3.25rem]"
           />
           <Reveal variant="up" delay={90}>
             <p className="mt-5 max-w-2xl text-lg leading-relaxed text-ink-soft">
-              Founded in Nashik in {company.founded}, Polaris has grown into a
-              team of engineers and analysts operating across India and Morocco,
-              one point of accountability from feasibility to year 25.
+              Polaris Renewable Solutions Private Limited was founded in{" "}
+              {company.founded} and is headquartered in Nashik, Maharashtra. We
+              work with commercial, industrial and utility-scale customers
+              across India to design and deliver renewable energy systems that
+              are technically sound, commercially sensible and built for
+              long-term performance.
             </p>
           </Reveal>
           <Reveal variant="up" delay={130}>
@@ -210,29 +213,37 @@ export default function AboutPage() {
       {/* Story */}
       <Section>
         <div className="grid gap-12 lg:grid-cols-[1fr_1.4fr]">
-          <SectionHeading eyebrow="Story" title="Why we started" />
+          <SectionHeading
+            eyebrow="Foreword"
+            title="A note from the founders"
+          />
           <div className="space-y-5 text-base leading-relaxed text-ink-soft">
             <p>
-              In 2015 we asked a question few in India&apos;s energy sector were
-              willing to confront: why should industrial growth come at the cost
-              of unpredictable power bills? Energy costs were spiralling, grid
-              reliability was eroding, and businesses were making multi-crore
-              capital decisions without a coherent framework for their power
-              infrastructure.
+              When we started Polaris in 2015, we were working around a
+              straightforward idea: businesses should have more control over
+              what they pay for power. Industrial customers were dealing with
+              rising tariffs, reliability issues and large capital decisions,
+              often without one partner looking at the technical and financial
+              picture together.
             </p>
             <p>
-              We saw this not as an inevitability but as an engineering problem
-              waiting to be solved. Polaris was founded to deliver that
-              solution, not as a commodity installer, but as an
-              energy-engineering firm that understands the physics of solar
-              generation as fluently as the financial logic of a CFO&apos;s
-              spreadsheet.
+              That is the gap we set out to address. We built Polaris as an
+              engineering-led company, but with an equally strong focus on
+              commercial outcomes. A solar plant has to generate as designed,
+              but it also has to justify the investment behind it.
             </p>
             <p>
-              A decade later, that has grown into 650+ commissioned projects,
-              100+ MW of installed capacity, and cumulative turnover exceeding
-              €17.5 million (₹187.76 crore), with operations in India and, since
-              2025, Morocco as Polaris Global Energie SARL.
+              Today, our work covers Commercial &amp; Industrial solar,
+              utility-scale projects, BESS, electrical infrastructure, project
+              finance support and energy optimisation. Our expansion into
+              Morocco through Polaris Global Energie SARL has also given us
+              experience across a wider range of project conditions, standards
+              and markets.
+            </p>
+            <p>
+              As we grow, our priorities remain simple: sound engineering,
+              practical commercial thinking, safe execution and long-term
+              accountability.
             </p>
           </div>
         </div>
@@ -254,6 +265,7 @@ export default function AboutPage() {
                   <span className="absolute -left-10 top-1 h-4 w-4 rounded-full border-2 border-brand bg-[#FAFBF6]" />
                   <div className="text-lg font-semibold tracking-tight text-brand-strong">
                     {m.year}
+                    <span className="text-ink"> · {m.title}</span>
                   </div>
                   <p className="mt-1 max-w-xl text-[15px] leading-relaxed text-ink-soft">
                     {m.text}

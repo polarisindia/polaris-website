@@ -114,10 +114,10 @@ const illos: React.ReactNode[] = [
 /* ---------- Intro statement ---------- */
 
 const introStats = [
-  { value: "650+", label: "Projects delivered" },
+  { value: "650+", label: "Successful projects" },
   { value: "100 MW+", label: "Installed capacity" },
-  { value: "2", label: "Countries, India & Morocco" },
-  { value: "25 yr", label: "Asset lifecycle covered" },
+  { value: "100+", label: "Team members" },
+  { value: "2015", label: "Founded in India" },
 ];
 
 export function IntroStatement() {
@@ -134,11 +134,14 @@ export function IntroStatement() {
           />
           <Reveal variant="up" delay={60}>
             <p className="mt-5 max-w-2xl text-base leading-relaxed text-ink-soft">
-              From rooftop plants for SMEs to large captive and open-access
-              projects for enterprises. A solar EPC founded in Nashik in{" "}
-              {company.founded}, {company.shortName} is a full-lifecycle partner
-              , one point of accountability from feasibility to year 25 of
-              operation, across India and Morocco.
+              Founded in Nashik in {company.founded}, {company.shortName} works
+              with commercial, industrial and utility-scale customers across
+              India and Morocco. Our scope runs from rooftop and ground-mounted
+              solar to captive and open-access power, utility-scale EPC, BESS,
+              substations and grid evacuation, project finance support and
+              ongoing energy optimisation. We begin with the client&apos;s load
+              profile, site conditions and investment goals, then build the
+              solution around them.
             </p>
           </Reveal>
         </div>
@@ -204,7 +207,7 @@ export function Footprint() {
               <span className="pill">Global reach</span>
             </Reveal>
             <RevealText
-              text="Indian engineering discipline, delivered across borders."
+              text="Built in India. Growing internationally."
               className="mt-5 block max-w-xl text-3xl font-semibold tracking-tight text-ink sm:text-[58px]"
             />
             <Reveal variant="up" delay={60}>
@@ -297,7 +300,7 @@ const trustIcons: React.ReactNode[] = [
     />
     <circle cx="39" cy="8" r="3" fill={IL.ink} />
   </svg>,
-  // accountable to year 25 — clock
+  // full lifecycle ownership — clock
   <svg viewBox="0 0 48 48" fill="none" key="t-om" aria-hidden="true">
     <rect x="3" y="3" width="22" height="22" rx="7" fill={IL.pale} />
     <circle cx="27" cy="27" r="17" fill={IL.green} />
@@ -434,7 +437,7 @@ export function Process() {
             <span className="pill">How we deliver</span>
           </Reveal>
           <RevealText
-            text="One accountable team, from the financial model to year 25."
+            text="One accountable team, from first assessment to long-term performance."
             className="mt-5 block max-w-2xl text-3xl font-semibold tracking-tight text-ink sm:text-[58px]"
           />
         </div>
@@ -477,7 +480,7 @@ export function ImpactBand() {
             <Reveal variant="up" delay={80}>
               <p className="mt-4 max-w-md text-2xl leading-relaxed text-white/70">
                 Every Polaris system keeps generating, and displacing grid
-                carbon, for its full 25-year life.
+                carbon, for the full operating life of the asset.
               </p>
             </Reveal>
           </div>
@@ -529,10 +532,10 @@ export function BrandPromise() {
         />
         <Reveal variant="up" delay={60}>
           <p className="mx-auto mt-6 max-w-3xl text-2xl leading-relaxed text-ink/80">
-            A roof is underutilised real estate. By combining Tier-1 engineering
-            with investment-grade financial modelling, IRR, payback,
-            depreciation and tax optimisation, we change the structure of a
-            balance sheet, not just a utility bill.
+            We see energy infrastructure as a business asset. A roof, a parcel
+            of land, a load curve or a tariff can all create value when they
+            are understood together. Our job is to turn that opportunity into a
+            practical, investable energy solution.
           </p>
         </Reveal>
       </div>

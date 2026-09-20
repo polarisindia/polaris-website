@@ -1,5 +1,5 @@
 // Central content source for the Polaris Renewable Solutions website.
-// Sourced from "Polaris India Company Deck 2026".
+// Sourced from "Polaris India Company Content 2026 (Humanized)".
 
 export const company = {
   name: "Polaris Renewable Solutions Pvt. Ltd.",
@@ -7,7 +7,7 @@ export const company = {
   legalName: "Polaris Renewable Solutions Pvt. Ltd.",
   tagline: "Energy as an asset.",
   description:
-    "Polaris is a solar EPC and energy-engineering partner for industrial enterprises across India and Morocco, turning power from a fluctuating cost into a controlled, engineered advantage.",
+    "Polaris Renewable Solutions works with commercial, industrial and utility customers to design, execute, finance and optimise renewable energy projects from concept through long-term operation.",
   email: "info@polarisenergy.in",
   phone: "+91 90848 11911",
   whatsapp: "+91 90848 11911",
@@ -21,7 +21,7 @@ export const offices = [
     name: "Headquarters, India",
     entity: "Polaris Renewable Solutions Pvt. Ltd.",
     address:
-      "6, Sankalp Bunglow, Shankar Nagar, Savarkar Nagar, Gangapur Road, Nashik 422 013, Maharashtra, India",
+      "6, Sankalp Bungalow, Shankar Nagar, Savarkar Nagar, Gangapur Road, Nashik 422 013, Maharashtra, India",
     phone: "+91 90848 11911",
     phones: ["+91 90848 11911", "+91 93729 38936", "+91 77678 31717"],
     email: "info@polarisenergy.in",
@@ -32,8 +32,8 @@ export const offices = [
     address:
       "50-52 BIS Boulevard Abdellatif Ben Kaddour, Etage 3, Appt DTE, Casablanca, Kingdom of Morocco",
     phone: "+212 66 06 07626",
-    phones: ["+212 66 06 07626", "+212 66 15 77755"],
-    email: "maroc@polarisenergy.in",
+    phones: ["+212 66 06 07626", "+212 708 258599"],
+    email: "maroc@polarisenergie.ma",
   },
 ];
 
@@ -44,48 +44,48 @@ export const regions = [
 
 export const global = {
   eyebrow: "Polaris Global",
-  title: "Indian engineering discipline, delivered internationally",
+  title: "Built in India. Growing internationally.",
   intro:
-    "Since 2025, Polaris has operated beyond India as Polaris Global Energie SARL, bringing the same engineering-led, financially-modelled approach to industrial solar in Morocco, with the MENA and African markets next.",
+    "Polaris operates through Polaris Renewable Solutions Pvt. Ltd. in India and Polaris Global Energie SARL in Morocco. Working across both markets gives us practical exposure to different regulations, climates, industrial environments and project-delivery requirements.",
   entity: {
     name: "Polaris Global Energie SARL",
     incorporated: "2025",
     base: "Casablanca, Kingdom of Morocco",
     directors:
-      "Directed by the Polaris founding team, aligning international projects with European engineering standards.",
+      "Directed by the Polaris founding team, bringing the same engineering and commercial approach to every market.",
   },
   presence: [
     {
       market: "India",
-      status: "Established since 2015",
+      status: "Headquartered in Nashik",
       detail:
-        "650+ commissioned projects and 100+ MW installed across Maharashtra, Gujarat and beyond, the operating base and engineering centre.",
+        "Pan-India C&I execution with a growing utility-scale portfolio, covering engineering, procurement, project management, finance support and long-term asset services.",
     },
     {
       market: "Morocco",
-      status: "Live since 2025",
+      status: "Operating base",
       detail:
-        "Polaris Global Energie SARL, Casablanca. First industrial rooftop projects under execution, ~3.10 MW initiated.",
+        "Polaris Global Energie SARL supports C&I, utility-scale and energy-optimisation opportunities in Morocco, with an early C&I rooftop reference in Tangier.",
     },
     {
-      market: "MENA & Africa",
-      status: "Next",
+      market: "MENA",
+      status: "Regional partners",
       detail:
-        "Actively evaluating C&I solar opportunities across North and West Africa, using Morocco as the regional launch point.",
+        "Regional partners add industrial EPC, fabrication and large-project execution capability where required, while international project exposure strengthens our approach to safety, standards, supply chain and project controls.",
     },
   ],
   why: [
     {
-      title: "One standard, every geography",
-      body: "European engineering benchmarks applied to design, HT evacuation and safety, the same simulation-backed discipline used on every Indian project.",
+      title: "One standard, every project",
+      body: "Engineering and design aligned with applicable Indian and internationally recognised codes, with the same QA/QC, HSE and commissioning discipline regardless of project size or location.",
     },
     {
       title: "Financial modelling travels",
-      body: "IRR, payback, depreciation and currency-adjusted cash-flow analysis built into each international proposal, in local terms.",
+      body: "IRR, payback, cash flow and tariff exposure are compared for each proposal, in local terms, so management sees the trade-offs before capital is committed.",
     },
     {
-      title: "Full lifecycle, remotely capable",
-      body: "SCADA monitoring and analytics let a single accountable team support assets across borders through their full operating life.",
+      title: "Full lifecycle, one responsibility",
+      body: "One point of responsibility from feasibility and design through construction, commissioning, monitoring and long-term support, across both markets.",
     },
   ],
 };
@@ -143,43 +143,42 @@ export const nav: {
 export const stats = [
   { value: "650+", label: "Successful projects" },
   { value: "100 MW+", label: "Installed capacity" },
-  { value: "90%", label: "Peak energy cost savings" },
-  { value: "€17.5M", label: "Cumulative turnover (₹187.76 Cr)" },
+  { value: "100+", label: "Team members" },
+  { value: "2015", label: "Founded in India" },
 ];
 
 export const glance = [
   { value: "650+", label: "Successful projects" },
   { value: "100 MW+", label: "Installed capacity" },
-  { value: "€17.5M", label: "Cumulative turnover · ₹187.76 Cr" },
-  { value: "90%", label: "Peak energy cost savings" },
   { value: "100+", label: "Team members" },
-  { value: "25 yrs", label: "Infrastructure lifecycle" },
+  { value: "2015", label: "Founded in India" },
+  { value: "India + Morocco", label: "Operational presence" },
 ];
 
 // How an engagement runs, condensed from the Solutions lifecycle.
 export const process = [
   {
     step: "01",
-    title: "Model & financial case",
-    body: "Load analysis, generation simulation and an investment-grade model, IRR, payback, depreciation and cash flow, before a rupee is committed.",
+    title: "Assessment & financial modelling",
+    body: "Review load, tariff, site constraints and operating priorities, then compare technical options, commercial models and expected returns before the project structure is decided.",
     image: "/img/process/model-financial.jpg",
   },
   {
     step: "02",
-    title: "Engineering & design",
-    body: "In-house electrical and structural engineers size the system on fit, not margin; HT evacuation and safety to Indian, EU and US benchmarks.",
+    title: "Engineering & procurement",
+    body: "Structural, electrical and energy-yield design built around actual site conditions, with Tier-1 technology chosen for fit, warranty and service support.",
     image: "/img/process/engineering-design.jpg",
   },
   {
     step: "03",
-    title: "EPC execution",
-    body: "Single-point delivery of procurement, construction and commissioning, most C&I plants energised in 45–90 days.",
+    title: "Construction & commissioning",
+    body: "Execution managed with clear project controls, safety systems and QA/QC, then tested, documented and handed over properly.",
     image: "/img/process/epc-execution.jpg",
   },
   {
     step: "04",
-    title: "25-year O&M",
-    body: "SCADA monitoring, analytics and preventive maintenance for the full asset life. One team stays accountable to year 25.",
+    title: "Monitoring & O&M",
+    body: "Generation, alarms and equipment health monitored through SCADA, with preventive maintenance and ongoing analysis to keep performance up.",
     image: "/img/process/om-25yr.jpg",
   },
 ];
@@ -227,66 +226,123 @@ export const testimonials = [
 ];
 
 // Homepage "Our Solutions", the four offering categories. Each has its
-// own page at /solutions/<slug>; `relatedSolutions` cross-links to the
-// matching commercial-model cards on /solutions (by slug, as #anchors).
-export const offerings = [
+// own page at /solutions/<slug>; `relatedSolutions` lists the commercial
+// models (from `solutions`, by slug) shown inline on that page.
+export const offerings: {
+  slug: string;
+  title: string;
+  summary: string;
+  intro: string;
+  pointsHeading?: string;
+  points: string[];
+  extra?: { heading: string; items: string[] };
+  relatedSolutions: string[];
+}[] = [
   {
     slug: "commercial-industrial",
     title: "Commercial & Industrial",
     summary:
-      "Rooftop and ground-mount solar for factories, warehouses and campuses, engineered for 25 years of dependable generation and structured to the balance sheet.",
+      "On-site and off-site solar, storage and electrical solutions built around industrial load profiles, site conditions and savings goals.",
     intro:
-      "The core of the Polaris portfolio: rooftop and ground-mounted solar for the factories, warehouses and campuses behind 650+ commissioned projects across Maharashtra, Gujarat and beyond. Every system is engineered around the site's real constraints (live production lines, non-uniform rooftops, structural limits), not a standard layout, and matched to whichever commercial model fits the balance sheet.",
+      "Solar, storage and electrical solutions built around the way your facility operates. Polaris works with manufacturing plants, warehouses, commercial facilities, institutional campuses and multi-site businesses. Each project starts with the customer's energy use, site conditions and operating priorities, not with a pre-selected product.",
+    pointsHeading: "Core capabilities",
     points: [
-      "Zero-penetration and custom mounting engineered for live, operating facilities, installed without disrupting production.",
-      "Centralised or distributed inverter architecture designed around the rooftop's real constraints, not a standard layout.",
-      "CAPEX, OPEX/RESCO or lease-based ownership, matched to cash flow, not a single default structure.",
-      "BESS-ready infrastructure built in from day one, so storage can be added later without re-engineering the plant.",
+      "Industrial rooftop solar: RCC, metal sheet, bitumen and specialised roof configurations",
+      "Ground-mounted captive solar for industrial facilities",
+      "On-site and off-site solar solutions",
+      "Open Access and Group Captive structures",
+      "BESS and solar + storage hybrid systems",
+      "HT / LT electrical infrastructure, transformers, substations and evacuation systems",
+      "SCADA, monitoring, analytics and performance management",
+      "Long-term O&M and asset optimisation",
     ],
+    extra: {
+      heading: "What we focus on",
+      items: [
+        "Use available roof and land area efficiently without compromising structural safety",
+        "Match generation as closely as possible to the facility's actual consumption pattern",
+        "Reduce electrical losses through well-planned DC and AC design",
+        "Allow for future storage, load growth and plant expansion wherever practical",
+        "Work safely inside live industrial facilities with minimum disruption to operations",
+      ],
+    },
     relatedSolutions: ["capex", "opex", "lease", "epc"],
   },
   {
     slug: "utility-scale",
     title: "Utility Scale",
     summary:
-      "Large ground-mount and hybrid parks with HT evacuation, land and interconnection managed end to end for IPPs and open-access buyers.",
+      "Large ground-mounted solar and associated electrical works, from site development and BOS through testing, grid connection and commissioning.",
     intro:
-      "Ground-mounted and hybrid parks at a scale rooftop can't reach: land acquisition, HT evacuation and grid interconnection managed end to end, for IPPs and open-access buyers procuring power off-site. The same engineering discipline applies at scale, one plant head described a site with rock, a monsoon window and a 0.5 km HT run engineered around, and still commissioned in under 90 days.",
+      "Large-project execution across civil, mechanical, electrical and grid-integration scopes. For large ground-mounted projects, Polaris brings together engineering, civil works, BOS, electrical systems, grid evacuation, testing and commissioning. We focus on keeping each interface clear so the project can move from site development to grid connection without gaps in responsibility.",
+    pointsHeading: "Scope of work",
     points: [
-      "Land acquisition, HT evacuation and grid interconnection managed end to end, not handed off mid-project.",
-      "Open-access and group-captive structures for buyers who want scale without owning generation directly.",
-      "Performance-linked (GLG) structures available where generation is tied to defined benchmarks.",
-      "The same investment-grade financial model, IRR, payback, depreciation, applied at utility scale.",
+      "Project engineering: feasibility, front-end engineering, layouts, detailed design, energy-yield studies and performance modelling",
+      "Civil & site development: survey coordination, earthworks, grading, foundations, piling, trenches, roads and supporting site infrastructure",
+      "Mechanical execution: assembly and alignment of tracker or fixed-tilt structures, module installation and mechanical completion",
+      "Electrical & power systems: DC and AC networks, inverters, transformers, switchgear, MV / HT systems, earthing and lightning protection",
+      "SCADA & grid integration: plant monitoring and controls, evacuation systems, grid synchronisation and performance verification",
+      "Testing & commissioning: pre-commissioning, testing, documentation, handover and final performance checks",
     ],
-    relatedSolutions: ["open-access", "glg", "epc"],
+    extra: {
+      heading: "Electrical infrastructure & grid evacuation",
+      items: [
+        "Substation civil foundations and equipment support structures",
+        "11 kV / HT switchgear and panels",
+        "Transformers and associated electrical equipment",
+        "HT power cables, cable trenches and termination systems",
+        "Protection, control and metering panels",
+        "Earthing and lightning protection systems",
+        "AC auxiliary systems",
+        "Cable laying, glanding, termination, identification and ferruling",
+        "Electrical testing, protection testing, pre-commissioning and commissioning support",
+      ],
+    },
+    relatedSolutions: ["open-access", "group-captive", "epc"],
   },
   {
     slug: "finance-solutions",
     title: "Finance Solutions",
     summary:
-      "CAPEX, OPEX / RESCO, lease and group-captive structures, matched to your cash flow, with an investment-grade model behind every proposal.",
+      "CAPEX, OPEX / RESCO, captive, lease and financing support aligned with your capital, cash-flow and return priorities.",
     intro:
-      "Every Polaris engagement starts with a financial model, not a structure, IRR, payback, depreciation and year-by-year cash flow, modelled before design begins. From there, the commercial model follows the numbers: full ownership, zero-capex RESCO, lease or group-captive, whichever fits your balance sheet.",
+      "A good energy project also needs the right commercial structure. We compare ownership, third-party investment, captive, lease and financing options against the client's budget, cash flow and return expectations. This helps management see the trade-offs clearly before capital is committed.",
+    pointsHeading: "What we evaluate",
     points: [
-      "An investment-grade financial model, IRR, payback, depreciation and cash flow, reviewed and signed off before design begins.",
-      "Full ownership (CAPEX), zero-capex RESCO (OPEX), lease or group-captive, matched to your books, not a default.",
-      "Simple payback of 3.5–7 years and 18–28% IRR are the normal range for well-structured industrial solar.",
-      "Accelerated depreciation of up to 40% in Year 1 is available under Indian IT provisions, where applicable.",
+      "IRR, ROI and payback analysis",
+      "Cash-flow modelling and scenario comparison",
+      "Depreciation and tax-impact assessment",
+      "Tariff and escalation sensitivity",
+      "Debt / equity and financing assumptions",
+      "Investment-grade project documentation",
     ],
-    relatedSolutions: ["capex", "opex", "lease", "open-access", "advisory"],
+    relatedSolutions: [
+      "capex",
+      "opex",
+      "open-access",
+      "group-captive",
+      "lease",
+      "advisory",
+    ],
   },
   {
     slug: "energy-optimisation-consultant",
     title: "Energy Optimisation Consultant",
     summary:
-      "Load analysis, BESS sizing, time-of-day strategy and SCADA-driven O&M, advisory that keeps the asset performing to year 25.",
+      "A practical energy plan based on load, tariff, solar, storage, demand management and power-sourcing analysis.",
     intro:
-      "Generation is only half the equation, the other half is what happens to that power once it's made. This practice covers load analysis and generation simulation against actual consumption, BESS sizing and time-of-day strategy, and the SCADA-based monitoring that keeps a plant performing to its full 25-year design life, not just at commissioning.",
+      "A practical energy roadmap before you commit to an asset or commercial model. Sometimes the right first step is not a project, it is a clear view of the energy problem. Polaris reviews how a facility buys, uses and manages power, then identifies where solar, storage, open access, demand management or other measures can make a meaningful difference. The result is a phased plan, not a product pitch. We are not trying to sell the biggest system, we are trying to recommend the combination that works best for the client's operations and economics.",
+    pointsHeading: "What we review",
     points: [
-      "Load analysis and generation simulation run against actual consumption data before a system is designed.",
-      "BESS sizing and time-of-day strategy for peak shaving and tariff arbitrage.",
-      "SCADA-based monitoring and analytics for the full 25-year operating life, not just commissioning.",
-      "The same investment-grade financial modelling, IRR, payback, depreciation, behind every recommendation.",
+      "12 months of electricity bills and load data, where available",
+      "Tariffs, demand charges, power factor and Time-of-Day exposure",
+      "On-site solar potential and usable roof / land area",
+      "Open Access, captive and off-site power sourcing options",
+      "BESS sizing for peak shaving, demand management, backup and tariff optimisation",
+      "Solar + storage options and future expansion requirements",
+      "Financial comparison of CAPEX, OPEX / RESCO, captive and financing structures",
+      "A phased implementation plan with expected outcomes and measurable KPIs",
+      "Post-commissioning monitoring, analysis and performance improvement",
     ],
     relatedSolutions: ["bess", "advisory", "epc"],
   },
@@ -297,96 +353,92 @@ export const solutions = [
     slug: "capex",
     title: "CAPEX, Asset ownership",
     summary:
-      "Turnkey solar you invest in and fully own, maximum lifetime savings, accelerated depreciation, and complete control over your energy cost.",
+      "Turnkey EPC for clients who want to own the asset and capture the long-term savings directly.",
     points: [
-      "Full asset ownership",
-      "Accelerated depreciation benefits",
-      "Highest long-term IRR",
-      "Complete EPC + O&M support",
+      "Turnkey EPC delivery",
+      "The client owns the asset",
+      "Long-term savings captured directly",
+      "Monitoring and O&M support after commissioning",
     ],
   },
   {
     slug: "opex",
-    title: "OPEX / RESCO, zero investment",
+    title: "OPEX / RESCO",
     summary:
-      "Polaris invests, installs and operates the plant; you pay only for the energy consumed at a pre-agreed tariff, typically below grid rates.",
+      "Low or zero upfront investment structures where power is supplied under an agreed commercial framework, subject to project bankability and contract terms.",
     points: [
-      "Zero or minimal upfront investment",
-      "Immediate reduction in electricity cost",
-      "No operational responsibility",
-      "Long-term tariff visibility",
+      "Low or zero upfront investment",
+      "Power supplied under an agreed commercial framework",
+      "Subject to project bankability and contract terms",
     ],
   },
   {
     slug: "open-access",
-    title: "Open Access & Group Captive",
+    title: "Open Access / Captive",
     summary:
-      "Off-site solar and hybrid power procured through open-access and group-captive structures, lower landed cost, scalable across facilities.",
+      "Off-site power sourcing for businesses that need renewable energy at scale and want to reduce landed power cost.",
     points: [
-      "Large-scale energy sourcing",
-      "Equity participation structure",
-      "Multi-location power allocation",
-      "Compliance with captive regulations",
+      "Off-site renewable power at scale",
+      "Aimed at reducing landed power cost",
+      "Compared against on-site solar and grid supply",
+    ],
+  },
+  {
+    slug: "group-captive",
+    title: "Group Captive",
+    summary:
+      "Co-investment structures that combine long-term renewable energy sourcing with captive-power regulations.",
+    points: [
+      "Co-investment structure",
+      "Long-term renewable energy sourcing",
+      "Aligned with captive-power regulations",
     ],
   },
   {
     slug: "lease",
-    title: "Lease-based captive solar",
+    title: "Lease-based models",
     summary:
-      "Adopt solar through fixed lease payments over a defined tenure, with ownership transferred to you at the end, positive cash flow from day one.",
+      "Structured payments that can reduce the initial capital burden and provide a defined route to ownership.",
     points: [
-      "Low upfront cost",
-      "Predictable payment structure",
-      "Ownership transfer post-tenure",
-      "Balance-sheet optimisation",
-    ],
-  },
-  {
-    slug: "glg",
-    title: "Generation-Linked Performance (GLG)",
-    summary:
-      "Performance-driven models where generation is aligned to defined benchmarks, accountability and predictable outcomes across the asset life.",
-    points: [
-      "Performance-linked assurance",
-      "Reduced operational risk",
-      "Predictable energy output",
-      "Financial-outcome alignment",
+      "Reduced initial capital burden",
+      "Structured payments",
+      "A defined route to ownership",
     ],
   },
   {
     slug: "bess",
     title: "BESS & energy optimisation",
     summary:
-      "Battery Energy Storage Systems and time-of-day strategies to shave peaks, arbitrage tariffs and strengthen grid independence.",
+      "BESS and solar + storage hybrid systems sized for peak shaving, demand management, backup and tariff optimisation.",
     points: [
       "Peak shaving and demand management",
-      "Time-of-day tariff optimisation",
-      "Backup and reliability enhancement",
-      "Future-ready energy infrastructure",
+      "Tariff optimisation",
+      "Backup and reliability",
+      "Selection based on chemistry, safety, BMS / EMS capability and duty cycle",
     ],
   },
   {
     slug: "epc",
-    title: "End-to-end EPC & lifecycle O&M",
+    title: "End-to-end EPC & lifecycle management",
     summary:
-      "One point of accountability from feasibility and design through commissioning, SCADA monitoring and long-term operations & maintenance.",
+      "One point of responsibility from feasibility and design through construction, commissioning, monitoring and long-term support.",
     points: [
       "Engineering to execution",
-      "SCADA monitoring and analytics",
-      "Long-term O&M support",
-      "Consistent performance across asset life",
+      "SCADA, monitoring and analytics",
+      "O&M and performance optimisation",
+      "Testing, commissioning and documented handover",
     ],
   },
   {
     slug: "advisory",
-    title: "Financial structuring & advisory",
+    title: "Project finance facilitation",
     summary:
-      "Investment-grade financial modelling, IRR, payback, cash flow and tax optimisation, built into every proposal, plus policy, subsidy and financing support.",
+      "Financial modelling, lender / NBFC coordination, documentation, applicable policy or subsidy review, and support with investment structuring.",
     points: [
-      "IRR and ROI optimisation",
-      "Cash flow and payback analysis",
-      "Depreciation and tax-benefit planning",
-      "Subsidy, DISCOM and loan facilitation",
+      "Financial modelling",
+      "Lender / NBFC coordination",
+      "Documentation and investment structuring",
+      "Policy or subsidy review",
     ],
   },
 ];
@@ -394,27 +446,27 @@ export const solutions = [
 export const advantages = [
   {
     title: "Engineering-led approach",
-    body: "Qualified electrical and structural engineers, not sales staff with datasheets. Every system is backed by simulation, load analysis and performance modelling.",
+    body: "Project decisions are supported by qualified technical teams, design reviews, simulation, structural analysis and performance modelling.",
   },
   {
     title: "Technology agnosticism",
-    body: "We are not tied to any single equipment brand. Tier-1 technology is specified on optimal fit for your project, not on margin considerations.",
+    body: "Equipment is selected for the project, on performance, bankability, warranty and serviceability, rather than tied to a single brand.",
   },
   {
     title: "Proven industrial track record",
-    body: "650+ projects executed for industry leaders including Bisleri, Reliance, Samsonite, Indian Oil and Parle, an unmatched record in our C&I scale band.",
+    body: "Work across live factories and demanding sites has built a practical understanding of safety, shutdowns, access, roof conditions and production continuity.",
   },
   {
     title: "Financial intelligence",
-    body: "One of the few solar EPC firms globally to integrate depreciation analysis, IRR, EBITDA impact and tax optimisation as a core project deliverable.",
+    body: "We connect engineering choices to IRR, payback, cash flow, tariff exposure and long-term operating economics.",
   },
   {
-    title: "Full-lifecycle ownership",
-    body: "A single point of accountability from feasibility to year 25 of operation, eliminating the industry problem of 'orphaned' solar systems.",
+    title: "Full lifecycle ownership",
+    body: "One point of responsibility from feasibility and design through construction, commissioning, monitoring and long-term support.",
   },
   {
     title: "Multi-geography capability",
-    body: "Deep project experience across India, aligned with European engineering standards through our Morocco operations, Polaris Global Energie SARL.",
+    body: "Our India experience is complemented by an operating presence in Morocco and exposure to different engineering and project-delivery environments.",
   },
 ];
 
@@ -422,27 +474,27 @@ export const advantages = [
 // tightened for a scannable 4-up.
 export const trust = [
   {
-    title: "Engineering-led, not sales-led",
-    body: "Qualified electrical and structural engineers size every system on fit, backed by simulation, load analysis and performance modelling.",
+    title: "Engineering-led approach",
+    body: "Project decisions are supported by qualified technical teams, design reviews, simulation, structural analysis and performance modelling.",
   },
   {
-    title: "Built to Indian, EU & US standards",
-    body: "Design, HT evacuation and safety engineered to international benchmarks, the same discipline on every project, in every geography.",
+    title: "One standard, every project",
+    body: "A consistent approach to engineering, safety and quality, regardless of project size or location.",
   },
   {
-    title: "An investment-grade financial model",
-    body: "IRR, payback, depreciation, EBITDA impact and tax optimisation delivered as a core project output, not an afterthought.",
+    title: "Financial intelligence",
+    body: "We connect engineering choices to IRR, payback, cash flow, tariff exposure and long-term operating economics.",
   },
   {
-    title: "Accountable to year 25",
-    body: "One team from feasibility through the full 25-year O&M window, with SCADA monitoring and analytics, no orphaned assets.",
+    title: "Full lifecycle ownership",
+    body: "One point of responsibility from feasibility and design through construction, commissioning, monitoring and long-term support.",
   },
 ];
 
 // Careers page
 export const careers = {
   intro:
-    "Polaris is a small, engineering-led team delivering solar across India and Morocco. We hire people who want to own an outcome end to end, the financial model, the design, the build and the 25 years after it.",
+    "Polaris is a multidisciplinary, engineering-led team delivering energy projects across India and Morocco. We hire people who want to own an outcome end to end: the financial model, the design, the build and the long-term performance that follows.",
   roles:
     "Electrical and structural engineers, project managers, site engineers and energy analysts.",
   culture: [
@@ -506,17 +558,17 @@ export const projects = [
     model: "CAPEX",
     capacity: "1.25 MWp",
     generation: "16.5 lakh units / year",
-    savings: "≈ ₹12 lakh / year (€10K)",
+    savings: "₹12 lakh (approx. €10K)",
     status: "Commissioned",
     year: 2026,
     blurb:
-      "Zero-penetration mounting across multiple rooftop elevations, delivered inside a live pharma manufacturing facility with BESS-ready infrastructure.",
+      "Zero-penetration mounting across several roof levels and orientations, delivered inside a live manufacturing facility with future BESS integration in view.",
     highlights: [
-      "Engineered across multiple rooftop structures with varying elevations and orientations, optimising generation through advanced system design.",
-      "Implemented a zero-penetration mounting system, preserving roof integrity without any drilling or structural modifications.",
-      "Optimised DC and AC system architecture to minimise electrical losses while maximising long-term energy yield.",
-      "Delivered the project within a live manufacturing facility, maintaining uninterrupted plant operations while adhering to stringent industrial safety protocols.",
-      "Future-ready infrastructure engineered to support the integration of Battery Energy Storage Systems (BESS) as part of the client's long-term energy transition strategy.",
+      "Designed across several roof levels and orientations to make better use of the available area and generation potential.",
+      "Used a zero-penetration mounting system to preserve roof integrity without drilling or structural modification.",
+      "Planned the DC and AC system to reduce electrical losses and support consistent long-term generation.",
+      "Completed the work inside a live manufacturing facility while maintaining plant operations and industrial safety controls.",
+      "Kept future BESS integration in view while developing the electrical architecture.",
     ],
   },
   {
@@ -529,18 +581,17 @@ export const projects = [
     model: "CAPEX",
     capacity: "1.20 MWp",
     generation: "16 lakh units / year",
-    savings: "≈ ₹15–20 lakh / year (€14–18.5K)",
+    savings: "₹15–20 lakh (approx. €14K–18.5K)",
     status: "Commissioned",
     year: 2025,
     blurb:
-      "Executed for a US MNC under American safety standards, centralised inverter architecture across multiple non-uniform rooftops.",
+      "Delivered for a US-headquartered multinational under stringent safety and compliance requirements, with a centralised inverter architecture across non-uniform rooftops.",
     highlights: [
-      "Executed for a US-based MNC under strict American safety standards, ensuring global compliance in design and installation.",
-      "Engineered across multiple rooftops with varying orientations, optimising generation despite the non-uniform layout.",
-      "Designed a centralised inverter architecture, overcoming complex cable routing constraints while maintaining system efficiency.",
-      "Developed a precision cable routing and protection strategy aligned with high safety and plant safety protocols.",
-      "Ensured zero compromise on safety, performance and structural integrity in a live industrial environment.",
-      "Delivered a system engineered for long-term reliability, 25+ years lifecycle, with optimised performance.",
+      "Delivered for a US-headquartered multinational under stringent safety and compliance requirements.",
+      "Worked across multiple rooftops and orientations to make the best use of a non-uniform site layout.",
+      "Used a centralised inverter architecture to manage complex cable routing without compromising system efficiency.",
+      "Developed a clear cable-routing and protection plan for safe execution inside an operating facility.",
+      "Designed the system with long-term reliability and maintainability in mind.",
     ],
   },
   {
@@ -553,18 +604,18 @@ export const projects = [
     model: "CAPEX",
     capacity: "1.10 MWp",
     generation: "14.5 lakh units / year",
-    savings: "≈ ₹13.8 lakh / year (€12.8K)",
+    savings: "₹13.8 lakh (approx. €12.8K)",
     status: "Commissioned",
     year: 2025,
     blurb:
-      "Terrain engineering with partial rock excavation and 11 kV HT evacuation over 0.5 km, delivered in 85 days through the monsoon.",
+      "Controlled rock excavation, levelling and about 0.5 km of 11 kV HT evacuation, completed in 85 days despite heavy rainfall and a dust-intensive site.",
     highlights: [
-      "Carried out controlled terrain engineering, including partial rock excavation and land levelling, to make the site suitable for solar installation.",
-      "Engineered a site-specific layout and foundation strategy to ensure structural stability despite uneven and rugged land conditions.",
-      "Designed and executed 11 kV HT power evacuation over 0.5 km, enabling reliable grid injection from a remote plant location.",
-      "Installed dedicated HT transmission infrastructure with green poles, ensuring safe and compliant long-distance power transfer.",
-      "Delivered the project in a record timeline of 85 days, despite heavy rainfall, a remote/outskirt site and continuous operation within a dust-intensive stone-crusher environment.",
-      "Engineered the system for harsh industrial conditions, ensuring durability, reliability and long-term performance.",
+      "Prepared a difficult site through controlled rock excavation and land levelling before installation began.",
+      "Developed the layout and foundation approach around uneven and rugged ground conditions.",
+      "Designed and executed approximately 0.5 km of 11 kV HT evacuation for reliable grid connection.",
+      "Installed the dedicated HT transmission infrastructure required for safe long-distance power transfer.",
+      "Completed the project in 85 days despite heavy rainfall, remote-site logistics and a dust-intensive operating environment.",
+      "Selected and designed the system for durability in harsh industrial conditions.",
     ],
   },
   {
@@ -581,14 +632,14 @@ export const projects = [
     status: "Commissioned",
     year: 2025,
     blurb:
-      "Engineered for a high-dust mining environment with a robust 11 kV HT evacuation system, full execution in a record 45 days.",
+      "Designed for a high-dust mining environment with an 11 kV HT evacuation system, delivered from design to commissioning in a 45-day window.",
     highlights: [
-      "Engineered specifically for a mining environment with high dust concentration, ensuring long-term performance and minimal degradation.",
-      "Designed and executed a robust 11 kV HT evacuation system, enabling efficient power transmission over distance with minimal losses.",
-      "Implemented optimised cable sizing, routing and protection systems to ensure reliability across the extended transmission length.",
-      "Delivered complete project execution, design, installation and commissioning, in a record time of 45 days.",
-      "Engineered module layout and tilt optimisation to achieve a high generation yield despite challenging site conditions.",
-      "Integrated strong earthing and lightning protection systems for the open-land, mining-zone exposure.",
+      "Designed for a high-dust mining environment, with durability and long-term generation performance as key priorities.",
+      "Built an 11 kV HT evacuation system to move power efficiently over distance.",
+      "Sized and routed cables with protection and reliability across the full transmission route in mind.",
+      "Completed design, installation and commissioning in a 45-day window.",
+      "Adjusted module layout and tilt to improve generation under difficult site conditions.",
+      "Provided earthing and lightning protection suited to an exposed mining-site environment.",
     ],
   },
   {
@@ -605,13 +656,12 @@ export const projects = [
     status: "Commissioned",
     year: 2025,
     blurb:
-      "Advanced east-west racking on a large-height shed, maximising module density and evening out the daily generation profile.",
+      "East-west racking on a high shed roof to raise module density and spread generation more evenly through the day.",
     highlights: [
-      "Engineered a high-efficiency solar solution aligned with the facility's east-west orientation, optimising generation across the day.",
-      "Leveraged the large shed height to implement an advanced east-west racking design, enabling higher module density and improved energy yield.",
-      "Developed custom structural and layout engineering to maximise rooftop utilisation without compromising safety.",
-      "Achieved an optimised generation profile with better distribution of output, enhancing real-time energy utilisation.",
-      "Designed the system with a focus on performance stability, wind considerations and long-term structural reliability.",
+      "Designed around the facility's east-west orientation so generation is spread more effectively through the day.",
+      "Used the available shed height and roof geometry to increase module density through an east-west racking layout.",
+      "Developed the structural and layout design around the actual roof conditions, with safety kept as a primary constraint.",
+      "Focused on stable generation, wind loading and long-term structural performance.",
     ],
   },
   {
@@ -628,15 +678,14 @@ export const projects = [
     status: "Commissioned",
     year: 2025,
     blurb:
-      "Optimised module layout and tilt with strong earthing and lightning protection for an exposed industrial site.",
+      "A 1 MWp industrial rooftop solar plant delivered under the CAPEX model, and an important C&I credential in the Polaris portfolio.",
+    // TODO: replace with verified project-specific engineering, execution and
+    // performance details. The source deck repeated the Forcon Infra mining
+    // highlights on this page, so only location, year, model, type and
+    // capacity are confirmed.
     highlights: [
-      "Engineered specifically for a mining environment with high dust concentration, ensuring long-term performance and minimal degradation.",
-      "Designed and executed a robust 11 kV HT evacuation system, enabling efficient power transmission over distance with minimal losses.",
-      "Implemented optimised cable sizing, routing and protection systems to ensure reliability across the extended transmission length.",
-      "Delivered complete project execution, design, installation and commissioning, in a record time of 45 days.",
-      "Engineered module layout and tilt optimisation to achieve a high generation yield despite challenging site conditions.",
-      "Integrated strong earthing and lightning protection systems for the open-land, mining-zone exposure.",
-      "Achieved exceptional generation performance, validating design decisions under real-world harsh conditions.",
+      "1 MWp industrial rooftop solar installation, delivered under the CAPEX (asset ownership) model.",
+      "Completed in 2025 as part of the Polaris C&I portfolio in India.",
     ],
   },
   {
@@ -653,15 +702,14 @@ export const projects = [
     status: "Ongoing",
     year: 2026,
     blurb:
-      "Polaris's first international pilot, a Magnis-coated, zero-penetration structure engineered for bitumen-sheet roofing and coastal wind loads.",
+      "An early C&I reference for Polaris in Morocco: a zero-penetration, Magnis-coated structure engineered for bitumen-sheet roofing and coastal conditions.",
     imageCaption: "Indicative 3D render for visual representation only.",
     highlights: [
-      "Marking our first international pilot project in Morocco, establishing a strong foundation for global expansion.",
-      "Engineered a customised mounting structure specifically for bitumen-sheet roofing, addressing unique site constraints.",
-      "Implementing a high-grade Magnis-coated structure, ensuring superior corrosion resistance in coastal conditions.",
-      "Designed with a zero-penetration mounting system, eliminating roof-leakage risk and preserving roof integrity.",
-      "Optimised structural design to withstand wind loads and environmental conditions specific to the Tangier region.",
-      "Focused on long-term durability and performance, aligning with international engineering and safety standards.",
+      "An early C&I reference for Polaris in Morocco, showing the company's growing international footprint.",
+      "Developed a mounting approach around the bitumen-sheet roof and the site's specific constraints.",
+      "Specified Magnis-coated structural material to improve corrosion resistance in coastal conditions.",
+      "Used a zero-penetration mounting approach to reduce leakage risk and protect the roof.",
+      "Designed for the wind and environmental conditions of the Tangier region, with international safety and performance requirements in view.",
     ],
   },
 ];
@@ -699,50 +747,52 @@ export const clientLogos = [
 export const values = [
   {
     title: "Our purpose",
-    body: "To empower industrial enterprises with energy independence, so power is no longer a fluctuating cost, but a controlled, engineered advantage.",
+    body: "To give businesses greater control over their energy cost, supply and long-term performance.",
   },
   {
     title: "Our mission",
-    body: "To transform industrial energy volatility into a controlled financial asset through precision engineering, multi-asset structuring and long-term performance management.",
+    body: "To bring engineering, finance and execution together so energy investments deliver measurable business value.",
   },
   {
     title: "Our vision",
-    body: "To be the global benchmark for industrial energy engineering, defining how enterprises control, optimise and monetise their power infrastructure.",
+    body: "To build Polaris into a globally respected energy engineering company known for reliable projects and commercially sound solutions.",
   },
   {
     title: "Our philosophy",
-    body: "Energy as an asset. A roof is underutilised real estate. By combining Tier-1 engineering with financial modelling, we change the structure of a balance sheet, not just a utility bill.",
+    body: "Energy as an asset. A roof, a parcel of land, a load curve or a tariff can all create value when they are understood together. Our job is to turn that opportunity into a practical, investable energy solution.",
   },
 ];
 
 export const milestones = [
   {
-    year: 2015,
-    text: "Polaris Renewable Solutions is founded in Nashik, Maharashtra, entering the renewable energy sector to build market awareness.",
+    year: "2015–16",
+    title: "Foundation",
+    text: "Polaris Renewable Solutions enters the renewable energy sector and starts building its project and market base.",
   },
   {
-    year: 2017,
-    text: "Secured the first 200 W residential project and a 200 kW industrial project for Seven Hills Beverages (Bisleri).",
+    year: "2017",
+    title: "Industrial entry",
+    text: "The first major industrial solar project for Seven Hills Beverages (Bisleri) marks the move into C&I execution.",
   },
   {
-    year: 2018,
-    text: "Reached 1 MW of total installations.",
+    year: "2018",
+    title: "1 MW milestone",
+    text: "Cumulative installations cross the 1 MW mark.",
   },
   {
-    year: 2019,
-    text: "Crossed a cumulative 7 MW of installations across Maharashtra and Gujarat.",
+    year: "2019",
+    title: "Regional expansion",
+    text: "Cumulative installations reach approximately 7 MW across Maharashtra and Gujarat.",
   },
   {
-    year: 2023,
-    text: "Scaled to 20 MW of projects with a team of over 40 people.",
+    year: "2021–23",
+    title: "Scaling operations",
+    text: "The portfolio reaches approximately 20 MW and the team grows to more than 40 people.",
   },
   {
-    year: 2025,
-    text: "Expanded into Morocco as Polaris Global Energie SARL, initiating 3.10 MW of projects.",
-  },
-  {
-    year: 2026,
-    text: "Total projects crossed 100+ MW, adding 25 MW in the first half of the year alone.",
+    year: "2024–26",
+    title: "Integrated energy platform",
+    text: "The portfolio crosses 100 MW, utility-scale work expands and the group establishes an operating presence in Morocco.",
   },
 ];
 
@@ -756,8 +806,7 @@ export const founders = [
     photo: "/img/team/pushkar.jpg",
     linkedin: "https://www.linkedin.com/in/pushkar-panchakshari-b01116401/",
     bio: [
-      "Pushkar Panchakshari is CEO of Polaris Renewable Solutions Pvt. Ltd. and a Director of Polaris Global Energie SARL, Morocco. With 20+ years of experience spanning IT, education and manufacturing, including senior roles in finance, procurement and import-export operations, he brings a rigorous commercial foundation to the renewable energy sector.",
-      "At Polaris, he leads overall strategy, financial structuring, investor relations and international expansion. He has been instrumental in developing the company's CAPEX, OPEX, Group Captive and investor-driven solar models, positioning Polaris as a power cost optimisation partner for the C&I sector.",
+      "Leads Polaris' overall strategy, financial planning, investor relationships and international growth. His cross-sector experience supports the development of practical CAPEX, OPEX, captive and investor-led energy structures.",
     ],
   },
   {
@@ -767,8 +816,7 @@ export const founders = [
     photo: "/img/team/swapnil.jpg",
     linkedin: "https://www.linkedin.com/in/swapnil-tajanpure-8953571ab/",
     bio: [
-      "Swapnil Tajanpure is Director, Technical & Operations at Polaris Renewable Solutions, and oversees technical execution for the company's Morocco operations through Polaris Global Energie SARL.",
-      "An electrical engineer by training, he has led the design and commissioning of 100 MW+ of solar infrastructure since founding the company in 2014–15. He is responsible for engineering standards, safety protocols aligned with US, European and Indian benchmarks, and the technical architecture that ensures every Polaris system performs across its full 25-year lifecycle.",
+      "Leads engineering standards, technical planning, project execution and commissioning, with a focus on safety, performance, maintainability and long asset life.",
     ],
   },
   {
@@ -778,8 +826,7 @@ export const founders = [
     photo: "/img/team/kunwar.jpg",
     linkedin: "https://www.linkedin.com/in/gunpreet-gujral-334255102/",
     bio: [
-      "Kunwar Gujral leads Sales & Marketing at Polaris Renewable Solutions and serves as Director of its Morocco subsidiary, Polaris Global Energie SARL. He holds a dual postgraduate degree from Deakin University, Australia, an MBA in Marketing and a Master's in Information Systems, and brings over three years of hands-on experience from the Australian solar sector.",
-      "At Polaris, he drives commercial strategy across India and Morocco, specialising in energy cost optimisation solutions for the C&I segment across CAPEX, OPEX, Open Access and Group Captive frameworks.",
+      "Leads client relationships and commercial strategy across India and Morocco, helping customers turn complex energy requirements into clear and workable solutions.",
     ],
   },
 ];
@@ -789,85 +836,93 @@ export const leadership = [
     name: "CA Archana Choudhary",
     role: "Principal Advisor, Finance",
     photo: "/img/team/archana.jpg",
-    bio: "Chartered Accountant with deep expertise in project finance, tax structuring and capital planning; drives the financial rigour behind every investment proposal.",
+    bio: "Brings project-finance, tax-structuring and capital-planning experience to project evaluation and investment proposals.",
   },
   {
     name: "Adv. Prathamesh Kashikar",
     role: "Chief Legal Counsel",
     photo: "/img/team/prathamesh.jpg",
-    bio: "Legal strategist across commercial contracts, regulatory compliance and energy-sector law; ensures every engagement is structurally sound and fully compliant.",
+    bio: "Advises on commercial contracts, regulatory compliance and legal risk across projects and partnerships.",
   },
   {
     name: "Nilesh Zambre",
     role: "Principal Partner, Strategy",
     photo: "/img/team/nilesh.jpg",
-    bio: "Shapes Polaris's market positioning, business development and long-term growth roadmap with a sharp commercial lens on every client engagement.",
+    bio: "Supports market positioning, business development and long-term growth planning, with a focus on aligning energy opportunities with client business priorities.",
   },
   {
     name: "Sushil Kakad",
     role: "Associate Partner, HT Power Infrastructure",
     photo: "/img/team/sushil.jpg",
-    bio: "High-tension power specialist in grid connectivity, substation design and industrial electrical systems; leads the technical backbone of large-scale projects.",
+    bio: "Brings specialist experience in grid connectivity, substations and high-tension industrial electrical infrastructure.",
   },
   {
     name: "Sameer Sonawane",
     role: "Associate, Brand & Growth Strategy",
     photo: "/img/team/sameer.jpg",
-    bio: "Communications leader building the Polaris brand across markets, translating engineering value into narratives that resonate with industrial decision-makers.",
+    bio: "Leads brand and communication strategy, helping translate technical and commercial capability into clear communication for industrial and institutional audiences.",
   },
 ];
 
 // "The Solar Opportunity", the C&I case for structured solar
 export const opportunity = {
   intro:
-    "For industrial enterprises, structured renewable-energy adoption is no longer philosophical, it is mathematical. Commercial & industrial tariffs in India have risen 6–8% a year for a decade, and every point compresses margins for energy-intensive industry.",
+    "For industrial and commercial businesses, power cost and reliability have a direct impact on margins and operations. At the same time, expansion plans, decarbonisation goals and more complex power-procurement options are making energy decisions harder. The question is no longer simply whether to install solar, but how to build an energy plan that works technically and financially.",
   drivers: [
     {
-      title: "Rising grid tariffs",
-      body: "C&I electricity tariffs have climbed 6–8% annually, with further increases projected under the new Electricity Act framework.",
+      title: "Cost competitiveness",
+      body: "For many industrial facilities, electricity is one of the largest recurring operating costs. Renewable energy can lower long-term exposure to tariff increases and make power costs more predictable.",
     },
     {
-      title: "Carbon regulation pressure",
-      body: "India's Carbon Credit Trading Scheme and global supply-chain requirements are pushing manufacturers to prove measurable carbon reduction. Solar is the most bankable proof point.",
+      title: "Industrial decarbonisation",
+      body: "Customers, investors and global supply chains increasingly expect visible progress on energy-related emissions. Renewable energy gives businesses a practical way to reduce and track that impact.",
     },
     {
-      title: "Grid vulnerability",
-      body: "The industrial grid remains exposed to demand-side volatility and power-quality fluctuations, a hidden operational cost most enterprises underestimate.",
+      title: "Energy resilience",
+      body: "Peak demand, outages, power-quality issues and dependence on a single source of supply can all affect operations. Solar, storage and grid infrastructure work best when they are planned together.",
     },
     {
-      title: "A unique window",
-      body: "Module prices are at historic lows while PM-KUSUM incentives, accelerated depreciation and ISTS charge waivers remain in force.",
+      title: "Scale & complexity",
+      body: "As projects move from rooftops to multi-megawatt captive and utility-scale plants, coordination becomes more important across engineering, land, grid, finance, construction and long-term operation.",
+    },
+    {
+      title: "Integrated energy systems",
+      body: "Industrial energy is moving beyond solar alone. The stronger solutions combine generation, storage, power procurement, grid infrastructure, controls, data and finance around the needs of the site.",
+    },
+    {
+      title: "Global execution standards",
+      body: "Industrial clients expect strong local execution, but they also expect engineering, safety and quality practices that stand up to international scrutiny.",
     },
   ],
   financials: [
     {
-      metric: "Simple payback",
-      value: "3.5–7 years",
-      note: "for well-structured industrial solar",
+      metric: "Energy cost reduction",
+      value: "True landed cost",
+      note: "Grid power, on-site solar, open access, captive supply and storage compared together, not solar in isolation.",
     },
     {
-      metric: "IRR",
-      value: "18–28%",
-      note: "annualised, by system size and tariff band",
+      metric: "IRR & payback",
+      value: "Realistic returns",
+      note: "Modelled on realistic assumptions for investment, generation, tariff escalation, finance, tax and operating costs.",
     },
     {
-      metric: "NPV",
-      value: "Positive from Year 1",
-      note: "in most C&I deployments",
+      metric: "Cash-flow impact",
+      value: "Fit to the balance sheet",
+      note: "CAPEX, OPEX / RESCO, captive, lease and financing options weighed against cash-flow priorities.",
     },
     {
-      metric: "Accelerated depreciation",
-      value: "Up to 40% in Year 1",
-      note: "under Indian IT provisions",
+      metric: "Demand & tariff",
+      value: "Load and tariff fit",
+      note: "Demand charges, Time-of-Day exposure and load patterns reviewed to see where solar and storage help.",
     },
     {
-      metric: "Electricity cost savings",
-      value: "≈ 80% below grid",
-      note: "predictable over a 25-year asset life",
+      metric: "Lifecycle value",
+      value: "Beyond commissioning",
+      note: "Designed for long-term generation, maintainability, monitoring and reliability, not just day-one output.",
     },
   ],
   context:
-    "India's installed solar capacity crossed 80 GW in 2024, with a national target of 500 GW of renewable capacity by 2030. The C&I segment is the fastest-growing sub-sector, driven by financial logic as much as sustainability mandates.",
+    "We help businesses see the full picture: what they consume, what they pay, what they can generate or store, and which investment structure gives them the strongest long-term result. Our job is to give management a clear techno-commercial comparison of the available options before capital is committed.",
 };
 
 export const insights = [
@@ -888,14 +943,14 @@ export const insights = [
       {
         heading: "The two poles",
         paragraphs: [
-          "Under CAPEX, you invest in and fully own the plant. It's the highest-IRR route over the asset's life, it qualifies for accelerated depreciation, and you keep complete control of the energy cost curve, but it uses your capital and your balance sheet.",
-          "Under OPEX / RESCO, Polaris invests, installs and operates the plant. You pay only for the energy consumed, at a pre-agreed tariff typically well below grid rates, commonly around 80% below grid, predictable across a 25-year asset life. There's no upfront investment and no operational responsibility, but you don't capture the full economics an owned asset would deliver.",
+          "Under CAPEX, you invest in and fully own the plant. It's the route that lets you capture the long-term savings directly, it brings depreciation and tax treatment into the picture, and you keep control of the asset, but it uses your capital and your balance sheet.",
+          "Under OPEX / RESCO, the plant is financed and operated by a third party and you pay for the power it supplies under an agreed commercial framework, subject to project bankability and contract terms. Upfront investment is low or zero, and day-to-day operation sits with the provider, but you don't capture the full economics an owned asset would deliver.",
         ],
       },
       {
         heading: "What the numbers actually say",
         paragraphs: [
-          "For well-structured industrial solar, simple payback typically runs 3.5–7 years, with annualised IRR in the 18–28% range depending on system size and tariff band. Under Indian income-tax provisions, accelerated depreciation of up to 40% in Year 1 is available, which is what pulls CAPEX's effective payback in sharply for enterprises with the taxable profit to absorb it. NPV is positive from Year 1 in most C&I deployments under either structure; the difference is who's holding that NPV on their books.",
+          "Payback, IRR and cash-flow outcomes depend on system size, tariff, finance terms, tax position and operating cost, which is why we model them for each site rather than quote a single figure. Depreciation and tax impact can shift the picture materially for a business with the profit to absorb it, and tariff escalation matters more the longer the horizon. Whichever structure you choose, the difference comes down to who carries the investment, who captures the savings and how that shows up on your books.",
         ],
       },
       {
@@ -907,7 +962,7 @@ export const insights = [
       {
         heading: "How we help clients decide",
         paragraphs: [
-          "We don't lead with a structure, we lead with a financial model. Every Polaris engagement starts with load analysis and generation simulation against your actual consumption, then an investment-grade model covering IRR, payback, depreciation and year-by-year cash flow for each route that fits your books. The structure follows the numbers, not the other way round, and the same team that builds the case stays accountable for it through commissioning and 25 years of operation.",
+          "We don't lead with a structure, we lead with a financial model. Every Polaris engagement starts with your load profile and site conditions, then a techno-commercial comparison covering IRR, payback, depreciation, tax impact and cash flow for each route that fits your books. The structure follows the numbers, not the other way round, and the same team that builds the case stays accountable for it through commissioning and into long-term operation.",
         ],
       },
     ],
@@ -919,27 +974,27 @@ export const insights = [
     date: "2025-11-12",
     category: "Advisory",
     excerpt:
-      "IRR, payback, NPV and EBITDA impact, the five numbers that should decide an industrial solar investment, and the assumptions behind each.",
+      "IRR, payback, NPV, tax impact and energy cost reduction, the five measures that should decide an industrial solar investment, and the assumptions behind each.",
     body: [
       {
         paragraphs: [
-          "Most solar proposals lead with the wrong number. A rupee-per-watt price or a headline capacity figure tells you almost nothing about whether the investment makes financial sense. A proposal built to survive a CFO's review leads with five numbers instead, and is explicit about the assumptions behind each one.",
+          "Most solar proposals lead with the wrong number. A rupee-per-watt price or a headline capacity figure tells you almost nothing about whether the investment makes financial sense. A proposal built to survive a CFO's review leads with five measures instead, and is explicit about the assumptions behind each one.",
         ],
       },
       {
-        heading: "The five numbers",
+        heading: "The five measures",
         paragraphs: [
-          "IRR, the annualised return the project generates, typically 18–28% for well-structured C&I solar depending on system size and tariff band.",
-          "Simple payback, how long before cumulative savings recover the investment; 3.5–7 years is the normal range for industrial systems.",
-          "NPV, the project's value in today's rupees once future cash flows are discounted; it should be positive from Year 1 in most C&I deployments.",
-          "Accelerated depreciation, under Indian income-tax provisions, up to 40% of the asset's value can be depreciated in Year 1, materially improving after-tax cash flow for enterprises with the profit to absorb it.",
-          "Electricity cost savings, the predictable line, typically around 80% below grid tariffs, sustained across the asset's full 25-year life.",
+          "IRR, the annualised return the project generates, modelled on realistic assumptions for investment, generation, tariff escalation, finance, tax and operating costs.",
+          "Simple payback, how long before cumulative savings recover the investment, compared across CAPEX, OPEX / RESCO, captive and lease structures.",
+          "NPV, the project's value in today's rupees once future cash flows are discounted, which is what lets different structures be compared fairly.",
+          "Depreciation and tax impact, which can materially change after-tax cash flow for an owned asset and should be assessed against your own tax position.",
+          "Energy cost reduction, the true landed cost of grid power, on-site solar, open access, captive supply and storage compared side by side rather than solar in isolation.",
         ],
       },
       {
         heading: "The assumptions behind each",
         paragraphs: [
-          "Every one of those five numbers is only as good as the generation estimate underneath it. Ask what degradation curve the model assumes, what tariff escalation it's pricing in, and, most importantly, how the generation figure was derived. A model built on a genuine load analysis and site-specific simulation, not a regional average, is the difference between a plant that tracks its estimate within a couple of percentage points and one that quietly underperforms for 25 years.",
+          "Every one of those five measures is only as good as the generation estimate underneath it. Ask what degradation curve the model assumes, what tariff escalation it's pricing in, and, most importantly, how the generation figure was derived. A model built on a genuine load analysis and site-specific simulation, not a regional average, is the difference between a plant that tracks its estimate and one that quietly underperforms for years.",
         ],
       },
       {
@@ -951,15 +1006,15 @@ export const insights = [
       {
         heading: "What we build instead",
         paragraphs: [
-          "Every Polaris proposal is an investment-grade financial model before it's anything else, IRR, payback, depreciation and cash flow, reviewed and signed off before design begins. The same model is what the operating team is held to for the full 25-year life of the asset.",
+          "Every Polaris proposal starts from a decision-grade techno-commercial comparison, IRR, payback, depreciation and cash flow, so management can see the options clearly before capital is committed. The same thinking carries into monitoring, O&M and performance support after commissioning.",
         ],
       },
     ],
   },
   {
-    slug: "engineering-for-25-year-uptime",
+    slug: "engineering-for-long-term-uptime",
     image: "/img/solar-rooftop.jpg",
-    title: "Engineering for 25-year uptime, not 25-month payback",
+    title: "Engineering for long-term uptime, not just a quick payback",
     date: "2025-09-03",
     category: "Engineering",
     excerpt:
@@ -967,31 +1022,31 @@ export const insights = [
     body: [
       {
         paragraphs: [
-          "A solar system can hit an attractive headline payback number and still be a poor asset. Payback measures the first few years; the engineering decisions made at design stage determine whether the other twenty-plus hold up. The gap between those two timeframes is where most underperforming installations are born.",
+          "A solar system can hit an attractive headline payback number and still be a poor asset. Payback measures the first few years; the engineering decisions made at design stage determine whether the years after that hold up. The gap between those two timeframes is where most underperforming installations are born.",
         ],
       },
       {
         heading: "The roof is not a formality",
         paragraphs: [
-          "On a live pharmaceutical manufacturing facility, we've delivered zero-penetration mounting across multiple rooftop elevations, no roof punctures, no warranty conflict with the building owner, engineered with BESS-ready infrastructure for a future addition. On a coastal Morocco pilot, the same zero-penetration principle was re-engineered for bitumen-sheet roofing and coastal wind loads, with a Magnis-coated structure to resist the salt-air environment. Same discipline, different site physics.",
+          "On a live manufacturing facility, we've delivered zero-penetration mounting across several roof levels and orientations, with no drilling or structural modification to the roof and the electrical architecture developed with future BESS integration in view. On a rooftop in Morocco, the same zero-penetration principle was re-engineered for bitumen-sheet roofing and coastal conditions, with a Magnis-coated structure for corrosion resistance. Same discipline, different site physics.",
         ],
       },
       {
         heading: "Terrain and HT evacuation aren't afterthoughts",
         paragraphs: [
-          "A ground-mounted plant for a stone-crushing operation required partial rock excavation and an 11 kV HT evacuation run over half a kilometre, engineered and commissioned in 85 days, through the monsoon. A separate ground-mount for a mining client needed a robust structure for a high-dust environment plus its own 11 kV HT evacuation system, delivered in 45 days. Neither of those numbers is a marketing claim about speed; they're a consequence of getting the terrain and evacuation engineering right the first time, so construction doesn't stall on a redesign.",
+          "A ground-mounted plant for a stone-crushing operation required partial rock excavation and an 11 kV HT evacuation run over half a kilometre, completed in 85 days despite heavy rainfall. A separate ground-mount in a high-dust mining environment needed its own 11 kV HT evacuation system and was designed, installed and commissioned in a 45-day window. Those timelines are a consequence of getting the terrain and evacuation engineering right the first time, so construction doesn't stall on a redesign.",
         ],
       },
       {
         heading: "Standards that don't change by postcode",
         paragraphs: [
-          "Structural loading, HT evacuation and safety design are engineered to Indian, EU and US benchmarks on every project we deliver, in India or in Morocco. It's the same reviewing discipline applied to a rooftop in Nashik and a pilot in Tangier, because a 25-year asset has to survive whichever jurisdiction's inspector, insurer or lender looks at it next.",
+          "Engineering and design are aligned with applicable Indian and internationally recognised codes and practices on every project we deliver, in India or in Morocco. It's the same reviewing discipline applied to a rooftop in India and one in Tangier, because the asset has to stand up to whichever inspector, insurer or lender looks at it next.",
         ],
       },
       {
         heading: "The engineering doesn't stop at commissioning",
         paragraphs: [
-          "SCADA monitoring, generation analytics and a preventive maintenance schedule are what keep a well-engineered system performing to its modelled output for the full 25 years, with the same team that built the financial case staying accountable for the numbers it produces. That's the difference between an asset and an orphaned installation: someone is still responsible for it in year twenty.",
+          "SCADA monitoring, alarms and equipment-health tracking, plus preventive maintenance and ongoing analysis, are what keep a well-engineered system performing as designed. For us, handover is not the end of the project; it is the start of the operating life of the asset, and someone stays responsible for it.",
         ],
       },
     ],
@@ -1025,13 +1080,13 @@ export const insights = [
       {
         heading: "The landed-tariff maths",
         paragraphs: [
-          "The number that actually matters is landed cost: generation cost, plus wheeling and transmission charges, plus any applicable cross-subsidy surcharge, compared against the grid tariff the facility pays today. Done well, that comparison is what delivers the roughly 80% below-grid savings figure that well-structured C&I solar can sustain, predictably, across a 25-year asset life, because the underlying generation cost doesn't move the way grid tariffs do.",
+          "The number that actually matters is landed cost: generation cost, plus wheeling and transmission charges, plus any applicable cross-subsidy surcharge, compared against the grid tariff the facility pays today. Done well, that comparison shows where off-site renewable power genuinely lowers landed cost, and by how much, so the decision rests on the numbers for your load rather than a headline saving.",
         ],
       },
       {
         heading: "Where this fits our solutions",
         paragraphs: [
-          "Our Open Access & Group Captive structures cover large-scale energy sourcing, the equity participation the regulation requires, multi-location power allocation across a client's sites, and compliance with the captive-status rules that make the whole structure work. It's the route we recommend most often to manufacturers with multiple facilities and a load too large, or too dispersed, for rooftop CAPEX alone.",
+          "Our Open Access and Group Captive structures cover off-site power sourcing at scale and co-investment arrangements that combine long-term renewable energy sourcing with captive-power regulations, always compared against on-site solar and grid supply. It's the route we recommend most often to manufacturers with multiple facilities and a load too large, or too dispersed, for rooftop CAPEX alone.",
         ],
       },
     ],

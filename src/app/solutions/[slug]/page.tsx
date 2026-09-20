@@ -72,7 +72,7 @@ export default async function OfferingDetail({
         <div className="grid gap-14 lg:grid-cols-[0.9fr_1.1fr]">
           <div>
             <h2 className="text-sm font-semibold uppercase tracking-[0.15em] text-brand-strong">
-              What this covers
+              {offering.pointsHeading ?? "What this covers"}
             </h2>
             <ul className="mt-6 space-y-5">
               {offering.points.map((p) => (
@@ -85,6 +85,24 @@ export default async function OfferingDetail({
                 </li>
               ))}
             </ul>
+            {offering.extra && (
+              <>
+                <h2 className="mt-12 text-sm font-semibold uppercase tracking-[0.15em] text-brand-strong">
+                  {offering.extra.heading}
+                </h2>
+                <ul className="mt-6 space-y-5">
+                  {offering.extra.items.map((p) => (
+                    <li
+                      key={p}
+                      className="flex gap-3 text-[15px] leading-relaxed text-ink-soft"
+                    >
+                      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand" />
+                      <span>{p}</span>
+                    </li>
+                  ))}
+                </ul>
+              </>
+            )}
           </div>
 
           {related.length > 0 && (
@@ -170,7 +188,7 @@ export default async function OfferingDetail({
         <div className="bg-[#FAFBF6]">
           <Section>
             <h2 className="text-2xl font-semibold tracking-tight text-ink sm:text-3xl">
-              The numbers behind the model
+              How we build the business case
             </h2>
             <dl className="mt-10 grid grid-cols-2 gap-x-6 gap-y-10 border-t border-ink/10 pt-8 sm:grid-cols-3 lg:grid-cols-5 lg:gap-x-0">
               {opportunity.financials.map((f) => (
@@ -195,7 +213,7 @@ export default async function OfferingDetail({
             </dl>
             <div className="mt-8">
               <ArrowLink href="/sustainability">
-                See the full financial case
+                See the full business case
               </ArrowLink>
             </div>
           </Section>

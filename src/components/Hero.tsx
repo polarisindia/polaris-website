@@ -114,8 +114,8 @@ export function Hero() {
         </h1>
 
         <p className="mt-8 max-w-xl text-base text-white/80 sm:text-2xl">
-          Solar EPC and energy-engineering for industrial enterprises, across
-          India and Morocco.
+          Energy engineering for Commercial &amp; Industrial and Utility-Scale
+          projects, across India and Morocco.
         </p>
 
         <div className="mt-10 flex flex-wrap items-center justify-center gap-3">

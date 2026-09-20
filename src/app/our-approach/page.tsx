@@ -10,7 +10,7 @@ import { process as deliverySteps, glance } from "@/lib/content";
 export const metadata: Metadata = {
   title: "Our Approach",
   description:
-    "How Polaris delivers industrial solar: an investment-grade financial model, in-house engineering, single-point EPC execution and 25-year accountable O&M.",
+    "How Polaris delivers energy projects: assessment and financial modelling, engineering and procurement, construction and commissioning, then monitoring and O&M under one accountable team.",
 };
 
 // A fuller telling of each step than the homepage carousel's one-liner —
@@ -19,38 +19,38 @@ export const metadata: Metadata = {
 const stepDetails: { intro: string; points: string[] }[] = [
   {
     intro:
-      "Before any equipment is specified, we run a full load analysis and generation simulation against your actual consumption profile, not a generic template. The output is an investment-grade financial model, built for whichever structure fits your balance sheet.",
+      "Every project starts with how the facility actually uses energy. We review load, tariff, site constraints, structural condition and operating priorities, then compare technical options, commercial models and expected returns before deciding the project structure.",
     points: [
-      "IRR, simple payback, depreciation schedule and year-by-year cash flow, modelled before design begins",
-      "Structured for CAPEX, OPEX/RESCO, lease or group-captive, whichever route suits your books",
-      "Every number reviewed and signed off before a rupee is committed",
+      "Energy & site assessment: load, tariff, site constraints, structural condition and operating priorities",
+      "Feasibility & financial modelling: technical options, commercial models and expected returns compared",
+      "A clear techno-commercial comparison of the available options before capital is committed",
     ],
   },
   {
     intro:
-      "In-house electrical and structural engineers, not a sales team with a datasheet, size every system on physical fit and yield, not on margin. The same discipline applies whether the site is in Maharashtra or Casablanca.",
+      "Structural, electrical and energy-yield design is developed around actual site conditions, and technology is chosen for the project, not for a brand. Project decisions are supported by design reviews, simulation, structural analysis and performance modelling.",
     points: [
-      "Structural loading, HT evacuation and safety engineered to Indian, EU and US benchmarks",
-      "Design reviewed against site-specific constraints, roof condition, shading, terrain, monsoon exposure",
-      "Tier-1 equipment specified for fit, never for a brand incentive",
+      "Structural, electrical and energy-yield design built around actual site conditions",
+      "Tier-1 technology chosen on project fit, performance, warranty, service support and long-term value",
+      "Engineering aligned with applicable Indian and internationally recognised codes and practices",
     ],
   },
   {
     intro:
-      "Procurement, construction and commissioning run under one accountable team, no hand-offs between a design contractor, a separate EPC vendor and a third-party O&M provider. It's the same people from mobilisation to switch-on.",
+      "Execution is managed with clear project controls, safety systems and QA/QC, including coordination around live operations where required. The same team then tests the protection systems, electrical systems, generation and grid interface, and closes out documentation properly.",
     points: [
-      "Most commercial & industrial plants energised in 45–90 days",
-      "Single point of contact through procurement, construction and commissioning",
-      "Every handover checked against the original financial model, not just the drawing",
+      "Project controls, safety systems, QA/QC and coordination around live operations where required",
+      "Protection systems, electrical systems, generation and the grid interface tested before handover",
+      "Documented handover and commissioning records",
     ],
   },
   {
     intro:
-      "The relationship doesn't end at commissioning. SCADA monitoring, generation analytics and a preventive maintenance schedule keep every system performing to its modelled output for its full asset life.",
+      "For us, handover is not the end of the project; it is the start of the operating life of the asset. SCADA monitoring, preventive maintenance and ongoing analysis keep the plant performing, with one accountable point of responsibility for long-term support.",
     points: [
-      "Real-time SCADA monitoring and generation analytics for every plant",
-      "Preventive maintenance scheduled across the full 25-year asset life",
-      "The team that built the financial case stays accountable for it, no orphaned systems",
+      "SCADA monitoring of generation, alarms, equipment health and operating performance",
+      "Preventive maintenance, issue response and ongoing analysis",
+      "Performance optimisation and long-term support after commissioning",
     ],
   },
 ];
@@ -66,15 +66,16 @@ export default function OurApproachPage() {
           </Reveal>
           <RevealText
             as="h1"
-            text="One accountable team, from the financial model to year 25."
+            text="One accountable team, from first assessment to long-term performance."
             className="mt-6 block max-w-3xl text-4xl font-semibold leading-[1.08] tracking-tight text-ink sm:text-[3.25rem]"
           />
           <Reveal variant="up" delay={90}>
             <p className="mt-5 max-w-2xl text-lg leading-relaxed text-ink-soft">
-              Every Polaris project runs through the same four-stage discipline,
-              modelled before it&apos;s engineered, engineered before it&apos;s
-              built, and operated by the same team that signed off the numbers.
-              No hand-offs, no orphaned systems.
+              Every Polaris project follows the same four-stage discipline:
+              assessed and modelled before it&apos;s engineered, engineered
+              before it&apos;s built, and supported after commissioning by the
+              same team. One point of responsibility from feasibility to
+              long-term support.
             </p>
           </Reveal>
         </div>

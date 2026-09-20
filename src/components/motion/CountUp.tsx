@@ -8,7 +8,7 @@ import { GSAP_EASE, prefersReducedMotion } from "@/lib/motion";
  *  "93,000 t" -> {prefix:"", value:93000, decimals:0, suffix:" t"} */
 function parse(raw: string) {
   const m = raw.match(/^(\D*)([\d,]+(?:\.\d+)?)(.*)$/);
-  if (!m) return { prefix: "", value: 0, decimals: 0, suffix: raw };
+  if (!m) return { prefix: "", value: 0, decimals: 0, suffix: raw, plain: true };
   const numStr = m[2].replace(/,/g, "");
   const decimals = numStr.includes(".") ? numStr.split(".")[1].length : 0;
   return {
@@ -16,6 +16,7 @@ function parse(raw: string) {
     value: parseFloat(numStr),
     decimals,
     suffix: m[3],
+    plain: false,
   };
 }
 
@@ -29,12 +30,16 @@ export function CountUp({
   duration?: number;
 }) {
   const ref = useRef<HTMLSpanElement>(null);
-  const { prefix, value: target, decimals, suffix } = parse(value);
+  const parsed = parse(value);
+  const { prefix, value: target, decimals, suffix } = parsed;
+  // Text ("India + Morocco") and bare years ("2015") aren't quantities:
+  // render them as-is rather than counting up.
+  const plain = parsed.plain || /^\d{4}$/.test(value.trim());
   const [display, setDisplay] = useState(0);
 
   useEffect(() => {
     const el = ref.current;
-    if (!el) return;
+    if (!el || plain) return;
 
     if (prefersReducedMotion()) {
       setDisplay(target);
@@ -90,7 +95,15 @@ export function CountUp({
       window.clearInterval(rescue);
       window.clearTimeout(stopRescue);
     };
-  }, [target, duration]);
+  }, [target, duration, plain]);
+
+  if (plain) {
+    return (
+      <span ref={ref} className={className}>
+        {value}
+      </span>
+    );
+  }
 
   return (
     <span ref={ref} className={className}>

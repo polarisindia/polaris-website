@@ -10,7 +10,7 @@ import { opportunity } from "@/lib/content";
 export const metadata: Metadata = {
   title: "The case for solar",
   description:
-    "For industrial enterprises, structured solar is no longer philosophical, it is mathematical. The financial and carbon case, and the metrics Polaris applies.",
+    "Energy is now a business decision, not just a utility bill. The forces behind it, and how Polaris looks at engineering and economics together.",
 };
 
 /* ---------- flat illustrations, same family as the homepage icons ---------- */
@@ -23,7 +23,7 @@ const IL = {
 };
 
 const driverIcons: React.ReactNode[] = [
-  // Rising grid tariffs — upward bars
+  // Cost competitiveness — upward bars
   <svg viewBox="0 0 48 48" fill="none" key="tariffs" aria-hidden="true">
     <rect x="4" y="6" width="26" height="26" rx="6" fill={IL.pale} />
     <rect x="9" y="31" width="7" height="11" rx="2" fill={IL.dark} />
@@ -38,38 +38,41 @@ const driverIcons: React.ReactNode[] = [
     />
     <circle cx="39" cy="8" r="3" fill={IL.ink} />
   </svg>,
-  // Carbon regulation pressure — leaf
+  // Industrial decarbonisation — leaf
   <svg viewBox="0 0 48 48" fill="none" key="carbon" aria-hidden="true">
     <rect x="12" y="3" width="26" height="26" rx="6" fill={IL.pale} />
     <circle cx="24" cy="20" r="16" fill={IL.green} />
     <path d="M24 12 C16 16 16 26 24 32 C32 26 32 16 24 12Z" fill="#fff" />
     <path d="M24 12 V32" stroke={IL.green} strokeWidth="2" />
   </svg>,
-  // Grid vulnerability — broken bolt / warning
+  // Energy resilience — battery + bolt
   <svg viewBox="0 0 48 48" fill="none" key="grid" aria-hidden="true">
     <rect x="3" y="12" width="35" height="27" rx="6" fill={IL.pale} />
     <rect x="8" y="17" width="25" height="17" rx="3" fill={IL.green} />
     <rect x="38" y="20" width="6" height="11" rx="2" fill={IL.dark} />
     <path d="M23 14l-8 13h7l-3 9 10-14h-7z" fill={IL.ink} />
   </svg>,
-  // A unique window — clock
-  <svg viewBox="0 0 48 48" fill="none" key="window" aria-hidden="true">
+  // Scale & complexity — stacked layers
+  <svg viewBox="0 0 48 48" fill="none" key="scale" aria-hidden="true">
     <rect x="3" y="3" width="22" height="22" rx="7" fill={IL.pale} />
-    <circle cx="27" cy="27" r="17" fill={IL.green} />
-    <path
-      d="M27 16 V27 L35 32"
-      stroke="#fff"
-      strokeWidth="3.2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <circle cx="27" cy="27" r="3" fill={IL.ink} />
-    <path
-      d="M27 12 v3 M42 27 h-3 M27 42 v-3 M12 27 h3"
-      stroke={IL.dark}
-      strokeWidth="2.4"
-      strokeLinecap="round"
-    />
+    <path d="M27 12 L44 21 L27 30 L10 21 Z" fill={IL.dark} />
+    <path d="M10 27 L27 36 L44 27" stroke={IL.green} strokeWidth="5" strokeLinecap="round" strokeLinejoin="round" />
+    <path d="M10 34 L27 43 L44 34" stroke={IL.ink} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>,
+  // Integrated energy systems — linked nodes
+  <svg viewBox="0 0 48 48" fill="none" key="integrated" aria-hidden="true">
+    <rect x="3" y="4" width="26" height="26" rx="6" fill={IL.pale} />
+    <path d="M14 14 L34 22 L20 38" stroke={IL.dark} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+    <circle cx="14" cy="14" r="7" fill={IL.green} />
+    <circle cx="34" cy="22" r="7" fill={IL.ink} />
+    <circle cx="20" cy="38" r="7" fill={IL.green} />
+  </svg>,
+  // Global execution standards — globe
+  <svg viewBox="0 0 48 48" fill="none" key="standards" aria-hidden="true">
+    <rect x="4" y="4" width="24" height="24" rx="6" fill={IL.pale} />
+    <circle cx="26" cy="24" r="18" fill={IL.green} />
+    <path d="M8 24h36M26 6c6 6 6 30 0 36M26 6c-6 6-6 30 0 36" stroke="#fff" strokeWidth="2" fill="none" opacity="0.85" />
+    <circle cx="26" cy="24" r="4" fill={IL.ink} />
   </svg>,
 ];
 
@@ -84,7 +87,7 @@ export default function SustainabilityPage() {
           </Reveal>
           <RevealText
             as="h1"
-            text="No longer philosophical, mathematical."
+            text="Energy is now a business decision, not just a utility bill."
             className="mt-6 block max-w-3xl text-4xl font-semibold leading-[1.08] tracking-tight text-ink sm:text-[3.25rem]"
           />
           <Reveal variant="up" delay={90}>
@@ -136,9 +139,9 @@ export default function SustainabilityPage() {
 
       <Section>
         <SectionHeading
-          eyebrow="Drivers"
-          title="What is forcing the decision"
-          intro="Four pressures have turned the C&I solar question from an ESG initiative into a board-level financial one."
+          eyebrow="The strategic opportunity"
+          title="What is changing the decision"
+          intro="Six shifts are turning energy from a line on the utility bill into a business-planning question."
         />
         <div className="mt-14 grid gap-x-10 gap-y-12 sm:grid-cols-2">
           {opportunity.drivers.map((d, i) => (
@@ -159,7 +162,7 @@ export default function SustainabilityPage() {
 
       <div className="bg-[#FAFBF6]">
         <Section>
-          <SectionHeading eyebrow="Context" title="A national shift" />
+          <SectionHeading eyebrow="The business case" title="The full picture" />
           <Reveal variant="up" delay={80}>
             <p className="mt-8 max-w-3xl text-lg leading-relaxed text-ink-soft">
               {opportunity.context}

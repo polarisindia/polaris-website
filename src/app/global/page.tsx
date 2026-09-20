@@ -10,7 +10,7 @@ import { global, offices, projects } from "@/lib/content";
 export const metadata: Metadata = {
   title: "Polaris Global",
   description:
-    "Polaris Global Energie SARL, the same engineering-led, financially-modelled approach to industrial solar, delivered beyond India across Morocco and the wider MENA and African markets.",
+    "Built in India, growing internationally: Polaris Global Energie SARL brings the same engineering-led, commercially clear approach to Morocco and the wider MENA region.",
 };
 
 const moroccoOffice = offices.find((o) => o.name === "Morocco Office");
@@ -210,8 +210,8 @@ export default function GlobalPage() {
       {intlProject && (
         <Section>
           <SectionHeading
-            eyebrow="First international project"
-            title="Under execution now"
+            eyebrow="Morocco reference project"
+            title="Ongoing in Tangier"
           />
           <div className="mt-12 max-w-md">
             <ProjectCard project={intlProject} />
@@ -222,7 +222,7 @@ export default function GlobalPage() {
       {/* Why global */}
       <div className="bg-[#FAFBF6]">
         <Section>
-          <SectionHeading eyebrow="How it works" title="The model travels" />
+          <SectionHeading eyebrow="How it works" title="One approach, every market" />
           <div className="mt-14 grid gap-x-10 gap-y-12 md:grid-cols-3">
             {global.why.map((w, i) => (
               <Reveal as="article" key={w.title} delay={i * 70}>
