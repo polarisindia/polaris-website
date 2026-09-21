@@ -838,42 +838,52 @@ export const founders = [
 // than guessed at.
 export const team = [
   {
-    department: "Marketing, Sales & Business Development",
-    members: [
-      { name: "Vivek Bachke" },
-      { name: "Yogesh Dusane" },
-      { name: "Sandeep Lavate" },
+    title: "India Team",
+    departments: [
+      {
+        department: "Marketing, Sales & Business Development",
+        members: [
+          { name: "Vivek Bachke" },
+          { name: "Yogesh Dusane" },
+          { name: "Sandeep Lavate" },
+        ],
+      },
+      {
+        department: "Finance, Accounting & Compliance",
+        members: [{ name: "Archana Agaste" }, { name: "Rutuja Diwan" }],
+      },
+      {
+        department: "Operations & Regulatory Liaison",
+        members: [
+          { name: "Akshay Tajanpure" },
+          { name: "Ankush Shinde" },
+          { name: "Lalit Awari" },
+          { name: "Gajanan Ganore" },
+        ],
+      },
+      {
+        department: "Project Delivery & Procurement",
+        members: [
+          { name: "Mukesh Kumar" },
+          { name: "Abhishek Kolpe" },
+          { name: "Raosaheb Bhoye" },
+          { name: "Dnayneshwar Pardhe" },
+          { name: "Ameya Kadve" },
+          { name: "Mayur Patil" },
+          { name: "Vishal Dalvi" },
+          { name: "Sanket Kharat" },
+        ],
+      },
     ],
   },
   {
-    department: "Finance, Accounting & Compliance",
-    members: [{ name: "Archana Agaste" }, { name: "Rutuja Diwan" }],
-  },
-  {
-    department: "Operations & Regulatory Liaison",
-    members: [
-      { name: "Akshay Tajanpure" },
-      { name: "Ankush Shinde" },
-      { name: "Lalit Awari" },
-      { name: "Gajanan Ganore" },
+    title: "Morocco Team",
+    departments: [
+      {
+        department: "Strategic Growth & Business Development",
+        members: [{ name: "Khalid Belkiss" }, { name: "Tawfik Sellam" }],
+      },
     ],
-  },
-  {
-    department: "Project Delivery & Procurement",
-    members: [
-      { name: "Mukesh Kumar" },
-      { name: "Abhishek Kolpe" },
-      { name: "Raosaheb Bhoye" },
-      { name: "Dnayneshwar Pardhe" },
-      { name: "Ameya Kadve" },
-      { name: "Mayur Patil" },
-      { name: "Vishal Dalvi" },
-      { name: "Sanket Kharat" },
-    ],
-  },
-  {
-    department: "Strategic Growth & Business Development",
-    members: [{ name: "Khalid Belkiss" }, { name: "Tawfik Sellam" }],
   },
 ];
 

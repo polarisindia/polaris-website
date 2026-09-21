@@ -373,36 +373,47 @@ export default function AboutPage() {
               A multidisciplinary team working across India and Morocco.
             </p>
           </Reveal>
-          <div className="mt-10 space-y-10">
-            {team.map((g) => (
-              <div key={g.department}>
+          <div className="mt-12 space-y-16">
+            {team.map((part) => (
+              <div key={part.title}>
                 <Reveal variant="fade">
-                  <h4 className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-strong">
-                    {g.department}
+                  <h4 className="border-b border-ink/10 pb-4 text-xl font-semibold tracking-tight text-[#26502e] sm:text-2xl">
+                    {part.title}
                   </h4>
                 </Reveal>
-                <ul className="mt-6 grid gap-x-8 gap-y-6 sm:grid-cols-2 lg:grid-cols-4">
-                  {g.members.map((m, i) => (
-                    <Reveal as="li" key={m.name} delay={(i % 4) * 50}>
-                      <div className="flex items-center gap-3">
-                        {/* photo placeholder: initials until real photos arrive */}
-                        <div
-                          aria-hidden="true"
-                          className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-brand-tint text-base font-semibold text-brand-strong"
-                        >
-                          {m.name
-                            .split(" ")
-                            .map((w) => w[0])
-                            .slice(0, 2)
-                            .join("")}
-                        </div>
-                        <h5 className="text-[15px] font-semibold tracking-tight text-ink">
-                          {m.name}
+                <div className="mt-10 space-y-10">
+                  {part.departments.map((g) => (
+                    <div key={g.department}>
+                      <Reveal variant="fade">
+                        <h5 className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-strong">
+                          {g.department}
                         </h5>
-                      </div>
-                    </Reveal>
+                      </Reveal>
+                      <ul className="mt-6 grid gap-x-8 gap-y-6 sm:grid-cols-2 lg:grid-cols-4">
+                        {g.members.map((m, i) => (
+                          <Reveal as="li" key={m.name} delay={(i % 4) * 50}>
+                            <div className="flex items-center gap-3">
+                              {/* photo placeholder: initials until real photos arrive */}
+                              <div
+                                aria-hidden="true"
+                                className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-brand-tint text-base font-semibold text-brand-strong"
+                              >
+                                {m.name
+                                  .split(" ")
+                                  .map((w) => w[0])
+                                  .slice(0, 2)
+                                  .join("")}
+                              </div>
+                              <h6 className="text-[15px] font-semibold tracking-tight text-ink">
+                                {m.name}
+                              </h6>
+                            </div>
+                          </Reveal>
+                        ))}
+                      </ul>
+                    </div>
                   ))}
-                </ul>
+                </div>
               </div>
             ))}
           </div>
