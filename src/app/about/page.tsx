@@ -396,14 +396,9 @@ export default function AboutPage() {
                             .slice(0, 2)
                             .join("")}
                         </div>
-                        <div>
-                          <h5 className="text-[15px] font-semibold tracking-tight text-ink">
-                            {m.name}
-                          </h5>
-                          <p className="text-sm leading-snug text-brand-strong">
-                            {m.location}
-                          </p>
-                        </div>
+                        <h5 className="text-[15px] font-semibold tracking-tight text-ink">
+                          {m.name}
+                        </h5>
                       </div>
                     </Reveal>
                   ))}

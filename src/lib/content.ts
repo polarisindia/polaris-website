@@ -840,47 +840,40 @@ export const team = [
   {
     department: "Marketing, Sales & Business Development",
     members: [
-      { name: "Vivek Bachke", location: "India" },
-      { name: "Yogesh Dusane", location: "India" },
-      { name: "Sandeep Lavate", location: "India" },
+      { name: "Vivek Bachke" },
+      { name: "Yogesh Dusane" },
+      { name: "Sandeep Lavate" },
     ],
   },
   {
     department: "Finance, Accounting & Compliance",
-    members: [
-      { name: "Archana Agaste", location: "India" },
-      { name: "Rutuja Diwan", location: "India" },
-    ],
+    members: [{ name: "Archana Agaste" }, { name: "Rutuja Diwan" }],
   },
   {
     department: "Operations & Regulatory Liaison",
     members: [
-      { name: "Akshay Tajanpure", location: "India" },
-      { name: "Ankush Shinde", location: "India" },
-      { name: "Lalit Awari", location: "India" },
-      { name: "Gajanan Ganore", location: "India" },
+      { name: "Akshay Tajanpure" },
+      { name: "Ankush Shinde" },
+      { name: "Lalit Awari" },
+      { name: "Gajanan Ganore" },
     ],
   },
   {
     department: "Project Delivery & Procurement",
     members: [
-      { name: "Mukesh Kumar", location: "India" },
-      { name: "Abhishek Kolpe", location: "India" },
-      { name: "Raosaheb Bhoye", location: "India" },
-      { name: "Dnayneshwar Pardhe", location: "India" },
-      { name: "Ameya Kadve", location: "India" },
-      { name: "Mayur Patil", location: "India" },
-      { name: "Vishal Dalvi", location: "India" },
-      { name: "Sanket Kharat", location: "India" },
+      { name: "Mukesh Kumar" },
+      { name: "Abhishek Kolpe" },
+      { name: "Raosaheb Bhoye" },
+      { name: "Dnayneshwar Pardhe" },
+      { name: "Ameya Kadve" },
+      { name: "Mayur Patil" },
+      { name: "Vishal Dalvi" },
+      { name: "Sanket Kharat" },
     ],
   },
   {
     department: "Strategic Growth & Business Development",
-    members: [
-      { name: "Khalid Belkiss", location: "Morocco" },
-      { name: "Tawfik Sellam", location: "Morocco" },
-      { name: "Hiba Oulkiss", location: "Morocco" },
-    ],
+    members: [{ name: "Khalid Belkiss" }, { name: "Tawfik Sellam" }],
   },
 ];
 
