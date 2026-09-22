@@ -2,7 +2,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { Reveal } from "./Reveal";
 import { ProcessRail } from "./ProcessRail";
-import Orb from "./Orb";
 import { CountUp } from "./motion/CountUp";
 import { ArrowLink, ArrowRight } from "./ui";
 import { RevealText } from "./RevealText";
@@ -420,25 +419,32 @@ export function ImpactBand() {
 
 export function BrandPromise() {
   return (
-    // same dark green as the orb panel, so the margin reads as one section
+    // same dark green as the photo's overlay, so the margin reads as one section
     <section className="bg-[#152a14] py-8 lg:py-12">
       <div className="relative isolate overflow-hidden bg-[#152a14]">
-        {/* full-bleed Orb backdrop on a dark ground, as in the React Bits demo */}
-        <div aria-hidden="true" className="absolute inset-0 -z-10">
-          <Orb
-            hue={109}
-            hoverIntensity={1.85}
-            rotateOnHover={false}
-            forceHoverState={false}
-            backgroundColor="#152a14"
-            className="absolute inset-0"
-          />
-        </div>
+        {/* full-bleed photo of a rooftop solar installation, with a dark
+            overlay so the white text stays legible over it */}
+        <Image
+          src="/img/energy-asset-bg.jpg"
+          alt="Aerial view of an industrial facility with a rooftop solar array."
+          fill
+          sizes="100vw"
+          className="-z-20 object-cover"
+        />
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 -z-10 bg-[#0a1f10]/75"
+        />
 
         <div className="container-px pointer-events-none relative mx-auto flex max-w-5xl flex-col items-center py-36 text-center lg:py-52">
+          <Reveal variant="fade">
+            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-white/70">
+              Philosophy
+            </p>
+          </Reveal>
           <RevealText
-            text="Engineering the bottom line."
-            className="block max-w-3xl text-[2.25rem] font-semibold leading-[1.08] tracking-tight text-white sm:text-[3rem]"
+            text="Energy as an asset."
+            className="mt-5 block max-w-3xl text-[2.25rem] font-semibold leading-[1.08] tracking-tight text-white sm:text-[3rem]"
           />
           <Reveal variant="up" delay={60}>
             <Link

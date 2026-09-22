@@ -177,53 +177,43 @@ export default function AboutPage() {
             className="mt-6 block max-w-3xl text-4xl font-semibold leading-[1.08] tracking-tight text-[#26502e] sm:text-[3.25rem]"
           />
           <Reveal variant="up" delay={90}>
-            <p className="mt-5 max-w-2xl text-lg leading-relaxed text-ink-soft">
-              Polaris Renewable Solutions Private Limited was founded in{" "}
-              {company.founded} and is headquartered in Nashik, Maharashtra. We
-              work with commercial, industrial and utility-scale customers
-              across India to design and deliver renewable energy systems that
-              are technically sound, commercially sensible and built for
-              long-term performance.
-            </p>
+            {/* the founders' note, folded into the first fold rather than
+                repeated lower down the page as a separate, overlapping
+                section */}
+            <div className="mt-5 max-w-3xl space-y-4 text-lg leading-relaxed text-ink-soft">
+              <p>
+                Polaris Renewable Solutions Private Limited was founded in{" "}
+                {company.founded} and is headquartered in Nashik, Maharashtra.
+                When we started, we were working around a straightforward idea:
+                businesses should have more control over what they pay for
+                power. Industrial customers were dealing with rising tariffs,
+                reliability issues and large capital decisions, often without
+                one partner looking at the technical and financial picture
+                together.
+              </p>
+              <p>
+                That is the gap we set out to address. We built Polaris as an
+                engineering-led company, but with an equally strong focus on
+                commercial outcomes. A solar plant has to generate as designed,
+                but it also has to justify the investment behind it.
+              </p>
+              <p>
+                Today, our work covers Commercial &amp; Industrial solar,
+                utility-scale projects, BESS, electrical infrastructure, project
+                finance support and energy optimisation. Our expansion into
+                Morocco through Polaris Global Energie SARL has also given us
+                experience across a wider range of project conditions, standards
+                and markets.
+              </p>
+              <p>
+                As we grow, our priorities remain simple: sound engineering,
+                practical commercial thinking, safe execution and long-term
+                accountability.
+              </p>
+            </div>
           </Reveal>
         </div>
       </section>
-
-      {/* Story */}
-      <Section>
-        <div className="grid gap-12 lg:grid-cols-[1fr_1.4fr]">
-          <SectionHeading title="A note from the founders" />
-          <div className="space-y-5 text-base leading-relaxed text-ink-soft">
-            <p>
-              When we started Polaris in 2015, we were working around a
-              straightforward idea: businesses should have more control over
-              what they pay for power. Industrial customers were dealing with
-              rising tariffs, reliability issues and large capital decisions,
-              often without one partner looking at the technical and financial
-              picture together.
-            </p>
-            <p>
-              That is the gap we set out to address. We built Polaris as an
-              engineering-led company, but with an equally strong focus on
-              commercial outcomes. A solar plant has to generate as designed,
-              but it also has to justify the investment behind it.
-            </p>
-            <p>
-              Today, our work covers Commercial &amp; Industrial solar,
-              utility-scale projects, BESS, electrical infrastructure, project
-              finance support and energy optimisation. Our expansion into
-              Morocco through Polaris Global Energie SARL has also given us
-              experience across a wider range of project conditions, standards
-              and markets.
-            </p>
-            <p>
-              As we grow, our priorities remain simple: sound engineering,
-              practical commercial thinking, safe execution and long-term
-              accountability.
-            </p>
-          </div>
-        </div>
-      </Section>
 
       {/* Milestones — a horizontal timeline, auto-scrolling (the
           client-logo marquee technique) instead of needing a manual swipe
