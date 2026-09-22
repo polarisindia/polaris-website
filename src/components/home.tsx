@@ -118,7 +118,7 @@ const illos: React.ReactNode[] = [
 export function IntroStatement() {
   return (
     <section className="bg-paper">
-      <div className="container-px mx-auto grid max-w-[1760px] items-center gap-12 py-20 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.82fr)] lg:py-32">
+      <div className="container-px mx-auto grid max-w-[1760px] items-center gap-12 py-[4.2rem] lg:grid-cols-[minmax(0,1fr)_minmax(0,0.82fr)] lg:py-[6.72rem]">
         <div>
           <RevealText
             text="Engineering a cleaner energy future"
@@ -162,7 +162,7 @@ export function ClientStrip() {
   // duplicated so the CSS loop is seamless
   const loop = [...clientLogos, ...clientLogos];
   return (
-    <section className="bg-paper py-12 lg:py-16">
+    <section className="bg-paper py-[2.52rem] lg:py-[3.36rem]">
       <div className="marquee mt-9">
         <div className="marquee-track" aria-hidden="true">
           {loop.map((c, i) => (
@@ -230,12 +230,7 @@ export function Footprint() {
                 key={m.market}
                 className="grid gap-2 py-5 sm:grid-cols-[9rem_1fr] sm:gap-5"
               >
-                <div>
-                  <p className="font-semibold text-white">{m.market}</p>
-                  <p className="mt-0.5 text-xs font-semibold uppercase tracking-wide text-active-green">
-                    {m.status}
-                  </p>
-                </div>
+                <p className="font-semibold text-white">{m.market}</p>
                 <p className="text-base leading-relaxed text-white/85">
                   {m.detail}
                 </p>

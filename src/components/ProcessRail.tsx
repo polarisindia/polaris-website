@@ -61,7 +61,7 @@ export function ProcessRail({ steps }: { steps: Step[] }) {
               onFocus={() => setActive(i)}
               aria-label={s.title}
               aria-pressed={isActive}
-              className={`group relative min-h-[64px] min-w-0 cursor-pointer overflow-hidden rounded-lg bg-mist text-left transition-[flex-grow,transform,box-shadow] duration-[750ms,2000ms,2000ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${
+              className={`group relative min-h-[64px] min-w-0 cursor-pointer overflow-hidden rounded-lg bg-mist text-left transition-[flex-grow,transform,box-shadow] duration-[1600ms,2200ms,2200ms] ease-[cubic-bezier(0.16,1,0.3,1)] ${
                 isActive
                   ? ""
                   : "hover:z-10 hover:scale-[1.03] hover:shadow-[0_22px_48px_-20px_rgba(15,67,56,0.45)]"

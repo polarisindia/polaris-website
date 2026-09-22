@@ -6,7 +6,7 @@ import { CountUp } from "./motion/CountUp";
 
 const heroStats = [
   { value: "650+", label: "Successful projects" },
-  { value: "100 MW+", label: "Installed capacity" },
+  { value: "125 MW+", label: "Installed capacity" },
   { value: "100+", label: "Team members" },
   { value: "2", label: "Continents" },
 ];

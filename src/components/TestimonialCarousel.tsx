@@ -70,7 +70,7 @@ export function TestimonialCarousel() {
     >
       <div className="container-px relative z-10 mx-auto max-w-3xl py-14 text-center lg:py-16">
         <h2 className="text-xs font-semibold uppercase tracking-[0.24em] text-ink-faint">
-          Testimonials
+          What clients say
         </h2>
 
         <span

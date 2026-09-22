@@ -142,14 +142,14 @@ export const nav: {
 // Headline figures, "Polaris at a Glance"
 export const stats = [
   { value: "650+", label: "Successful projects" },
-  { value: "100 MW+", label: "Installed capacity" },
+  { value: "125 MW+", label: "Installed capacity" },
   { value: "100+", label: "Team members" },
   { value: "2015", label: "Founded in India" },
 ];
 
 export const glance = [
   { value: "650+", label: "Successful projects" },
-  { value: "100 MW+", label: "Installed capacity" },
+  { value: "125 MW+", label: "Installed capacity" },
   { value: "100+", label: "Team members" },
   { value: "2015", label: "Founded in India" },
   { value: "India + Morocco", label: "Operational presence" },
@@ -183,11 +183,11 @@ export const process = [
   },
 ];
 
-// Indicative environmental impact, derived from 100 MW+ installed at a
+// Indicative environmental impact, derived from 125 MW+ installed at a
 // ~15% capacity factor and India's ~0.71 tCO2/MWh grid factor. Replace with
 // measured portfolio generation once available.
 export const impact = {
-  note: "Indicative, based on 100 MW+ of installed Polaris capacity.",
+  note: "Indicative, based on 125 MW+ of installed Polaris capacity.",
   items: [
     { value: "131 GWh", label: "Clean energy generated each year" },
     { value: "93,000 t", label: "CO₂ emissions avoided each year" },

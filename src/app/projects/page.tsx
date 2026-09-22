@@ -35,7 +35,7 @@ export default function ProjectsPage() {
           </Reveal>
           <RevealText
             as="h1"
-            text="650+ projects. 100 MW+ commissioned."
+            text="650+ projects. 125 MW+ commissioned."
             className="mt-6 block max-w-3xl text-4xl font-semibold leading-[1.08] tracking-tight text-[#26502e] sm:text-[3.25rem]"
           />
           <Reveal variant="up" delay={90}>
