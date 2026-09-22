@@ -178,9 +178,6 @@ export default function AboutPage() {
       {/* Hero */}
       <section className="bg-[#FAFBF6]">
         <div className="container-px mx-auto max-w-[1760px] pb-16 pt-[calc(83px+2.5rem)] lg:pb-20 lg:pt-[calc(83px+4rem)]">
-          <Reveal variant="fade">
-            <span className="pill">About</span>
-          </Reveal>
           <RevealText
             as="h1"
             text="Engineering energy solutions around how businesses actually operate."
@@ -219,7 +216,7 @@ export default function AboutPage() {
       {/* Story */}
       <Section>
         <div className="grid gap-12 lg:grid-cols-[1fr_1.4fr]">
-          <SectionHeading eyebrow="Foreword" title="A note from the founders" />
+          <SectionHeading title="A note from the founders" />
           <div className="space-y-5 text-base leading-relaxed text-ink-soft">
             <p>
               When we started Polaris in 2015, we were working around a
@@ -255,7 +252,7 @@ export default function AboutPage() {
       {/* Milestones */}
       <div className="on-dark bg-[#15371b]">
         <Section>
-          <SectionHeading eyebrow="Journey" title="Milestones" />
+          <SectionHeading title="Milestones" />
           <div className="no-scrollbar mt-14 overflow-x-auto pb-2">
             <ol
               className="relative flex w-max snap-x gap-12 pl-1 pr-8 pt-2 lg:gap-16"
@@ -293,7 +290,7 @@ export default function AboutPage() {
 
       {/* Values */}
       <Section>
-        <SectionHeading eyebrow="Purpose" title="What we hold onto" />
+        <SectionHeading title="What we hold onto" />
         <div className="mt-14 grid gap-x-14 gap-y-12 sm:grid-cols-3">
           {values.map((v, i) => (
             <Reveal as="article" key={v.title} delay={(i % 3) * 70}>
@@ -314,9 +311,6 @@ export default function AboutPage() {
       {/* Philosophy — its own dedicated section, not grouped with the values above */}
       <div className="bg-brand-tint">
         <Section className="flex flex-col items-center text-center">
-          <Reveal variant="fade">
-            <span className="pill">Philosophy</span>
-          </Reveal>
           <Reveal variant="scale" delay={40}>
             <span className="mt-6 block h-16 w-16 [&>svg]:h-full [&>svg]:w-full">
               {philosophyIcon}
@@ -338,7 +332,7 @@ export default function AboutPage() {
       {/* Advantage */}
       <div className="on-dark bg-[#15371b]">
         <Section>
-          <SectionHeading eyebrow="Why Polaris" title="The Polaris advantage" />
+          <SectionHeading title="The Polaris advantage" />
           <div className="mt-14 grid gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
             {advantages.map((a, i) => (
               <Reveal as="article" key={a.title} delay={(i % 3) * 70}>
@@ -359,7 +353,7 @@ export default function AboutPage() {
 
       {/* Leadership */}
       <Section>
-        <SectionHeading eyebrow="Leadership" title="Founders" />
+        <SectionHeading title="Founders" />
         <div className="mt-14 grid gap-x-14 gap-y-14 md:grid-cols-3">
           {founders.map((p, i) => (
             <Reveal key={p.name} delay={(i % 3) * 70}>
