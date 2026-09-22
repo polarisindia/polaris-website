@@ -297,6 +297,11 @@ a {
     width: 100%;
     gap: 0.75rem 0;
   }
+  /* the marquee's duplicated content is only meant to be seen scrolling by
+     — with motion off, showing it too would repeat every item */
+  .marquee-dup {
+    display: none;
+  }
 }
 
 .container-px {

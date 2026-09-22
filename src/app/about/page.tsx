@@ -5,6 +5,7 @@ import { CTA } from "@/components/CTA";
 import { Reveal } from "@/components/Reveal";
 import { RevealText } from "@/components/RevealText";
 import { FounderCard } from "@/components/FounderCard";
+import { MilestonesMarquee } from "@/components/MilestonesMarquee";
 import {
   company,
   milestones,
@@ -163,73 +164,6 @@ const advantageIcons: React.ReactNode[] = [
   </svg>,
 ];
 
-// One flat icon per milestone, same IL family as the icon sets above.
-const milestoneIcons: React.ReactNode[] = [
-  // Foundation — flag planted
-  <svg viewBox="0 0 48 48" fill="none" key="foundation" aria-hidden="true">
-    <rect x="4" y="4" width="26" height="26" rx="6" fill={IL.pale} />
-    <rect x="14" y="10" width="3" height="30" rx="1.5" fill={IL.dark} />
-    <path d="M17 12 L38 18 L17 24 Z" fill={IL.green} />
-    <circle cx="15.5" cy="41" r="4" fill={IL.ink} />
-  </svg>,
-  // Industrial entry — factory
-  <svg viewBox="0 0 48 48" fill="none" key="industrial" aria-hidden="true">
-    <rect x="12" y="4" width="26" height="26" rx="6" fill={IL.pale} />
-    <rect x="6" y="24" width="34" height="18" rx="2" fill={IL.green} />
-    <rect x="11" y="14" width="6" height="14" fill={IL.dark} />
-    <rect x="23" y="10" width="6" height="18" fill={IL.dark} />
-    <rect x="13" y="31" width="5" height="5" fill="#fff" />
-    <rect x="22" y="31" width="5" height="5" fill="#fff" />
-    <rect x="31" y="31" width="5" height="5" fill="#fff" />
-  </svg>,
-  // 1 MW milestone — bolt
-  <svg viewBox="0 0 48 48" fill="none" key="mw" aria-hidden="true">
-    <rect x="4" y="4" width="26" height="26" rx="6" fill={IL.pale} />
-    <circle cx="26" cy="24" r="18" fill={IL.green} />
-    <path d="M28 12 L16 27 H24 L20 38 L34 21 H26 Z" fill={IL.ink} />
-  </svg>,
-  // Regional expansion — pin with expanding radius
-  <svg viewBox="0 0 48 48" fill="none" key="expansion" aria-hidden="true">
-    <rect x="4" y="4" width="26" height="26" rx="6" fill={IL.pale} />
-    <circle
-      cx="24"
-      cy="26"
-      r="17"
-      fill="none"
-      stroke={IL.green}
-      strokeWidth="2"
-      strokeDasharray="3 4"
-    />
-    <path
-      d="M24 14c-5 0-9 4-9 9 0 7 9 15 9 15s9-8 9-15c0-5-4-9-9-9Z"
-      fill={IL.dark}
-    />
-    <circle cx="24" cy="23" r="3.5" fill="#fff" />
-  </svg>,
-  // Scaling operations — growing team
-  <svg viewBox="0 0 48 48" fill="none" key="scaling" aria-hidden="true">
-    <rect x="4" y="4" width="26" height="26" rx="6" fill={IL.pale} />
-    <circle cx="18" cy="20" r="6" fill={IL.dark} />
-    <path d="M8 40c0-7 5-12 10-12s10 5 10 12" fill={IL.dark} />
-    <circle cx="32" cy="17" r="7" fill={IL.green} />
-    <path d="M20 42c0-8 6-14 12-14s12 6 12 14" fill={IL.green} />
-  </svg>,
-  // Integrated energy platform — connected nodes
-  <svg viewBox="0 0 48 48" fill="none" key="integrated" aria-hidden="true">
-    <rect x="4" y="4" width="26" height="26" rx="6" fill={IL.pale} />
-    <circle cx="14" cy="14" r="6" fill={IL.green} />
-    <circle cx="34" cy="14" r="6" fill={IL.dark} />
-    <circle cx="24" cy="34" r="6" fill={IL.green} />
-    <path
-      d="M14 14 L34 14 L24 34 Z"
-      stroke={IL.ink}
-      strokeWidth="2"
-      fill="none"
-      strokeLinejoin="round"
-    />
-  </svg>,
-];
-
 export default function AboutPage() {
   return (
     <>
@@ -290,10 +224,9 @@ export default function AboutPage() {
         </div>
       </Section>
 
-      {/* Milestones — a plain grid (immune to the collision risk a
-          freeform curve layout carries across viewports/fonts), given some
-          visual weight with a per-item flat icon and a soft geometric
-          pattern behind the whole section. */}
+      {/* Milestones — back to a horizontal timeline, now auto-scrolling
+          (the client-logo marquee technique) instead of needing a manual
+          swipe or arrows, so every milestone passes by on its own. */}
       <div className="on-dark relative overflow-hidden bg-[#15371b]">
         <div
           aria-hidden="true"
@@ -315,22 +248,7 @@ export default function AboutPage() {
 
         <Section className="relative">
           <SectionHeading title="How we got here" />
-          <div className="mt-14 grid gap-x-10 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
-            {milestones.map((m, i) => (
-              <Reveal as="article" key={m.year} delay={(i % 3) * 70}>
-                <span className="block h-14 w-14 [&>svg]:h-full [&>svg]:w-full">
-                  {milestoneIcons[i]}
-                </span>
-                <div className="mt-5 text-lg font-semibold tracking-tight text-brand-strong">
-                  {m.year}
-                  <span className="text-ink"> · {m.title}</span>
-                </div>
-                <p className="mt-1.5 text-[15px] leading-relaxed text-ink-soft">
-                  {m.text}
-                </p>
-              </Reveal>
-            ))}
-          </div>
+          <MilestonesMarquee milestones={milestones} />
         </Section>
       </div>
 
