@@ -5,6 +5,7 @@ import { CTA } from "@/components/CTA";
 import { Reveal } from "@/components/Reveal";
 import { RevealText } from "@/components/RevealText";
 import { FounderCard } from "@/components/FounderCard";
+import { MilestonesTimeline } from "@/components/MilestonesTimeline";
 import {
   company,
   milestones,
@@ -227,9 +228,14 @@ export default function AboutPage() {
       <div className="on-dark bg-[#15371b]">
         <Section>
           <SectionHeading title="How we got here" />
-          {/* every milestone visible at once — a wrapping grid rather than a
-              scroll rail, each card its own tick on the line */}
-          <div className="mt-14 grid gap-x-10 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
+
+          {/* lg+: a rising curved road, one numbered stop per milestone */}
+          <MilestonesTimeline milestones={milestones} />
+
+          {/* below lg: the curve's hand-placed labels don't survive a much
+              narrower viewport, so it falls back to a plain stacked list —
+              same data, every milestone still visible at once */}
+          <div className="mt-14 grid gap-x-10 gap-y-14 sm:grid-cols-2 lg:hidden">
             {milestones.map((m, i) => (
               <Reveal
                 as="div"
