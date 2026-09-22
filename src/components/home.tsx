@@ -559,7 +559,7 @@ export function LatestNews() {
                 <span className="mt-5 inline-block rounded bg-brand-tint px-2.5 py-1 text-xs font-semibold text-brand-strong">
                   {post.category}
                 </span>
-                <h3 className="mt-4 line-clamp-2 text-2xl font-semibold leading-[1.15] tracking-tight text-ink transition-colors group-hover:text-brand-strong">
+                <h3 className="mt-4 line-clamp-2 min-h-[3.45rem] text-2xl font-semibold leading-[1.15] tracking-tight text-ink transition-colors group-hover:text-brand-strong">
                   {post.title}
                 </h3>
                 <time

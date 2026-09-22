@@ -8,17 +8,6 @@ import { prefersReducedMotion } from "@/lib/motion";
 // swaps in and fades back — keep in sync with the duration-[Nms] classes below.
 const FADE_MS = 400;
 
-function initials(name: string) {
-  return name
-    .replace(/[^A-Za-z ]/g, "")
-    .split(" ")
-    .filter(Boolean)
-    .slice(0, 2)
-    .map((w) => w[0])
-    .join("")
-    .toUpperCase();
-}
-
 /**
  * One testimonial at a time, centred on a faint off-white — no card, no
  * border, no shadow. Auto-advances (paused on hover / focus / reduced
@@ -89,15 +78,10 @@ export function TestimonialCarousel() {
             {t.quote}
           </blockquote>
 
-          <figcaption className="mt-8 flex items-center justify-center gap-3">
-            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-brand-tint text-sm font-semibold text-brand-dark">
-              {initials(t.name)}
-            </span>
-            <span className="text-left text-sm">
-              <span className="block font-semibold text-ink">{t.name}</span>
-              <span className="block text-ink-faint">
-                {t.role}, {t.org}
-              </span>
+          <figcaption className="mt-8 text-center text-sm">
+            <span className="block font-semibold text-ink">{t.name}</span>
+            <span className="block text-ink-faint">
+              {t.role}, {t.org}
             </span>
           </figcaption>
         </div>
