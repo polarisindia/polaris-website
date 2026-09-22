@@ -6,6 +6,7 @@ import { Reveal } from "@/components/Reveal";
 import { RevealText } from "@/components/RevealText";
 import { FounderCard } from "@/components/FounderCard";
 import { MilestonesMarquee } from "@/components/MilestonesMarquee";
+import { Grainient } from "@/components/Grainient";
 import {
   company,
   milestones,
@@ -224,30 +225,44 @@ export default function AboutPage() {
         </div>
       </Section>
 
-      {/* Milestones — back to a horizontal timeline, now auto-scrolling
-          (the client-logo marquee technique) instead of needing a manual
-          swipe or arrows, so every milestone passes by on its own. */}
+      {/* Milestones — a horizontal timeline, auto-scrolling (the
+          client-logo marquee technique) instead of needing a manual swipe
+          or arrows, so every milestone passes by on its own. Background is
+          the same drifting Grainient gradient as the homepage's "Clean
+          energy, lasting impact." section, not a static pattern. */}
       <div className="on-dark relative overflow-hidden bg-[#15371b]">
         <div
           aria-hidden="true"
           className="pointer-events-none absolute inset-0"
-          style={{
-            backgroundImage:
-              "radial-gradient(rgba(255,255,255,0.06) 1.5px, transparent 1.5px)",
-            backgroundSize: "28px 28px",
-          }}
-        />
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute -right-32 -top-32 h-[28rem] w-[28rem] rounded-full bg-active-green/10 blur-[100px]"
-        />
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute -bottom-40 -left-20 h-[24rem] w-[24rem] rounded-full bg-brand/10 blur-[110px]"
-        />
+        >
+          <Grainient
+            color1="#0e3b16"
+            color2="#065d40"
+            color3="#053726"
+            timeSpeed={1.8}
+            colorBalance={0.0}
+            warpStrength={1.0}
+            warpFrequency={5.0}
+            warpSpeed={2.0}
+            warpAmplitude={50.0}
+            blendAngle={0.0}
+            blendSoftness={0.05}
+            rotationAmount={500.0}
+            noiseScale={2.0}
+            grainAmount={0.1}
+            grainScale={2.0}
+            grainAnimated={false}
+            contrast={1.5}
+            gamma={1.0}
+            saturation={1.0}
+            centerX={0.0}
+            centerY={0.0}
+            zoom={0.9}
+          />
+        </div>
 
         <Section className="relative">
-          <SectionHeading title="How we got here" />
+          <SectionHeading title="Our journey" />
           <MilestonesMarquee milestones={milestones} />
         </Section>
       </div>
