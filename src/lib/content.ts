@@ -757,11 +757,14 @@ export const values = [
     title: "Our vision",
     body: "To build Polaris into a globally respected energy engineering company known for reliable projects and commercially sound solutions.",
   },
-  {
-    title: "Our philosophy",
-    body: "Energy as an asset. A roof, a parcel of land, a load curve or a tariff can all create value when they are understood together. Our job is to turn that opportunity into a practical, investable energy solution.",
-  },
 ];
+
+// Given its own dedicated section on the About page, not grouped with the
+// three values above.
+export const philosophy = {
+  title: "Energy as an asset.",
+  body: "A roof, a parcel of land, a load curve or a tariff can all create value when they are understood together. Our job is to turn that opportunity into a practical, investable energy solution.",
+};
 
 export const milestones = [
   {

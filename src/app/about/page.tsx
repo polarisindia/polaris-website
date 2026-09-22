@@ -11,6 +11,7 @@ import {
   company,
   milestones,
   values,
+  philosophy,
   founders,
   leadership,
   team,
@@ -64,8 +65,12 @@ const valueIcons: React.ReactNode[] = [
     <circle cx="24" cy="24" r="4" fill={IL.ink} />
     <circle cx="21" cy="21" r="2" fill="#fff" />
   </svg>,
-  // Our philosophy — bulb + leaf, echoing the Polaris mark
-  <svg viewBox="0 0 48 48" fill="none" key="philosophy" aria-hidden="true">
+];
+
+// Our philosophy — bulb + leaf, echoing the Polaris mark. Its own dedicated
+// section further down, not part of the valueIcons/values grid above.
+const philosophyIcon = (
+  <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
     <rect x="12" y="3" width="26" height="26" rx="6" fill={IL.pale} />
     <circle cx="24" cy="20" r="16" fill={IL.green} />
     <path d="M24 12 C16 16 16 26 24 32 C32 26 32 16 24 12Z" fill="#fff" />
@@ -76,8 +81,8 @@ const valueIcons: React.ReactNode[] = [
       strokeWidth="3"
       strokeLinecap="round"
     />
-  </svg>,
-];
+  </svg>
+);
 
 const advantageIcons: React.ReactNode[] = [
   // Engineering-led approach — drafting compass
@@ -305,6 +310,30 @@ export default function AboutPage() {
           ))}
         </div>
       </Section>
+
+      {/* Philosophy — its own dedicated section, not grouped with the values above */}
+      <div className="bg-brand-tint">
+        <Section className="flex flex-col items-center text-center">
+          <Reveal variant="fade">
+            <span className="pill">Philosophy</span>
+          </Reveal>
+          <Reveal variant="scale" delay={40}>
+            <span className="mt-6 block h-16 w-16 [&>svg]:h-full [&>svg]:w-full">
+              {philosophyIcon}
+            </span>
+          </Reveal>
+          <RevealText
+            as="h2"
+            text={philosophy.title}
+            className="mt-6 block max-w-2xl text-3xl font-semibold tracking-tight text-[#26502e] sm:text-[2.75rem]"
+          />
+          <Reveal variant="up" delay={80}>
+            <p className="mt-5 max-w-2xl text-lg leading-relaxed text-ink-soft">
+              {philosophy.body}
+            </p>
+          </Reveal>
+        </Section>
+      </div>
 
       {/* Advantage */}
       <div className="on-dark bg-[#15371b]">
