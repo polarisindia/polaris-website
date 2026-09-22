@@ -163,12 +163,6 @@ export function ClientStrip() {
   const loop = [...clientLogos, ...clientLogos];
   return (
     <section className="bg-paper py-12 lg:py-16">
-      <Reveal variant="fade" className="container-px mx-auto max-w-[1760px]">
-        <p className="text-xs font-semibold uppercase tracking-[0.22em] text-ink-faint">
-          Trusted on 650+ industrial projects
-        </p>
-      </Reveal>
-
       <div className="marquee mt-9">
         <div className="marquee-track" aria-hidden="true">
           {loop.map((c, i) => (
@@ -318,15 +312,15 @@ export function Expertise() {
                   <span className="block h-[70px] w-[70px] [&>svg]:h-full [&>svg]:w-full">
                     {offeringIcons[i]}
                   </span>
-                  <h3 className="mt-6 text-xl font-semibold tracking-tight text-white transition-colors duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:text-active-green">
+                  <h3 className="mt-6 text-[1.4rem] font-semibold tracking-tight text-white transition-colors duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:text-active-green">
                     {s.title}
                   </h3>
-                  <p className="mt-3 text-base leading-relaxed text-white/70">
+                  <p className="mt-3 text-[1.12rem] leading-relaxed text-white/70">
                     {s.summary}
                   </p>
                   <Link
                     href={`/solutions/${s.slug}`}
-                    className="mt-auto inline-block w-fit border-b border-white/30 pb-1 pt-6 text-base font-medium text-white transition-colors duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] after:absolute after:inset-0 after:content-[''] group-hover:border-active-green"
+                    className="mt-auto inline-block w-fit border-b border-white/30 pb-1 pt-6 text-[1.12rem] font-medium text-white transition-colors duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] after:absolute after:inset-0 after:content-[''] group-hover:border-active-green"
                   >
                     Learn more
                   </Link>
