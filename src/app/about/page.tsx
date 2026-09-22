@@ -294,9 +294,9 @@ export default function AboutPage() {
       {/* Values */}
       <Section>
         <SectionHeading eyebrow="Purpose" title="What we hold onto" />
-        <div className="mt-14 grid gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-14 grid gap-x-14 gap-y-12 sm:grid-cols-3">
           {values.map((v, i) => (
-            <Reveal as="article" key={v.title} delay={(i % 4) * 70}>
+            <Reveal as="article" key={v.title} delay={(i % 3) * 70}>
               <span className="block h-14 w-14 [&>svg]:h-full [&>svg]:w-full">
                 {valueIcons[i]}
               </span>
