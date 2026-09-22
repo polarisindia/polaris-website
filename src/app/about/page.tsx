@@ -5,7 +5,7 @@ import { CTA } from "@/components/CTA";
 import { Reveal } from "@/components/Reveal";
 import { RevealText } from "@/components/RevealText";
 import { CountUp } from "@/components/motion/CountUp";
-import { TimelineProgress } from "@/components/TimelineProgress";
+import { MilestonesRail } from "@/components/MilestonesRail";
 import { FounderCard } from "@/components/FounderCard";
 import {
   company,
@@ -252,39 +252,8 @@ export default function AboutPage() {
       {/* Milestones */}
       <div className="on-dark bg-[#15371b]">
         <Section>
-          <SectionHeading title="Milestones" />
-          <div className="no-scrollbar mt-14 overflow-x-auto pb-2">
-            <ol
-              className="relative flex w-max snap-x gap-12 pl-1 pr-8 pt-2 lg:gap-16"
-              data-timeline-track
-            >
-              <div
-                aria-hidden="true"
-                className="pointer-events-none absolute inset-x-0 top-2 h-px bg-ink/15"
-              />
-              <TimelineProgress />
-              {milestones.map((m, i) => (
-                <Reveal
-                  as="li"
-                  key={m.year}
-                  variant="up"
-                  delay={i * 60}
-                  className="relative w-56 shrink-0 snap-start lg:w-64"
-                >
-                  <span className="absolute left-0 top-0 h-4 w-4 rounded-full border-2 border-brand bg-[#15371b]" />
-                  <div className="pt-9">
-                    <div className="text-lg font-semibold tracking-tight text-brand-strong">
-                      {m.year}
-                      <span className="text-ink"> · {m.title}</span>
-                    </div>
-                    <p className="mt-1 text-[15px] leading-relaxed text-ink-soft">
-                      {m.text}
-                    </p>
-                  </div>
-                </Reveal>
-              ))}
-            </ol>
-          </div>
+          <SectionHeading title="How we got here" />
+          <MilestonesRail milestones={milestones} />
         </Section>
       </div>
 
