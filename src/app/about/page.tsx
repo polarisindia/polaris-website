@@ -7,6 +7,7 @@ import { RevealText } from "@/components/RevealText";
 import { FounderCard } from "@/components/FounderCard";
 import { MilestonesMarquee } from "@/components/MilestonesMarquee";
 import { Grainient } from "@/components/Grainient";
+import { BorderGlow } from "@/components/BorderGlow";
 import {
   company,
   milestones,
@@ -260,18 +261,36 @@ export default function AboutPage() {
       {/* Values */}
       <Section>
         <SectionHeading title="What we hold onto" />
-        <div className="mt-14 grid gap-x-14 gap-y-12 sm:grid-cols-3">
+        <div className="mt-14 grid gap-x-10 gap-y-10 sm:grid-cols-3">
           {values.map((v, i) => (
-            <Reveal as="article" key={v.title} delay={(i % 3) * 70}>
-              <span className="block h-14 w-14 [&>svg]:h-full [&>svg]:w-full">
-                {valueIcons[i]}
-              </span>
-              <h3 className="mt-6 text-lg font-semibold tracking-tight text-ink">
-                {v.title}
-              </h3>
-              <p className="mt-2 text-[15px] leading-relaxed text-ink-soft">
-                {v.body}
-              </p>
+            <Reveal
+              as="article"
+              key={v.title}
+              delay={(i % 3) * 70}
+              className="h-full"
+            >
+              <BorderGlow
+                className="on-light h-full"
+                backgroundColor="#ffffff"
+                borderRadius={8}
+                glowColor="112 55% 42%"
+                glowRadius={28}
+                glowIntensity={0.9}
+                fillOpacity={0.15}
+                colors={["#5fcf4b", "#0f4338", "#a3e635"]}
+              >
+                <div className="p-6">
+                  <span className="block h-14 w-14 [&>svg]:h-full [&>svg]:w-full">
+                    {valueIcons[i]}
+                  </span>
+                  <h3 className="mt-6 text-[1.3rem] font-semibold tracking-tight text-ink">
+                    {v.title}
+                  </h3>
+                  <p className="mt-2 text-[1.09rem] leading-relaxed text-ink-soft">
+                    {v.body}
+                  </p>
+                </div>
+              </BorderGlow>
             </Reveal>
           ))}
         </div>
