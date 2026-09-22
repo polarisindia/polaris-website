@@ -18,14 +18,18 @@ export function MilestonesMarquee({ milestones }: { milestones: Milestone[] }) {
         style={{ animationDuration: "56s", alignItems: "flex-start" }}
       >
         {/* base line plus a travelling glow pulse, so the line itself
-            reads as "in motion" rather than a dead static rule */}
+            reads as "in motion" rather than a dead static rule. top-4, not
+            top-2: the track's own py-2 pushes the (normal-flow) cards and
+            their dots down 8px, but these lines are absolutely positioned
+            within the track so that padding doesn't shift them the same
+            way — top-4 is what actually lines up with the dots' centre. */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-x-0 top-2 h-px bg-white/15"
+          className="pointer-events-none absolute inset-x-0 top-4 h-px bg-white/15"
         />
         <div
           aria-hidden="true"
-          className="milestone-line-flow pointer-events-none absolute inset-x-0 top-2 h-px"
+          className="milestone-line-flow pointer-events-none absolute inset-x-0 top-4 h-px"
         />
         {loop.map((m, i) => {
           const isDup = i >= milestones.length;
