@@ -46,11 +46,13 @@
   --color-amber-400: #c07000;
 
   /* Display / headings */
-  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, -apple-system,
-    "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-sans:
+    var(--font-jakarta), ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif;
   /* Body / paragraph copy */
-  --font-body: var(--font-public), ui-sans-serif, system-ui, -apple-system,
-    "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-body:
+    var(--font-public), ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif;
 
   --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.04);
   --shadow-hover: 0 12px 32px -8px rgba(0, 0, 0, 0.16);
@@ -246,7 +248,9 @@ a {
   width: auto;
   opacity: 0.55;
   filter: grayscale(1);
-  transition: opacity 0.4s var(--ease-expo), filter 0.4s var(--ease-expo);
+  transition:
+    opacity 0.4s var(--ease-expo),
+    filter 0.4s var(--ease-expo);
 }
 .marquee-logo img:hover {
   opacity: 1;
@@ -288,6 +292,38 @@ a {
   }
   to {
     transform: translate3d(-50%, 0, 0);
+  }
+}
+/* Milestones timeline: a bright pulse travelling along the connecting line,
+   independent of the marquee's own translateX so it reads as the line's own
+   "progress" rather than just content sliding past it. The animation lives
+   in this class (not inline) so the reduced-motion override below can turn
+   it off — an inline `animation` property can't be beaten by a stylesheet
+   media query. */
+.milestone-line-flow {
+  background-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    transparent 6%,
+    rgba(125, 204, 94, 0.9) 10%,
+    rgba(95, 207, 75, 0.5) 14%,
+    transparent 20%,
+    transparent 100%
+  );
+  background-size: 220% 100%;
+  animation: milestoneLineFlow 3.5s linear infinite;
+}
+@keyframes milestoneLineFlow {
+  from {
+    background-position: 220% 0;
+  }
+  to {
+    background-position: -100% 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .milestone-line-flow {
+    animation: none;
   }
 }
 @media (prefers-reduced-motion: reduce) {

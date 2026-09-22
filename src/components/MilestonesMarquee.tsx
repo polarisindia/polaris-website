@@ -17,9 +17,15 @@ export function MilestonesMarquee({ milestones }: { milestones: Milestone[] }) {
         className="marquee-track relative gap-14 py-2"
         style={{ animationDuration: "56s", alignItems: "flex-start" }}
       >
+        {/* base line plus a travelling glow pulse, so the line itself
+            reads as "in motion" rather than a dead static rule */}
         <div
           aria-hidden="true"
           className="pointer-events-none absolute inset-x-0 top-2 h-px bg-white/15"
+        />
+        <div
+          aria-hidden="true"
+          className="milestone-line-flow pointer-events-none absolute inset-x-0 top-2 h-px"
         />
         {loop.map((m, i) => {
           const isDup = i >= milestones.length;
@@ -32,9 +38,11 @@ export function MilestonesMarquee({ milestones }: { milestones: Milestone[] }) {
               <span className="absolute left-0 top-0 h-4 w-4 rounded-full border-2 border-brand bg-[#15371b]" />
               <div className="text-lg font-semibold tracking-tight text-brand-strong">
                 {m.year}
-                <span className="text-ink"> · {m.title}</span>
               </div>
-              <p className="mt-1 text-[15px] leading-relaxed text-ink-soft">
+              <div className="text-lg font-semibold tracking-tight text-ink">
+                {m.title}
+              </div>
+              <p className="mt-1.5 text-[15px] leading-relaxed text-ink-soft">
                 {m.text}
               </p>
             </div>
