@@ -4,7 +4,6 @@ import { Section, SectionHeading } from "@/components/ui";
 import { CTA } from "@/components/CTA";
 import { Reveal } from "@/components/Reveal";
 import { RevealText } from "@/components/RevealText";
-import { CountUp } from "@/components/motion/CountUp";
 import { FounderCard } from "@/components/FounderCard";
 import {
   company,
@@ -164,13 +163,6 @@ const advantageIcons: React.ReactNode[] = [
   </svg>,
 ];
 
-const heroStats = [
-  { value: "650+", label: "Successful projects" },
-  { value: "125 MW+", label: "Installed capacity" },
-  { value: "100+", label: "Team members" },
-  { value: "2015", label: "Founded in India" },
-];
-
 export default function AboutPage() {
   return (
     <>
@@ -191,23 +183,6 @@ export default function AboutPage() {
               are technically sound, commercially sensible and built for
               long-term performance.
             </p>
-          </Reveal>
-          <Reveal variant="up" delay={130}>
-            <dl className="mt-12 grid grid-cols-2 gap-x-6 gap-y-8 border-t border-ink/10 pt-8 sm:grid-cols-4">
-              {heroStats.map((it) => (
-                <div key={it.label}>
-                  <dt>
-                    <CountUp
-                      value={it.value}
-                      className="text-2xl font-semibold tracking-tight text-[#26502e] sm:text-3xl"
-                    />
-                  </dt>
-                  <dd className="mt-1 text-xs leading-snug text-ink-faint">
-                    {it.label}
-                  </dd>
-                </div>
-              ))}
-            </dl>
           </Reveal>
         </div>
       </section>
