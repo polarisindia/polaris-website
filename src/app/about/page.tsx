@@ -5,7 +5,6 @@ import { CTA } from "@/components/CTA";
 import { Reveal } from "@/components/Reveal";
 import { RevealText } from "@/components/RevealText";
 import { CountUp } from "@/components/motion/CountUp";
-import { MilestonesRail } from "@/components/MilestonesRail";
 import { FounderCard } from "@/components/FounderCard";
 import {
   company,
@@ -253,7 +252,28 @@ export default function AboutPage() {
       <div className="on-dark bg-[#15371b]">
         <Section>
           <SectionHeading title="How we got here" />
-          <MilestonesRail milestones={milestones} />
+          {/* every milestone visible at once — a wrapping grid rather than a
+              scroll rail, each card its own tick on the line */}
+          <div className="mt-14 grid gap-x-10 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
+            {milestones.map((m, i) => (
+              <Reveal
+                as="div"
+                key={m.year}
+                variant="up"
+                delay={(i % 3) * 60}
+                className="relative border-t border-white/15 pt-6"
+              >
+                <span className="absolute -top-[7px] left-0 h-3.5 w-3.5 rounded-full border-2 border-brand bg-[#15371b]" />
+                <div className="text-lg font-semibold tracking-tight text-brand-strong">
+                  {m.year}
+                  <span className="text-ink"> · {m.title}</span>
+                </div>
+                <p className="mt-1.5 text-[15px] leading-relaxed text-ink-soft">
+                  {m.text}
+                </p>
+              </Reveal>
+            ))}
+          </div>
         </Section>
       </div>
 
