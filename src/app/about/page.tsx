@@ -241,7 +241,7 @@ export default function AboutPage() {
           <RevealText
             as="h2"
             text={philosophy.title}
-            className="mt-6 block max-w-2xl text-3xl font-semibold tracking-tight text-white sm:text-[2.75rem]"
+            className="mt-6 block max-w-2xl text-3xl font-semibold tracking-tight text-white sm:text-[2.5rem]"
           />
           <Reveal variant="up" delay={80}>
             <p className="mt-5 max-w-2xl text-lg leading-relaxed text-white/80">
@@ -264,7 +264,7 @@ export default function AboutPage() {
 
         <div className="mt-20 border-t border-ink/10 pt-16">
           <Reveal as="span" variant="mask" className="block">
-            <h3 className="text-2xl font-semibold tracking-tight text-[#26502e] sm:text-[2rem]">
+            <h3 className="text-3xl font-semibold tracking-tight text-[#26502e] sm:text-[2.5rem]">
               Leadership Team
             </h3>
           </Reveal>
@@ -296,7 +296,7 @@ export default function AboutPage() {
 
         <div className="mt-20 border-t border-ink/10 pt-16">
           <Reveal as="span" variant="mask" className="block">
-            <h3 className="text-2xl font-semibold tracking-tight text-[#26502e] sm:text-[2rem]">
+            <h3 className="text-3xl font-semibold tracking-tight text-[#26502e] sm:text-[2.5rem]">
               Our Team
             </h3>
           </Reveal>
