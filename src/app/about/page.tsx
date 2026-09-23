@@ -284,7 +284,7 @@ export default function AboutPage() {
                   <h4 className="text-base font-semibold tracking-tight text-ink">
                     {p.name}
                   </h4>
-                  <p className="text-sm text-brand-strong">{p.role}</p>
+                  <p className="mt-1 text-sm text-brand-strong">{p.role}</p>
                 </div>
                 <p className="mt-3 text-[15px] leading-relaxed text-ink-soft">
                   {p.bio}
