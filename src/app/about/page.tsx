@@ -313,7 +313,7 @@ export default function AboutPage() {
                     {part.title}
                   </h4>
                 </Reveal>
-                <div className="mt-10 space-y-10">
+                <div className="mt-10 space-y-16">
                   {part.departments.map((g) => (
                     <div key={g.department}>
                       <Reveal variant="fade">
