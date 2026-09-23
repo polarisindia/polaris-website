@@ -847,6 +847,7 @@ export const team = [
         department: "Marketing, Sales & Business Development",
         members: [
           { name: "Vivek Bachke", photo: "/img/team/vivek-bachke.jpg" },
+          { name: "Rhythm Kothari" },
           { name: "Yogesh Dusane", photo: "/img/team/yogesh-dusane.jpg" },
           { name: "Sandeep Lavate", photo: "/img/team/sandeep-lavate.jpg" },
         ],
@@ -859,13 +860,18 @@ export const team = [
         ],
       },
       {
-        department: "Operations & Regulatory Liaison",
+        department: "End-to-End Operations",
         members: [
           {
             name: "Akshay Tajanpure",
             photo: "/img/team/akshay-tajanpure.jpg",
           },
           { name: "Ankush Shinde", photo: "/img/team/ankush-shinde.jpg" },
+        ],
+      },
+      {
+        department: "Regulatory Liaison & Project Commissioning",
+        members: [
           { name: "Lalit Awari", photo: "/img/team/lalit-awari.jpg" },
           { name: "Gajanan Ganore", photo: "/img/team/gajanan-ganore.jpg" },
         ],
@@ -881,7 +887,7 @@ export const team = [
         ],
       },
       {
-        department: "Project Delivery & Procurement",
+        department: "Execution & Project Delivery Management",
         members: [
           { name: "Mukesh Kumar", photo: "/img/team/mukesh-kumar.jpg" },
           { name: "Abhishek Kolpe", photo: "/img/team/abhishek-kolpe.jpg" },
@@ -890,6 +896,11 @@ export const team = [
             name: "Dnayneshwar Pardhe",
             photo: "/img/team/dnayneshwar-pardhe.jpg",
           },
+        ],
+      },
+      {
+        department: "Procurement & Supply Chain Management",
+        members: [
           { name: "Ameya Kadve", photo: "/img/team/ameya-kadve.jpg" },
           { name: "Mayur Patil", photo: "/img/team/mayur-patil.jpg" },
           { name: "Vishal Dalvi", photo: "/img/team/vishal-dalvi.jpg" },
