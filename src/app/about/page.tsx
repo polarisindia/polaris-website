@@ -95,8 +95,8 @@ export default function AboutPage() {
           <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start lg:gap-16">
             <RevealText
               as="h1"
-              text="Engineering solutions around how you operate."
-              className="block text-3xl font-semibold leading-[1.15] tracking-tight text-[#26502e] sm:text-[2.5rem]"
+              text="Engineered around how you operate."
+              className="block max-w-3xl text-3xl font-semibold tracking-tight text-[#26502e] sm:text-[58px]"
             />
             <Reveal variant="up" delay={90}>
               <div className="space-y-4 text-lg leading-relaxed text-ink-soft">
