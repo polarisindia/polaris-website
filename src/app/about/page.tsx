@@ -272,12 +272,12 @@ export default function AboutPage() {
             {leadership.map((p, i) => (
               <Reveal key={p.name} delay={(i % 3) * 70}>
                 <div className="flex items-center gap-3">
-                  <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-full bg-brand-tint">
+                  <div className="relative h-[79px] w-[79px] shrink-0 overflow-hidden rounded-full bg-brand-tint">
                     <Image
                       src={p.photo}
                       alt={p.name}
                       fill
-                      sizes="64px"
+                      sizes="79px"
                       className="object-cover"
                     />
                   </div>
