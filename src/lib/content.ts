@@ -872,7 +872,13 @@ export const team = [
       },
       {
         department: "Engineering & Design",
-        members: [{ name: "Ajay Gowardhane" }, { name: "Mayuri Khade" }],
+        members: [
+          {
+            name: "Ajay Gowardhane",
+            photo: "/img/team/ajay-gowardhane.jpg",
+          },
+          { name: "Mayuri Khade", photo: "/img/team/mayuri-khade.jpg" },
+        ],
       },
       {
         department: "Project Delivery & Procurement",
@@ -888,7 +894,7 @@ export const team = [
           { name: "Mayur Patil", photo: "/img/team/mayur-patil.jpg" },
           { name: "Vishal Dalvi", photo: "/img/team/vishal-dalvi.jpg" },
           { name: "Sanket Kharat", photo: "/img/team/sanket-kharat.jpg" },
-          { name: "Ankush Kapase" },
+          { name: "Ankush Kapase", photo: "/img/team/ankush-kapase.jpg" },
         ],
       },
     ],
