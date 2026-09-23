@@ -183,14 +183,12 @@ export default function AboutPage() {
                 section */}
             <div className="mt-5 max-w-3xl space-y-4 text-lg leading-relaxed text-ink-soft">
               <p>
-                Polaris Renewable Solutions Private Limited was founded in{" "}
-                {company.founded} and is headquartered in Nashik, Maharashtra.
-                When we started, we were working around a straightforward idea:
-                businesses should have more control over what they pay for
-                power. Industrial customers were dealing with rising tariffs,
-                reliability issues and large capital decisions, often without
-                one partner looking at the technical and financial picture
-                together.
+                When we started Polaris in {company.founded}, we were working
+                around a straightforward idea: businesses should have more
+                control over what they pay for power. Industrial customers were
+                dealing with rising tariffs, reliability issues and large
+                capital decisions, often without one partner looking at the
+                technical and financial picture together.
               </p>
               <p>
                 That is the gap we set out to address. We built Polaris as an
@@ -202,9 +200,8 @@ export default function AboutPage() {
                 Today, our work covers Commercial &amp; Industrial solar,
                 utility-scale projects, BESS, electrical infrastructure, project
                 finance support and energy optimisation. Our expansion into
-                Morocco through Polaris Global Energie SARL has also given us
-                experience across a wider range of project conditions, standards
-                and markets.
+                Morocco has also given us experience across a wider range of
+                project conditions, standards and markets.
               </p>
               <p>
                 As we grow, our priorities remain simple: sound engineering,
