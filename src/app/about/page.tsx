@@ -16,7 +16,6 @@ import {
   founders,
   leadership,
   team,
-  advantages,
 } from "@/lib/content";
 
 export const metadata: Metadata = {
@@ -84,87 +83,6 @@ const philosophyIcon = (
     />
   </svg>
 );
-
-const advantageIcons: React.ReactNode[] = [
-  // Engineering-led approach — drafting compass
-  <svg viewBox="0 0 48 48" fill="none" key="eng" aria-hidden="true">
-    <rect x="3" y="4" width="26" height="26" rx="6" fill={IL.pale} />
-    <path d="M24 10 L36 40 H29.5 L24 25 L18.5 40 H12 Z" fill={IL.green} />
-    <path
-      d="M16 33 H32"
-      stroke={IL.dark}
-      strokeWidth="3"
-      strokeLinecap="round"
-    />
-    <circle cx="24" cy="10" r="5.5" fill={IL.ink} />
-    <circle cx="24" cy="10" r="1.8" fill="#fff" />
-  </svg>,
-  // Technology agnosticism — neutral overlapping marks
-  <svg viewBox="0 0 48 48" fill="none" key="tech" aria-hidden="true">
-    <rect x="4" y="4" width="24" height="24" rx="6" fill={IL.pale} />
-    <circle cx="17" cy="24" r="12" fill={IL.green} />
-    <circle cx="31" cy="24" r="12" fill={IL.dark} opacity="0.9" />
-    <circle cx="24" cy="24" r="5" fill="#fff" />
-  </svg>,
-  // Proven industrial track record — medal
-  <svg viewBox="0 0 48 48" fill="none" key="track" aria-hidden="true">
-    <rect x="12" y="3" width="24" height="24" rx="6" fill={IL.pale} />
-    <circle cx="24" cy="21" r="14" fill={IL.green} />
-    <path d="M17 32 L13 45 L24 39 L35 45 L31 32" fill={IL.dark} />
-    <path
-      d="M18 21 L22 25 L31 15"
-      stroke="#fff"
-      strokeWidth="3"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </svg>,
-  // Financial intelligence — bars + trend
-  <svg viewBox="0 0 48 48" fill="none" key="fin" aria-hidden="true">
-    <rect x="4" y="6" width="26" height="26" rx="6" fill={IL.pale} />
-    <rect x="9" y="31" width="7" height="11" rx="2" fill={IL.dark} />
-    <rect x="20.5" y="23" width="7" height="19" rx="2" fill={IL.green} />
-    <rect x="32" y="15" width="7" height="27" rx="2" fill={IL.green} />
-    <path
-      d="M10 21 L20 14 L27 18 L39 8"
-      stroke={IL.ink}
-      strokeWidth="2.6"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <circle cx="39" cy="8" r="3" fill={IL.ink} />
-  </svg>,
-  // Full-lifecycle ownership — loop
-  <svg viewBox="0 0 48 48" fill="none" key="cycle" aria-hidden="true">
-    <rect x="3" y="3" width="22" height="22" rx="7" fill={IL.pale} />
-    <circle
-      cx="27"
-      cy="27"
-      r="17"
-      fill="none"
-      stroke={IL.green}
-      strokeWidth="7"
-      strokeDasharray="80 20"
-      strokeLinecap="round"
-      transform="rotate(-45 27 27)"
-    />
-    <path d="M27 27 L36 20 L38 29Z" fill={IL.dark} />
-    <circle cx="27" cy="27" r="4" fill={IL.ink} />
-  </svg>,
-  // Multi-geography capability — globe
-  <svg viewBox="0 0 48 48" fill="none" key="geo" aria-hidden="true">
-    <rect x="4" y="4" width="24" height="24" rx="6" fill={IL.pale} />
-    <circle cx="26" cy="24" r="18" fill={IL.green} />
-    <path
-      d="M8 24h36M26 6c6 6 6 30 0 36M26 6c-6 6-6 30 0 36"
-      stroke="#fff"
-      strokeWidth="2"
-      fill="none"
-      opacity="0.85"
-    />
-    <circle cx="26" cy="24" r="4" fill={IL.ink} />
-  </svg>,
-];
 
 export default function AboutPage() {
   return (
@@ -333,28 +251,6 @@ export default function AboutPage() {
         </Section>
       </div>
 
-      {/* Advantage */}
-      <div className="on-dark bg-[#15371b]">
-        <Section>
-          <SectionHeading title="The Polaris advantage" />
-          <div className="mt-14 grid gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
-            {advantages.map((a, i) => (
-              <Reveal as="article" key={a.title} delay={(i % 3) * 70}>
-                <span className="block h-12 w-12 [&>svg]:h-full [&>svg]:w-full">
-                  {advantageIcons[i]}
-                </span>
-                <h3 className="mt-5 text-base font-semibold tracking-tight text-ink">
-                  {a.title}
-                </h3>
-                <p className="mt-2 text-[15px] leading-relaxed text-ink-soft">
-                  {a.body}
-                </p>
-              </Reveal>
-            ))}
-          </div>
-        </Section>
-      </div>
-
       {/* Leadership */}
       <Section>
         <SectionHeading title="Founders" />
@@ -408,7 +304,7 @@ export default function AboutPage() {
           </Reveal>
           <Reveal variant="up" delay={60}>
             <p className="mt-4 max-w-2xl text-base leading-relaxed text-ink-soft">
-              A multidisciplinary team working across India and Morocco.
+              A multidisciplinary team working across India.
             </p>
           </Reveal>
           <div className="mt-12 space-y-16">

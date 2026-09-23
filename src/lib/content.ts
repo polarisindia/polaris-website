@@ -879,15 +879,6 @@ export const team = [
       },
     ],
   },
-  {
-    title: "Morocco Team",
-    departments: [
-      {
-        department: "Strategic Growth & Business Development",
-        members: [{ name: "Khalid Belkiss" }, { name: "Tawfik Sellam" }],
-      },
-    ],
-  },
 ];
 
 export const leadership = [
