@@ -61,11 +61,13 @@ export function SectionHeading({
   title,
   intro,
   align = "left",
+  titleClassName = "text-[#26502e]",
 }: {
   eyebrow?: string;
   title: string;
   intro?: string;
   align?: "left" | "center";
+  titleClassName?: string;
 }) {
   return (
     <div
@@ -79,7 +81,9 @@ export function SectionHeading({
         </Reveal>
       )}
       <Reveal as="span" variant="mask" className="mt-3 block">
-        <h2 className="text-balance text-3xl font-semibold tracking-tight text-[#26502e] sm:text-[2.5rem]">
+        <h2
+          className={`text-balance text-3xl font-semibold tracking-tight sm:text-[2.5rem] ${titleClassName}`}
+        >
           {title}
         </h2>
       </Reveal>
