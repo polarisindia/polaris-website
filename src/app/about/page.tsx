@@ -96,7 +96,7 @@ export default function AboutPage() {
             <RevealText
               as="h1"
               text="Engineering solutions around how you operate."
-              className="block text-4xl font-semibold leading-[1.08] tracking-tight text-[#26502e] sm:text-[3.25rem]"
+              className="block text-3xl font-semibold leading-[1.15] tracking-tight text-[#26502e] sm:text-[2.5rem]"
             />
             <Reveal variant="up" delay={90}>
               <div className="space-y-4 text-lg leading-relaxed text-ink-soft">
