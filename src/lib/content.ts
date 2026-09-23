@@ -847,7 +847,6 @@ export const team = [
         department: "Marketing, Sales & Business Development",
         members: [
           { name: "Vivek Bachke", photo: "/img/team/vivek-bachke.jpg" },
-          { name: "Rhythm Kothari" },
           { name: "Yogesh Dusane", photo: "/img/team/yogesh-dusane.jpg" },
           { name: "Sandeep Lavate", photo: "/img/team/sandeep-lavate.jpg" },
         ],
