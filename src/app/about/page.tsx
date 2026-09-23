@@ -281,7 +281,7 @@ export default function AboutPage() {
                   />
                 </div>
                 <div className="mt-4">
-                  <h4 className="text-base font-semibold tracking-tight text-ink">
+                  <h4 className="text-[18px] font-semibold tracking-tight text-ink">
                     {p.name}
                   </h4>
                   <p className="mt-1 text-sm text-brand-strong">{p.role}</p>
@@ -342,7 +342,7 @@ export default function AboutPage() {
                                     .join("")}
                                 </div>
                               )}
-                              <h6 className="text-[15px] font-semibold tracking-tight text-ink">
+                              <h6 className="text-[18px] font-semibold tracking-tight text-ink">
                                 {m.name}
                               </h6>
                             </div>
