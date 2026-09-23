@@ -327,17 +327,28 @@ export default function AboutPage() {
                         {g.members.map((m, i) => (
                           <Reveal as="li" key={m.name} delay={(i % 4) * 50}>
                             <div className="flex items-center gap-3">
-                              {/* photo placeholder: initials until real photos arrive */}
-                              <div
-                                aria-hidden="true"
-                                className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-brand-tint text-base font-semibold text-brand-strong"
-                              >
-                                {m.name
-                                  .split(" ")
-                                  .map((w) => w[0])
-                                  .slice(0, 2)
-                                  .join("")}
-                              </div>
+                              {m.photo ? (
+                                <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-full bg-brand-tint">
+                                  <Image
+                                    src={m.photo}
+                                    alt={m.name}
+                                    fill
+                                    sizes="56px"
+                                    className="object-cover"
+                                  />
+                                </div>
+                              ) : (
+                                <div
+                                  aria-hidden="true"
+                                  className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-brand-tint text-base font-semibold text-brand-strong"
+                                >
+                                  {m.name
+                                    .split(" ")
+                                    .map((w) => w[0])
+                                    .slice(0, 2)
+                                    .join("")}
+                                </div>
+                              )}
                               <h6 className="text-[15px] font-semibold tracking-tight text-ink">
                                 {m.name}
                               </h6>
