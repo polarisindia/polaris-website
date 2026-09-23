@@ -169,47 +169,48 @@ const advantageIcons: React.ReactNode[] = [
 export default function AboutPage() {
   return (
     <>
-      {/* Hero */}
+      {/* Hero — headline and the founders' note run side by side rather
+          than stacked as one long vertical block, so the copy doesn't read
+          as a dense wall of text. */}
       <section className="bg-[#FAFBF6]">
         <div className="container-px mx-auto max-w-[1760px] pb-16 pt-[calc(83px+2.5rem)] lg:pb-20 lg:pt-[calc(83px+4rem)]">
-          <RevealText
-            as="h1"
-            text="Engineering solutions around how you operate."
-            className="mt-6 block max-w-3xl text-4xl font-semibold leading-[1.08] tracking-tight text-[#26502e] sm:text-[3.25rem]"
-          />
-          <Reveal variant="up" delay={90}>
-            {/* the founders' note, folded into the first fold rather than
-                repeated lower down the page as a separate, overlapping
-                section */}
-            <div className="mt-5 max-w-3xl space-y-4 text-lg leading-relaxed text-ink-soft">
-              <p>
-                When we started Polaris in {company.founded}, we were working
-                around a straightforward idea: businesses should have more
-                control over what they pay for power. Industrial customers were
-                dealing with rising tariffs, reliability issues and large
-                capital decisions, often without one partner looking at the
-                technical and financial picture together.
-              </p>
-              <p>
-                That is the gap we set out to address. We built Polaris as an
-                engineering-led company, but with an equally strong focus on
-                commercial outcomes. A solar plant has to generate as designed,
-                but it also has to justify the investment behind it.
-              </p>
-              <p>
-                Today, our work covers Commercial &amp; Industrial solar,
-                utility-scale projects, BESS, electrical infrastructure, project
-                finance support and energy optimisation. Our expansion into
-                Morocco has also given us experience across a wider range of
-                project conditions, standards and markets.
-              </p>
-              <p>
-                As we grow, our priorities remain simple: sound engineering,
-                practical commercial thinking, safe execution and long-term
-                accountability.
-              </p>
-            </div>
-          </Reveal>
+          <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start lg:gap-16">
+            <RevealText
+              as="h1"
+              text="Engineering solutions around how you operate."
+              className="block text-4xl font-semibold leading-[1.08] tracking-tight text-[#26502e] sm:text-[3.25rem]"
+            />
+            <Reveal variant="up" delay={90}>
+              <div className="space-y-4 text-lg leading-relaxed text-ink-soft">
+                <p>
+                  When we started Polaris in {company.founded}, we were working
+                  around a straightforward idea: businesses should have more
+                  control over what they pay for power. Industrial customers
+                  were dealing with rising tariffs, reliability issues and large
+                  capital decisions, often without one partner looking at the
+                  technical and financial picture together.
+                </p>
+                <p>
+                  That is the gap we set out to address. We built Polaris as an
+                  engineering-led company, but with an equally strong focus on
+                  commercial outcomes. A solar plant has to generate as
+                  designed, but it also has to justify the investment behind it.
+                </p>
+                <p>
+                  Today, our work covers Commercial &amp; Industrial solar,
+                  utility-scale projects, BESS, electrical infrastructure,
+                  project finance support and energy optimisation. Our expansion
+                  into Morocco has also given us experience across a wider range
+                  of project conditions, standards and markets.
+                </p>
+                <p>
+                  As we grow, our priorities remain simple: sound engineering,
+                  practical commercial thinking, safe execution and long-term
+                  accountability.
+                </p>
+              </div>
+            </Reveal>
+          </div>
         </div>
       </section>
 
