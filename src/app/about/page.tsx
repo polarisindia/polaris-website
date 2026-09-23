@@ -271,22 +271,20 @@ export default function AboutPage() {
           <div className="mt-8 grid gap-x-8 gap-y-6 sm:grid-cols-2 lg:grid-cols-3">
             {leadership.map((p, i) => (
               <Reveal key={p.name} delay={(i % 3) * 70}>
-                <div className="flex items-center gap-3">
-                  <div className="relative h-[98px] w-[98px] shrink-0 overflow-hidden rounded-full bg-brand-tint">
-                    <Image
-                      src={p.photo}
-                      alt={p.name}
-                      fill
-                      sizes="98px"
-                      className="object-cover"
-                    />
-                  </div>
-                  <div>
-                    <h4 className="text-base font-semibold tracking-tight text-ink">
-                      {p.name}
-                    </h4>
-                    <p className="text-sm text-brand-strong">{p.role}</p>
-                  </div>
+                <div className="relative h-[98px] w-[98px] overflow-hidden rounded-full bg-brand-tint">
+                  <Image
+                    src={p.photo}
+                    alt={p.name}
+                    fill
+                    sizes="98px"
+                    className="object-cover"
+                  />
+                </div>
+                <div className="mt-4">
+                  <h4 className="text-base font-semibold tracking-tight text-ink">
+                    {p.name}
+                  </h4>
+                  <p className="text-sm text-brand-strong">{p.role}</p>
                 </div>
                 <p className="mt-3 text-[15px] leading-relaxed text-ink-soft">
                   {p.bio}
