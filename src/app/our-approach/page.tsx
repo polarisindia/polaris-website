@@ -230,12 +230,9 @@ export default function OurApproachPage() {
       </Section>
 
       {/* Advantage */}
-      <div className="on-dark bg-[#15371b]">
+      <div className="bg-brand-tint">
         <Section>
-          <SectionHeading
-            title="The Polaris advantage"
-            titleClassName="text-brand"
-          />
+          <SectionHeading title="The Polaris advantage" />
           <div className="mt-14 grid gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
             {advantages.map((a, i) => (
               <Reveal as="article" key={a.title} delay={(i % 3) * 70}>
