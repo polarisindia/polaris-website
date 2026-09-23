@@ -308,12 +308,7 @@ export default function AboutPage() {
           <div className="mt-12 space-y-16">
             {team.map((part) => (
               <div key={part.title}>
-                <Reveal variant="fade">
-                  <h4 className="border-b border-ink/10 pb-4 text-xl font-semibold tracking-tight text-[#26502e] sm:text-2xl">
-                    {part.title}
-                  </h4>
-                </Reveal>
-                <div className="mt-10 space-y-16">
+                <div className="space-y-16">
                   {part.departments.map((g) => (
                     <div key={g.department}>
                       <Reveal variant="fade">
