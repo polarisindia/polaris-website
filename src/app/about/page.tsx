@@ -321,19 +321,19 @@ export default function AboutPage() {
                           <Reveal as="li" key={m.name} delay={(i % 4) * 50}>
                             <div className="flex items-center gap-3">
                               {m.photo ? (
-                                <div className="relative h-[69px] w-[69px] shrink-0 overflow-hidden rounded-full bg-brand-tint">
+                                <div className="relative h-[98px] w-[98px] shrink-0 overflow-hidden rounded-full bg-brand-tint">
                                   <Image
                                     src={m.photo}
                                     alt={m.name}
                                     fill
-                                    sizes="69px"
+                                    sizes="98px"
                                     className="object-cover"
                                   />
                                 </div>
                               ) : (
                                 <div
                                   aria-hidden="true"
-                                  className="flex h-[69px] w-[69px] shrink-0 items-center justify-center rounded-full bg-brand-tint text-base font-semibold text-brand-strong"
+                                  className="flex h-[98px] w-[98px] shrink-0 items-center justify-center rounded-full bg-brand-tint text-base font-semibold text-brand-strong"
                                 >
                                   {m.name
                                     .split(" ")
