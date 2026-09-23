@@ -507,3 +507,9 @@ a {
 .on-dark .on-light [class*="bg-ink/"] {
   background-color: rgb(11 21 37 / 0.06);
 }
+
+/* Suppress a BorderGlow card's default drop shadow where a flatter look is
+   wanted (opt-in, not a change to every glow card sitewide). */
+.card-no-shadow {
+  box-shadow: none !important;
+}

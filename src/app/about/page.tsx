@@ -267,7 +267,7 @@ export default function AboutPage() {
               className="h-full"
             >
               <BorderGlow
-                className="on-light h-full"
+                className="on-light card-no-shadow h-full"
                 backgroundColor="#ffffff"
                 borderRadius={8}
                 glowColor="112 55% 42%"
