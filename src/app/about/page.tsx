@@ -174,7 +174,7 @@ export default function AboutPage() {
         <div className="container-px mx-auto max-w-[1760px] pb-16 pt-[calc(83px+2.5rem)] lg:pb-20 lg:pt-[calc(83px+4rem)]">
           <RevealText
             as="h1"
-            text="Engineering energy solutions around how businesses actually operate."
+            text="Engineering solutions around how you operate."
             className="mt-6 block max-w-3xl text-4xl font-semibold leading-[1.08] tracking-tight text-[#26502e] sm:text-[3.25rem]"
           />
           <Reveal variant="up" delay={90}>
@@ -296,9 +296,27 @@ export default function AboutPage() {
         </div>
       </Section>
 
-      {/* Philosophy — its own dedicated section, not grouped with the values above */}
-      <div className="bg-brand-tint">
-        <Section className="flex flex-col items-center text-center">
+      {/* Philosophy — its own dedicated section, not grouped with the
+          values above. Backed by a photo of a rooftop solar installation,
+          with a dark overlay so the white text stays legible over it. */}
+      <div className="relative isolate overflow-hidden bg-[#15371b]">
+        <Image
+          src="/img/energy-asset-bg.jpg"
+          alt="Aerial view of an industrial facility with a rooftop solar array."
+          fill
+          sizes="100vw"
+          className="-z-20 object-cover"
+        />
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 -z-10 bg-[#0a1f10]/75"
+        />
+        <Section className="relative flex flex-col items-center text-center">
+          <Reveal variant="fade">
+            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-white/70">
+              Philosophy
+            </p>
+          </Reveal>
           <Reveal variant="scale" delay={40}>
             <span className="mt-6 block h-16 w-16 [&>svg]:h-full [&>svg]:w-full">
               {philosophyIcon}
@@ -307,10 +325,10 @@ export default function AboutPage() {
           <RevealText
             as="h2"
             text={philosophy.title}
-            className="mt-6 block max-w-2xl text-3xl font-semibold tracking-tight text-[#26502e] sm:text-[2.75rem]"
+            className="mt-6 block max-w-2xl text-3xl font-semibold tracking-tight text-white sm:text-[2.75rem]"
           />
           <Reveal variant="up" delay={80}>
-            <p className="mt-5 max-w-2xl text-lg leading-relaxed text-ink-soft">
+            <p className="mt-5 max-w-2xl text-lg leading-relaxed text-white/80">
               {philosophy.body}
             </p>
           </Reveal>
