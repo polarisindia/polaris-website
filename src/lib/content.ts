@@ -137,6 +137,7 @@ export const nav: {
   { label: "Projects", href: "/projects" },
   { label: "P-ESS", href: "/p-ess" },
   { label: "Insights", href: "/insights" },
+  { label: "Contact", href: "/contact" },
 ];
 
 // Headline figures, "Polaris at a Glance"

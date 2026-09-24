@@ -210,7 +210,7 @@ export function Header() {
                         <Link
                           key={o.slug}
                           href={`/solutions/${o.slug}`}
-                          className="group/item rounded-lg bg-white p-4 transition-shadow duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:shadow-[0_12px_32px_-12px_rgba(0,0,0,0.2)]"
+                          className="group/item rounded-lg p-4 transition-colors hover:bg-brand-tint/60"
                         >
                           <span className="block h-9 w-9 [&>svg]:h-full [&>svg]:w-full">
                             {offeringIcons[i]}
@@ -246,14 +246,6 @@ export function Header() {
 
         <div className="hidden items-center gap-3 xl:flex">
           <RegionToggle overlay={overlay} />
-          <Link
-            href="/contact"
-            className={`rounded-lg px-5 py-2.5 text-[14px] font-semibold transition-colors duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-brand-hover hover:text-ink ${
-              overlay ? "bg-white text-ink" : "bg-ink text-white"
-            }`}
-          >
-            Request a call back
-          </Link>
         </div>
 
         <button
@@ -374,12 +366,6 @@ export function Header() {
                 </Link>
               ),
             )}
-            <Link
-              href="/contact"
-              className="mt-4 rounded-lg bg-ink px-4 py-3 text-center text-sm font-semibold text-white transition-colors duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-brand-hover hover:text-ink"
-            >
-              Request a call back
-            </Link>
           </nav>
         </div>
       )}

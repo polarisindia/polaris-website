@@ -148,13 +148,10 @@ export default function OurApproachPage() {
       {/* Hero */}
       <section className="bg-[#FAFBF6]">
         <div className="container-px mx-auto max-w-[1760px] pb-16 pt-[calc(83px+2.5rem)] lg:pb-20 lg:pt-[calc(83px+4rem)]">
-          <Reveal variant="fade">
-            <span className="pill">Our approach</span>
-          </Reveal>
           <RevealText
             as="h1"
             text="One accountable team, from first assessment to long-term performance."
-            className="mt-6 block max-w-3xl text-4xl font-semibold leading-[1.08] tracking-tight text-[#26502e] sm:text-[3.25rem]"
+            className="block max-w-3xl text-4xl font-semibold leading-[1.08] tracking-tight text-[#26502e] sm:text-[3.25rem]"
           />
           <Reveal variant="up" delay={90}>
             <p className="mt-5 max-w-2xl text-lg leading-relaxed text-ink-soft">
@@ -183,7 +180,7 @@ export default function OurApproachPage() {
                 variant="scale"
                 className={imageFirst ? "lg:order-1" : "lg:order-2"}
               >
-                <div className="relative aspect-[4/3] overflow-hidden rounded-lg bg-mist">
+                <div className="relative aspect-[16/9] overflow-hidden rounded-lg bg-mist">
                   <Image
                     src={s.image}
                     alt=""
@@ -239,7 +236,7 @@ export default function OurApproachPage() {
                 <span className="block h-12 w-12 [&>svg]:h-full [&>svg]:w-full">
                   {advantageIcons[i]}
                 </span>
-                <h3 className="mt-5 text-base font-semibold tracking-tight text-ink">
+                <h3 className="mt-5 text-[18px] font-semibold tracking-tight text-ink">
                   {a.title}
                 </h3>
                 <p className="mt-2 text-[15px] leading-relaxed text-ink-soft">
