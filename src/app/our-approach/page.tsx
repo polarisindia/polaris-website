@@ -150,7 +150,7 @@ export default function OurApproachPage() {
         <div className="container-px mx-auto max-w-[1760px] pb-16 pt-[calc(83px+2.5rem)] lg:pb-20 lg:pt-[calc(83px+4rem)]">
           <RevealText
             as="h1"
-            text="One accountable team, from first assessment to long-term performance."
+            text="From first assessment to lasting performance"
             className="block max-w-3xl text-4xl font-semibold leading-[1.08] tracking-tight text-[#26502e] sm:text-[3.25rem]"
           />
           <Reveal variant="up" delay={90}>
