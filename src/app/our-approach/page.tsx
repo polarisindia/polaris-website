@@ -192,12 +192,7 @@ export default function OurApproachPage() {
               </Reveal>
 
               <div className={imageFirst ? "lg:order-2" : "lg:order-1"}>
-                <Reveal variant="fade">
-                  <span className="text-sm font-semibold uppercase tracking-[0.2em] text-brand-strong">
-                    {s.step}
-                  </span>
-                </Reveal>
-                <Reveal as="span" variant="mask" className="mt-3 block">
+                <Reveal as="span" variant="mask" className="block">
                   <h2 className="text-2xl font-semibold tracking-tight text-[#26502e] sm:text-3xl">
                     {s.title}
                   </h2>
