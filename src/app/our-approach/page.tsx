@@ -183,7 +183,7 @@ export default function OurApproachPage() {
                 <div className="relative aspect-[16/9] overflow-hidden rounded-lg bg-mist">
                   <Image
                     src={s.image}
-                    alt=""
+                    alt={s.title}
                     fill
                     sizes="(max-width: 1024px) 100vw, 50vw"
                     className="object-cover"

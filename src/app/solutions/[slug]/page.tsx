@@ -156,7 +156,7 @@ export default async function OfferingDetail({
         <div className="on-dark bg-[#15371b]">
           <Section>
             <div className="flex flex-wrap items-end justify-between gap-6">
-              <h2 className="text-2xl font-semibold tracking-tight text-[#26502e] sm:text-3xl">
+              <h2 className="text-3xl font-semibold tracking-tight text-[#26502e] sm:text-[2.5rem]">
                 Recent rooftop deployments
               </h2>
               <ArrowLink href="/projects">See all projects</ArrowLink>

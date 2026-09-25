@@ -109,6 +109,13 @@ html.lenis body {
   }
 }
 
+/* `clip` (not `hidden`) stops decorative glow/marquee overhang from creating a
+   sideways scrollbar on phones without turning body into a scroll container. */
+html,
+body {
+  overflow-x: clip;
+}
+
 body {
   background-color: var(--color-paper);
   color: var(--color-ink);
