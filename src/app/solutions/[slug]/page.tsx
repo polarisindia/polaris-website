@@ -273,44 +273,40 @@ export default async function OfferingDetail({
 
       {/* Commercial & Industrial — rooftop project proof */}
       {slug === "commercial-industrial" && rooftopProjects.length > 0 && (
-        <div className="on-dark bg-[#15371b]">
-          <Section>
-            <div className="flex flex-wrap items-end justify-between gap-6">
-              <h2 className="text-3xl font-semibold tracking-tight text-[#26502e] sm:text-[2.5rem]">
-                Recent rooftop deployments
-              </h2>
-              <ArrowLink href="/projects">See all projects</ArrowLink>
-            </div>
-            <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {rooftopProjects.slice(0, 3).map((p, i) => (
-                <Reveal key={p.name} delay={(i % 3) * 70}>
-                  <ProjectCard project={p} />
-                </Reveal>
-              ))}
-            </div>
-          </Section>
-        </div>
+        <Section>
+          <div className="flex flex-wrap items-end justify-between gap-6">
+            <h2 className="text-3xl font-semibold tracking-tight text-[#26502e] sm:text-[2.5rem]">
+              Recent rooftop deployments
+            </h2>
+            <ArrowLink href="/projects">See all projects</ArrowLink>
+          </div>
+          <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {rooftopProjects.slice(0, 3).map((p, i) => (
+              <Reveal key={p.name} delay={(i % 3) * 70}>
+                <ProjectCard project={p} />
+              </Reveal>
+            ))}
+          </div>
+        </Section>
       )}
 
       {/* Utility Scale — ground-mount project proof */}
       {slug === "utility-scale" && groundMountProjects.length > 0 && (
-        <div className="on-dark bg-[#15371b]">
-          <Section>
-            <div className="flex flex-wrap items-end justify-between gap-6">
-              <h2 className="text-2xl font-semibold tracking-tight text-[#26502e] sm:text-3xl">
-                Ground-mounted deployments
-              </h2>
-              <ArrowLink href="/projects">See all projects</ArrowLink>
-            </div>
-            <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {groundMountProjects.map((p, i) => (
-                <Reveal key={p.name} delay={(i % 3) * 70}>
-                  <ProjectCard project={p} />
-                </Reveal>
-              ))}
-            </div>
-          </Section>
-        </div>
+        <Section>
+          <div className="flex flex-wrap items-end justify-between gap-6">
+            <h2 className="text-3xl font-semibold tracking-tight text-[#26502e] sm:text-[2.5rem]">
+              Ground-mounted deployments
+            </h2>
+            <ArrowLink href="/projects">See all projects</ArrowLink>
+          </div>
+          <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {groundMountProjects.map((p, i) => (
+              <Reveal key={p.name} delay={(i % 3) * 70}>
+                <ProjectCard project={p} />
+              </Reveal>
+            ))}
+          </div>
+        </Section>
       )}
 
       {/* Finance Solutions — the actual numbers */}
