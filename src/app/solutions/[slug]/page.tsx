@@ -402,32 +402,14 @@ export default async function OfferingDetail({
 
   return (
     <>
-      {/* Hero */}
-      <section className="bg-[#FAFBF6]">
-        <div className="container-px mx-auto max-w-[1760px] pb-16 pt-[calc(83px+2.5rem)] lg:pb-20 lg:pt-[calc(83px+4rem)]">
-          <RevealText
-            as="h1"
-            text={offering.title}
-            className="mt-6 block max-w-3xl text-4xl font-semibold leading-[1.08] tracking-tight text-[#26502e] sm:text-[58px]"
-          />
-          <Reveal variant="up" delay={90}>
-            <p className="mt-5 max-w-2xl text-lg leading-relaxed text-ink-soft">
-              {offering.intro}
-            </p>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* What this covers — full-bleed background photo behind the
-          offering's own capability/coverage lists, same treatment as the
-          About page's Philosophy section (photo + dark overlay + white
-          text), each list with its own icon and a scannable checklist
-          rather than a dense paragraph. */}
-      <div className="relative isolate overflow-hidden bg-[#15371b]">
+      {/* Hero — same full-bleed photo + dark overlay treatment as the
+          rest of the page's background-image sections. */}
+      <section className="relative isolate overflow-hidden bg-[#15371b]">
         <Image
           src={coverageImages[slug]}
           alt=""
           fill
+          priority
           sizes="100vw"
           className="-z-20 object-cover"
         />
@@ -435,26 +417,63 @@ export default async function OfferingDetail({
           aria-hidden="true"
           className="absolute inset-0 -z-10 bg-[#0a1f10]/75"
         />
-        <Section className="relative">
-          <div
-            className={
-              offering.extra ? "grid gap-14 sm:grid-cols-2" : undefined
-            }
-          >
+        <div className="container-px relative mx-auto max-w-[1760px] pb-16 pt-[calc(83px+2.5rem)] lg:pb-20 lg:pt-[calc(83px+4rem)]">
+          <RevealText
+            as="h1"
+            text={offering.title}
+            className="mt-6 block max-w-3xl text-4xl font-semibold leading-[1.08] tracking-tight text-white sm:text-[58px]"
+          />
+          <Reveal variant="up" delay={90}>
+            <p className="mt-5 max-w-2xl text-lg leading-relaxed text-white/80">
+              {offering.intro}
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* What this covers — the offering's own capability/coverage lists,
+          each with its own icon and a scannable checklist rather than a
+          dense paragraph. Plain light section: the hero above already
+          carries this offering's photo. */}
+      <Section>
+        <div
+          className={offering.extra ? "grid gap-14 sm:grid-cols-2" : undefined}
+        >
+          <div>
+            <span className="block h-12 w-12 [&>svg]:h-full [&>svg]:w-full">
+              {coverageIcons[offering.pointsHeading ?? ""]}
+            </span>
+            <h2 className="mt-4 text-xl font-semibold tracking-tight text-ink">
+              {offering.pointsHeading ?? "What this covers"}
+            </h2>
+            <ul
+              className={`mt-5 grid gap-x-8 gap-y-3 ${offering.extra ? "" : "sm:grid-cols-2 lg:grid-cols-3"}`}
+            >
+              {offering.points.map((p) => (
+                <li
+                  key={p}
+                  className="flex gap-2.5 text-[14px] leading-relaxed text-ink-soft"
+                >
+                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand" />
+                  <span>{p}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {offering.extra && (
             <div>
               <span className="block h-12 w-12 [&>svg]:h-full [&>svg]:w-full">
-                {coverageIcons[offering.pointsHeading ?? ""]}
+                {coverageIcons[offering.extra.heading]}
               </span>
-              <h2 className="mt-4 text-xl font-semibold tracking-tight text-white">
-                {offering.pointsHeading ?? "What this covers"}
+              <h2 className="mt-4 text-xl font-semibold tracking-tight text-ink">
+                {offering.extra.heading}
               </h2>
-              <ul
-                className={`mt-5 grid gap-x-8 gap-y-3 ${offering.extra ? "" : "sm:grid-cols-2 lg:grid-cols-3"}`}
-              >
-                {offering.points.map((p) => (
+              <ul className="mt-5 grid gap-x-8 gap-y-3">
+                {offering.extra.items.map((p) => (
                   <li
                     key={p}
-                    className="flex gap-2.5 text-[14px] leading-relaxed text-white/80"
+                    className="flex gap-2.5 text-[14px] leading-relaxed text-ink-soft"
                   >
                     <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand" />
                     <span>{p}</span>
@@ -462,31 +481,9 @@ export default async function OfferingDetail({
                 ))}
               </ul>
             </div>
-
-            {offering.extra && (
-              <div>
-                <span className="block h-12 w-12 [&>svg]:h-full [&>svg]:w-full">
-                  {coverageIcons[offering.extra.heading]}
-                </span>
-                <h2 className="mt-4 text-xl font-semibold tracking-tight text-white">
-                  {offering.extra.heading}
-                </h2>
-                <ul className="mt-5 grid gap-x-8 gap-y-3">
-                  {offering.extra.items.map((p) => (
-                    <li
-                      key={p}
-                      className="flex gap-2.5 text-[14px] leading-relaxed text-white/80"
-                    >
-                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand" />
-                      <span>{p}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-          </div>
-        </Section>
-      </div>
+          )}
+        </div>
+      </Section>
 
       {/* Commercial models — exact same treatment as the homepage's "Our
           solutions" section: dark grainient background, glow cards, 2-up
