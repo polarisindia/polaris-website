@@ -245,6 +245,114 @@ const financialIcons: React.ReactNode[] = [
   </svg>,
 ];
 
+/* ---------- one icon per "what this covers" group heading, keyed by the
+   exact heading text used in content.ts ---------- */
+const coverageIcons: Record<string, React.ReactNode> = {
+  // Core capabilities — wrench / toolkit
+  "Core capabilities": (
+    <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+      <rect x="4" y="4" width="26" height="26" rx="6" fill={IL.pale} />
+      <path
+        d="M30 8a9 9 0 0 0-11.8 11.8L8 30l4 4 10.2-10.2A9 9 0 0 0 34 12l-6 6-5-5Z"
+        fill={IL.green}
+      />
+      <circle cx="12" cy="34" r="3.2" fill={IL.ink} />
+    </svg>
+  ),
+  // What we focus on — target
+  "What we focus on": (
+    <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+      <rect x="4" y="4" width="26" height="26" rx="6" fill={IL.pale} />
+      <circle cx="26" cy="24" r="18" fill={IL.green} />
+      <circle cx="26" cy="24" r="11" fill="#fff" />
+      <circle cx="26" cy="24" r="5" fill={IL.dark} />
+      <circle cx="26" cy="24" r="1.8" fill={IL.ink} />
+    </svg>
+  ),
+  // Scope of work — blueprint / ruler
+  "Scope of work": (
+    <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+      <rect x="4" y="4" width="26" height="26" rx="6" fill={IL.pale} />
+      <rect
+        x="9"
+        y="12"
+        width="30"
+        height="24"
+        rx="3"
+        fill={IL.green}
+        transform="rotate(-8 24 24)"
+      />
+      <path
+        d="M14 20 H32 M14 26 H28"
+        stroke="#fff"
+        strokeWidth="2.4"
+        strokeLinecap="round"
+        transform="rotate(-8 24 24)"
+      />
+      <circle cx="35" cy="14" r="4" fill={IL.ink} />
+    </svg>
+  ),
+  // Electrical infrastructure & grid evacuation — transmission tower
+  "Electrical infrastructure & grid evacuation": (
+    <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+      <rect x="4" y="4" width="24" height="24" rx="6" fill={IL.pale} />
+      <path
+        d="M24 6 L36 42 M24 6 L12 42 M17 24 H31 M14 34 H34"
+        stroke={IL.green}
+        strokeWidth="3"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <circle cx="24" cy="6" r="4" fill={IL.ink} />
+    </svg>
+  ),
+  // What we evaluate — magnifier over a chart
+  "What we evaluate": (
+    <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+      <rect x="4" y="6" width="26" height="26" rx="6" fill={IL.pale} />
+      <rect x="9" y="24" width="6" height="12" rx="1.5" fill={IL.dark} />
+      <rect x="18" y="18" width="6" height="18" rx="1.5" fill={IL.green} />
+      <rect x="27" y="12" width="6" height="24" rx="1.5" fill={IL.pale} />
+      <circle
+        cx="34"
+        cy="14"
+        r="8"
+        fill="none"
+        stroke={IL.ink}
+        strokeWidth="2.6"
+      />
+      <path
+        d="M39.5 19.5 L44 24"
+        stroke={IL.ink}
+        strokeWidth="2.6"
+        strokeLinecap="round"
+      />
+    </svg>
+  ),
+  // What we review — checklist
+  "What we review": (
+    <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+      <rect x="8" y="4" width="28" height="36" rx="4" fill={IL.pale} />
+      <rect x="14" y="2" width="16" height="6" rx="2" fill={IL.dark} />
+      <path
+        d="M15 18 L19 22 L28 13"
+        stroke={IL.green}
+        strokeWidth="3"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M15 29 L19 33 L28 24"
+        stroke={IL.green}
+        strokeWidth="3"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <circle cx="34" cy="34" r="8" fill={IL.ink} />
+    </svg>
+  ),
+};
+
 export function generateStaticParams() {
   return offerings.map((o) => ({ slug: o.slug }));
 }
@@ -299,6 +407,59 @@ export default async function OfferingDetail({
           </Reveal>
         </div>
       </section>
+
+      {/* What this covers — the offering's own capability/coverage lists,
+          each with its own icon and presented as a scannable checklist
+          grid rather than a dense paragraph. */}
+      <Section>
+        <div
+          className={offering.extra ? "grid gap-14 lg:grid-cols-2" : undefined}
+        >
+          <div>
+            <span className="block h-12 w-12 [&>svg]:h-full [&>svg]:w-full">
+              {coverageIcons[offering.pointsHeading ?? ""]}
+            </span>
+            <h2 className="mt-4 text-xl font-semibold tracking-tight text-ink">
+              {offering.pointsHeading ?? "What this covers"}
+            </h2>
+            <ul
+              className={`mt-5 grid gap-x-8 gap-y-3 ${offering.extra ? "" : "sm:grid-cols-2 lg:grid-cols-3"}`}
+            >
+              {offering.points.map((p) => (
+                <li
+                  key={p}
+                  className="flex gap-2.5 text-[14px] leading-relaxed text-ink-soft"
+                >
+                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand" />
+                  <span>{p}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {offering.extra && (
+            <div>
+              <span className="block h-12 w-12 [&>svg]:h-full [&>svg]:w-full">
+                {coverageIcons[offering.extra.heading]}
+              </span>
+              <h2 className="mt-4 text-xl font-semibold tracking-tight text-ink">
+                {offering.extra.heading}
+              </h2>
+              <ul className="mt-5 grid gap-x-8 gap-y-3">
+                {offering.extra.items.map((p) => (
+                  <li
+                    key={p}
+                    className="flex gap-2.5 text-[14px] leading-relaxed text-ink-soft"
+                  >
+                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand" />
+                    <span>{p}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
+      </Section>
 
       {/* Commercial models — exact same treatment as the homepage's "Our
           solutions" section: dark grainient background, glow cards, 2-up
