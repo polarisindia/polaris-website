@@ -93,9 +93,6 @@ export default function ContactPage() {
       {/* Hero */}
       <section className="bg-[#FAFBF6]">
         <div className="container-px mx-auto max-w-[1760px] pb-16 pt-[calc(83px+2.5rem)] lg:pb-20 lg:pt-[calc(83px+4rem)]">
-          <Reveal variant="fade">
-            <span className="pill">Contact</span>
-          </Reveal>
           <RevealText
             as="h1"
             text="Tell us what you're trying to build"

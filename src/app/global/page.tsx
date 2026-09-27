@@ -116,9 +116,6 @@ export default function GlobalPage() {
       {/* Hero */}
       <section className="bg-[#FAFBF6]">
         <div className="container-px mx-auto max-w-[1760px] pb-16 pt-[calc(83px+2.5rem)] lg:pb-20 lg:pt-[calc(83px+4rem)]">
-          <Reveal variant="fade">
-            <span className="pill">{global.eyebrow}</span>
-          </Reveal>
           <RevealText
             as="h1"
             text={global.title}
@@ -134,7 +131,7 @@ export default function GlobalPage() {
 
       {/* Where we operate */}
       <Section>
-        <SectionHeading eyebrow="Footprint" title="Where we operate" />
+        <SectionHeading title="Where we operate" />
         <div className="mt-14 grid gap-6 md:grid-cols-3">
           {global.presence.map((m, i) => (
             <Reveal key={m.market} delay={i * 70}>
@@ -162,10 +159,7 @@ export default function GlobalPage() {
         <div className="container-px mx-auto max-w-[1760px] py-20 lg:py-28">
           <div className="grid gap-10 lg:grid-cols-[1.1fr_1fr] lg:items-center">
             <div>
-              <SectionHeading
-                eyebrow="The entity"
-                title="Polaris Global Energie SARL"
-              />
+              <SectionHeading title="Polaris Global Energie SARL" />
               <dl className="mt-8 grid max-w-md grid-cols-[auto_1fr] gap-x-6 gap-y-3 text-sm">
                 <dt className="font-semibold text-ink">Incorporated</dt>
                 <dd className="text-ink-soft">{global.entity.incorporated}</dd>
@@ -209,10 +203,7 @@ export default function GlobalPage() {
       {/* International project */}
       {intlProject && (
         <Section>
-          <SectionHeading
-            eyebrow="Morocco reference project"
-            title="Ongoing in Tangier"
-          />
+          <SectionHeading title="Ongoing in Tangier" />
           <div className="mt-12 max-w-md">
             <ProjectCard project={intlProject} />
           </div>
@@ -222,10 +213,7 @@ export default function GlobalPage() {
       {/* Why global */}
       <div className="on-dark bg-[#15371b]">
         <Section>
-          <SectionHeading
-            eyebrow="How it works"
-            title="One approach, every market"
-          />
+          <SectionHeading title="One approach, every market" />
           <div className="mt-14 grid gap-x-10 gap-y-12 md:grid-cols-3">
             {global.why.map((w, i) => (
               <Reveal as="article" key={w.title} delay={i * 70}>

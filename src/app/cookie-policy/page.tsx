@@ -89,7 +89,6 @@ export default function CookiePolicyPage() {
   return (
     <section className="bg-[#FAFBF6]">
       <div className="container-px mx-auto max-w-3xl pb-20 pt-[calc(83px+2.5rem)] lg:pb-28 lg:pt-[calc(83px+4rem)]">
-        <span className="pill">Legal</span>
         <h1 className="mt-6 text-4xl font-semibold leading-[1.08] tracking-tight text-[#26502e] sm:text-[58px]">
           Cookie Policy
         </h1>

@@ -89,9 +89,6 @@ export default function CareersPage() {
       {/* Hero */}
       <section className="bg-[#FAFBF6]">
         <div className="container-px mx-auto max-w-[1760px] pb-16 pt-[calc(83px+2.5rem)] lg:pb-20 lg:pt-[calc(83px+4rem)]">
-          <Reveal variant="fade">
-            <span className="pill">Careers</span>
-          </Reveal>
           <RevealText
             as="h1"
             text="Own outcomes, not tickets."
@@ -107,7 +104,6 @@ export default function CareersPage() {
 
       <Section>
         <SectionHeading
-          eyebrow="How it works here"
           title="A team built around ownership"
           intro="Four things that tend to define whether someone thrives at Polaris."
         />
@@ -130,7 +126,7 @@ export default function CareersPage() {
 
       <div className="on-dark bg-[#15371b]">
         <Section>
-          <SectionHeading eyebrow="Who we hire" title="Open applications" />
+          <SectionHeading title="Open applications" />
           <Reveal variant="up" delay={80}>
             <p className="mt-8 max-w-2xl text-lg leading-relaxed text-ink-soft">
               {careers.roles} We don&rsquo;t always have a role posted, but we

@@ -27,9 +27,6 @@ export default function InsightsPage() {
       {/* Hero */}
       <section className="bg-[#FAFBF6]">
         <div className="container-px mx-auto max-w-[1760px] pb-16 pt-[calc(83px+2.5rem)] lg:pb-20 lg:pt-[calc(83px+4rem)]">
-          <Reveal variant="fade">
-            <span className="pill">Insights</span>
-          </Reveal>
           <RevealText
             as="h1"
             text="Notes from the people building the projects"

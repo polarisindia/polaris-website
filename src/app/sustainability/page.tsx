@@ -106,9 +106,6 @@ export default function SustainabilityPage() {
       {/* Hero */}
       <section className="bg-[#FAFBF6]">
         <div className="container-px mx-auto max-w-[1760px] pb-16 pt-[calc(83px+2.5rem)] lg:pb-20 lg:pt-[calc(83px+4rem)]">
-          <Reveal variant="fade">
-            <span className="pill">The opportunity</span>
-          </Reveal>
           <RevealText
             as="h1"
             text="Energy is now a business decision, not just a utility bill."
@@ -163,7 +160,6 @@ export default function SustainabilityPage() {
 
       <Section>
         <SectionHeading
-          eyebrow="The strategic opportunity"
           title="What is changing the decision"
           intro="Six shifts are turning energy from a line on the utility bill into a business-planning question."
         />
@@ -186,10 +182,7 @@ export default function SustainabilityPage() {
 
       <div className="on-dark bg-[#15371b]">
         <Section>
-          <SectionHeading
-            eyebrow="The business case"
-            title="The full picture"
-          />
+          <SectionHeading title="The full picture" />
           <Reveal variant="up" delay={80}>
             <p className="mt-8 max-w-3xl text-lg leading-relaxed text-ink-soft">
               {opportunity.context}
