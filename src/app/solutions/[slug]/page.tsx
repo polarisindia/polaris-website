@@ -418,34 +418,43 @@ export default async function OfferingDetail({
         </div>
       </section>
 
-      {/* What this covers — a real photo alongside the offering's own
-          capability/coverage lists, each with its own icon and presented
-          as a scannable checklist rather than a dense paragraph. */}
-      <Section>
-        <div className="grid gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
-          <div className="relative aspect-[4/3] overflow-hidden rounded-lg bg-mist lg:sticky lg:top-28">
-            <Image
-              src={coverageImages[slug]}
-              alt={offering.title}
-              fill
-              sizes="(max-width: 1024px) 100vw, 45vw"
-              className="object-cover"
-            />
-          </div>
-
-          <div className={offering.extra ? "grid gap-10 sm:grid-cols-2" : ""}>
+      {/* What this covers — full-bleed background photo behind the
+          offering's own capability/coverage lists, same treatment as the
+          About page's Philosophy section (photo + dark overlay + white
+          text), each list with its own icon and a scannable checklist
+          rather than a dense paragraph. */}
+      <div className="relative isolate overflow-hidden bg-[#15371b]">
+        <Image
+          src={coverageImages[slug]}
+          alt=""
+          fill
+          sizes="100vw"
+          className="-z-20 object-cover"
+        />
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 -z-10 bg-[#0a1f10]/75"
+        />
+        <Section className="relative">
+          <div
+            className={
+              offering.extra ? "grid gap-14 sm:grid-cols-2" : undefined
+            }
+          >
             <div>
               <span className="block h-12 w-12 [&>svg]:h-full [&>svg]:w-full">
                 {coverageIcons[offering.pointsHeading ?? ""]}
               </span>
-              <h2 className="mt-4 text-xl font-semibold tracking-tight text-ink">
+              <h2 className="mt-4 text-xl font-semibold tracking-tight text-white">
                 {offering.pointsHeading ?? "What this covers"}
               </h2>
-              <ul className="mt-5 grid gap-x-8 gap-y-3">
+              <ul
+                className={`mt-5 grid gap-x-8 gap-y-3 ${offering.extra ? "" : "sm:grid-cols-2 lg:grid-cols-3"}`}
+              >
                 {offering.points.map((p) => (
                   <li
                     key={p}
-                    className="flex gap-2.5 text-[14px] leading-relaxed text-ink-soft"
+                    className="flex gap-2.5 text-[14px] leading-relaxed text-white/80"
                   >
                     <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand" />
                     <span>{p}</span>
@@ -459,14 +468,14 @@ export default async function OfferingDetail({
                 <span className="block h-12 w-12 [&>svg]:h-full [&>svg]:w-full">
                   {coverageIcons[offering.extra.heading]}
                 </span>
-                <h2 className="mt-4 text-xl font-semibold tracking-tight text-ink">
+                <h2 className="mt-4 text-xl font-semibold tracking-tight text-white">
                   {offering.extra.heading}
                 </h2>
                 <ul className="mt-5 grid gap-x-8 gap-y-3">
                   {offering.extra.items.map((p) => (
                     <li
                       key={p}
-                      className="flex gap-2.5 text-[14px] leading-relaxed text-ink-soft"
+                      className="flex gap-2.5 text-[14px] leading-relaxed text-white/80"
                     >
                       <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand" />
                       <span>{p}</span>
@@ -476,8 +485,8 @@ export default async function OfferingDetail({
               </div>
             )}
           </div>
-        </div>
-      </Section>
+        </Section>
+      </div>
 
       {/* Commercial models — exact same treatment as the homepage's "Our
           solutions" section: dark grainient background, glow cards, 2-up
