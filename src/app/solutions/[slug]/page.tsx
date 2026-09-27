@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { Section, ArrowLink } from "@/components/ui";
+import { Section, SectionHeading, ArrowLink } from "@/components/ui";
 import { Reveal } from "@/components/Reveal";
 import { RevealText } from "@/components/RevealText";
 import { Grainient } from "@/components/Grainient";
@@ -9,6 +9,7 @@ import { CountUp } from "@/components/motion/CountUp";
 import { CTA } from "@/components/CTA";
 import { ProjectCard } from "@/components/ProjectCard";
 import { BorderGlow } from "@/components/BorderGlow";
+import { CoverageMarquee } from "@/components/CoverageMarquee";
 import { offerings, solutions, projects, opportunity } from "@/lib/content";
 
 /* ---------- flat illustrations, same family/palette as the homepage
@@ -400,6 +401,19 @@ export default async function OfferingDetail({
     .map((rs) => solutions.find((s) => s.slug === rs))
     .filter((s): s is (typeof solutions)[number] => Boolean(s));
 
+  const coverageItems = [
+    ...offering.points.map((text) => ({
+      text,
+      icon: coverageIcons[offering.pointsHeading ?? ""],
+    })),
+    ...(offering.extra
+      ? offering.extra.items.map((text) => ({
+          text,
+          icon: coverageIcons[offering.extra!.heading],
+        }))
+      : []),
+  ];
+
   return (
     <>
       {/* Hero — same full-bleed photo + dark overlay treatment as the
@@ -431,58 +445,18 @@ export default async function OfferingDetail({
         </div>
       </section>
 
-      {/* What this covers — the offering's own capability/coverage lists,
-          each with its own icon and a scannable checklist rather than a
-          dense paragraph. Plain light section: the hero above already
-          carries this offering's photo. */}
+      {/* What this covers — an auto-scrolling row of cards instead of a
+          dense static bullet block. Plain light section: the hero above
+          already carries this offering's photo. */}
       <Section>
-        <div
-          className={offering.extra ? "grid gap-14 sm:grid-cols-2" : undefined}
-        >
-          <div>
-            <span className="block h-12 w-12 [&>svg]:h-full [&>svg]:w-full">
-              {coverageIcons[offering.pointsHeading ?? ""]}
-            </span>
-            <h2 className="mt-4 text-xl font-semibold tracking-tight text-ink">
-              {offering.pointsHeading ?? "What this covers"}
-            </h2>
-            <ul
-              className={`mt-5 grid gap-x-8 gap-y-3 ${offering.extra ? "" : "sm:grid-cols-2 lg:grid-cols-3"}`}
-            >
-              {offering.points.map((p) => (
-                <li
-                  key={p}
-                  className="flex gap-2.5 text-[14px] leading-relaxed text-ink-soft"
-                >
-                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand" />
-                  <span>{p}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {offering.extra && (
-            <div>
-              <span className="block h-12 w-12 [&>svg]:h-full [&>svg]:w-full">
-                {coverageIcons[offering.extra.heading]}
-              </span>
-              <h2 className="mt-4 text-xl font-semibold tracking-tight text-ink">
-                {offering.extra.heading}
-              </h2>
-              <ul className="mt-5 grid gap-x-8 gap-y-3">
-                {offering.extra.items.map((p) => (
-                  <li
-                    key={p}
-                    className="flex gap-2.5 text-[14px] leading-relaxed text-ink-soft"
-                  >
-                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand" />
-                    <span>{p}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
-        </div>
+        <SectionHeading
+          title={
+            offering.extra
+              ? "What this covers"
+              : (offering.pointsHeading ?? "What this covers")
+          }
+        />
+        <CoverageMarquee items={coverageItems} />
       </Section>
 
       {/* Commercial models — exact same treatment as the homepage's "Our
