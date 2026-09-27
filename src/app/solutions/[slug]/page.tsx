@@ -140,6 +140,111 @@ const solutionIcons: Record<string, React.ReactNode> = {
   ),
 };
 
+/* ---------- one icon per business-case metric on the Finance Solutions
+   page, same IL-palette family as solutionIcons above ---------- */
+const financialIcons: React.ReactNode[] = [
+  // Energy cost reduction — falling cost bar + down arrow
+  <svg viewBox="0 0 48 48" fill="none" key="cost" aria-hidden="true">
+    <rect x="4" y="6" width="26" height="26" rx="6" fill={IL.pale} />
+    <rect x="9" y="26" width="7" height="16" rx="2" fill={IL.dark} />
+    <rect x="20.5" y="18" width="7" height="24" rx="2" fill={IL.green} />
+    <rect x="32" y="10" width="7" height="32" rx="2" fill={IL.pale} />
+    <path
+      d="M10 12 L20 20 L27 15 L39 24"
+      stroke={IL.ink}
+      strokeWidth="2.6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M32 24 L39 24 L39 17"
+      stroke={IL.ink}
+      strokeWidth="2.6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>,
+  // IRR & payback — upward trend
+  <svg viewBox="0 0 48 48" fill="none" key="irr" aria-hidden="true">
+    <rect x="4" y="6" width="26" height="26" rx="6" fill={IL.pale} />
+    <circle cx="26" cy="24" r="18" fill={IL.green} />
+    <path
+      d="M14 30 L22 22 L27 27 L36 16"
+      stroke="#fff"
+      strokeWidth="3"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M28 16 H36 V24"
+      stroke="#fff"
+      strokeWidth="3"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>,
+  // Cash-flow impact — balance sheet / scale
+  <svg viewBox="0 0 48 48" fill="none" key="cash" aria-hidden="true">
+    <rect x="4" y="4" width="24" height="24" rx="6" fill={IL.pale} />
+    <path d="M24 8 V40" stroke={IL.ink} strokeWidth="3" strokeLinecap="round" />
+    <path d="M8 40 H40" stroke={IL.ink} strokeWidth="3" strokeLinecap="round" />
+    <path d="M24 14 L12 14 L6 26 H18Z" fill={IL.green} />
+    <path d="M24 14 L36 14 L42 26 H30Z" fill={IL.dark} />
+    <circle
+      cx="12"
+      cy="26"
+      r="6"
+      fill="none"
+      stroke={IL.green}
+      strokeWidth="2.4"
+    />
+    <circle
+      cx="36"
+      cy="26"
+      r="6"
+      fill="none"
+      stroke={IL.dark}
+      strokeWidth="2.4"
+    />
+  </svg>,
+  // Demand & tariff — gauge / meter
+  <svg viewBox="0 0 48 48" fill="none" key="demand" aria-hidden="true">
+    <rect x="4" y="4" width="24" height="24" rx="6" fill={IL.pale} />
+    <circle cx="24" cy="27" r="20" fill={IL.green} />
+    <path
+      d="M8 32A18 18 0 0 1 40 32"
+      stroke="#fff"
+      strokeWidth="4"
+      strokeLinecap="round"
+      fill="none"
+    />
+    <path
+      d="M24 27 34 16"
+      stroke={IL.ink}
+      strokeWidth="3.5"
+      strokeLinecap="round"
+    />
+    <circle cx="24" cy="27" r="4" fill={IL.dark} />
+  </svg>,
+  // Lifecycle value — full loop
+  <svg viewBox="0 0 48 48" fill="none" key="lifecycle" aria-hidden="true">
+    <rect x="3" y="3" width="22" height="22" rx="7" fill={IL.pale} />
+    <circle
+      cx="27"
+      cy="27"
+      r="17"
+      fill="none"
+      stroke={IL.green}
+      strokeWidth="7"
+      strokeDasharray="80 20"
+      strokeLinecap="round"
+      transform="rotate(-45 27 27)"
+    />
+    <path d="M27 27 L36 20 L38 29Z" fill={IL.dark} />
+    <circle cx="27" cy="27" r="4" fill={IL.ink} />
+  </svg>,
+];
+
 export function generateStaticParams() {
   return offerings.map((o) => ({ slug: o.slug }));
 }
@@ -311,18 +416,18 @@ export default async function OfferingDetail({
 
       {/* Finance Solutions — the actual numbers */}
       {slug === "finance-solutions" && (
-        <div className="on-dark bg-[#15371b]">
+        <div className="bg-brand-tint">
           <Section>
-            <h2 className="text-2xl font-semibold tracking-tight text-[#26502e] sm:text-3xl">
+            <h2 className="text-3xl font-semibold tracking-tight text-[#26502e] sm:text-[2.5rem]">
               How we build the business case
             </h2>
-            <dl className="mt-10 grid grid-cols-2 gap-x-6 gap-y-10 border-t border-ink/10 pt-8 sm:grid-cols-3 lg:grid-cols-5 lg:gap-x-0">
-              {opportunity.financials.map((f) => (
-                <div
-                  key={f.metric}
-                  className="lg:border-l lg:border-ink/10 lg:px-8 lg:first:border-l-0 lg:first:pl-0"
-                >
-                  <dt className="text-xs font-semibold uppercase tracking-wide text-ink-faint">
+            <dl className="mt-14 grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 lg:grid-cols-5 lg:gap-x-8">
+              {opportunity.financials.map((f, i) => (
+                <div key={f.metric}>
+                  <span className="block h-12 w-12 [&>svg]:h-full [&>svg]:w-full">
+                    {financialIcons[i]}
+                  </span>
+                  <dt className="mt-4 text-xs font-semibold uppercase tracking-wide text-ink-faint">
                     {f.metric}
                   </dt>
                   <dd>
@@ -337,7 +442,7 @@ export default async function OfferingDetail({
                 </div>
               ))}
             </dl>
-            <div className="mt-8">
+            <div className="mt-10">
               <ArrowLink href="/sustainability">
                 See the full business case
               </ArrowLink>
@@ -350,15 +455,7 @@ export default async function OfferingDetail({
       {slug === "energy-optimisation-consultant" && (
         <div className="on-dark bg-[#15371b]">
           <Section>
-            <BorderGlow
-              backgroundColor="rgba(7, 26, 20, 0.4)"
-              borderRadius={8}
-              glowColor="105 70% 62%"
-              glowRadius={32}
-              glowIntensity={0.9}
-              fillOpacity={0.2}
-              colors={["#5fcf4b", "#a3e635", "#2dd4bf"]}
-            >
+            <div className="rounded-lg border border-white/10 bg-[rgba(7,26,20,0.4)]">
               <div className="grid items-center gap-10 p-8 lg:grid-cols-[1fr_auto] lg:p-10">
                 <div>
                   <h2 className="text-2xl font-semibold tracking-tight text-[#26502e] sm:text-3xl">
@@ -380,7 +477,7 @@ export default async function OfferingDetail({
                   />
                 </div>
               </div>
-            </BorderGlow>
+            </div>
             <div className="mt-8">
               <ArrowLink href="/p-ess">Learn about P-ESS</ArrowLink>
             </div>
