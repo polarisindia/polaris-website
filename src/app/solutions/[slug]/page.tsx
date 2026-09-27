@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { Section, ArrowLink } from "@/components/ui";
+import { Section, SectionHeading, ArrowLink } from "@/components/ui";
 import { Reveal } from "@/components/Reveal";
 import { RevealText } from "@/components/RevealText";
 import { CountUp } from "@/components/motion/CountUp";
@@ -65,88 +65,55 @@ export default async function OfferingDetail({
         </div>
       </section>
 
-      {/* What this covers */}
-      <Section>
-        <div className="grid gap-14 lg:grid-cols-[0.9fr_1.1fr]">
-          <div>
-            <h2 className="text-sm font-semibold uppercase tracking-[0.15em] text-brand-strong">
-              {offering.pointsHeading ?? "What this covers"}
-            </h2>
-            <ul className="mt-6 space-y-5">
-              {offering.points.map((p) => (
-                <li
-                  key={p}
-                  className="flex gap-3 text-[15px] leading-relaxed text-ink-soft"
+      {/* Commercial models — full-width card grid, same BorderGlow card
+          language as the homepage's "Our solutions" and About's Values
+          cards, rather than a cramped two-column list. */}
+      {related.length > 0 && (
+        <Section>
+          <SectionHeading title="Commercial models that apply" />
+          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {related.map((s, i) => (
+              <Reveal
+                as="article"
+                key={s.slug}
+                delay={(i % 3) * 70}
+                className="h-full"
+              >
+                <BorderGlow
+                  className="on-light h-full"
+                  backgroundColor="#ffffff"
+                  borderRadius={8}
+                  glowColor="112 55% 42%"
+                  glowRadius={28}
+                  glowIntensity={0.9}
+                  fillOpacity={0.15}
+                  colors={["#5fcf4b", "#0f4338", "#a3e635"]}
                 >
-                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand" />
-                  <span>{p}</span>
-                </li>
-              ))}
-            </ul>
-            {offering.extra && (
-              <>
-                <h2 className="mt-12 text-sm font-semibold uppercase tracking-[0.15em] text-brand-strong">
-                  {offering.extra.heading}
-                </h2>
-                <ul className="mt-6 space-y-5">
-                  {offering.extra.items.map((p) => (
-                    <li
-                      key={p}
-                      className="flex gap-3 text-[15px] leading-relaxed text-ink-soft"
-                    >
-                      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand" />
-                      <span>{p}</span>
-                    </li>
-                  ))}
-                </ul>
-              </>
-            )}
+                  <div className="flex h-full flex-col p-6">
+                    <h3 className="text-xl font-semibold tracking-tight text-ink">
+                      {s.title}
+                    </h3>
+                    <p className="mt-2 text-[15px] leading-relaxed text-ink-soft">
+                      {s.summary}
+                    </p>
+                    <ul className="mt-4 space-y-2 border-t border-line/70 pt-4">
+                      {s.points.map((p) => (
+                        <li
+                          key={p}
+                          className="flex gap-2 text-[13px] leading-relaxed text-ink-faint"
+                        >
+                          <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-brand" />
+                          {p}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </BorderGlow>
+              </Reveal>
+            ))}
           </div>
-
-          {related.length > 0 && (
-            <div>
-              <h2 className="text-sm font-semibold uppercase tracking-[0.15em] text-brand-strong">
-                Commercial models that apply
-              </h2>
-              <div className="mt-6 grid gap-4 sm:grid-cols-2">
-                {related.map((s) => (
-                  <BorderGlow
-                    key={s.slug}
-                    className="on-light h-full"
-                    backgroundColor="#ffffff"
-                    borderRadius={8}
-                    glowColor="112 55% 42%"
-                    glowRadius={28}
-                    glowIntensity={0.9}
-                    fillOpacity={0.15}
-                    colors={["#5fcf4b", "#0f4338", "#a3e635"]}
-                  >
-                    <div className="p-5">
-                      <h3 className="text-[15px] font-semibold tracking-tight text-ink">
-                        {s.title}
-                      </h3>
-                      <p className="mt-1.5 text-sm leading-relaxed text-ink-soft">
-                        {s.summary}
-                      </p>
-                      <ul className="mt-3 space-y-1.5 border-t border-line/70 pt-3">
-                        {s.points.map((p) => (
-                          <li
-                            key={p}
-                            className="flex gap-2 text-[13px] leading-relaxed text-ink-faint"
-                          >
-                            <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-brand" />
-                            {p}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </BorderGlow>
-                ))}
-              </div>
-            </div>
-          )}
-        </div>
-      </Section>
+        </Section>
+      )}
 
       {/* Commercial & Industrial — rooftop project proof */}
       {slug === "commercial-industrial" && rooftopProjects.length > 0 && (
