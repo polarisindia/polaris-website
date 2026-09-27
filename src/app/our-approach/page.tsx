@@ -24,6 +24,7 @@ const advantageIcons: React.ReactNode[] = [
     strokeLinecap="round"
     strokeLinejoin="round"
   >
+    <rect width="64" height="64" rx="14" fill="#cdeec2" />
     <path d="M16 48h32M20 48l12-33 12 33M24 37h16" />
     <circle cx="32" cy="14" r="3" />
     <path d="M15 52h34" />
@@ -39,6 +40,7 @@ const advantageIcons: React.ReactNode[] = [
     strokeLinecap="round"
     strokeLinejoin="round"
   >
+    <rect width="64" height="64" rx="14" fill="#cdeec2" />
     <path d="M13 23l9-8 9 8-9 8-9-8Zm20 18 9-8 9 8-9 8-9-8Z" />
     <path d="M31 23h9a8 8 0 0 1 8 8v2M33 41h-9a8 8 0 0 1-8-8v-2" />
     <path d="m38 21 3 2-3 2M26 39l-3 2 3 2" />
@@ -54,6 +56,7 @@ const advantageIcons: React.ReactNode[] = [
     strokeLinecap="round"
     strokeLinejoin="round"
   >
+    <rect width="64" height="64" rx="14" fill="#cdeec2" />
     <path d="M17 51V26l15-9 15 9v25H17Z" />
     <path d="M17 34h30M24 27v7m8-11v11m8-7v7M24 41h5v10m6-10h5v10" />
     <path d="m24 15 8-5 8 5" />
@@ -69,6 +72,7 @@ const advantageIcons: React.ReactNode[] = [
     strokeLinecap="round"
     strokeLinejoin="round"
   >
+    <rect width="64" height="64" rx="14" fill="#cdeec2" />
     <path d="M12 52h40M17 51V40h8v11m7 0V33h8v18m7 0V25h5v26" />
     <path d="m16 31 12-10 8 5 14-15" />
     <path d="M43 11h7v7" />
@@ -84,6 +88,7 @@ const advantageIcons: React.ReactNode[] = [
     strokeLinecap="round"
     strokeLinejoin="round"
   >
+    <rect width="64" height="64" rx="14" fill="#cdeec2" />
     <path d="M17 21a20 20 0 0 1 32 7M47 43a20 20 0 0 1-32-7" />
     <path d="m48 20 2 9-9-2M16 44l-2-9 9 2" />
     <circle cx="32" cy="32" r="11" />
@@ -100,6 +105,7 @@ const advantageIcons: React.ReactNode[] = [
     strokeLinecap="round"
     strokeLinejoin="round"
   >
+    <rect width="64" height="64" rx="14" fill="#cdeec2" />
     <circle cx="32" cy="32" r="22" />
     <path d="M10 32h44M32 10c-10 11-10 33 0 44M32 10c10 11 10 33 0 44" />
     <path d="M17 20h30M17 44h30" />
@@ -234,7 +240,7 @@ export default function OurApproachPage() {
           <div className="mt-14 grid gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
             {advantages.map((a, i) => (
               <Reveal as="article" key={a.title} delay={(i % 3) * 70}>
-                <span className="block h-12 w-12 [&>svg]:h-full [&>svg]:w-full">
+                <span className="block h-[60px] w-[60px] [&>svg]:h-full [&>svg]:w-full">
                   {advantageIcons[i]}
                 </span>
                 <h3 className="mt-5 text-[18px] font-semibold tracking-tight text-ink">
