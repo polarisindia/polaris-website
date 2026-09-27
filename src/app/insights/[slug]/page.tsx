@@ -58,7 +58,7 @@ export default async function InsightPost({
               <time dateTime={post.date}>{formatDate(post.date)}</time>
             </div>
 
-            <h1 className="mt-4 text-balance text-4xl font-semibold leading-[1.1] tracking-tight text-[#26502e] sm:text-[2.75rem]">
+            <h1 className="mt-4 text-balance text-4xl font-semibold leading-[1.1] tracking-tight text-[#26502e] sm:text-[58px]">
               {post.title}
             </h1>
 
@@ -90,7 +90,9 @@ export default async function InsightPost({
                     {section.heading}
                   </h2>
                 )}
-                <div className={`space-y-4 text-[17px] leading-relaxed text-ink-soft ${section.heading ? "mt-3" : ""}`}>
+                <div
+                  className={`space-y-4 text-[17px] leading-relaxed text-ink-soft ${section.heading ? "mt-3" : ""}`}
+                >
                   {section.paragraphs.map((p, j) => (
                     <p key={j}>{p}</p>
                   ))}

@@ -77,7 +77,7 @@ export default async function ProjectDetail({
             </span>
           </div>
 
-          <h1 className="mt-4 max-w-3xl text-balance text-4xl font-semibold leading-[1.08] tracking-tight text-[#26502e] sm:text-[3rem]">
+          <h1 className="mt-4 max-w-3xl text-balance text-4xl font-semibold leading-[1.08] tracking-tight text-[#26502e] sm:text-[58px]">
             {project.name}
           </h1>
         </div>

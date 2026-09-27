@@ -201,7 +201,7 @@ export default function PrivacyPolicyPage() {
     <section className="bg-[#FAFBF6]">
       <div className="container-px mx-auto max-w-3xl pb-20 pt-[calc(83px+2.5rem)] lg:pb-28 lg:pt-[calc(83px+4rem)]">
         <span className="pill">Legal</span>
-        <h1 className="mt-6 text-4xl font-semibold leading-[1.08] tracking-tight text-ink sm:text-[3rem]">
+        <h1 className="mt-6 text-4xl font-semibold leading-[1.08] tracking-tight text-[#26502e] sm:text-[58px]">
           Privacy Policy
         </h1>
         <p className="mt-4 text-sm text-ink-faint">

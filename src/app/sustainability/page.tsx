@@ -56,13 +56,31 @@ const driverIcons: React.ReactNode[] = [
   <svg viewBox="0 0 48 48" fill="none" key="scale" aria-hidden="true">
     <rect x="3" y="3" width="22" height="22" rx="7" fill={IL.pale} />
     <path d="M27 12 L44 21 L27 30 L10 21 Z" fill={IL.dark} />
-    <path d="M10 27 L27 36 L44 27" stroke={IL.green} strokeWidth="5" strokeLinecap="round" strokeLinejoin="round" />
-    <path d="M10 34 L27 43 L44 34" stroke={IL.ink} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+    <path
+      d="M10 27 L27 36 L44 27"
+      stroke={IL.green}
+      strokeWidth="5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M10 34 L27 43 L44 34"
+      stroke={IL.ink}
+      strokeWidth="3"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
   </svg>,
   // Integrated energy systems — linked nodes
   <svg viewBox="0 0 48 48" fill="none" key="integrated" aria-hidden="true">
     <rect x="3" y="4" width="26" height="26" rx="6" fill={IL.pale} />
-    <path d="M14 14 L34 22 L20 38" stroke={IL.dark} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+    <path
+      d="M14 14 L34 22 L20 38"
+      stroke={IL.dark}
+      strokeWidth="3"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
     <circle cx="14" cy="14" r="7" fill={IL.green} />
     <circle cx="34" cy="22" r="7" fill={IL.ink} />
     <circle cx="20" cy="38" r="7" fill={IL.green} />
@@ -71,7 +89,13 @@ const driverIcons: React.ReactNode[] = [
   <svg viewBox="0 0 48 48" fill="none" key="standards" aria-hidden="true">
     <rect x="4" y="4" width="24" height="24" rx="6" fill={IL.pale} />
     <circle cx="26" cy="24" r="18" fill={IL.green} />
-    <path d="M8 24h36M26 6c6 6 6 30 0 36M26 6c-6 6-6 30 0 36" stroke="#fff" strokeWidth="2" fill="none" opacity="0.85" />
+    <path
+      d="M8 24h36M26 6c6 6 6 30 0 36M26 6c-6 6-6 30 0 36"
+      stroke="#fff"
+      strokeWidth="2"
+      fill="none"
+      opacity="0.85"
+    />
     <circle cx="26" cy="24" r="4" fill={IL.ink} />
   </svg>,
 ];
@@ -88,7 +112,7 @@ export default function SustainabilityPage() {
           <RevealText
             as="h1"
             text="Energy is now a business decision, not just a utility bill."
-            className="mt-6 block max-w-3xl text-4xl font-semibold leading-[1.08] tracking-tight text-[#26502e] sm:text-[3.25rem]"
+            className="mt-6 block max-w-3xl text-4xl font-semibold leading-[1.08] tracking-tight text-[#26502e] sm:text-[58px]"
           />
           <Reveal variant="up" delay={90}>
             <p className="mt-5 max-w-2xl text-lg leading-relaxed text-ink-soft">
@@ -162,7 +186,10 @@ export default function SustainabilityPage() {
 
       <div className="on-dark bg-[#15371b]">
         <Section>
-          <SectionHeading eyebrow="The business case" title="The full picture" />
+          <SectionHeading
+            eyebrow="The business case"
+            title="The full picture"
+          />
           <Reveal variant="up" delay={80}>
             <p className="mt-8 max-w-3xl text-lg leading-relaxed text-ink-soft">
               {opportunity.context}
