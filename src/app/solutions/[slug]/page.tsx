@@ -353,6 +353,16 @@ const coverageIcons: Record<string, React.ReactNode> = {
   ),
 };
 
+// Placeholder photography for the "What this covers" section, one per
+// offering — free-licensed stock, swap for real project photography.
+const coverageImages: Record<string, string> = {
+  "commercial-industrial": "/img/solutions/commercial-industrial.jpg",
+  "utility-scale": "/img/solutions/utility-scale.jpg",
+  "finance-solutions": "/img/solutions/finance-solutions.jpg",
+  "energy-optimisation-consultant":
+    "/img/solutions/energy-optimisation-consultant.jpg",
+};
+
 export function generateStaticParams() {
   return offerings.map((o) => ({ slug: o.slug }));
 }
@@ -408,45 +418,31 @@ export default async function OfferingDetail({
         </div>
       </section>
 
-      {/* What this covers — the offering's own capability/coverage lists,
-          each with its own icon and presented as a scannable checklist
-          grid rather than a dense paragraph. */}
+      {/* What this covers — a real photo alongside the offering's own
+          capability/coverage lists, each with its own icon and presented
+          as a scannable checklist rather than a dense paragraph. */}
       <Section>
-        <div
-          className={offering.extra ? "grid gap-14 lg:grid-cols-2" : undefined}
-        >
-          <div>
-            <span className="block h-12 w-12 [&>svg]:h-full [&>svg]:w-full">
-              {coverageIcons[offering.pointsHeading ?? ""]}
-            </span>
-            <h2 className="mt-4 text-xl font-semibold tracking-tight text-ink">
-              {offering.pointsHeading ?? "What this covers"}
-            </h2>
-            <ul
-              className={`mt-5 grid gap-x-8 gap-y-3 ${offering.extra ? "" : "sm:grid-cols-2 lg:grid-cols-3"}`}
-            >
-              {offering.points.map((p) => (
-                <li
-                  key={p}
-                  className="flex gap-2.5 text-[14px] leading-relaxed text-ink-soft"
-                >
-                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand" />
-                  <span>{p}</span>
-                </li>
-              ))}
-            </ul>
+        <div className="grid gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+          <div className="relative aspect-[4/3] overflow-hidden rounded-lg bg-mist lg:sticky lg:top-28">
+            <Image
+              src={coverageImages[slug]}
+              alt={offering.title}
+              fill
+              sizes="(max-width: 1024px) 100vw, 45vw"
+              className="object-cover"
+            />
           </div>
 
-          {offering.extra && (
+          <div className={offering.extra ? "grid gap-10 sm:grid-cols-2" : ""}>
             <div>
               <span className="block h-12 w-12 [&>svg]:h-full [&>svg]:w-full">
-                {coverageIcons[offering.extra.heading]}
+                {coverageIcons[offering.pointsHeading ?? ""]}
               </span>
               <h2 className="mt-4 text-xl font-semibold tracking-tight text-ink">
-                {offering.extra.heading}
+                {offering.pointsHeading ?? "What this covers"}
               </h2>
               <ul className="mt-5 grid gap-x-8 gap-y-3">
-                {offering.extra.items.map((p) => (
+                {offering.points.map((p) => (
                   <li
                     key={p}
                     className="flex gap-2.5 text-[14px] leading-relaxed text-ink-soft"
@@ -457,7 +453,29 @@ export default async function OfferingDetail({
                 ))}
               </ul>
             </div>
-          )}
+
+            {offering.extra && (
+              <div>
+                <span className="block h-12 w-12 [&>svg]:h-full [&>svg]:w-full">
+                  {coverageIcons[offering.extra.heading]}
+                </span>
+                <h2 className="mt-4 text-xl font-semibold tracking-tight text-ink">
+                  {offering.extra.heading}
+                </h2>
+                <ul className="mt-5 grid gap-x-8 gap-y-3">
+                  {offering.extra.items.map((p) => (
+                    <li
+                      key={p}
+                      className="flex gap-2.5 text-[14px] leading-relaxed text-ink-soft"
+                    >
+                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand" />
+                      <span>{p}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
         </div>
       </Section>
 
