@@ -12,91 +12,97 @@ export const metadata: Metadata = {
     "How Polaris delivers energy projects: assessment and financial modelling, engineering and procurement, construction and commissioning, then monitoring and O&M under one accountable team.",
 };
 
-const IL = {
-  pale: "#cdeec2",
-  green: "#5fcf4b",
-  dark: "#0f4338",
-  ink: "#0e0e0e",
-};
-
 const advantageIcons: React.ReactNode[] = [
-  // Engineering-led approach — drafting compass
-  <svg viewBox="0 0 48 48" fill="none" key="eng" aria-hidden="true">
-    <rect x="3" y="4" width="26" height="26" rx="6" fill={IL.pale} />
-    <path d="M24 10 L36 40 H29.5 L24 25 L18.5 40 H12 Z" fill={IL.green} />
-    <path
-      d="M16 33 H32"
-      stroke={IL.dark}
-      strokeWidth="3"
-      strokeLinecap="round"
-    />
-    <circle cx="24" cy="10" r="5.5" fill={IL.ink} />
-    <circle cx="24" cy="10" r="1.8" fill="#fff" />
+  // Engineering-led approach
+  <svg
+    viewBox="0 0 64 64"
+    fill="none"
+    key="eng"
+    aria-hidden="true"
+    stroke="#255235"
+    strokeWidth="2.8"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path d="M16 48h32M20 48l12-33 12 33M24 37h16" />
+    <circle cx="32" cy="14" r="3" />
+    <path d="M15 52h34" />
   </svg>,
-  // Technology agnosticism — neutral overlapping marks
-  <svg viewBox="0 0 48 48" fill="none" key="tech" aria-hidden="true">
-    <rect x="4" y="4" width="24" height="24" rx="6" fill={IL.pale} />
-    <circle cx="17" cy="24" r="12" fill={IL.green} />
-    <circle cx="31" cy="24" r="12" fill={IL.dark} opacity="0.9" />
-    <circle cx="24" cy="24" r="5" fill="#fff" />
+  // Technology agnosticism
+  <svg
+    viewBox="0 0 64 64"
+    fill="none"
+    key="tech"
+    aria-hidden="true"
+    stroke="#255235"
+    strokeWidth="2.8"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path d="M13 23l9-8 9 8-9 8-9-8Zm20 18 9-8 9 8-9 8-9-8Z" />
+    <path d="M31 23h9a8 8 0 0 1 8 8v2M33 41h-9a8 8 0 0 1-8-8v-2" />
+    <path d="m38 21 3 2-3 2M26 39l-3 2 3 2" />
   </svg>,
-  // Proven industrial track record — medal
-  <svg viewBox="0 0 48 48" fill="none" key="track" aria-hidden="true">
-    <rect x="12" y="3" width="24" height="24" rx="6" fill={IL.pale} />
-    <circle cx="24" cy="21" r="14" fill={IL.green} />
-    <path d="M17 32 L13 45 L24 39 L35 45 L31 32" fill={IL.dark} />
-    <path
-      d="M18 21 L22 25 L31 15"
-      stroke="#fff"
-      strokeWidth="3"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
+  // Proven industrial track record
+  <svg
+    viewBox="0 0 64 64"
+    fill="none"
+    key="track"
+    aria-hidden="true"
+    stroke="#255235"
+    strokeWidth="2.8"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path d="M17 51V26l15-9 15 9v25H17Z" />
+    <path d="M17 34h30M24 27v7m8-11v11m8-7v7M24 41h5v10m6-10h5v10" />
+    <path d="m24 15 8-5 8 5" />
   </svg>,
-  // Financial intelligence — bars + trend
-  <svg viewBox="0 0 48 48" fill="none" key="fin" aria-hidden="true">
-    <rect x="4" y="6" width="26" height="26" rx="6" fill={IL.pale} />
-    <rect x="9" y="31" width="7" height="11" rx="2" fill={IL.dark} />
-    <rect x="20.5" y="23" width="7" height="19" rx="2" fill={IL.green} />
-    <rect x="32" y="15" width="7" height="27" rx="2" fill={IL.green} />
-    <path
-      d="M10 21 L20 14 L27 18 L39 8"
-      stroke={IL.ink}
-      strokeWidth="2.6"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <circle cx="39" cy="8" r="3" fill={IL.ink} />
+  // Financial intelligence
+  <svg
+    viewBox="0 0 64 64"
+    fill="none"
+    key="fin"
+    aria-hidden="true"
+    stroke="#255235"
+    strokeWidth="2.8"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path d="M12 52h40M17 51V40h8v11m7 0V33h8v18m7 0V25h5v26" />
+    <path d="m16 31 12-10 8 5 14-15" />
+    <path d="M43 11h7v7" />
   </svg>,
-  // Full-lifecycle ownership — loop
-  <svg viewBox="0 0 48 48" fill="none" key="cycle" aria-hidden="true">
-    <rect x="3" y="3" width="22" height="22" rx="7" fill={IL.pale} />
-    <circle
-      cx="27"
-      cy="27"
-      r="17"
-      fill="none"
-      stroke={IL.green}
-      strokeWidth="7"
-      strokeDasharray="80 20"
-      strokeLinecap="round"
-      transform="rotate(-45 27 27)"
-    />
-    <path d="M27 27 L36 20 L38 29Z" fill={IL.dark} />
-    <circle cx="27" cy="27" r="4" fill={IL.ink} />
+  // Full-lifecycle ownership
+  <svg
+    viewBox="0 0 64 64"
+    fill="none"
+    key="cycle"
+    aria-hidden="true"
+    stroke="#255235"
+    strokeWidth="2.8"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path d="M17 21a20 20 0 0 1 32 7M47 43a20 20 0 0 1-32-7" />
+    <path d="m48 20 2 9-9-2M16 44l-2-9 9 2" />
+    <circle cx="32" cy="32" r="11" />
+    <path d="M32 25v8l5 3" />
   </svg>,
-  // Multi-geography capability — globe
-  <svg viewBox="0 0 48 48" fill="none" key="geo" aria-hidden="true">
-    <rect x="4" y="4" width="24" height="24" rx="6" fill={IL.pale} />
-    <circle cx="26" cy="24" r="18" fill={IL.green} />
-    <path
-      d="M8 24h36M26 6c6 6 6 30 0 36M26 6c-6 6-6 30 0 36"
-      stroke="#fff"
-      strokeWidth="2"
-      fill="none"
-      opacity="0.85"
-    />
-    <circle cx="26" cy="24" r="4" fill={IL.ink} />
+  // Multi-geography capability
+  <svg
+    viewBox="0 0 64 64"
+    fill="none"
+    key="geo"
+    aria-hidden="true"
+    stroke="#255235"
+    strokeWidth="2.8"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <circle cx="32" cy="32" r="22" />
+    <path d="M10 32h44M32 10c-10 11-10 33 0 44M32 10c10 11 10 33 0 44" />
+    <path d="M17 20h30M17 44h30" />
   </svg>,
 ];
 
