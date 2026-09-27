@@ -248,108 +248,71 @@ const financialIcons: React.ReactNode[] = [
 
 /* ---------- one icon per "what this covers" group heading, keyed by the
    exact heading text used in content.ts ---------- */
+// Outline line-icon style, matching "The Polaris advantage" icon set on
+// the Our Approach page (stroke-only, no fill, brand green).
+const coverageLineIconProps = {
+  viewBox: "0 0 64 64",
+  fill: "none",
+  "aria-hidden": true,
+  stroke: "#5fcf4b",
+  strokeWidth: 2.8,
+  strokeLinecap: "round" as const,
+  strokeLinejoin: "round" as const,
+};
+
 const coverageIcons: Record<string, React.ReactNode> = {
-  // Core capabilities — wrench / toolkit
+  // Core capabilities — wrench
   "Core capabilities": (
-    <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
-      <rect x="4" y="4" width="26" height="26" rx="6" fill={IL.pale} />
-      <path
-        d="M30 8a9 9 0 0 0-11.8 11.8L8 30l4 4 10.2-10.2A9 9 0 0 0 34 12l-6 6-5-5Z"
-        fill={IL.green}
-      />
-      <circle cx="12" cy="34" r="3.2" fill={IL.ink} />
+    <svg {...coverageLineIconProps}>
+      <path d="M46 18a10 10 0 0 1-13 13L18 46l-4-4 15-15a10 10 0 0 1 13-13l-6 6 4 4 6-6Z" />
     </svg>
   ),
   // What we focus on — target
   "What we focus on": (
-    <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
-      <rect x="4" y="4" width="26" height="26" rx="6" fill={IL.pale} />
-      <circle cx="26" cy="24" r="18" fill={IL.green} />
-      <circle cx="26" cy="24" r="11" fill="#fff" />
-      <circle cx="26" cy="24" r="5" fill={IL.dark} />
-      <circle cx="26" cy="24" r="1.8" fill={IL.ink} />
+    <svg {...coverageLineIconProps}>
+      <circle cx="32" cy="32" r="18" />
+      <circle cx="32" cy="32" r="10" />
+      <circle cx="32" cy="32" r="2" />
     </svg>
   ),
-  // Scope of work — blueprint / ruler
+  // Scope of work — ruler
   "Scope of work": (
-    <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
-      <rect x="4" y="4" width="26" height="26" rx="6" fill={IL.pale} />
+    <svg {...coverageLineIconProps}>
       <rect
-        x="9"
-        y="12"
-        width="30"
-        height="24"
-        rx="3"
-        fill={IL.green}
-        transform="rotate(-8 24 24)"
+        x="8"
+        y="26"
+        width="48"
+        height="12"
+        rx="2"
+        transform="rotate(-15 32 32)"
       />
       <path
-        d="M14 20 H32 M14 26 H28"
-        stroke="#fff"
-        strokeWidth="2.4"
-        strokeLinecap="round"
-        transform="rotate(-8 24 24)"
+        d="M14 24l2 4M22 22l2 4M30 20l2 4M38 18l2 4M46 16l2 4"
+        transform="rotate(-15 32 32)"
       />
-      <circle cx="35" cy="14" r="4" fill={IL.ink} />
     </svg>
   ),
   // Electrical infrastructure & grid evacuation — transmission tower
   "Electrical infrastructure & grid evacuation": (
-    <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
-      <rect x="4" y="4" width="24" height="24" rx="6" fill={IL.pale} />
-      <path
-        d="M24 6 L36 42 M24 6 L12 42 M17 24 H31 M14 34 H34"
-        stroke={IL.green}
-        strokeWidth="3"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <circle cx="24" cy="6" r="4" fill={IL.ink} />
+    <svg {...coverageLineIconProps}>
+      <path d="M32 8 44 56M32 8 20 56M22 30h20M17 44h30" />
+      <circle cx="32" cy="8" r="3" />
     </svg>
   ),
-  // What we evaluate — magnifier over a chart
+  // What we evaluate — magnifier over a bar chart
   "What we evaluate": (
-    <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
-      <rect x="4" y="6" width="26" height="26" rx="6" fill={IL.pale} />
-      <rect x="9" y="24" width="6" height="12" rx="1.5" fill={IL.dark} />
-      <rect x="18" y="18" width="6" height="18" rx="1.5" fill={IL.green} />
-      <rect x="27" y="12" width="6" height="24" rx="1.5" fill={IL.pale} />
-      <circle
-        cx="34"
-        cy="14"
-        r="8"
-        fill="none"
-        stroke={IL.ink}
-        strokeWidth="2.6"
-      />
-      <path
-        d="M39.5 19.5 L44 24"
-        stroke={IL.ink}
-        strokeWidth="2.6"
-        strokeLinecap="round"
-      />
+    <svg {...coverageLineIconProps}>
+      <path d="M12 52V38h6v14M24 52V28h6v24M36 52V18h6v34" />
+      <circle cx="46" cy="16" r="8" />
+      <path d="m52 22 5 5" />
     </svg>
   ),
   // What we review — checklist
   "What we review": (
-    <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
-      <rect x="8" y="4" width="28" height="36" rx="4" fill={IL.pale} />
-      <rect x="14" y="2" width="16" height="6" rx="2" fill={IL.dark} />
-      <path
-        d="M15 18 L19 22 L28 13"
-        stroke={IL.green}
-        strokeWidth="3"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M15 29 L19 33 L28 24"
-        stroke={IL.green}
-        strokeWidth="3"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <circle cx="34" cy="34" r="8" fill={IL.ink} />
+    <svg {...coverageLineIconProps}>
+      <rect x="14" y="10" width="36" height="44" rx="4" />
+      <path d="M22 24l4 4 8-9M22 38l4 4 8-9" />
+      <path d="M38 24h6M38 38h6" />
     </svg>
   ),
 };

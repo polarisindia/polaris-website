@@ -21,12 +21,12 @@ export function CoverageMarquee({ items }: { items: CoverageItem[] }) {
             <div
               key={i}
               aria-hidden={isDup || undefined}
-              className={`w-72 shrink-0 rounded-lg border border-line/70 bg-paper p-6 ${isDup ? "marquee-dup" : ""}`}
+              className={`flex h-56 w-72 shrink-0 flex-col rounded-lg border border-line/70 bg-paper p-6 ${isDup ? "marquee-dup" : ""}`}
             >
-              <span className="block h-10 w-10 [&>svg]:h-full [&>svg]:w-full">
+              <span className="block h-14 w-14 shrink-0 [&>svg]:h-full [&>svg]:w-full">
                 {it.icon}
               </span>
-              <p className="mt-4 text-[15px] leading-relaxed text-ink-soft">
+              <p className="mt-4 line-clamp-4 text-[15px] leading-relaxed text-ink-soft">
                 {it.text}
               </p>
             </div>
