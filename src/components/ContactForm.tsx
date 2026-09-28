@@ -15,6 +15,8 @@ const fieldClass =
 
 export function ContactForm() {
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   if (sent) {
     return (
@@ -23,8 +25,7 @@ export function ContactForm() {
           Thanks, message received.
         </h2>
         <p className="mt-2 text-sm leading-relaxed text-ink-soft">
-          This demo form doesn&apos;t send anywhere yet. Wire it to your CRM or
-          an email endpoint before launch.
+          We&apos;ll get back to you shortly.
         </p>
         <button
           type="button"
@@ -39,9 +40,24 @@ export function ContactForm() {
 
   return (
     <form
-      onSubmit={(e) => {
+      onSubmit={async (e) => {
         e.preventDefault();
-        setSent(true);
+        setError(null);
+        setSending(true);
+        const data = Object.fromEntries(new FormData(e.currentTarget));
+        try {
+          const res = await fetch("/api/contact", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data),
+          });
+          if (!res.ok) throw new Error();
+          setSent(true);
+        } catch {
+          setError("Something went wrong. Please try again.");
+        } finally {
+          setSending(false);
+        }
       }}
       className="space-y-5"
     >
@@ -120,11 +136,14 @@ export function ContactForm() {
         />
       </label>
 
+      {error && <p className="text-sm text-amber">{error}</p>}
+
       <button
         type="submit"
-        className="cursor-pointer rounded-lg bg-ink px-6 py-3 text-[15px] font-semibold text-white transition-colors duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-brand-hover hover:text-ink"
+        disabled={sending}
+        className="cursor-pointer rounded-lg bg-ink px-6 py-3 text-[15px] font-semibold text-white transition-colors duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-brand-hover hover:text-ink disabled:cursor-not-allowed disabled:opacity-60"
       >
-        Send message
+        {sending ? "Sending…" : "Send message"}
       </button>
     </form>
   );
