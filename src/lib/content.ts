@@ -229,14 +229,16 @@ export const testimonials = [
 // Homepage "Our Solutions", the four offering categories. Each has its
 // own page at /solutions/<slug>; `relatedSolutions` lists the commercial
 // models (from `solutions`, by slug) shown inline on that page.
+export type CoveragePoint = { title: string; body: string };
+
 export const offerings: {
   slug: string;
   title: string;
   summary: string;
   intro: string;
   pointsHeading?: string;
-  points: string[];
-  extra?: { heading: string; items: string[] };
+  points: CoveragePoint[];
+  extra?: { heading: string; items: CoveragePoint[] };
   relatedSolutions: string[];
 }[] = [
   {
@@ -248,23 +250,62 @@ export const offerings: {
       "Solar, storage and electrical solutions built around the way your facility operates. Polaris works with manufacturing plants, warehouses, commercial facilities, institutional campuses and multi-site businesses. Each project starts with the customer's energy use, site conditions and operating priorities, not with a pre-selected product.",
     pointsHeading: "Core capabilities",
     points: [
-      "Industrial rooftop solar: RCC, metal sheet, bitumen and specialised roof configurations",
-      "Ground-mounted captive solar for industrial facilities",
-      "On-site and off-site solar solutions",
-      "Open Access and Group Captive structures",
-      "BESS and solar + storage hybrid systems",
-      "HT / LT electrical infrastructure, transformers, substations and evacuation systems",
-      "SCADA, monitoring, analytics and performance management",
-      "Long-term O&M and asset optimisation",
+      {
+        title: "Industrial rooftop solar",
+        body: "RCC, metal sheet, bitumen and specialised roof configurations",
+      },
+      {
+        title: "Ground-mounted captive solar",
+        body: "Captive solar for industrial facilities",
+      },
+      {
+        title: "On-site & off-site solar",
+        body: "Solutions built around where your facility can generate",
+      },
+      {
+        title: "Open Access & Group Captive",
+        body: "Commercial structures for off-site power sourcing",
+      },
+      {
+        title: "BESS & hybrid systems",
+        body: "Solar plus storage, sized for the facility",
+      },
+      {
+        title: "Electrical infrastructure",
+        body: "HT / LT systems, transformers, substations and evacuation",
+      },
+      {
+        title: "SCADA & monitoring",
+        body: "Analytics and performance management",
+      },
+      {
+        title: "Long-term O&M",
+        body: "Asset optimisation over the plant's life",
+      },
     ],
     extra: {
       heading: "What we focus on",
       items: [
-        "Use available roof and land area efficiently without compromising structural safety",
-        "Match generation as closely as possible to the facility's actual consumption pattern",
-        "Reduce electrical losses through well-planned DC and AC design",
-        "Allow for future storage, load growth and plant expansion wherever practical",
-        "Work safely inside live industrial facilities with minimum disruption to operations",
+        {
+          title: "Efficient area use",
+          body: "Available roof and land area, without compromising structural safety",
+        },
+        {
+          title: "Generation-to-load match",
+          body: "Matched as closely as possible to the facility's actual consumption",
+        },
+        {
+          title: "Lower electrical losses",
+          body: "Well-planned DC and AC design",
+        },
+        {
+          title: "Room to expand",
+          body: "Future storage, load growth and plant expansion",
+        },
+        {
+          title: "Safe live-site execution",
+          body: "Minimum disruption to ongoing operations",
+        },
       ],
     },
     relatedSolutions: ["capex", "opex", "lease", "epc"],
@@ -278,25 +319,67 @@ export const offerings: {
       "Large-project execution across civil, mechanical, electrical and grid-integration scopes. For large ground-mounted projects, Polaris brings together engineering, civil works, BOS, electrical systems, grid evacuation, testing and commissioning. We focus on keeping each interface clear so the project can move from site development to grid connection without gaps in responsibility.",
     pointsHeading: "Scope of work",
     points: [
-      "Project engineering: feasibility, front-end engineering, layouts, detailed design, energy-yield studies and performance modelling",
-      "Civil & site development: survey coordination, earthworks, grading, foundations, piling, trenches, roads and supporting site infrastructure",
-      "Mechanical execution: assembly and alignment of tracker or fixed-tilt structures, module installation and mechanical completion",
-      "Electrical & power systems: DC and AC networks, inverters, transformers, switchgear, MV / HT systems, earthing and lightning protection",
-      "SCADA & grid integration: plant monitoring and controls, evacuation systems, grid synchronisation and performance verification",
-      "Testing & commissioning: pre-commissioning, testing, documentation, handover and final performance checks",
+      {
+        title: "Project engineering",
+        body: "Feasibility, front-end engineering, layouts, detailed design and energy-yield studies",
+      },
+      {
+        title: "Civil & site development",
+        body: "Survey coordination, earthworks, grading, foundations, piling, trenches and roads",
+      },
+      {
+        title: "Mechanical execution",
+        body: "Assembly and alignment of tracker or fixed-tilt structures, module installation",
+      },
+      {
+        title: "Electrical & power systems",
+        body: "DC/AC networks, inverters, transformers, switchgear, MV/HT systems",
+      },
+      {
+        title: "SCADA & grid integration",
+        body: "Monitoring and controls, evacuation systems, grid synchronisation",
+      },
+      {
+        title: "Testing & commissioning",
+        body: "Pre-commissioning, documentation, handover and final performance checks",
+      },
     ],
     extra: {
       heading: "Electrical infrastructure & grid evacuation",
       items: [
-        "Substation civil foundations and equipment support structures",
-        "11 kV / HT switchgear and panels",
-        "Transformers and associated electrical equipment",
-        "HT power cables, cable trenches and termination systems",
-        "Protection, control and metering panels",
-        "Earthing and lightning protection systems",
-        "AC auxiliary systems",
-        "Cable laying, glanding, termination, identification and ferruling",
-        "Electrical testing, protection testing, pre-commissioning and commissioning support",
+        {
+          title: "Substation civil works",
+          body: "Foundations and equipment support structures",
+        },
+        { title: "HT switchgear", body: "11 kV / HT switchgear and panels" },
+        {
+          title: "Transformers",
+          body: "And associated electrical equipment",
+        },
+        {
+          title: "HT cabling",
+          body: "Power cables, cable trenches and termination systems",
+        },
+        {
+          title: "Protection & control",
+          body: "Protection, control and metering panels",
+        },
+        {
+          title: "Earthing & lightning protection",
+          body: "Systems built to code",
+        },
+        {
+          title: "AC auxiliary systems",
+          body: "Supporting the plant's electrical needs",
+        },
+        {
+          title: "Cable works",
+          body: "Laying, glanding, termination, identification and ferruling",
+        },
+        {
+          title: "Electrical testing",
+          body: "Protection testing, pre-commissioning and commissioning support",
+        },
       ],
     },
     relatedSolutions: ["open-access", "group-captive", "epc"],
@@ -310,12 +393,30 @@ export const offerings: {
       "A good energy project also needs the right commercial structure. We compare ownership, third-party investment, captive, lease and financing options against the client's budget, cash flow and return expectations. This helps management see the trade-offs clearly before capital is committed.",
     pointsHeading: "What we evaluate",
     points: [
-      "IRR, ROI and payback analysis",
-      "Cash-flow modelling and scenario comparison",
-      "Depreciation and tax-impact assessment",
-      "Tariff and escalation sensitivity",
-      "Debt / equity and financing assumptions",
-      "Investment-grade project documentation",
+      {
+        title: "IRR, ROI & payback",
+        body: "Full return analysis before you commit",
+      },
+      {
+        title: "Cash-flow modelling",
+        body: "Scenario comparison across commercial models",
+      },
+      {
+        title: "Depreciation & tax impact",
+        body: "Assessed against your accounting position",
+      },
+      {
+        title: "Tariff sensitivity",
+        body: "How escalation affects the numbers",
+      },
+      {
+        title: "Debt / equity assumptions",
+        body: "Financing structure built into the model",
+      },
+      {
+        title: "Investment-grade documentation",
+        body: "Ready for lenders and internal sign-off",
+      },
     ],
     relatedSolutions: [
       "capex",
@@ -335,15 +436,42 @@ export const offerings: {
       "A practical energy roadmap before you commit to an asset or commercial model. Sometimes the right first step is not a project, it is a clear view of the energy problem. Polaris reviews how a facility buys, uses and manages power, then identifies where solar, storage, open access, demand management or other measures can make a meaningful difference. The result is a phased plan, not a product pitch. We are not trying to sell the biggest system, we are trying to recommend the combination that works best for the client's operations and economics.",
     pointsHeading: "What we review",
     points: [
-      "12 months of electricity bills and load data, where available",
-      "Tariffs, demand charges, power factor and Time-of-Day exposure",
-      "On-site solar potential and usable roof / land area",
-      "Open Access, captive and off-site power sourcing options",
-      "BESS sizing for peak shaving, demand management, backup and tariff optimisation",
-      "Solar + storage options and future expansion requirements",
-      "Financial comparison of CAPEX, OPEX / RESCO, captive and financing structures",
-      "A phased implementation plan with expected outcomes and measurable KPIs",
-      "Post-commissioning monitoring, analysis and performance improvement",
+      {
+        title: "12 months of bills & load data",
+        body: "Where available, the starting point for every review",
+      },
+      {
+        title: "Tariff & demand exposure",
+        body: "Power factor and Time-of-Day tariffs",
+      },
+      {
+        title: "On-site solar potential",
+        body: "Usable roof and land area",
+      },
+      {
+        title: "Off-site sourcing options",
+        body: "Open Access and captive power",
+      },
+      {
+        title: "BESS sizing",
+        body: "Peak shaving, backup and tariff optimisation",
+      },
+      {
+        title: "Solar + storage options",
+        body: "With future expansion requirements in view",
+      },
+      {
+        title: "Financial comparison",
+        body: "CAPEX, OPEX/RESCO, captive and financing structures",
+      },
+      {
+        title: "Phased implementation plan",
+        body: "Expected outcomes and measurable KPIs",
+      },
+      {
+        title: "Post-commissioning monitoring",
+        body: "Analysis and ongoing performance improvement",
+      },
     ],
     relatedSolutions: ["bess", "advisory", "epc"],
   },

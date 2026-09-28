@@ -317,16 +317,6 @@ const coverageIcons: Record<string, React.ReactNode> = {
   ),
 };
 
-// Placeholder photography for the "What this covers" section, one per
-// offering — free-licensed stock, swap for real project photography.
-const coverageImages: Record<string, string> = {
-  "commercial-industrial": "/img/solutions/commercial-industrial.jpg",
-  "utility-scale": "/img/solutions/utility-scale.jpg",
-  "finance-solutions": "/img/solutions/finance-solutions.jpg",
-  "energy-optimisation-consultant":
-    "/img/solutions/energy-optimisation-consultant.jpg",
-};
-
 export function generateStaticParams() {
   return offerings.map((o) => ({ slug: o.slug }));
 }
@@ -365,13 +355,13 @@ export default async function OfferingDetail({
     .filter((s): s is (typeof solutions)[number] => Boolean(s));
 
   const coverageItems = [
-    ...offering.points.map((text) => ({
-      text,
+    ...offering.points.map((p) => ({
+      ...p,
       icon: coverageIcons[offering.pointsHeading ?? ""],
     })),
     ...(offering.extra
-      ? offering.extra.items.map((text) => ({
-          text,
+      ? offering.extra.items.map((p) => ({
+          ...p,
           icon: coverageIcons[offering.extra!.heading],
         }))
       : []),
@@ -379,48 +369,21 @@ export default async function OfferingDetail({
 
   return (
     <>
-      {/* Hero — same full-bleed photo + dark overlay treatment as the
-          rest of the page's background-image sections. */}
-      <section className="relative isolate overflow-hidden bg-[#15371b]">
-        <Image
-          src={coverageImages[slug]}
-          alt=""
-          fill
-          priority
-          sizes="100vw"
-          className="-z-20 object-cover"
-        />
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 -z-10 bg-[#0a1f10]/75"
-        />
-        <div className="container-px relative mx-auto max-w-[1760px] pb-16 pt-[calc(83px+2.5rem)] lg:pb-20 lg:pt-[calc(83px+4rem)]">
+      {/* Hero */}
+      <section className="bg-[#FAFBF6]">
+        <div className="container-px mx-auto max-w-[1760px] pb-16 pt-[calc(83px+2.5rem)] lg:pb-20 lg:pt-[calc(83px+4rem)]">
           <RevealText
             as="h1"
             text={offering.title}
-            className="mt-6 block max-w-3xl text-4xl font-semibold leading-[1.08] tracking-tight text-white sm:text-[58px]"
+            className="mt-6 block max-w-3xl text-4xl font-semibold leading-[1.08] tracking-tight text-[#26502e] sm:text-[58px]"
           />
           <Reveal variant="up" delay={90}>
-            <p className="mt-5 max-w-2xl text-lg leading-relaxed text-white/80">
+            <p className="mt-5 max-w-2xl text-lg leading-relaxed text-ink-soft">
               {offering.intro}
             </p>
           </Reveal>
         </div>
       </section>
-
-      {/* What this covers — an auto-scrolling row of cards instead of a
-          dense static bullet block. Plain light section: the hero above
-          already carries this offering's photo. */}
-      <Section>
-        <SectionHeading
-          title={
-            offering.extra
-              ? "What this covers"
-              : (offering.pointsHeading ?? "What this covers")
-          }
-        />
-        <CoverageMarquee items={coverageItems} />
-      </Section>
 
       {/* Commercial models — exact same treatment as the homepage's "Our
           solutions" section: dark grainient background, glow cards, 2-up
@@ -497,6 +460,19 @@ export default async function OfferingDetail({
           </div>
         </section>
       )}
+
+      {/* What this covers — an auto-scrolling row of cards instead of a
+          dense static bullet block. */}
+      <Section>
+        <SectionHeading
+          title={
+            offering.extra
+              ? "What this covers"
+              : (offering.pointsHeading ?? "What this covers")
+          }
+        />
+        <CoverageMarquee items={coverageItems} />
+      </Section>
 
       {/* Commercial & Industrial — rooftop project proof */}
       {slug === "commercial-industrial" && rooftopProjects.length > 0 && (
