@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { ArrowRight } from "./ui";
 
 const topics = [
   "Power purchase agreement",
@@ -20,19 +21,35 @@ export function ContactForm() {
 
   if (sent) {
     return (
-      <div className="rounded-lg border border-brand/30 bg-brand-tint/50 p-8">
-        <h2 className="text-lg font-medium text-ink">
+      <div className="flex flex-col items-start rounded-2xl border border-brand/25 bg-brand-tint/40 px-8 py-10 sm:px-10">
+        <span className="flex h-12 w-12 items-center justify-center rounded-full bg-brand text-white">
+          <svg
+            className="h-6 w-6"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M5 13l4 4L19 7" />
+          </svg>
+        </span>
+        <h2 className="mt-5 text-2xl font-semibold tracking-tight text-ink">
           Thanks, message received.
         </h2>
-        <p className="mt-2 text-sm leading-relaxed text-ink-soft">
-          We&apos;ll get back to you shortly.
+        <p className="mt-2 max-w-sm text-[15px] leading-relaxed text-ink-soft">
+          We&apos;ll get back to you shortly &mdash; usually within one
+          business day.
         </p>
         <button
           type="button"
           onClick={() => setSent(false)}
-          className="mt-5 cursor-pointer text-sm font-medium text-brand-strong transition-colors hover:text-ink"
+          className="group mt-7 inline-flex cursor-pointer items-center gap-1.5 text-[15px] font-semibold text-brand-strong transition-colors hover:text-ink"
         >
-          Send another
+          Send another message
+          <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
         </button>
       </div>
     );
