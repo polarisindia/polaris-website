@@ -42,7 +42,7 @@ export async function POST(request: Request) {
 
   const resend = new Resend(process.env.RESEND_API_KEY);
   const { error } = await resend.emails.send({
-    from: "Polaris website <onboarding@resend.dev>",
+    from: "Polaris website <contact@polarisenergy.in>",
     to: toEmail,
     replyTo: email,
     subject: `New contact form message: ${topic || "General enquiry"}`,
