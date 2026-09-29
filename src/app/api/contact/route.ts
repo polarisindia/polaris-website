@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
 const toEmail = process.env.CONTACT_TO_EMAIL ?? "info@polarisenergy.in";
 
 function escapeHtml(value: string) {
@@ -33,6 +32,15 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Invalid email" }, { status: 400 });
   }
 
+  if (!process.env.RESEND_API_KEY) {
+    console.error("RESEND_API_KEY is not set");
+    return NextResponse.json(
+      { error: "Email service is not configured" },
+      { status: 500 },
+    );
+  }
+
+  const resend = new Resend(process.env.RESEND_API_KEY);
   const { error } = await resend.emails.send({
     from: "Polaris website <onboarding@resend.dev>",
     to: toEmail,
