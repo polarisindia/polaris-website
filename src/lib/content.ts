@@ -197,32 +197,41 @@ export const impact = {
   ],
 };
 
-// ⚠️ PLACEHOLDER TESTIMONIALS, representative, role-attributed copy used to
-// build the section. Replace with real, client-approved quotes and names
-// before this site is published.
-// Placeholder names, illustrative quotes, not real clients. Swap in real
-// names (and drop this note) before launch.
 export const testimonials = [
   {
     quote:
-      "Polaris didn't hand us a datasheet, they handed us an IRR model our CFO could sign off in one meeting. The plant has tracked the generation estimate within 2% since day one.",
-    name: "Rohan Mehta",
-    role: "Head of Projects",
-    org: "Pharmaceutical manufacturer, Maharashtra",
+      "In hospitality, energy planning needs to account for guest comfort and daily operations. We appreciated Polaris' understanding of these priorities and their practical approach to discussing solar for our properties.",
+    name: "Mr. Vipin Chandak",
+    role: "Director",
+    org: "Panchavati Group of Hotels",
   },
   {
     quote:
-      "We went with the OPEX route to avoid the capex hit. Billing is clean, savings show up every month, and we've had zero operational involvement.",
-    name: "Anjali Deshmukh",
-    role: "VP, Operations",
-    org: "Packaged-foods company, Gujarat",
+      "We valued Polaris Renewable Solutions' thoughtful approach to our energy requirements. Their clear explanations helped us consider how solar could support both our business priorities and sustainability goals.",
+    name: "Mr. Y. M. Singh",
+    role: "Director",
+    org: "Samsonite Asia Pvt. Ltd.",
   },
   {
     quote:
-      "The site had rock, a monsoon window and a 0.5 km HT run. They engineered around all three and still commissioned in under 90 days.",
-    name: "Vikram Rathi",
-    role: "Plant Head",
-    org: "Building-materials group, Central India",
+      "Polaris approached our requirements with patience and professionalism. We valued their willingness to answer questions and help us understand the options available for our business.",
+    name: "Mr. N. P. Kedar",
+    role: "Director",
+    org: "RM Drip & Sprinkler Systems Ltd.",
+  },
+  {
+    quote:
+      "Polaris Renewable Solutions brought clarity to our solar discussions. Their team took the time to understand our requirements and explain the technical and commercial considerations in a practical way.",
+    name: "Mr. Sanjay Kacheria",
+    role: "Director",
+    org: "Neo Wheels Ltd",
+  },
+  {
+    quote:
+      "An energy solution must work with the realities of daily operations. We appreciated the Polaris team's focus on understanding our facility and discussing practical considerations alongside the system design.",
+    name: "Mr. Sachin Dalvi",
+    role: "General Manager",
+    org: "Zenith Metaplast Pvt. Ltd.",
   },
 ];
 
