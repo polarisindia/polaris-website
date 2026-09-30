@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { Section, SectionHeading, ArrowLink } from "@/components/ui";
+import { Section, SectionHeading, ArrowLink, ArrowRight } from "@/components/ui";
 import { Reveal } from "@/components/Reveal";
 import { RevealText } from "@/components/RevealText";
 import { Grainient } from "@/components/Grainient";
 import { CountUp } from "@/components/motion/CountUp";
-import { CTA } from "@/components/CTA";
 import { ProjectCard } from "@/components/ProjectCard";
 import { BorderGlow } from "@/components/BorderGlow";
 import { CoverageMarquee } from "@/components/CoverageMarquee";
@@ -315,6 +314,22 @@ const coverageIcons: Record<string, React.ReactNode> = {
       <path d="M38 24h6M38 38h6" />
     </svg>
   ),
+  // Why Polaris — shield with checkmark
+  "Why Polaris": (
+    <svg {...coverageLineIconProps}>
+      <path d="M32 8 54 16v16c0 16-10 26-22 32-12-6-22-16-22-32V16Z" />
+      <path d="M22 32l7 7 15-15" />
+    </svg>
+  ),
+  // Engagement models — branching paths
+  "Engagement models": (
+    <svg {...coverageLineIconProps}>
+      <circle cx="14" cy="32" r="6" />
+      <path d="M20 32h8M28 32c0-8 8-14 16-14M28 32c0 8 8 14 16 14" />
+      <circle cx="48" cy="18" r="6" />
+      <circle cx="48" cy="46" r="6" />
+    </svg>
+  ),
 };
 
 export function generateStaticParams() {
@@ -374,7 +389,7 @@ export default async function OfferingDetail({
         <div className="container-px mx-auto max-w-[1760px] pb-16 pt-[calc(83px+2.5rem)] lg:pb-20 lg:pt-[calc(83px+4rem)]">
           <RevealText
             as="h1"
-            text={offering.title}
+            text={offering.heroHeadline}
             className="mt-6 block max-w-3xl text-4xl font-semibold leading-[1.08] tracking-tight text-[#26502e] sm:text-[58px]"
           />
           <Reveal variant="up" delay={90}>
@@ -382,8 +397,43 @@ export default async function OfferingDetail({
               {offering.intro}
             </p>
           </Reveal>
+          <Reveal variant="up" delay={140}>
+            <div className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-4">
+              <a
+                href={offering.heroCtas[0].href}
+                className="inline-flex items-center gap-2 rounded-lg bg-ink px-6 py-3 text-[15px] font-semibold text-white transition-colors duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-brand-hover hover:text-ink"
+              >
+                {offering.heroCtas[0].label}
+              </a>
+              <ArrowLink href={offering.heroCtas[1].href}>
+                {offering.heroCtas[1].label}
+              </ArrowLink>
+            </div>
+          </Reveal>
         </div>
       </section>
+
+      {/* The challenge */}
+      <Section>
+        <SectionHeading title={offering.challenge.heading} />
+        <div className="mt-10 grid gap-x-8 gap-y-10 sm:grid-cols-2">
+          {offering.challenge.items.map((item, i) => (
+            <Reveal key={item.title} variant="up" delay={i * 80}>
+              <div className="flex gap-4">
+                <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-brand" />
+                <div>
+                  <h3 className="text-base font-semibold tracking-tight text-ink">
+                    {item.title}
+                  </h3>
+                  <p className="mt-1.5 text-[15px] leading-relaxed text-ink-soft">
+                    {item.body}
+                  </p>
+                </div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </Section>
 
       {/* Commercial models — exact same treatment as the homepage's "Our
           solutions" section: dark grainient background, glow cards, 2-up
@@ -473,6 +523,28 @@ export default async function OfferingDetail({
         />
         <CoverageMarquee items={coverageItems} />
       </Section>
+
+      {/* How we deliver — the per-offering process */}
+      <div className="bg-brand-tint/40">
+        <Section>
+          <SectionHeading title={offering.howWeDeliver.heading} />
+          <div className="mt-10 grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
+            {offering.howWeDeliver.steps.map((step, i) => (
+              <Reveal key={step.title} variant="up" delay={i * 90}>
+                <span className="block text-sm font-semibold text-brand-strong">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <h3 className="mt-3 text-lg font-semibold tracking-tight text-ink">
+                  {step.title}
+                </h3>
+                <p className="mt-2 text-[15px] leading-relaxed text-ink-soft">
+                  {step.body}
+                </p>
+              </Reveal>
+            ))}
+          </div>
+        </Section>
+      </div>
 
       {/* Commercial & Industrial — rooftop project proof */}
       {slug === "commercial-industrial" && rooftopProjects.length > 0 && (
@@ -583,7 +655,74 @@ export default async function OfferingDetail({
         </div>
       )}
 
-      <CTA />
+      {/* Offering-specific CTA, same visual treatment as the sitewide CTA */}
+      <section className="relative overflow-hidden bg-[#15371b]">
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+          <Grainient
+            color1="#0e3b16"
+            color2="#065d40"
+            color3="#053726"
+            timeSpeed={1.8}
+            colorBalance={0.0}
+            warpStrength={1.0}
+            warpFrequency={5.0}
+            warpSpeed={2.0}
+            warpAmplitude={50.0}
+            blendAngle={0.0}
+            blendSoftness={0.05}
+            rotationAmount={500.0}
+            noiseScale={2.0}
+            grainAmount={0.1}
+            grainScale={2.0}
+            grainAnimated={false}
+            contrast={1.5}
+            gamma={1.0}
+            saturation={1.0}
+            centerX={0.0}
+            centerY={0.0}
+            zoom={0.9}
+          />
+        </div>
+        <div className="container-px relative mx-auto max-w-[1760px] py-14 lg:py-20">
+          <div className="flex flex-col items-center gap-8 text-center">
+            <Reveal as="span" variant="mask" className="block">
+              <h2 className="mx-auto max-w-3xl text-4xl font-semibold leading-[1.05] tracking-tight text-white sm:text-[3.25rem]">
+                {offering.ctaBlock.heading}
+              </h2>
+            </Reveal>
+            <Reveal variant="fade" delay={60}>
+              <p className="mx-auto max-w-xl text-[15px] leading-relaxed text-white/70">
+                {offering.ctaBlock.body}
+              </p>
+            </Reveal>
+            <Reveal variant="up" delay={100}>
+              <a
+                href={offering.ctaBlock.cta.href}
+                className="inline-flex shrink-0 items-center gap-2 rounded-lg bg-white px-7 py-3.5 text-[15px] font-semibold text-ink transition-colors duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-brand-hover"
+              >
+                {offering.ctaBlock.cta.label}
+                <ArrowRight className="h-4 w-4" />
+              </a>
+            </Reveal>
+            <Reveal variant="fade" delay={140}>
+              <div className="mt-2 flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-sm text-white/50">
+                <span>Related:</span>
+                {offering.relatedOfferingLinks.map((link, i) => (
+                  <span key={link.href} className="flex items-center gap-3">
+                    {i > 0 && <span aria-hidden="true">·</span>}
+                    <a
+                      href={link.href}
+                      className="text-white/70 underline-offset-4 transition-colors hover:text-white hover:underline"
+                    >
+                      {link.label}
+                    </a>
+                  </span>
+                ))}
+              </div>
+            </Reveal>
+          </div>
+        </div>
+      </section>
     </>
   );
 }
