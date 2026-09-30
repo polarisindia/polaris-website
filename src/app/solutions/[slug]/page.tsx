@@ -435,10 +435,25 @@ export default async function OfferingDetail({
         </div>
       </Section>
 
+      {/* What this covers — an auto-scrolling row of cards instead of a
+          dense static bullet block. */}
+      <Section>
+        <SectionHeading
+          title={
+            offering.extra
+              ? "What this covers"
+              : (offering.pointsHeading ?? "What this covers")
+          }
+        />
+        <CoverageMarquee items={coverageItems} />
+      </Section>
+
       {/* Commercial models — exact same treatment as the homepage's "Our
           solutions" section: dark grainient background, glow cards, 2-up
-          grid, one flat icon per model. */}
-      {related.length > 0 && (
+          grid, one flat icon per model. Uses the offering's own
+          commercialModels copy when set, otherwise falls back to the
+          generic relatedSolutions lookup. */}
+      {(offering.commercialModels ? true : related.length > 0) && (
         <section className="relative isolate overflow-hidden bg-[#15371b]">
           <div
             aria-hidden="true"
@@ -471,11 +486,18 @@ export default async function OfferingDetail({
           </div>
           <div className="container-px relative mx-auto max-w-[1760px] py-20 lg:py-28">
             <RevealText
-              text="Commercial models that apply"
+              text={offering.commercialModels?.heading ?? "Commercial models that apply"}
               className="text-3xl font-semibold tracking-tight text-white sm:text-[58px]"
             />
             <div className="mt-10 grid gap-y-10 sm:grid-cols-2 sm:gap-x-4 sm:gap-y-4 lg:-mx-8">
-              {related.map((s, i) => (
+              {(offering.commercialModels
+                ? offering.commercialModels.items
+                : related.map((s) => ({
+                    slug: s.slug,
+                    title: s.title,
+                    body: s.summary,
+                  }))
+              ).map((s, i) => (
                 <Reveal
                   as="article"
                   key={s.slug}
@@ -500,29 +522,28 @@ export default async function OfferingDetail({
                         {s.title}
                       </h3>
                       <p className="mt-3 text-[1.12rem] leading-relaxed text-white/70">
-                        {s.summary}
+                        {s.body}
                       </p>
                     </div>
                   </BorderGlow>
                 </Reveal>
               ))}
             </div>
+            {offering.commercialModels?.link && (
+              <Reveal variant="fade" delay={280}>
+                <div className="mt-10">
+                  <ArrowLink
+                    href={offering.commercialModels.link.href}
+                    tone="light"
+                  >
+                    {offering.commercialModels.link.label}
+                  </ArrowLink>
+                </div>
+              </Reveal>
+            )}
           </div>
         </section>
       )}
-
-      {/* What this covers — an auto-scrolling row of cards instead of a
-          dense static bullet block. */}
-      <Section>
-        <SectionHeading
-          title={
-            offering.extra
-              ? "What this covers"
-              : (offering.pointsHeading ?? "What this covers")
-          }
-        />
-        <CoverageMarquee items={coverageItems} />
-      </Section>
 
       {/* How we deliver — the per-offering process */}
       <div className="bg-brand-tint/40">
@@ -651,6 +672,28 @@ export default async function OfferingDetail({
             <div className="mt-8">
               <ArrowLink href="/p-ess">Learn about P-ESS</ArrowLink>
             </div>
+          </Section>
+        </div>
+      )}
+
+      {/* Outcomes — placeholder figures until real project data lands */}
+      {offering.outcomes && (
+        <div className="bg-brand-tint">
+          <Section>
+            <SectionHeading title={offering.outcomes.heading} />
+            <dl className="mt-10 grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-4">
+              {offering.outcomes.stats.map((stat, i) => (
+                <Reveal key={stat.label} variant="up" delay={i * 80}>
+                  <dt className="sr-only">{stat.label}</dt>
+                  <dd className="text-3xl font-semibold tracking-tight text-[#26502e] sm:text-4xl">
+                    {stat.value}
+                  </dd>
+                  <dd className="mt-2 text-sm leading-snug text-ink-soft">
+                    {stat.label}
+                  </dd>
+                </Reveal>
+              ))}
+            </dl>
           </Section>
         </div>
       )}

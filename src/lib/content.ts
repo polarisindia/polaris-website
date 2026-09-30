@@ -242,6 +242,8 @@ export type CoveragePoint = { title: string; body: string };
 
 export type OfferingStep = { title: string; body: string };
 export type OfferingCta = { label: string; href: string };
+export type OfferingModelItem = { slug: string; title: string; body: string };
+export type OfferingStat = { value: string; label: string };
 
 export const offerings: {
   slug: string;
@@ -251,10 +253,21 @@ export const offerings: {
   heroHeadline: string;
   heroCtas: OfferingCta[];
   challenge: { heading: string; items: CoveragePoint[] };
+  // Page-specific "Own it, or just buy the power" style section. When
+  // present, this drives the "Commercial models" section instead of the
+  // generic relatedSolutions lookup below.
+  commercialModels?: {
+    heading: string;
+    items: OfferingModelItem[];
+    link?: OfferingCta;
+  };
   pointsHeading?: string;
   points: CoveragePoint[];
   extra?: { heading: string; items: CoveragePoint[] };
   howWeDeliver: { heading: string; steps: OfferingStep[] };
+  // ⚠️ DUMMY PLACEHOLDER FIGURES until real project data is supplied —
+  // do not treat these as verified performance claims.
+  outcomes?: { heading: string; stats: OfferingStat[] };
   ctaBlock: { heading: string; body: string; cta: OfferingCta };
   relatedOfferingLinks: OfferingCta[];
   relatedSolutions: string[];
@@ -352,6 +365,35 @@ export const offerings: {
         },
       ],
     },
+    commercialModels: {
+      heading: "Own it, or just buy the power",
+      items: [
+        {
+          slug: "capex",
+          title: "CAPEX",
+          body: "You own the asset and claim depreciation benefits. Highest lifetime savings.",
+        },
+        {
+          slug: "opex",
+          title: "OPEX / RESCO",
+          body: "Zero upfront cost. Pay only for the units generated, at a tariff below grid.",
+        },
+        {
+          slug: "lease",
+          title: "Lease",
+          body: "Fixed monthly payments, ownership at the end of the term.",
+        },
+        {
+          slug: "open-access",
+          title: "Open Access / Group Captive",
+          body: "Off-site renewable power at scale.",
+        },
+      ],
+      link: {
+        label: "Compare models in detail",
+        href: "/solutions/finance-solutions",
+      },
+    },
     howWeDeliver: {
       heading: "From your electricity bill to a working plant",
       steps: [
@@ -371,6 +413,18 @@ export const offerings: {
           title: "Perform",
           body: "SCADA monitoring and O&M so the plant delivers what was promised, year after year.",
         },
+      ],
+    },
+    // ⚠️ DUMMY PLACEHOLDER FIGURES, not verified project data — the brief
+    // gave these as bracketed placeholders ("[XX]%" etc). Swap for real
+    // numbers before treating this as a live performance claim.
+    outcomes: {
+      heading: "What a typical C&I project delivers",
+      stats: [
+        { value: "35%", label: "Reduction in grid power cost" },
+        { value: "4-year", label: "Payback on CAPEX projects" },
+        { value: "1,200 t", label: "CO₂ avoided per MWp per year" },
+        { value: "99%", label: "Plant availability under Polaris O&M" },
       ],
     },
     ctaBlock: {
