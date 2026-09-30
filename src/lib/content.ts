@@ -236,8 +236,7 @@ export const testimonials = [
 ];
 
 // Homepage "Our Solutions", the four offering categories. Each has its
-// own page at /solutions/<slug>; `relatedSolutions` lists the commercial
-// models (from `solutions`, by slug) shown inline on that page.
+// own page at /solutions/<slug>.
 export type CoveragePoint = { title: string; body: string };
 
 export type OfferingStep = { title: string; body: string };
@@ -253,24 +252,27 @@ export const offerings: {
   heroHeadline: string;
   heroCtas: OfferingCta[];
   challenge: { heading: string; items: CoveragePoint[] };
-  // Page-specific "Own it, or just buy the power" style section. When
-  // present, this drives the "Commercial models" section instead of the
-  // generic relatedSolutions lookup below.
+  // Page-specific "Own it, or just buy the power" style section, per the
+  // content brief. Not every offering has one. Either a card grid
+  // (`items`) or a comparison table (`table`).
   commercialModels?: {
     heading: string;
-    items: OfferingModelItem[];
+    items?: OfferingModelItem[];
+    table?: { columns: string[]; rows: string[][] };
     link?: OfferingCta;
   };
   pointsHeading?: string;
   points: CoveragePoint[];
   extra?: { heading: string; items: CoveragePoint[] };
+  // A second standalone bullet section, e.g. Energy Optimisation's
+  // separate "Why Polaris" block alongside "Engagement models".
+  extra2?: { heading: string; items: CoveragePoint[] };
   howWeDeliver: { heading: string; steps: OfferingStep[] };
   // ⚠️ DUMMY PLACEHOLDER FIGURES until real project data is supplied —
   // do not treat these as verified performance claims.
   outcomes?: { heading: string; stats: OfferingStat[] };
   ctaBlock: { heading: string; body: string; cta: OfferingCta };
   relatedOfferingLinks: OfferingCta[];
-  relatedSolutions: string[];
 }[] = [
   {
     slug: "commercial-industrial",
@@ -440,7 +442,6 @@ export const offerings: {
       },
       { label: "P-ESS", href: "/p-ess" },
     ],
-    relatedSolutions: ["capex", "opex", "lease", "epc"],
   },
   {
     slug: "utility-scale",
@@ -531,6 +532,27 @@ export const offerings: {
         },
       ],
     },
+    commercialModels: {
+      heading: "Structures for sourcing power at scale",
+      items: [
+        {
+          slug: "open-access",
+          title: "Open Access / Captive",
+          body: "Off-site solar that lowers landed power cost for large consumers.",
+        },
+        {
+          slug: "group-captive",
+          title: "Group Captive",
+          body: "Co-investment with other consumers, combining long-term supply with captive-power rules.",
+        },
+        {
+          slug: "epc",
+          title: "EPC & lifecycle management",
+          body: "Polaris builds and maintains the plant for developers and IPPs.",
+        },
+      ],
+      link: { label: "Compare models", href: "/solutions/finance-solutions" },
+    },
     howWeDeliver: {
       heading: "Built to schedule, commissioned to spec",
       steps: [
@@ -552,6 +574,16 @@ export const offerings: {
         },
       ],
     },
+    // ⚠️ DUMMY PLACEHOLDER FIGURES, not verified project data.
+    outcomes: {
+      heading: "What a typical utility-scale project delivers",
+      stats: [
+        { value: "45 MWp", label: "Ground-mounted capacity delivered" },
+        { value: "180 days", label: "Average, mobilisation to commissioning" },
+        { value: "84%", label: "Performance ratio in year one" },
+        { value: "72 GWh", label: "Generated per year across the portfolio" },
+      ],
+    },
     ctaBlock: {
       heading: "Have land, a PPA or a power requirement?",
       body: "Tell us about your site and capacity. We'll come back with a feasibility view and an EPC plan.",
@@ -562,7 +594,6 @@ export const offerings: {
       { label: "Our Approach", href: "/our-approach" },
       { label: "Global", href: "/global" },
     ],
-    relatedSolutions: ["open-access", "group-captive", "epc"],
   },
   {
     slug: "finance-solutions",
@@ -641,6 +672,50 @@ export const offerings: {
         },
       ],
     },
+    commercialModels: {
+      heading: "Six ways to pay for clean energy",
+      table: {
+        columns: ["Model", "Upfront cost", "Who owns the asset", "Best for"],
+        rows: [
+          [
+            "CAPEX",
+            "High",
+            "You",
+            "Profitable firms wanting maximum lifetime savings and tax benefits",
+          ],
+          [
+            "OPEX / RESCO",
+            "Zero",
+            "Developer",
+            "Firms that want savings without using capital",
+          ],
+          [
+            "Lease",
+            "Low",
+            "Lessor, then you",
+            "Firms that want to spread cost and own later",
+          ],
+          [
+            "Open Access / Captive",
+            "Varies",
+            "You or a developer",
+            "Large loads with limited roof space",
+          ],
+          [
+            "Group Captive",
+            "Equity share",
+            "Group of consumers",
+            "Mid-to-large users who want long-term low-cost power",
+          ],
+          [
+            "Project finance facilitation",
+            "Reduced",
+            "You",
+            "CAPEX projects that need debt",
+          ],
+        ],
+      },
+    },
     howWeDeliver: {
       heading: "From bill to board approval",
       steps: [
@@ -662,6 +737,15 @@ export const offerings: {
         },
       ],
     },
+    // ⚠️ DUMMY PLACEHOLDER FIGURES, not verified project data.
+    outcomes: {
+      heading: "What Polaris financial modelling delivers",
+      stats: [
+        { value: "1", label: "Meeting to board approval" },
+        { value: "22%", label: "Average IRR on CAPEX projects" },
+        { value: "₹40 cr", label: "Of projects financed or facilitated" },
+      ],
+    },
     ctaBlock: {
       heading: "See your numbers before you commit",
       body: "Send us your last 12 months of bills. We'll return a side-by-side comparison of every viable model.",
@@ -677,14 +761,6 @@ export const offerings: {
         label: "Energy Optimisation",
         href: "/solutions/energy-optimisation-consultant",
       },
-    ],
-    relatedSolutions: [
-      "capex",
-      "opex",
-      "open-access",
-      "group-captive",
-      "lease",
-      "advisory",
     ],
   },
   {
@@ -801,6 +877,32 @@ export const offerings: {
         },
       ],
     },
+    extra2: {
+      heading: "Why Polaris",
+      items: [
+        {
+          title: "Technology-agnostic",
+          body: "We recommend what fits, including doing less",
+        },
+        {
+          title: "Engineering and finance in one report",
+          body: "Not separate conversations with separate teams",
+        },
+        {
+          title: "Backed by a team that has built 120 MWp",
+          body: "So the plan is buildable",
+        },
+      ],
+    },
+    // ⚠️ DUMMY PLACEHOLDER FIGURES, not verified project data.
+    outcomes: {
+      heading: "What a typical energy review delivers",
+      stats: [
+        { value: "18%", label: "Average reduction in energy cost identified" },
+        { value: "25%", label: "Reduction in peak demand with storage" },
+        { value: "3 months", label: "For the review cost to be recovered" },
+      ],
+    },
     ctaBlock: {
       heading: "Get a clear energy plan for your facility",
       body: "Start with your bills. We'll show you where the savings are and what to do first.",
@@ -814,7 +916,6 @@ export const offerings: {
         href: "/solutions/commercial-industrial",
       },
     ],
-    relatedSolutions: ["bess", "advisory", "epc"],
   },
 ];
 

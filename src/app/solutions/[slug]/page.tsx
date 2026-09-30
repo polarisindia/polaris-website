@@ -1,15 +1,17 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { notFound } from "next/navigation";
-import { Section, SectionHeading, ArrowLink, ArrowRight } from "@/components/ui";
+import {
+  Section,
+  SectionHeading,
+  ArrowLink,
+  ArrowRight,
+} from "@/components/ui";
 import { Reveal } from "@/components/Reveal";
 import { RevealText } from "@/components/RevealText";
 import { Grainient } from "@/components/Grainient";
-import { CountUp } from "@/components/motion/CountUp";
-import { ProjectCard } from "@/components/ProjectCard";
 import { BorderGlow } from "@/components/BorderGlow";
 import { CoverageMarquee } from "@/components/CoverageMarquee";
-import { offerings, solutions, projects, opportunity } from "@/lib/content";
+import { offerings } from "@/lib/content";
 
 /* ---------- flat illustrations, same family/palette as the homepage
    "Our solutions" icons, one per commercial-model slug ---------- */
@@ -140,111 +142,6 @@ const solutionIcons: Record<string, React.ReactNode> = {
   ),
 };
 
-/* ---------- one icon per business-case metric on the Finance Solutions
-   page, same IL-palette family as solutionIcons above ---------- */
-const financialIcons: React.ReactNode[] = [
-  // Energy cost reduction — falling cost bar + down arrow
-  <svg viewBox="0 0 48 48" fill="none" key="cost" aria-hidden="true">
-    <rect x="4" y="6" width="26" height="26" rx="6" fill={IL.pale} />
-    <rect x="9" y="26" width="7" height="16" rx="2" fill={IL.dark} />
-    <rect x="20.5" y="18" width="7" height="24" rx="2" fill={IL.green} />
-    <rect x="32" y="10" width="7" height="32" rx="2" fill={IL.pale} />
-    <path
-      d="M10 12 L20 20 L27 15 L39 24"
-      stroke={IL.ink}
-      strokeWidth="2.6"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <path
-      d="M32 24 L39 24 L39 17"
-      stroke={IL.ink}
-      strokeWidth="2.6"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </svg>,
-  // IRR & payback — upward trend
-  <svg viewBox="0 0 48 48" fill="none" key="irr" aria-hidden="true">
-    <rect x="4" y="6" width="26" height="26" rx="6" fill={IL.pale} />
-    <circle cx="26" cy="24" r="18" fill={IL.green} />
-    <path
-      d="M14 30 L22 22 L27 27 L36 16"
-      stroke="#fff"
-      strokeWidth="3"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <path
-      d="M28 16 H36 V24"
-      stroke="#fff"
-      strokeWidth="3"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </svg>,
-  // Cash-flow impact — balance sheet / scale
-  <svg viewBox="0 0 48 48" fill="none" key="cash" aria-hidden="true">
-    <rect x="4" y="4" width="24" height="24" rx="6" fill={IL.pale} />
-    <path d="M24 8 V40" stroke={IL.ink} strokeWidth="3" strokeLinecap="round" />
-    <path d="M8 40 H40" stroke={IL.ink} strokeWidth="3" strokeLinecap="round" />
-    <path d="M24 14 L12 14 L6 26 H18Z" fill={IL.green} />
-    <path d="M24 14 L36 14 L42 26 H30Z" fill={IL.dark} />
-    <circle
-      cx="12"
-      cy="26"
-      r="6"
-      fill="none"
-      stroke={IL.green}
-      strokeWidth="2.4"
-    />
-    <circle
-      cx="36"
-      cy="26"
-      r="6"
-      fill="none"
-      stroke={IL.dark}
-      strokeWidth="2.4"
-    />
-  </svg>,
-  // Demand & tariff — gauge / meter
-  <svg viewBox="0 0 48 48" fill="none" key="demand" aria-hidden="true">
-    <rect x="4" y="4" width="24" height="24" rx="6" fill={IL.pale} />
-    <circle cx="24" cy="27" r="20" fill={IL.green} />
-    <path
-      d="M8 32A18 18 0 0 1 40 32"
-      stroke="#fff"
-      strokeWidth="4"
-      strokeLinecap="round"
-      fill="none"
-    />
-    <path
-      d="M24 27 34 16"
-      stroke={IL.ink}
-      strokeWidth="3.5"
-      strokeLinecap="round"
-    />
-    <circle cx="24" cy="27" r="4" fill={IL.dark} />
-  </svg>,
-  // Lifecycle value — full loop
-  <svg viewBox="0 0 48 48" fill="none" key="lifecycle" aria-hidden="true">
-    <rect x="3" y="3" width="22" height="22" rx="7" fill={IL.pale} />
-    <circle
-      cx="27"
-      cy="27"
-      r="17"
-      fill="none"
-      stroke={IL.green}
-      strokeWidth="7"
-      strokeDasharray="80 20"
-      strokeLinecap="round"
-      transform="rotate(-45 27 27)"
-    />
-    <path d="M27 27 L36 20 L38 29Z" fill={IL.dark} />
-    <circle cx="27" cy="27" r="4" fill={IL.ink} />
-  </svg>,
-];
-
 /* ---------- one icon per "what this covers" group heading, keyed by the
    exact heading text used in content.ts ---------- */
 // Outline line-icon style, matching "The Polaris advantage" icon set on
@@ -347,15 +244,6 @@ export async function generateMetadata({
   return { title: offering.title, description: offering.summary };
 }
 
-// Rooftop-only projects — the Commercial & Industrial proof points.
-const rooftopProjects = projects.filter(
-  (p) => p.tech === "Industrial Rooftop Solar" && p.location === "India",
-);
-// Ground-mounted projects — the Utility Scale proof points.
-const groundMountProjects = projects.filter(
-  (p) => p.tech === "Ground-Mounted Solar",
-);
-
 export default async function OfferingDetail({
   params,
 }: {
@@ -364,10 +252,6 @@ export default async function OfferingDetail({
   const { slug } = await params;
   const offering = offerings.find((o) => o.slug === slug);
   if (!offering) notFound();
-
-  const related = offering.relatedSolutions
-    .map((rs) => solutions.find((s) => s.slug === rs))
-    .filter((s): s is (typeof solutions)[number] => Boolean(s));
 
   const deliverItems = offering.points.map((p) => ({
     ...p,
@@ -440,21 +324,11 @@ export default async function OfferingDetail({
         <CoverageMarquee items={deliverItems} />
       </Section>
 
-      {/* Engineering standards / why Polaris / engagement models — the
-          offering's own "extra" heading, its own separate marquee. */}
-      {offering.extra && (
-        <Section>
-          <SectionHeading title={offering.extra.heading} />
-          <CoverageMarquee items={standardsItems} />
-        </Section>
-      )}
-
-      {/* Commercial models — exact same treatment as the homepage's "Our
-          solutions" section: dark grainient background, glow cards, 2-up
-          grid, one flat icon per model. Uses the offering's own
-          commercialModels copy when set, otherwise falls back to the
-          generic relatedSolutions lookup. */}
-      {(offering.commercialModels ? true : related.length > 0) && (
+      {/* Commercial models — dark grainient background, either a glow-card
+          grid (items) or a comparison table (table), per the brief. Only
+          rendered when the offering defines one (not every offering has
+          this section in the brief). */}
+      {offering.commercialModels && (
         <section className="relative isolate overflow-hidden bg-[#15371b]">
           <div
             aria-hidden="true"
@@ -487,49 +361,88 @@ export default async function OfferingDetail({
           </div>
           <div className="container-px relative mx-auto max-w-[1760px] py-20 lg:py-28">
             <RevealText
-              text={offering.commercialModels?.heading ?? "Commercial models that apply"}
+              text={offering.commercialModels.heading}
               className="text-3xl font-semibold tracking-tight text-white sm:text-[58px]"
             />
-            <div className="mt-10 grid gap-y-10 sm:grid-cols-2 sm:gap-x-4 sm:gap-y-4 lg:-mx-8">
-              {(offering.commercialModels
-                ? offering.commercialModels.items
-                : related.map((s) => ({
-                    slug: s.slug,
-                    title: s.title,
-                    body: s.summary,
-                  }))
-              ).map((s, i) => (
-                <Reveal
-                  as="article"
-                  key={s.slug}
-                  delay={(i % 4) * 70}
-                  className="h-full"
-                >
-                  <BorderGlow
+
+            {offering.commercialModels?.table ? (
+              <Reveal variant="fade" delay={90}>
+                <div className="mt-10 overflow-x-auto rounded-lg border border-white/10">
+                  <table className="w-full min-w-[720px] border-collapse text-left text-sm">
+                    <thead>
+                      <tr className="border-b border-white/10">
+                        {offering.commercialModels.table.columns.map((col) => (
+                          <th
+                            key={col}
+                            className="whitespace-nowrap px-5 py-4 font-semibold text-white/60"
+                          >
+                            {col}
+                          </th>
+                        ))}
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {offering.commercialModels.table.rows.map((row, ri) => (
+                        <tr
+                          key={row[0]}
+                          className={
+                            ri > 0 ? "border-t border-white/10" : undefined
+                          }
+                        >
+                          {row.map((cell, ci) => (
+                            <td
+                              key={ci}
+                              className={`px-5 py-4 align-top ${
+                                ci === 0
+                                  ? "font-semibold text-white"
+                                  : "text-white/70"
+                              }`}
+                            >
+                              {cell}
+                            </td>
+                          ))}
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </Reveal>
+            ) : (
+              <div className="mt-10 grid gap-y-10 sm:grid-cols-2 sm:gap-x-4 sm:gap-y-4 lg:-mx-8">
+                {offering.commercialModels.items!.map((s, i) => (
+                  <Reveal
+                    as="article"
+                    key={s.slug}
+                    delay={(i % 4) * 70}
                     className="h-full"
-                    backgroundColor="rgba(7, 26, 20, 0.4)"
-                    borderRadius={12}
-                    glowColor="105 70% 62%"
-                    glowRadius={32}
-                    glowIntensity={0.9}
-                    fillOpacity={0.2}
-                    colors={["#5fcf4b", "#a3e635", "#2dd4bf"]}
                   >
-                    <div className="relative flex flex-1 flex-col p-5 sm:p-6 lg:p-8">
-                      <span className="block h-[70px] w-[70px] [&>svg]:h-full [&>svg]:w-full">
-                        {solutionIcons[s.slug]}
-                      </span>
-                      <h3 className="mt-6 text-[1.4rem] font-semibold tracking-tight text-white">
-                        {s.title}
-                      </h3>
-                      <p className="mt-3 text-[1.12rem] leading-relaxed text-white/70">
-                        {s.body}
-                      </p>
-                    </div>
-                  </BorderGlow>
-                </Reveal>
-              ))}
-            </div>
+                    <BorderGlow
+                      className="h-full"
+                      backgroundColor="rgba(7, 26, 20, 0.4)"
+                      borderRadius={12}
+                      glowColor="105 70% 62%"
+                      glowRadius={32}
+                      glowIntensity={0.9}
+                      fillOpacity={0.2}
+                      colors={["#5fcf4b", "#a3e635", "#2dd4bf"]}
+                    >
+                      <div className="relative flex flex-1 flex-col p-5 sm:p-6 lg:p-8">
+                        <span className="block h-[70px] w-[70px] [&>svg]:h-full [&>svg]:w-full">
+                          {solutionIcons[s.slug]}
+                        </span>
+                        <h3 className="mt-6 text-[1.4rem] font-semibold tracking-tight text-white">
+                          {s.title}
+                        </h3>
+                        <p className="mt-3 text-[1.12rem] leading-relaxed text-white/70">
+                          {s.body}
+                        </p>
+                      </div>
+                    </BorderGlow>
+                  </Reveal>
+                ))}
+              </div>
+            )}
+
             {offering.commercialModels?.link && (
               <Reveal variant="fade" delay={280}>
                 <div className="mt-10">
@@ -568,113 +481,33 @@ export default async function OfferingDetail({
         </Section>
       </div>
 
-      {/* Commercial & Industrial — rooftop project proof */}
-      {slug === "commercial-industrial" && rooftopProjects.length > 0 && (
+      {/* Engineering standards / why Polaris / engagement models — the
+          offering's own "extra" heading, its own separate marquee. */}
+      {offering.extra && (
         <Section>
-          <div className="flex flex-wrap items-end justify-between gap-6">
-            <h2 className="text-3xl font-semibold tracking-tight text-[#26502e] sm:text-[2.5rem]">
-              Recent rooftop deployments
-            </h2>
-            <ArrowLink href="/projects">See all projects</ArrowLink>
-          </div>
-          <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {rooftopProjects.slice(0, 3).map((p, i) => (
-              <Reveal key={p.name} delay={(i % 3) * 70}>
-                <ProjectCard project={p} />
+          <SectionHeading title={offering.extra.heading} />
+          <CoverageMarquee items={standardsItems} />
+        </Section>
+      )}
+
+      {/* A second standalone bullet section, when the offering has one
+          (e.g. Energy Optimisation's separate "Why Polaris" block). */}
+      {offering.extra2 && (
+        <Section>
+          <SectionHeading title={offering.extra2.heading} />
+          <div className="mt-10 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+            {offering.extra2.items.map((item, i) => (
+              <Reveal key={item.title} variant="up" delay={i * 80}>
+                <h3 className="text-base font-semibold tracking-tight text-ink">
+                  {item.title}
+                </h3>
+                <p className="mt-1.5 text-[15px] leading-relaxed text-ink-soft">
+                  {item.body}
+                </p>
               </Reveal>
             ))}
           </div>
         </Section>
-      )}
-
-      {/* Utility Scale — ground-mount project proof */}
-      {slug === "utility-scale" && groundMountProjects.length > 0 && (
-        <Section>
-          <div className="flex flex-wrap items-end justify-between gap-6">
-            <h2 className="text-3xl font-semibold tracking-tight text-[#26502e] sm:text-[2.5rem]">
-              Ground-mounted deployments
-            </h2>
-            <ArrowLink href="/projects">See all projects</ArrowLink>
-          </div>
-          <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {groundMountProjects.map((p, i) => (
-              <Reveal key={p.name} delay={(i % 3) * 70}>
-                <ProjectCard project={p} />
-              </Reveal>
-            ))}
-          </div>
-        </Section>
-      )}
-
-      {/* Finance Solutions — the actual numbers */}
-      {slug === "finance-solutions" && (
-        <div className="bg-brand-tint">
-          <Section>
-            <h2 className="text-3xl font-semibold tracking-tight text-[#26502e] sm:text-[2.5rem]">
-              How we build the business case
-            </h2>
-            <dl className="mt-14 grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 lg:grid-cols-5 lg:gap-x-8">
-              {opportunity.financials.map((f, i) => (
-                <div key={f.metric}>
-                  <span className="block h-12 w-12 [&>svg]:h-full [&>svg]:w-full">
-                    {financialIcons[i]}
-                  </span>
-                  <dt className="mt-4 text-xs font-semibold uppercase tracking-wide text-ink-faint">
-                    {f.metric}
-                  </dt>
-                  <dd>
-                    <CountUp
-                      value={f.value}
-                      className="mt-2 block text-xl font-semibold leading-snug tracking-tight text-ink sm:text-2xl"
-                    />
-                  </dd>
-                  <dd className="mt-1.5 text-xs leading-snug text-ink-faint">
-                    {f.note}
-                  </dd>
-                </div>
-              ))}
-            </dl>
-            <div className="mt-10">
-              <ArrowLink href="/sustainability">
-                See the full business case
-              </ArrowLink>
-            </div>
-          </Section>
-        </div>
-      )}
-
-      {/* Energy Optimisation Consultant — P-ESS promo */}
-      {slug === "energy-optimisation-consultant" && (
-        <div className="on-dark bg-[#15371b]">
-          <Section>
-            <div className="rounded-lg border border-white/10 bg-[rgba(7,26,20,0.4)]">
-              <div className="grid items-center gap-10 p-8 lg:grid-cols-[1fr_auto] lg:p-10">
-                <div>
-                  <h2 className="text-2xl font-semibold tracking-tight text-[#26502e] sm:text-3xl">
-                    P-ESS, the dedicated storage practice
-                  </h2>
-                  <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-ink-soft">
-                    Battery storage and time-of-day optimisation, modelled with
-                    the same financial rigour as every Polaris system. The full
-                    P-ESS practice is unveiling soon.
-                  </p>
-                </div>
-                <div className="relative aspect-[4/5] w-40 shrink-0 overflow-hidden rounded-lg bg-deep-navy sm:w-48">
-                  <Image
-                    src="/img/p-ess-teaser.jpg"
-                    alt="P-ESS teaser"
-                    fill
-                    sizes="192px"
-                    className="object-cover"
-                  />
-                </div>
-              </div>
-            </div>
-            <div className="mt-8">
-              <ArrowLink href="/p-ess">Learn about P-ESS</ArrowLink>
-            </div>
-          </Section>
-        </div>
       )}
 
       {/* Outcomes — placeholder figures until real project data lands */}
@@ -701,7 +534,10 @@ export default async function OfferingDetail({
 
       {/* Offering-specific CTA, same visual treatment as the sitewide CTA */}
       <section className="relative overflow-hidden bg-[#15371b]">
-        <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0"
+        >
           <Grainient
             color1="#0e3b16"
             color2="#065d40"
