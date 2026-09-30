@@ -8,7 +8,7 @@ import { ProjectCard } from "@/components/ProjectCard";
 import { global, offices, projects } from "@/lib/content";
 
 export const metadata: Metadata = {
-  title: "Polaris Global",
+  title: "Global — Solar EPC in Morocco & MENA",
   description:
     "Built in India, growing internationally: Polaris Global Energie SARL brings the same engineering-led, commercially clear approach to Morocco and the wider MENA region.",
 };

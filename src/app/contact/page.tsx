@@ -8,7 +8,7 @@ import { socialIcon } from "@/components/SocialIcons";
 import { offices, socials } from "@/lib/content";
 
 export const metadata: Metadata = {
-  title: "Contact",
+  title: "Contact — Nashik & Casablanca Offices",
   description:
     "Reach Polaris Renewable Solutions, our Nashik, India headquarters and our Casablanca, Morocco office.",
 };

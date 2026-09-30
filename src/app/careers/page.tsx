@@ -6,7 +6,7 @@ import { CTA } from "@/components/CTA";
 import { careers } from "@/lib/content";
 
 export const metadata: Metadata = {
-  title: "Careers",
+  title: "Careers — Solar Engineering Jobs in India",
   description:
     "Polaris is a small, engineering-led solar team across India and Morocco. We hire engineers, project managers and energy analysts who want to own outcomes end to end.",
 };

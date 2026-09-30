@@ -4,7 +4,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { CTA } from "@/components/CTA";
 import { ArrowLeft } from "@/components/ui";
-import { insights } from "@/lib/content";
+import { insights, company } from "@/lib/content";
 
 export function generateStaticParams() {
   return insights.map((post) => ({ slug: post.slug }));
@@ -38,8 +38,35 @@ export default async function InsightPost({
   const post = insights.find((p) => p.slug === slug);
   if (!post) notFound();
 
+  const articleJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: post.title,
+    description: post.excerpt,
+    image: [`https://www.polarisenergy.in${post.image}`],
+    datePublished: post.date,
+    dateModified: post.date,
+    author: { "@type": "Organization", name: company.name },
+    publisher: {
+      "@type": "Organization",
+      name: company.name,
+      logo: {
+        "@type": "ImageObject",
+        url: "https://www.polarisenergy.in/logo-polaris.png",
+      },
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `https://www.polarisenergy.in/insights/${post.slug}`,
+    },
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
       <div className="bg-[#FAFBF6]">
         <section>
           <div className="container-px mx-auto max-w-3xl pb-14 pt-[calc(83px+2.5rem)] lg:pb-16 lg:pt-[calc(83px+4rem)]">

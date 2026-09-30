@@ -19,7 +19,7 @@ import {
 } from "@/lib/content";
 
 export const metadata: Metadata = {
-  title: "About",
+  title: "About Us — Solar EPC Company in Nashik, India",
   description:
     "Polaris Renewable Solutions was founded in 2015 and is headquartered in Nashik, Maharashtra, delivering renewable energy projects for commercial, industrial and utility-scale customers across India and Morocco.",
 };

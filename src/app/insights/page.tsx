@@ -8,7 +8,7 @@ import { CTA } from "@/components/CTA";
 import { insights } from "@/lib/content";
 
 export const metadata: Metadata = {
-  title: "Insights",
+  title: "Insights — Solar & Renewable Energy Analysis",
   description:
     "Analysis from the Polaris Renewable Energy team on clean energy markets, policy, and project engineering.",
 };

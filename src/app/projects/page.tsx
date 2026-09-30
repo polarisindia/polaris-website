@@ -16,7 +16,7 @@ const clientEntries = clients.map((name) => ({
 }));
 
 export const metadata: Metadata = {
-  title: "Projects",
+  title: "Projects — Commercial & Industrial Solar Portfolio",
   description:
     "Selected commercial & industrial solar projects delivered by Polaris across India and Morocco, rooftop and ground-mounted.",
 };

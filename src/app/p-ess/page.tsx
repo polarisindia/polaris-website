@@ -4,7 +4,7 @@ import Link from "next/link";
 import { ArrowRight } from "@/components/ui";
 
 export const metadata: Metadata = {
-  title: "P-ESS",
+  title: "P-ESS — Battery Energy Storage Solutions",
   description:
     "Polaris Energy Storage Solutions (P-ESS), battery storage and time-of-day optimisation that firm up solar, shave demand peaks and strengthen grid independence for industrial sites. Full practice unveiling soon.",
 };

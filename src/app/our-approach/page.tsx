@@ -7,7 +7,7 @@ import { RevealText } from "@/components/RevealText";
 import { process as deliverySteps, advantages } from "@/lib/content";
 
 export const metadata: Metadata = {
-  title: "Our Approach",
+  title: "Our Approach — Solar Project Delivery Process",
   description:
     "How Polaris delivers energy projects: assessment and financial modelling, engineering and procurement, construction and commissioning, then monitoring and O&M under one accountable team.",
 };

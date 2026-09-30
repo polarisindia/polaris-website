@@ -8,7 +8,7 @@ import { CTA } from "@/components/CTA";
 import { opportunity } from "@/lib/content";
 
 export const metadata: Metadata = {
-  title: "The case for solar",
+  title: "The Case for Solar — Sustainability & Impact",
   description:
     "Energy is now a business decision, not just a utility bill. The forces behind it, and how Polaris looks at engineering and economics together.",
 };
