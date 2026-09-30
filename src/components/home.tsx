@@ -395,6 +395,13 @@ export function ImpactBand() {
               text={"Clean energy,\nlasting impact."}
               className="block max-w-xl text-3xl font-semibold tracking-tight sm:text-[58px]"
             />
+            <Reveal variant="fade" delay={120}>
+              <div className="mt-6">
+                <ArrowLink href="/sustainability" tone="light">
+                  See our sustainability approach
+                </ArrowLink>
+              </div>
+            </Reveal>
           </div>
 
           <div className="grid grid-cols-2 gap-x-6 gap-y-10">
@@ -550,7 +557,7 @@ export function LatestNews() {
                 <div className="relative aspect-[16/11] w-full overflow-hidden rounded-lg bg-mist">
                   <Image
                     src={post.image}
-                    alt=""
+                    alt={post.title}
                     fill
                     sizes="(max-width: 768px) 100vw, 33vw"
                     className="object-cover transition-transform duration-300 group-hover:scale-105"

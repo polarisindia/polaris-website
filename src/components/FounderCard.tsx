@@ -144,7 +144,7 @@ export function FounderCard({ founder }: { founder: Founder }) {
                 {founder.photo ? (
                   <Image
                     src={founder.photo}
-                    alt=""
+                    alt={fullName}
                     fill
                     sizes="56px"
                     className="object-cover"

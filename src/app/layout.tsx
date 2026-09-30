@@ -36,6 +36,37 @@ export const metadata: Metadata = {
   },
 };
 
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: company.name,
+  alternateName: company.shortName,
+  url: "https://www.polarisenergy.in",
+  logo: "https://www.polarisenergy.in/logo-polaris.png",
+  description: company.description,
+  foundingDate: String(company.founded),
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "6, Sankalp Bungalow, Shankar Nagar, Savarkar Nagar, Gangapur Road",
+    addressLocality: "Nashik",
+    postalCode: "422013",
+    addressRegion: "Maharashtra",
+    addressCountry: "IN",
+  },
+  contactPoint: {
+    "@type": "ContactPoint",
+    telephone: company.phone,
+    email: company.email,
+    contactType: "customer service",
+  },
+  sameAs: [
+    "https://www.facebook.com/Polarisenergysolutions/",
+    "https://x.com/polaris_nashik",
+    "https://in.linkedin.com/company/polaris-renewable-solutions-pvt-ltd",
+    "https://www.instagram.com/polaris_solar_solutions/",
+  ],
+};
+
 export default function RootLayout({
   children,
 }: {
@@ -44,6 +75,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${jakarta.variable} ${publicSans.variable}`}>
       <body className="flex min-h-screen flex-col antialiased">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
         <SmoothScroll />
         <Header />
         <main className="flex-1">{children}</main>

@@ -70,7 +70,7 @@ export function ProcessRail({ steps }: { steps: Step[] }) {
             >
               <Image
                 src={s.image}
-                alt=""
+                alt={s.title}
                 fill
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 70vw, 55vw"
                 className={`object-cover transition-transform duration-[2000ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${

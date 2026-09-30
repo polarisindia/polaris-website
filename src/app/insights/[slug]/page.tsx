@@ -72,7 +72,7 @@ export default async function InsightPost({
           <div className="relative aspect-[16/9] w-full overflow-hidden rounded-lg bg-mist">
             <Image
               src={post.image}
-              alt=""
+              alt={post.title}
               fill
               sizes="(max-width: 768px) 100vw, 768px"
               className="object-cover"
