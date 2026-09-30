@@ -260,22 +260,22 @@ const coverageLineIconProps = {
 };
 
 const coverageIcons: Record<string, React.ReactNode> = {
-  // Core capabilities — wrench
-  "Core capabilities": (
+  // Commercial & Industrial "what we deliver" — wrench
+  "One partner for the whole energy system": (
     <svg {...coverageLineIconProps}>
       <path d="M46 18a10 10 0 0 1-13 13L18 46l-4-4 15-15a10 10 0 0 1 13-13l-6 6 4 4 6-6Z" />
     </svg>
   ),
-  // What we focus on — target
-  "What we focus on": (
+  // Commercial & Industrial "engineering standards" — target
+  "Engineered for 25 years, not for the handover": (
     <svg {...coverageLineIconProps}>
       <circle cx="32" cy="32" r="18" />
       <circle cx="32" cy="32" r="10" />
       <circle cx="32" cy="32" r="2" />
     </svg>
   ),
-  // Scope of work — ruler
-  "Scope of work": (
+  // Utility Scale "what we deliver" — ruler
+  "Full EPC scope, one point of responsibility": (
     <svg {...coverageLineIconProps}>
       <rect
         x="8"
@@ -291,38 +291,38 @@ const coverageIcons: Record<string, React.ReactNode> = {
       />
     </svg>
   ),
-  // Electrical infrastructure & grid evacuation — transmission tower
-  "Electrical infrastructure & grid evacuation": (
+  // Utility Scale "engineering standards" — transmission tower
+  "Engineering standards": (
     <svg {...coverageLineIconProps}>
       <path d="M32 8 44 56M32 8 20 56M22 30h20M17 44h30" />
       <circle cx="32" cy="8" r="3" />
     </svg>
   ),
-  // What we evaluate — magnifier over a bar chart
-  "What we evaluate": (
+  // Finance Solutions "what we deliver" — magnifier over a bar chart
+  "A business case your CFO can sign off": (
     <svg {...coverageLineIconProps}>
       <path d="M12 52V38h6v14M24 52V28h6v24M36 52V18h6v34" />
       <circle cx="46" cy="16" r="8" />
       <path d="m52 22 5 5" />
     </svg>
   ),
-  // What we review — checklist
-  "What we review": (
+  // Energy Optimisation "what we review" — checklist
+  "A full picture of your energy use": (
     <svg {...coverageLineIconProps}>
       <rect x="14" y="10" width="36" height="44" rx="4" />
       <path d="M22 24l4 4 8-9M22 38l4 4 8-9" />
       <path d="M38 24h6M38 38h6" />
     </svg>
   ),
-  // Why Polaris — shield with checkmark
+  // Finance Solutions "why Polaris" — shield with checkmark
   "Why Polaris": (
     <svg {...coverageLineIconProps}>
       <path d="M32 8 54 16v16c0 16-10 26-22 32-12-6-22-16-22-32V16Z" />
       <path d="M22 32l7 7 15-15" />
     </svg>
   ),
-  // Engagement models — branching paths
-  "Engagement models": (
+  // Energy Optimisation "engagement models" — branching paths
+  "Start with advice, go as far as you need": (
     <svg {...coverageLineIconProps}>
       <circle cx="14" cy="32" r="6" />
       <path d="M20 32h8M28 32c0-8 8-14 16-14M28 32c0 8 8 14 16 14" />

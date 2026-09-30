@@ -283,63 +283,63 @@ export const offerings: {
         },
       ],
     },
-    pointsHeading: "Core capabilities",
+    pointsHeading: "One partner for the whole energy system",
     points: [
       {
         title: "Industrial rooftop solar",
-        body: "RCC, metal sheet, bitumen and specialised roof configurations",
+        body: "Designed around roof load, orientation and shading, using your roof area efficiently",
       },
       {
         title: "Ground-mounted captive solar",
-        body: "Captive solar for industrial facilities",
-      },
-      {
-        title: "On-site & off-site solar",
-        body: "Solutions built around where your facility can generate",
+        body: "For sites with spare land",
       },
       {
         title: "Open Access & Group Captive",
-        body: "Commercial structures for off-site power sourcing",
+        body: "Off-site solar when your roof isn't enough",
       },
       {
         title: "BESS & hybrid systems",
-        body: "Solar plus storage, sized for the facility",
+        body: "Storage to shave peaks and shift solar into evening shifts (via P-ESS)",
       },
       {
         title: "Electrical infrastructure",
-        body: "HT / LT systems, transformers, substations and evacuation",
+        body: "LT/HT panels, transformers, cabling and protection, upgraded where needed",
       },
       {
-        title: "SCADA & monitoring",
-        body: "Analytics and performance management",
+        title: "SCADA monitoring",
+        body: "Live generation, alarms and performance on one dashboard",
       },
       {
         title: "Long-term O&M",
-        body: "Asset optimisation over the plant's life",
+        body: "Cleaning, preventive maintenance and performance guarantees over 25 years",
       },
     ],
     extra: {
-      heading: "What we focus on",
+      heading: "Engineered for 25 years, not for the handover",
       items: [
         {
-          title: "Efficient area use",
-          body: "Available roof and land area, without compromising structural safety",
+          title: "Tier-1 modules and inverters",
+          body: "Chosen on performance, not on commission",
         },
         {
-          title: "Generation-to-load match",
-          body: "Matched as closely as possible to the facility's actual consumption",
+          title: "Structural checks",
+          body: "On every roof before design",
         },
         {
-          title: "Lower electrical losses",
-          body: "Well-planned DC and AC design",
+          title: "Generation matched to your load",
+          body: "So less power is exported at low value",
         },
         {
-          title: "Room to expand",
-          body: "Future storage, load growth and plant expansion",
+          title: "Reduced electrical losses",
+          body: "Through correct cable sizing and layout",
         },
         {
-          title: "Safe live-site execution",
-          body: "Minimum disruption to ongoing operations",
+          title: "Space kept for future expansion",
+          body: "Room for storage and load growth",
+        },
+        {
+          title: "Safety systems and permits",
+          body: "For live industrial sites",
         },
       ],
     },
@@ -412,68 +412,59 @@ export const offerings: {
         },
       ],
     },
-    pointsHeading: "Scope of work",
+    pointsHeading: "Full EPC scope, one point of responsibility",
     points: [
       {
         title: "Project engineering",
-        body: "Feasibility, front-end engineering, layouts, detailed design and energy-yield studies",
+        body: "PV layout, energy yield studies, structural and electrical design",
       },
       {
         title: "Civil & site development",
-        body: "Survey coordination, earthworks, grading, foundations, piling, trenches and roads",
+        body: "Land grading, foundations, roads, drainage and fencing",
       },
       {
         title: "Mechanical execution",
-        body: "Assembly and alignment of tracker or fixed-tilt structures, module installation",
+        body: "Mounting structures and module installation",
       },
       {
-        title: "Electrical & power systems",
-        body: "DC/AC networks, inverters, transformers, switchgear, MV/HT systems",
+        title: "Electrical systems",
+        body: "DC/AC cabling, inverters, switchgear, transformers and protection",
       },
       {
-        title: "SCADA & grid integration",
-        body: "Monitoring and controls, evacuation systems, grid synchronisation",
+        title: "Grid integration",
+        body: "Evacuation line, substation interface and liaison for approvals",
       },
       {
         title: "Testing & commissioning",
-        body: "Pre-commissioning, documentation, handover and final performance checks",
+        body: "Pre-commissioning tests, performance checks and handover",
+      },
+      {
+        title: "SCADA & O&M",
+        body: "Remote monitoring and long-term maintenance",
       },
     ],
     extra: {
-      heading: "Electrical infrastructure & grid evacuation",
+      heading: "Engineering standards",
       items: [
         {
-          title: "Substation civil works",
-          body: "Foundations and equipment support structures",
-        },
-        { title: "HT switchgear", body: "11 kV / HT switchgear and panels" },
-        {
-          title: "Transformers",
-          body: "And associated electrical equipment",
+          title: "Yield modelling",
+          body: "Before layout is locked",
         },
         {
-          title: "HT cabling",
-          body: "Power cables, cable trenches and termination systems",
+          title: "Geotechnical survey",
+          body: "And site-specific foundation design",
         },
         {
-          title: "Protection & control",
-          body: "Protection, control and metering panels",
+          title: "Tier-1, technology-agnostic equipment",
+          body: "Selected on fit, not on commission",
         },
         {
-          title: "Earthing & lightning protection",
-          body: "Systems built to code",
+          title: "Protection studies",
+          body: "And grid-code compliance",
         },
         {
-          title: "AC auxiliary systems",
-          body: "Supporting the plant's electrical needs",
-        },
-        {
-          title: "Cable works",
-          body: "Laying, glanding, termination, identification and ferruling",
-        },
-        {
-          title: "Electrical testing",
-          body: "Protection testing, pre-commissioning and commissioning support",
+          title: "Documented QA/QC and HSE plans",
+          body: "On every site",
         },
       ],
     },
@@ -543,31 +534,31 @@ export const offerings: {
         },
       ],
     },
-    pointsHeading: "What we evaluate",
+    pointsHeading: "A business case your CFO can sign off",
     points: [
       {
         title: "IRR, ROI & payback",
-        body: "Full return analysis before you commit",
+        body: "For each model, on your actual tariff and load",
       },
       {
         title: "Cash-flow modelling",
-        body: "Scenario comparison across commercial models",
+        body: "Month-by-month, over the full asset life",
       },
       {
         title: "Depreciation & tax impact",
-        body: "Assessed against your accounting position",
+        body: "What ownership does to your tax position",
       },
       {
         title: "Tariff sensitivity",
-        body: "How escalation affects the numbers",
+        body: "What happens if grid tariffs rise slower or faster",
       },
       {
-        title: "Debt / equity assumptions",
-        body: "Financing structure built into the model",
+        title: "Debt & equity scenarios",
+        body: "Leverage options and their effect on returns",
       },
       {
         title: "Investment-grade documentation",
-        body: "Ready for lenders and internal sign-off",
+        body: "Reports banks and boards accept",
       },
     ],
     extra: {
@@ -666,47 +657,47 @@ export const offerings: {
         },
       ],
     },
-    pointsHeading: "What we review",
+    pointsHeading: "A full picture of your energy use",
     points: [
       {
-        title: "12 months of bills & load data",
-        body: "Where available, the starting point for every review",
+        title: "Bills & load data",
+        body: "12 months of bills and interval data to find the real load profile",
       },
       {
         title: "Tariff & demand exposure",
-        body: "Power factor and Time-of-Day tariffs",
+        body: "Where demand charges and ToD rates are costing you",
       },
       {
         title: "On-site solar potential",
-        body: "Usable roof and land area",
+        body: "Roof and land, sized to your daytime load",
       },
       {
-        title: "Off-site sourcing options",
-        body: "Open Access and captive power",
+        title: "Off-site sourcing",
+        body: "Open access and group captive options in your state",
       },
       {
         title: "BESS sizing",
-        body: "Peak shaving, backup and tariff optimisation",
+        body: "Storage for peak shaving and evening shifts",
       },
       {
         title: "Solar + storage options",
-        body: "With future expansion requirements in view",
+        body: "Combined scenarios and their returns",
       },
       {
         title: "Financial comparison",
-        body: "CAPEX, OPEX/RESCO, captive and financing structures",
+        body: "IRR and payback for each option",
       },
       {
         title: "Phased implementation plan",
-        body: "Expected outcomes and measurable KPIs",
+        body: "What to do first, next and later",
       },
       {
         title: "Post-commissioning monitoring",
-        body: "Analysis and ongoing performance improvement",
+        body: "Checking that savings actually arrive",
       },
     ],
     extra: {
-      heading: "Engagement models",
+      heading: "Start with advice, go as far as you need",
       items: [
         {
           title: "Energy review only",
