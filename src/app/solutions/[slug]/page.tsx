@@ -369,18 +369,16 @@ export default async function OfferingDetail({
     .map((rs) => solutions.find((s) => s.slug === rs))
     .filter((s): s is (typeof solutions)[number] => Boolean(s));
 
-  const coverageItems = [
-    ...offering.points.map((p) => ({
-      ...p,
-      icon: coverageIcons[offering.pointsHeading ?? ""],
-    })),
-    ...(offering.extra
-      ? offering.extra.items.map((p) => ({
-          ...p,
-          icon: coverageIcons[offering.extra!.heading],
-        }))
-      : []),
-  ];
+  const deliverItems = offering.points.map((p) => ({
+    ...p,
+    icon: coverageIcons[offering.pointsHeading ?? ""],
+  }));
+  const standardsItems = offering.extra
+    ? offering.extra.items.map((p) => ({
+        ...p,
+        icon: coverageIcons[offering.extra!.heading],
+      }))
+    : [];
 
   return (
     <>
@@ -435,18 +433,21 @@ export default async function OfferingDetail({
         </div>
       </Section>
 
-      {/* What this covers — an auto-scrolling row of cards instead of a
-          dense static bullet block. */}
+      {/* What we deliver — the offering's own heading, an auto-scrolling
+          row of cards instead of a dense static bullet block. */}
       <Section>
-        <SectionHeading
-          title={
-            offering.extra
-              ? "What this covers"
-              : (offering.pointsHeading ?? "What this covers")
-          }
-        />
-        <CoverageMarquee items={coverageItems} />
+        <SectionHeading title={offering.pointsHeading ?? "What we deliver"} />
+        <CoverageMarquee items={deliverItems} />
       </Section>
+
+      {/* Engineering standards / why Polaris / engagement models — the
+          offering's own "extra" heading, its own separate marquee. */}
+      {offering.extra && (
+        <Section>
+          <SectionHeading title={offering.extra.heading} />
+          <CoverageMarquee items={standardsItems} />
+        </Section>
+      )}
 
       {/* Commercial models — exact same treatment as the homepage's "Our
           solutions" section: dark grainient background, glow cards, 2-up
