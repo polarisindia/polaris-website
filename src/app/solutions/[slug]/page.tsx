@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import {
   Section,
@@ -9,7 +10,9 @@ import {
 import { Reveal } from "@/components/Reveal";
 import { RevealText } from "@/components/RevealText";
 import { Grainient } from "@/components/Grainient";
-import { offerings } from "@/lib/content";
+import { BorderGlow } from "@/components/BorderGlow";
+import { SolutionIcon } from "@/components/SolutionIcon";
+import { offerings, projects } from "@/lib/content";
 
 export function generateStaticParams() {
   return offerings.map((o) => ({ slug: o.slug }));
@@ -69,33 +72,69 @@ export default async function OfferingDetail({
   const offering = offerings.find((o) => o.slug === slug);
   if (!offering) notFound();
 
-  const { scope, howItWorks, waysToPay } = offering;
+  const { scope, howItWorks, waysToPay, heroImage } = offering;
+  const heroProject = heroImage.projectSlug
+    ? projects.find((p) => p.slug === heroImage.projectSlug)
+    : undefined;
   const scopeIsPlainList = scope.every((s) => !s.body && !s.checklist);
   const faqWithAnswers = offering.faq.filter((f) => f.a);
 
   return (
     <>
-      {/* Hero */}
-      <section className="bg-[#FAFBF6]">
-        <div className="container-px mx-auto max-w-[1760px] pb-16 pt-[calc(83px+2.5rem)] lg:pb-20 lg:pt-[calc(83px+4rem)]">
-          <RevealText
-            as="h1"
-            text={offering.heroHeadline}
-            className="mt-6 block max-w-4xl text-4xl font-semibold leading-[1.08] tracking-tight text-[#26502e] sm:text-[58px]"
-          />
-          <Reveal variant="up" delay={90}>
-            <p className="mt-5 max-w-2xl text-lg leading-relaxed text-ink-soft">
-              {offering.intro}
-            </p>
-          </Reveal>
-          <Reveal variant="up" delay={140}>
-            <a
-              href={offering.heroCta.href}
-              className="mt-8 inline-flex items-center gap-2 rounded-lg bg-ink px-6 py-3 text-[15px] font-semibold text-white transition-colors duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-brand-hover hover:text-ink"
-            >
-              {offering.heroCta.label}
-              <ArrowRight className="h-4 w-4" />
-            </a>
+      {/* Hero: copy left, project photo right */}
+      <section className="relative overflow-hidden bg-[#FAFBF6]">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -right-40 top-10 h-[34rem] w-[34rem] rounded-full bg-brand-tint/70 blur-3xl"
+        />
+        <div className="container-px relative mx-auto grid max-w-[1760px] items-center gap-12 pb-16 pt-[calc(83px+2.5rem)] lg:grid-cols-[1.05fr_0.95fr] lg:gap-16 lg:pb-24 lg:pt-[calc(83px+4rem)]">
+          <div>
+            <RevealText
+              as="h1"
+              text={offering.heroHeadline}
+              className="block max-w-3xl text-4xl font-semibold leading-[1.08] tracking-tight text-[#26502e] sm:text-[52px]"
+            />
+            <Reveal variant="up" delay={90}>
+              <p className="mt-5 max-w-xl text-lg leading-relaxed text-ink-soft">
+                {offering.intro}
+              </p>
+            </Reveal>
+            <Reveal variant="up" delay={140}>
+              <a
+                href={offering.heroCta.href}
+                className="mt-8 inline-flex items-center gap-2 rounded-lg bg-ink px-6 py-3 text-[15px] font-semibold text-white transition-colors duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-brand-hover hover:text-ink"
+              >
+                {offering.heroCta.label}
+                <ArrowRight className="h-4 w-4" />
+              </a>
+            </Reveal>
+          </div>
+
+          <Reveal variant="up" delay={120}>
+            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-mist shadow-[0_18px_50px_-24px_rgba(15,67,56,0.45)]">
+              <Image
+                src={heroImage.src}
+                alt={heroImage.alt}
+                fill
+                priority
+                sizes="(max-width: 1024px) 100vw, 46vw"
+                className="object-cover"
+              />
+              {heroProject && (
+                <div className="absolute bottom-4 left-4 right-4 flex items-center gap-3 rounded-xl bg-white/90 px-4 py-3 backdrop-blur sm:right-auto">
+                  <span className="h-2.5 w-2.5 shrink-0 rounded-full bg-brand" />
+                  <span className="text-sm leading-snug text-ink">
+                    <span className="font-semibold">
+                      {heroProject.capacity}
+                    </span>
+                    <span className="text-ink-soft">
+                      {" · "}
+                      {heroProject.name}
+                    </span>
+                  </span>
+                </div>
+              )}
+            </div>
           </Reveal>
         </div>
       </section>
@@ -103,16 +142,25 @@ export default async function OfferingDetail({
       {/* Outcomes */}
       <Section>
         <SectionHeading title="Outcomes" />
-        <div className="mt-10 grid gap-x-8 gap-y-10 md:grid-cols-3">
+        <div className="mt-10 grid gap-5 md:grid-cols-3">
           {offering.outcomes.map((o, i) => (
-            <Reveal key={o.title} variant="up" delay={i * 80}>
-              <span className="block h-1 w-10 rounded-full bg-brand" />
-              <h3 className="mt-5 text-xl font-semibold tracking-tight text-ink">
-                {o.title}
-              </h3>
-              <p className="mt-2 text-[15px] leading-relaxed text-ink-soft">
-                {o.body}
-              </p>
+            <Reveal
+              key={o.title}
+              variant="up"
+              delay={i * 80}
+              className="h-full"
+            >
+              <div className="h-full rounded-2xl border border-line/70 bg-paper p-7 transition-shadow duration-500 hover:shadow-[0_18px_40px_-26px_rgba(15,67,56,0.5)] lg:p-8">
+                <span className="block h-16 w-16">
+                  <SolutionIcon name={o.icon} />
+                </span>
+                <h3 className="mt-6 text-xl font-semibold tracking-tight text-ink">
+                  {o.title}
+                </h3>
+                <p className="mt-2 text-[15px] leading-relaxed text-ink-soft">
+                  {o.body}
+                </p>
+              </div>
             </Reveal>
           ))}
         </div>
@@ -123,12 +171,14 @@ export default async function OfferingDetail({
         <Section>
           <SectionHeading title="Scope" />
           {scopeIsPlainList ? (
-            <ul className="mt-10 grid gap-x-8 gap-y-4 sm:grid-cols-2 lg:grid-cols-3">
+            <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {scope.map((s, i) => (
-                <Reveal key={s.title} as="li" variant="up" delay={i * 60}>
-                  <div className="flex items-start gap-3 rounded-lg border border-line/70 bg-paper px-5 py-4">
-                    <Check />
-                    <span className="text-[15px] font-medium leading-snug text-ink">
+                <Reveal key={s.title} as="li" variant="up" delay={(i % 3) * 70}>
+                  <div className="flex h-full items-center gap-4 rounded-2xl border border-line/70 bg-paper px-5 py-5">
+                    <span className="block h-12 w-12 shrink-0">
+                      <SolutionIcon name={s.icon} />
+                    </span>
+                    <span className="text-[15px] font-semibold leading-snug text-ink">
                       {s.title}
                     </span>
                   </div>
@@ -136,18 +186,25 @@ export default async function OfferingDetail({
               ))}
             </ul>
           ) : (
-            <div className="mt-10 grid items-start gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            <div
+              className={`mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 ${
+                scope.some((s) => s.checklist) ? "items-start" : ""
+              }`}
+            >
               {scope.map((s, i) => (
                 <Reveal key={s.title} variant="up" delay={(i % 3) * 70}>
                   {s.checklist ? (
-                    <details className="group rounded-lg border border-line/70 bg-paper">
-                      <summary className="flex cursor-pointer list-none items-start justify-between gap-4 p-6 [&::-webkit-details-marker]:hidden">
-                        <span>
+                    <details className="group rounded-2xl border border-line/70 bg-paper">
+                      <summary className="flex cursor-pointer list-none items-start gap-4 p-6 [&::-webkit-details-marker]:hidden">
+                        <span className="block h-14 w-14 shrink-0">
+                          <SolutionIcon name={s.icon} />
+                        </span>
+                        <span className="min-w-0 flex-1">
                           <span className="block text-lg font-semibold tracking-tight text-ink">
                             {s.title}
                           </span>
                           {s.body && (
-                            <span className="mt-1.5 block text-[15px] leading-relaxed text-ink-soft">
+                            <span className="mt-1 block text-[15px] leading-relaxed text-ink-soft">
                               {s.body}
                             </span>
                           )}
@@ -174,15 +231,20 @@ export default async function OfferingDetail({
                       </ul>
                     </details>
                   ) : (
-                    <div className="h-full rounded-lg border border-line/70 bg-paper p-6">
-                      <h3 className="text-lg font-semibold tracking-tight text-ink">
-                        {s.title}
-                      </h3>
-                      {s.body && (
-                        <p className="mt-1.5 text-[15px] leading-relaxed text-ink-soft">
-                          {s.body}
-                        </p>
-                      )}
+                    <div className="flex h-full items-start gap-4 rounded-2xl border border-line/70 bg-paper p-6">
+                      <span className="block h-14 w-14 shrink-0">
+                        <SolutionIcon name={s.icon} />
+                      </span>
+                      <span>
+                        <h3 className="text-lg font-semibold tracking-tight text-ink">
+                          {s.title}
+                        </h3>
+                        {s.body && (
+                          <p className="mt-1 text-[15px] leading-relaxed text-ink-soft">
+                            {s.body}
+                          </p>
+                        )}
+                      </span>
                     </div>
                   )}
                 </Reveal>
@@ -198,17 +260,44 @@ export default async function OfferingDetail({
         <ol className="mt-10 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
           {howItWorks.steps.map((step, i) => (
             <Reveal key={step.title} as="li" variant="up" delay={i * 90}>
-              <span className="block text-sm font-semibold text-brand-strong">
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <h3 className="mt-3 text-lg font-semibold leading-snug tracking-tight text-ink">
-                {step.title}
-              </h3>
-              {step.body && (
-                <p className="mt-2 text-[15px] leading-relaxed text-ink-soft">
-                  {step.body}
-                </p>
-              )}
+              <div className="relative h-full">
+                <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-brand-tint">
+                  {step.image ? (
+                    <Image
+                      src={step.image}
+                      alt=""
+                      fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                      className="object-cover"
+                    />
+                  ) : (
+                    <span className="absolute inset-0 flex items-center justify-center">
+                      <span className="block h-24 w-24">
+                        <SolutionIcon name={step.icon} />
+                      </span>
+                    </span>
+                  )}
+                  <span className="absolute left-3 top-3 flex h-9 w-9 items-center justify-center rounded-full bg-white text-sm font-semibold text-brand-strong shadow-sm">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                </div>
+                <h3 className="mt-5 text-lg font-semibold leading-snug tracking-tight text-ink">
+                  {step.title}
+                </h3>
+                {step.body && (
+                  <p className="mt-2 text-[15px] leading-relaxed text-ink-soft">
+                    {step.body}
+                  </p>
+                )}
+                {i < howItWorks.steps.length - 1 && (
+                  <span
+                    aria-hidden="true"
+                    className="absolute -right-[1.35rem] top-[calc(37.5%-1.125rem)] z-10 hidden h-9 w-9 items-center justify-center rounded-full border border-line bg-white text-brand-strong lg:flex"
+                  >
+                    <ArrowRight className="h-4 w-4" />
+                  </span>
+                )}
+              </div>
             </Reveal>
           ))}
         </ol>
@@ -221,8 +310,9 @@ export default async function OfferingDetail({
               {howItWorks.receive.map((r) => (
                 <span
                   key={r}
-                  className="rounded-full bg-brand-tint px-3.5 py-1.5 text-sm font-medium text-brand-strong"
+                  className="inline-flex items-center gap-2 rounded-full bg-brand-tint px-3.5 py-1.5 text-sm font-medium text-brand-strong"
                 >
+                  <Check />
                   {r}
                 </span>
               ))}
@@ -269,23 +359,42 @@ export default async function OfferingDetail({
           />
 
           {waysToPay.options && (
-            <Reveal variant="up" delay={80}>
-              <ul className="mt-10 flex flex-wrap gap-3">
-                {waysToPay.options.map((o) => (
-                  <li
-                    key={o}
-                    className="rounded-full border border-white/20 bg-white/5 px-5 py-2.5 text-[15px] font-medium text-white"
+            <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {waysToPay.options.map((o, i) => (
+                <Reveal
+                  key={o.label}
+                  as="li"
+                  variant="up"
+                  delay={(i % 4) * 70}
+                  className="h-full"
+                >
+                  <BorderGlow
+                    className="h-full"
+                    backgroundColor="rgba(7, 26, 20, 0.4)"
+                    borderRadius={12}
+                    glowColor="105 70% 62%"
+                    glowRadius={32}
+                    glowIntensity={0.9}
+                    fillOpacity={0.2}
+                    colors={["#5fcf4b", "#a3e635", "#2dd4bf"]}
                   >
-                    {o}
-                  </li>
-                ))}
-              </ul>
-            </Reveal>
+                    <div className="relative flex flex-1 flex-col p-6 lg:p-7">
+                      <span className="block h-[60px] w-[60px]">
+                        <SolutionIcon name={o.icon} />
+                      </span>
+                      <span className="mt-5 text-[1.25rem] font-semibold leading-snug tracking-tight text-white">
+                        {o.label}
+                      </span>
+                    </div>
+                  </BorderGlow>
+                </Reveal>
+              ))}
+            </ul>
           )}
 
           {waysToPay.table && (
             <Reveal variant="fade" delay={90}>
-              <div className="mt-10 overflow-x-auto rounded-lg border border-white/10">
+              <div className="mt-10 overflow-x-auto rounded-xl border border-white/10 bg-[rgba(7,26,20,0.35)]">
                 <table className="w-full min-w-[720px] border-collapse text-left text-sm">
                   <thead>
                     <tr className="border-b border-white/10">
@@ -336,15 +445,25 @@ export default async function OfferingDetail({
               </Reveal>
               <div className="mt-6 grid gap-4 md:grid-cols-3">
                 {waysToPay.scenarios.items.map((sc, i) => (
-                  <Reveal key={sc.when} variant="up" delay={i * 80}>
-                    <div className="h-full rounded-lg border border-white/10 bg-[rgba(7,26,20,0.4)] p-6">
-                      <p className="text-[15px] leading-relaxed text-white/70">
-                        {sc.when}
-                      </p>
-                      <p className="mt-4 flex items-start gap-2 text-lg font-semibold leading-snug text-white">
-                        <ArrowRight className="mt-1 h-4 w-4 shrink-0 text-brand" />
-                        {sc.then}
-                      </p>
+                  <Reveal
+                    key={sc.when}
+                    variant="up"
+                    delay={i * 80}
+                    className="h-full"
+                  >
+                    <div className="flex h-full items-start gap-4 rounded-xl border border-white/10 bg-[rgba(7,26,20,0.4)] p-6">
+                      <span className="block h-14 w-14 shrink-0">
+                        <SolutionIcon name={sc.icon} />
+                      </span>
+                      <div>
+                        <p className="text-[15px] leading-relaxed text-white/70">
+                          {sc.when}
+                        </p>
+                        <p className="mt-3 flex items-start gap-2 text-lg font-semibold leading-snug text-white">
+                          <ArrowRight className="mt-1 h-4 w-4 shrink-0 text-brand" />
+                          {sc.then}
+                        </p>
+                      </div>
                     </div>
                   </Reveal>
                 ))}
@@ -371,22 +490,34 @@ export default async function OfferingDetail({
         </div>
       </section>
 
-      {/* FAQ — only shows questions that have an answer */}
+      {/* FAQ, only shows questions that have an answer */}
       {faqWithAnswers.length > 0 && (
         <Section>
-          <SectionHeading title="FAQ" />
-          <div className="mt-10 max-w-3xl divide-y divide-line/70 border-y border-line/70">
-            {faqWithAnswers.map((f) => (
-              <details key={f.q} className="group">
-                <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-5 text-left text-lg font-semibold tracking-tight text-ink [&::-webkit-details-marker]:hidden">
-                  {f.q}
-                  <Chevron />
-                </summary>
-                <p className="pb-6 text-[15px] leading-relaxed text-ink-soft">
-                  {f.a}
-                </p>
-              </details>
-            ))}
+          <div className="grid gap-12 lg:grid-cols-[0.7fr_1.3fr] lg:gap-20">
+            <div>
+              <SectionHeading title="FAQ" />
+              <Reveal variant="fade" delay={100}>
+                <span
+                  aria-hidden="true"
+                  className="mt-8 hidden h-28 w-28 items-center justify-center rounded-3xl bg-brand-tint text-6xl font-semibold text-brand-strong lg:flex"
+                >
+                  ?
+                </span>
+              </Reveal>
+            </div>
+            <div className="divide-y divide-line/70 border-y border-line/70">
+              {faqWithAnswers.map((f) => (
+                <details key={f.q} className="group">
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-5 text-left text-lg font-semibold tracking-tight text-ink [&::-webkit-details-marker]:hidden">
+                    {f.q}
+                    <Chevron />
+                  </summary>
+                  <p className="pb-6 text-[15px] leading-relaxed text-ink-soft">
+                    {f.a}
+                  </p>
+                </details>
+              ))}
+            </div>
           </div>
         </Section>
       )}

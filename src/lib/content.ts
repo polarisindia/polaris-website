@@ -240,15 +240,51 @@ export const testimonials = [
 export type CoveragePoint = { title: string; body: string };
 
 export type OfferingCta = { label: string; href: string };
-export type OfferingOutcome = { title: string; body: string };
+export type IconName =
+  | "coins"
+  | "cycle"
+  | "calendar"
+  | "tower"
+  | "partners"
+  | "battery"
+  | "loop"
+  | "trend"
+  | "cost"
+  | "scale"
+  | "gauge"
+  | "shield"
+  | "mountain"
+  | "blocks"
+  | "pie"
+  | "target"
+  | "checklist"
+  | "doc"
+  | "bars"
+  | "cashflow"
+  | "percent"
+  | "roof"
+  | "land"
+  | "plug"
+  | "monitor"
+  | "sun"
+  | "sunbattery";
+
+export type OfferingOutcome = { title: string; body: string; icon: IconName };
 export type OfferingChecklistItem = { title: string; body: string };
 export type OfferingScopeItem = {
   title: string;
   body?: string;
+  icon: IconName;
   // Opens as a checklist when present.
   checklist?: OfferingChecklistItem[];
 };
-export type OfferingStep = { title: string; body?: string };
+export type OfferingStep = {
+  title: string;
+  body?: string;
+  icon: IconName;
+  // A photo for the step card; falls back to the illustration.
+  image?: string;
+};
 export type OfferingFaq = { q: string; a?: string };
 
 export type Offering = {
@@ -260,13 +296,18 @@ export type Offering = {
   heroHeadline: string;
   intro: string;
   heroCta: OfferingCta;
+  // Hero photo. `projectSlug` adds a caption chip from that real project.
+  heroImage: { src: string; alt: string; projectSlug?: string };
   outcomes: OfferingOutcome[];
   scope: OfferingScopeItem[];
   howItWorks: { steps: OfferingStep[]; receive?: string[] };
   waysToPay: {
-    options?: string[];
+    options?: { label: string; icon: IconName }[];
     table?: { columns: string[]; rows: string[][] };
-    scenarios?: { heading: string; items: { when: string; then: string }[] };
+    scenarios?: {
+      heading: string;
+      items: { when: string; then: string; icon: IconName }[];
+    };
     note?: string;
     link?: OfferingCta;
   };
@@ -355,56 +396,85 @@ export const offerings: Offering[] = [
     intro:
       "Rooftop, ground-mounted and off-site solar with storage and HT/LT works, designed around how your facility actually uses power.",
     heroCta: { label: "Book a site assessment", href: "/contact" },
+    heroImage: {
+      src: "/img/projects/kilitch.jpg",
+      alt: "Industrial rooftop solar plant at a Polaris client facility",
+      projectSlug: "kilitch-healthcare",
+    },
     outcomes: [
       {
         title: "Lower power cost",
+        icon: "cost",
         body: "A large share of daytime consumption at a fixed, lower cost.",
       },
       {
         title: "No production downtime",
+        icon: "shield",
         body: "Installed inside running plants under industrial safety protocols.",
       },
       {
         title: "Ready for what's next",
+        icon: "battery",
         body: "Electrical design leaves room for batteries and load growth.",
       },
     ],
     scope: [
       {
         title: "Rooftop",
+        icon: "roof",
         body: "RCC, metal-sheet and bitumen roofs; zero-penetration mounting where the roof needs it.",
       },
       {
         title: "Ground captive",
+        icon: "land",
         body: "Plants on land next to your facility.",
       },
       {
         title: "Off-site",
+        icon: "tower",
         body: "Open access and group captive when your roof isn't enough.",
       },
       {
         title: "BESS & hybrid",
+        icon: "battery",
         body: "Storage for peak shaving, backup and ToD savings.",
       },
       {
         title: "Electrical & O&M",
+        icon: "plug",
         body: "HT/LT, transformers, substations, SCADA and long-term O&M.",
       },
     ],
     howItWorks: {
       steps: [
-        { title: "Assess your load, tariff and roof structure" },
-        { title: "Engineer yield and structure" },
-        { title: "Build inside your live plant" },
-        { title: "Monitor via SCADA with preventive O&M" },
+        {
+          title: "Assess your load, tariff and roof structure",
+          icon: "gauge",
+          image: "/img/process/model-financial.jpg",
+        },
+        {
+          title: "Engineer yield and structure",
+          icon: "blocks",
+          image: "/img/process/engineering-design.jpg",
+        },
+        {
+          title: "Build inside your live plant",
+          icon: "plug",
+          image: "/img/process/epc-execution.jpg",
+        },
+        {
+          title: "Monitor via SCADA with preventive O&M",
+          icon: "monitor",
+          image: "/img/process/om-25yr.jpg",
+        },
       ],
     },
     waysToPay: {
       options: [
-        "CAPEX",
-        "OPEX / RESCO",
-        "Lease",
-        "Open access / group captive",
+        { label: "CAPEX", icon: "coins" },
+        { label: "OPEX / RESCO", icon: "cycle" },
+        { label: "Lease", icon: "calendar" },
+        { label: "Open access / group captive", icon: "tower" },
       ],
       link: {
         label: "Compare in Finance Solutions",
@@ -443,33 +513,44 @@ export const offerings: Offering[] = [
     intro:
       "Engineering, civil, electrical and HT evacuation under one point of responsibility, so no interface slips between contractors.",
     heroCta: { label: "Share your project scope", href: "/contact" },
+    heroImage: {
+      src: "/img/projects/shriram.jpg",
+      alt: "Ground-mounted solar plant delivered by Polaris",
+      projectSlug: "shriram-stone-crusher",
+    },
     outcomes: [
       {
         title: "One accountable partner",
+        icon: "partners",
         body: "Civil, mechanical and electrical under one contract.",
       },
       {
         title: "Grid connection planned from day one",
+        icon: "tower",
         body: "Evacuation is on the critical path, not an afterthought.",
       },
       {
         title: "Built for hard sites",
+        icon: "mountain",
         body: "Rock, dust, monsoon and remote logistics.",
       },
     ],
     scope: [
       {
         title: "Full EPC",
+        icon: "loop",
         body: "Design, supply, construction and commissioning of the whole plant.",
         checklist: utilityAll,
       },
       {
         title: "BOS only",
+        icon: "blocks",
         body: "Everything except modules and inverters.",
         checklist: utilityAll,
       },
       {
         title: "Electrical & evacuation",
+        icon: "tower",
         body: "Substation, HT switchgear, transformers, cabling, protection, earthing.",
         checklist: [
           utilityScope.electrical,
@@ -488,19 +569,40 @@ export const offerings: Offering[] = [
       },
       {
         title: "O&M",
+        icon: "monitor",
         body: "SCADA monitoring, preventive maintenance and performance reporting.",
       },
     ],
     howItWorks: {
       steps: [
-        { title: "Site and grid study" },
-        { title: "Engineering & procurement" },
-        { title: "Civil, mechanical and electrical execution" },
-        { title: "Testing, commissioning and SCADA handover" },
+        {
+          title: "Site and grid study",
+          icon: "gauge",
+          image: "/img/process/model-financial.jpg",
+        },
+        {
+          title: "Engineering & procurement",
+          icon: "blocks",
+          image: "/img/process/engineering-design.jpg",
+        },
+        {
+          title: "Civil, mechanical and electrical execution",
+          icon: "plug",
+          image: "/img/process/epc-execution.jpg",
+        },
+        {
+          title: "Testing, commissioning and SCADA handover",
+          icon: "monitor",
+          image: "/img/process/om-25yr.jpg",
+        },
       ],
     },
     waysToPay: {
-      options: ["EPC contract", "Open access / captive", "Group captive"],
+      options: [
+        { label: "EPC contract", icon: "loop" },
+        { label: "Open access / captive", icon: "tower" },
+        { label: "Group captive", icon: "partners" },
+      ],
       link: {
         label: "Compare in Finance Solutions",
         href: "/solutions/finance-solutions",
@@ -539,34 +641,44 @@ export const offerings: Offering[] = [
     intro:
       "We compare CAPEX, RESCO, lease and captive structures against your budget, cash flow and returns, in a model your CFO can sign off.",
     heroCta: { label: "Get a financial comparison", href: "/contact" },
+    heroImage: {
+      src: "/img/process/model-financial.jpg",
+      alt: "Engineers reviewing a load analysis and financial model",
+    },
     outcomes: [
       {
         title: "True landed cost",
+        icon: "bars",
         body: "Grid, rooftop, open access, captive and storage compared together.",
       },
       {
         title: "Realistic returns",
+        icon: "trend",
         body: "IRR and payback built on honest generation, tariff and cost assumptions.",
       },
       {
         title: "Fits the balance sheet",
+        icon: "scale",
         body: "A structure matched to your cash-flow priorities.",
       },
     ],
     scope: [
-      { title: "IRR, ROI & payback" },
-      { title: "Cash-flow projections" },
-      { title: "Depreciation & tax impact" },
-      { title: "Tariff & ToD sensitivity" },
-      { title: "Debt / equity structure & lender documentation" },
-      { title: "Policy and subsidy review" },
+      { title: "IRR, ROI & payback", icon: "trend" },
+      { title: "Cash-flow projections", icon: "cashflow" },
+      { title: "Depreciation & tax impact", icon: "percent" },
+      { title: "Tariff & ToD sensitivity", icon: "gauge" },
+      {
+        title: "Debt / equity structure & lender documentation",
+        icon: "coins",
+      },
+      { title: "Policy and subsidy review", icon: "doc" },
     ],
     howItWorks: {
       steps: [
-        { title: "Share bills and site details" },
-        { title: "We model every option side by side" },
-        { title: "Board-ready business case" },
-        { title: "Lender coordination and documentation" },
+        { title: "Share bills and site details", icon: "doc" },
+        { title: "We model every option side by side", icon: "bars" },
+        { title: "Board-ready business case", icon: "checklist" },
+        { title: "Lender coordination and documentation", icon: "partners" },
       ],
     },
     waysToPay: {
@@ -617,11 +729,16 @@ export const offerings: Offering[] = [
       scenarios: {
         heading: "Which fits you?",
         items: [
-          { when: "Capital available and tax appetite", then: "CAPEX" },
-          { when: "Want savings without capex", then: "RESCO" },
+          {
+            when: "Capital available and tax appetite",
+            then: "CAPEX",
+            icon: "coins",
+          },
+          { when: "Want savings without capex", then: "RESCO", icon: "cycle" },
           {
             when: "Large load, not enough roof",
             then: "Open access or group captive",
+            icon: "tower",
           },
         ],
       },
@@ -658,45 +775,56 @@ export const offerings: Offering[] = [
     intro:
       "A phased plan built from 12 months of bills and load data, with solar, storage, open access and demand options ranked by cost and return.",
     heroCta: { label: "Start with your last 12 bills", href: "/contact" },
+    heroImage: {
+      src: "/img/bess-plant.jpg",
+      alt: "Battery energy storage alongside a solar plant",
+    },
     outcomes: [
       {
         title: "See where the money goes",
+        icon: "pie",
         body: "A clear breakdown of energy, demand and ToD cost.",
       },
       {
         title: "Right-sized, not biggest",
+        icon: "target",
         body: "The combination that fits your operations and economics.",
       },
       {
         title: "A plan you can measure",
+        icon: "checklist",
         body: "Phased steps with KPIs to track savings.",
       },
     ],
     scope: [
-      { title: "Tariff, demand & power factor" },
-      { title: "On-site solar potential" },
-      { title: "Off-site sourcing (open access, captive)" },
-      { title: "Battery sizing (peak shaving, backup)" },
-      { title: "Solar + storage combinations" },
-      { title: "Financial comparison of models" },
+      { title: "Tariff, demand & power factor", icon: "gauge" },
+      { title: "On-site solar potential", icon: "sun" },
+      { title: "Off-site sourcing (open access, captive)", icon: "tower" },
+      { title: "Battery sizing (peak shaving, backup)", icon: "battery" },
+      { title: "Solar + storage combinations", icon: "sunbattery" },
+      { title: "Financial comparison of models", icon: "bars" },
     ],
     howItWorks: {
       // The doc has "[x days]" / "[x weeks]" durations still to fill in.
       steps: [
         {
           title: "Share data",
+          icon: "doc",
           body: "12 months of bills and load data.",
         },
         {
           title: "Analysis",
+          icon: "pie",
           body: "Consumption, tariff and every realistic option modelled.",
         },
         {
           title: "Roadmap",
+          icon: "checklist",
           body: "Phased plan with outcomes and KPIs, walked through with your team.",
         },
         {
           title: "Implementation & monitoring",
+          icon: "monitor",
           body: "Support to execute and track results.",
         },
       ],
