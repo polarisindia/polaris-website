@@ -1259,30 +1259,6 @@ export const projects = [
       "Completed in 2025 as part of the Polaris C&I portfolio in India.",
     ],
   },
-  {
-    name: "Indore International",
-    slug: "indore-international",
-    image: "/img/projects/morocco.jpg",
-    images: ["/img/projects/morocco.jpg"],
-    location: "Tangier, Morocco",
-    tech: "Industrial Rooftop Solar",
-    model: "CAPEX",
-    capacity: "600 kWp",
-    generation: "—",
-    savings: "≈ €83,000 (MAD 908,000)",
-    status: "Ongoing",
-    year: 2026,
-    blurb:
-      "An early C&I reference for Polaris in Morocco: a zero-penetration, Magnis-coated structure engineered for bitumen-sheet roofing and coastal conditions.",
-    imageCaption: "Indicative 3D render for visual representation only.",
-    highlights: [
-      "An early C&I reference for Polaris in Morocco, showing the company's growing international footprint.",
-      "Developed a mounting approach around the bitumen-sheet roof and the site's specific constraints.",
-      "Specified Magnis-coated structural material to improve corrosion resistance in coastal conditions.",
-      "Used a zero-penetration mounting approach to reduce leakage risk and protect the roof.",
-      "Designed for the wind and environmental conditions of the Tangier region, with international safety and performance requirements in view.",
-    ],
-  },
 ];
 
 export const clients = [

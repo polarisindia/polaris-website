@@ -84,11 +84,7 @@ export default async function ProjectDetail({
       </section>
 
       <div className="container-px relative mx-auto max-w-[1760px] -mt-4 lg:-mt-6">
-        <ProjectImageCarousel
-          images={project.images}
-          alt={project.name}
-          caption={project.imageCaption}
-        />
+        <ProjectImageCarousel images={project.images} alt={project.name} />
       </div>
 
       <div className="container-px mx-auto max-w-[1760px] py-14 lg:py-20">
