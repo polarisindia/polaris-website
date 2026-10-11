@@ -239,208 +239,182 @@ export const testimonials = [
 // own page at /solutions/<slug>.
 export type CoveragePoint = { title: string; body: string };
 
-export type OfferingStep = { title: string; body: string };
 export type OfferingCta = { label: string; href: string };
-export type OfferingModelItem = { slug: string; title: string; body: string };
-export type OfferingStat = { value: string; label: string };
+export type OfferingOutcome = { title: string; body: string };
+export type OfferingChecklistItem = { title: string; body: string };
+export type OfferingScopeItem = {
+  title: string;
+  body?: string;
+  // Opens as a checklist when present.
+  checklist?: OfferingChecklistItem[];
+};
+export type OfferingStep = { title: string; body?: string };
+export type OfferingFaq = { q: string; a?: string };
 
-export const offerings: {
+export type Offering = {
   slug: string;
+  // Short label + one-liner: used by the nav, footer and homepage cards.
   title: string;
   summary: string;
-  intro: string;
+  // Page content, from "Solution Pages Content for Polaris Website".
   heroHeadline: string;
-  heroCtas: OfferingCta[];
-  challenge: { heading: string; items: CoveragePoint[] };
-  // Page-specific "Own it, or just buy the power" style section, per the
-  // content brief. Not every offering has one. Either a card grid
-  // (`items`) or a comparison table (`table`).
-  commercialModels?: {
-    heading: string;
-    items?: OfferingModelItem[];
+  intro: string;
+  heroCta: OfferingCta;
+  outcomes: OfferingOutcome[];
+  scope: OfferingScopeItem[];
+  howItWorks: { steps: OfferingStep[]; receive?: string[] };
+  waysToPay: {
+    options?: string[];
     table?: { columns: string[]; rows: string[][] };
+    scenarios?: { heading: string; items: { when: string; then: string }[] };
+    note?: string;
     link?: OfferingCta;
   };
-  pointsHeading?: string;
-  points: CoveragePoint[];
-  extra?: { heading: string; items: CoveragePoint[] };
-  // A second standalone bullet section, e.g. Energy Optimisation's
-  // separate "Why Polaris" block alongside "Engagement models".
-  extra2?: { heading: string; items: CoveragePoint[] };
-  howWeDeliver: { heading: string; steps: OfferingStep[] };
-  // ⚠️ DUMMY PLACEHOLDER FIGURES until real project data is supplied —
-  // do not treat these as verified performance claims.
-  outcomes?: { heading: string; stats: OfferingStat[] };
-  ctaBlock: { heading: string; body: string; cta: OfferingCta };
-  relatedOfferingLinks: OfferingCta[];
-}[] = [
+  // Questions are from the doc; answers weren't supplied yet. The FAQ
+  // section only renders entries that have an answer.
+  faq: OfferingFaq[];
+};
+
+// The "current 15-item list" for Utility Scale: 6 scope-of-work items plus
+// 9 electrical-infrastructure & grid-evacuation items.
+const utilityScope: Record<string, OfferingChecklistItem> = {
+  engineering: {
+    title: "Project engineering",
+    body: "Feasibility, front-end engineering, layouts, detailed design and energy-yield studies",
+  },
+  civil: {
+    title: "Civil & site development",
+    body: "Survey coordination, earthworks, grading, foundations, piling, trenches and roads",
+  },
+  mechanical: {
+    title: "Mechanical execution",
+    body: "Assembly and alignment of tracker or fixed-tilt structures, module installation",
+  },
+  electrical: {
+    title: "Electrical & power systems",
+    body: "DC/AC networks, inverters, transformers, switchgear, MV/HT systems",
+  },
+  scada: {
+    title: "SCADA & grid integration",
+    body: "Monitoring and controls, evacuation systems, grid synchronisation",
+  },
+  commissioning: {
+    title: "Testing & commissioning",
+    body: "Pre-commissioning, documentation, handover and final performance checks",
+  },
+  substation: {
+    title: "Substation civil works",
+    body: "Foundations and equipment support structures",
+  },
+  switchgear: {
+    title: "HT switchgear",
+    body: "11 kV / HT switchgear and panels",
+  },
+  transformers: {
+    title: "Transformers",
+    body: "And associated electrical equipment",
+  },
+  htCabling: {
+    title: "HT cabling",
+    body: "Power cables, cable trenches and termination systems",
+  },
+  protection: {
+    title: "Protection & control",
+    body: "Protection, control and metering panels",
+  },
+  earthing: {
+    title: "Earthing & lightning protection",
+    body: "Systems built to code",
+  },
+  acAux: {
+    title: "AC auxiliary systems",
+    body: "Supporting the plant's electrical needs",
+  },
+  cableWorks: {
+    title: "Cable works",
+    body: "Laying, glanding, termination, identification and ferruling",
+  },
+  electricalTesting: {
+    title: "Electrical testing",
+    body: "Protection testing, pre-commissioning and commissioning support",
+  },
+};
+
+const utilityAll = Object.values(utilityScope);
+
+export const offerings: Offering[] = [
   {
     slug: "commercial-industrial",
     title: "Commercial & Industrial",
     summary:
       "On-site and off-site solar, storage and electrical solutions built around industrial load profiles, site conditions and savings goals.",
+    heroHeadline:
+      "Solar for factories, warehouses and campuses, sized to your load",
     intro:
-      "Rooftop, ground-mounted and open-access solar, with storage and electrical upgrades, engineered around your load profile and your tariff. Built to cut your power bill from month one.",
-    heroHeadline: "Solar that works as hard as your plant does",
-    heroCtas: [
-      { label: "Book a free energy assessment", href: "/contact" },
-      { label: "See C&I projects", href: "/projects" },
-    ],
-    challenge: {
-      heading: "Power is one of your biggest controllable costs",
-      items: [
-        {
-          title: "Rising tariffs",
-          body: "Industrial tariffs and demand charges go up almost every year, squeezing margins.",
-        },
-        {
-          title: "Peak-hour penalties",
-          body: "Time-of-day tariffs and contract-demand breaches add costs no one budgeted for.",
-        },
-        {
-          title: "ESG pressure",
-          body: "Customers, lenders and parent companies now ask for renewable share and Scope 2 reporting.",
-        },
-        {
-          title: "Live-site risk",
-          body: "You can't stop production for a solar install, and a poorly engineered system is a fire and downtime risk.",
-        },
-      ],
-    },
-    pointsHeading: "One partner for the whole energy system",
-    points: [
+      "Rooftop, ground-mounted and off-site solar with storage and HT/LT works, designed around how your facility actually uses power.",
+    heroCta: { label: "Book a site assessment", href: "/contact" },
+    outcomes: [
       {
-        title: "Industrial rooftop solar",
-        body: "Designed around roof load, orientation and shading, using your roof area efficiently",
+        title: "Lower power cost",
+        body: "A large share of daytime consumption at a fixed, lower cost.",
       },
       {
-        title: "Ground-mounted captive solar",
-        body: "For sites with spare land",
+        title: "No production downtime",
+        body: "Installed inside running plants under industrial safety protocols.",
       },
       {
-        title: "Open Access & Group Captive",
-        body: "Off-site solar when your roof isn't enough",
-      },
-      {
-        title: "BESS & hybrid systems",
-        body: "Storage to shave peaks and shift solar into evening shifts (via P-ESS)",
-      },
-      {
-        title: "Electrical infrastructure",
-        body: "LT/HT panels, transformers, cabling and protection, upgraded where needed",
-      },
-      {
-        title: "SCADA monitoring",
-        body: "Live generation, alarms and performance on one dashboard",
-      },
-      {
-        title: "Long-term O&M",
-        body: "Cleaning, preventive maintenance and performance guarantees over 25 years",
+        title: "Ready for what's next",
+        body: "Electrical design leaves room for batteries and load growth.",
       },
     ],
-    extra: {
-      heading: "Engineered for 25 years, not for the handover",
-      items: [
-        {
-          title: "Tier-1 modules and inverters",
-          body: "Chosen on performance, not on commission",
-        },
-        {
-          title: "Structural checks",
-          body: "On every roof before design",
-        },
-        {
-          title: "Generation matched to your load",
-          body: "So less power is exported at low value",
-        },
-        {
-          title: "Reduced electrical losses",
-          body: "Through correct cable sizing and layout",
-        },
-        {
-          title: "Space kept for future expansion",
-          body: "Room for storage and load growth",
-        },
-        {
-          title: "Safety systems and permits",
-          body: "For live industrial sites",
-        },
+    scope: [
+      {
+        title: "Rooftop",
+        body: "RCC, metal-sheet and bitumen roofs; zero-penetration mounting where the roof needs it.",
+      },
+      {
+        title: "Ground captive",
+        body: "Plants on land next to your facility.",
+      },
+      {
+        title: "Off-site",
+        body: "Open access and group captive when your roof isn't enough.",
+      },
+      {
+        title: "BESS & hybrid",
+        body: "Storage for peak shaving, backup and ToD savings.",
+      },
+      {
+        title: "Electrical & O&M",
+        body: "HT/LT, transformers, substations, SCADA and long-term O&M.",
+      },
+    ],
+    howItWorks: {
+      steps: [
+        { title: "Assess your load, tariff and roof structure" },
+        { title: "Engineer yield and structure" },
+        { title: "Build inside your live plant" },
+        { title: "Monitor via SCADA with preventive O&M" },
       ],
     },
-    commercialModels: {
-      heading: "Own it, or just buy the power",
-      items: [
-        {
-          slug: "capex",
-          title: "CAPEX",
-          body: "You own the asset and claim depreciation benefits. Highest lifetime savings.",
-        },
-        {
-          slug: "opex",
-          title: "OPEX / RESCO",
-          body: "Zero upfront cost. Pay only for the units generated, at a tariff below grid.",
-        },
-        {
-          slug: "lease",
-          title: "Lease",
-          body: "Fixed monthly payments, ownership at the end of the term.",
-        },
-        {
-          slug: "open-access",
-          title: "Open Access / Group Captive",
-          body: "Off-site renewable power at scale.",
-        },
+    waysToPay: {
+      options: [
+        "CAPEX",
+        "OPEX / RESCO",
+        "Lease",
+        "Open access / group captive",
       ],
       link: {
-        label: "Compare models in detail",
+        label: "Compare in Finance Solutions",
         href: "/solutions/finance-solutions",
       },
     },
-    howWeDeliver: {
-      heading: "From your electricity bill to a working plant",
-      steps: [
-        {
-          title: "Assess",
-          body: "12 months of bills, load data and a site survey. You get a techno-commercial report with IRR and payback.",
-        },
-        {
-          title: "Engineer",
-          body: "Layout, structure and electrical design for your roof or land, with Tier-1 equipment chosen on fit and warranty.",
-        },
-        {
-          title: "Build",
-          body: "Safe execution on a live site, with QA/QC at every stage and zero disruption to production.",
-        },
-        {
-          title: "Perform",
-          body: "SCADA monitoring and O&M so the plant delivers what was promised, year after year.",
-        },
-      ],
-    },
-    // ⚠️ DUMMY PLACEHOLDER FIGURES, not verified project data — the brief
-    // gave these as bracketed placeholders ("[XX]%" etc). Swap for real
-    // numbers before treating this as a live performance claim.
-    outcomes: {
-      heading: "What a typical C&I project delivers",
-      stats: [
-        { value: "35%", label: "Reduction in grid power cost" },
-        { value: "4-year", label: "Payback on CAPEX projects" },
-        { value: "1,200 t", label: "CO₂ avoided per MWp per year" },
-        { value: "99%", label: "Plant availability under Polaris O&M" },
-      ],
-    },
-    ctaBlock: {
-      heading: "Find out what solar can save your plant",
-      body: "Share 12 months of electricity bills. We'll come back with a system size, a savings estimate and the right commercial model.",
-      cta: { label: "Book a free assessment", href: "/contact" },
-    },
-    relatedOfferingLinks: [
-      { label: "Finance Solutions", href: "/solutions/finance-solutions" },
-      {
-        label: "Energy Optimisation",
-        href: "/solutions/energy-optimisation-consultant",
-      },
-      { label: "P-ESS", href: "/p-ess" },
+    faq: [
+      { q: "Will the installation affect my roof warranty or structure?" },
+      { q: "Will production be disrupted during installation?" },
+      { q: "How long does a 1 MWp rooftop plant take to install?" },
+      { q: "Net metering or gross metering: what applies in my state?" },
+      { q: "Can we add batteries later?" },
     ],
   },
   {
@@ -448,151 +422,79 @@ export const offerings: {
     title: "Utility Scale",
     summary:
       "Large ground-mounted solar and associated electrical works, from site development and BOS through testing, grid connection and commissioning.",
+    heroHeadline: "Ground-mounted solar EPC, from bare site to grid connection",
     intro:
-      "Civil, mechanical, electrical and grid-integration scope under one contract, for developers, IPPs and businesses sourcing power at scale.",
-    heroHeadline: "Ground-mounted solar, delivered from land to grid",
-    heroCtas: [
-      { label: "Discuss your project", href: "/contact" },
-      { label: "See ground-mounted projects", href: "/projects" },
-    ],
-    challenge: {
-      heading: "Large projects fail at the interfaces",
-      items: [
-        {
-          title: "Too many contractors",
-          body: "Separate civil, electrical and grid vendors mean gaps, delays and blame.",
-        },
-        {
-          title: "Grid connection delays",
-          body: "Approvals, substation work and protection studies hold up commissioning.",
-        },
-        {
-          title: "Difficult sites",
-          body: "Uneven terrain, soil and drainage drive cost overruns if not engineered early.",
-        },
-        {
-          title: "Returns at risk",
-          body: "Every week of delay and every % of lost generation hits the project IRR.",
-        },
-      ],
-    },
-    pointsHeading: "Full EPC scope, one point of responsibility",
-    points: [
+      "Engineering, civil, electrical and HT evacuation under one point of responsibility, so no interface slips between contractors.",
+    heroCta: { label: "Share your project scope", href: "/contact" },
+    outcomes: [
       {
-        title: "Project engineering",
-        body: "PV layout, energy yield studies, structural and electrical design",
+        title: "One accountable partner",
+        body: "Civil, mechanical and electrical under one contract.",
       },
       {
-        title: "Civil & site development",
-        body: "Land grading, foundations, roads, drainage and fencing",
+        title: "Grid connection planned from day one",
+        body: "Evacuation is on the critical path, not an afterthought.",
       },
       {
-        title: "Mechanical execution",
-        body: "Mounting structures and module installation",
-      },
-      {
-        title: "Electrical systems",
-        body: "DC/AC cabling, inverters, switchgear, transformers and protection",
-      },
-      {
-        title: "Grid integration",
-        body: "Evacuation line, substation interface and liaison for approvals",
-      },
-      {
-        title: "Testing & commissioning",
-        body: "Pre-commissioning tests, performance checks and handover",
-      },
-      {
-        title: "SCADA & O&M",
-        body: "Remote monitoring and long-term maintenance",
+        title: "Built for hard sites",
+        body: "Rock, dust, monsoon and remote logistics.",
       },
     ],
-    extra: {
-      heading: "Engineering standards",
-      items: [
-        {
-          title: "Yield modelling",
-          body: "Before layout is locked",
-        },
-        {
-          title: "Geotechnical survey",
-          body: "And site-specific foundation design",
-        },
-        {
-          title: "Tier-1, technology-agnostic equipment",
-          body: "Selected on fit, not on commission",
-        },
-        {
-          title: "Protection studies",
-          body: "And grid-code compliance",
-        },
-        {
-          title: "Documented QA/QC and HSE plans",
-          body: "On every site",
-        },
-      ],
-    },
-    commercialModels: {
-      heading: "Structures for sourcing power at scale",
-      items: [
-        {
-          slug: "open-access",
-          title: "Open Access / Captive",
-          body: "Off-site solar that lowers landed power cost for large consumers.",
-        },
-        {
-          slug: "group-captive",
-          title: "Group Captive",
-          body: "Co-investment with other consumers, combining long-term supply with captive-power rules.",
-        },
-        {
-          slug: "epc",
-          title: "EPC & lifecycle management",
-          body: "Polaris builds and maintains the plant for developers and IPPs.",
-        },
-      ],
-      link: { label: "Compare models", href: "/solutions/finance-solutions" },
-    },
-    howWeDeliver: {
-      heading: "Built to schedule, commissioned to spec",
+    scope: [
+      {
+        title: "Full EPC",
+        body: "Design, supply, construction and commissioning of the whole plant.",
+        checklist: utilityAll,
+      },
+      {
+        title: "BOS only",
+        body: "Everything except modules and inverters.",
+        checklist: utilityAll,
+      },
+      {
+        title: "Electrical & evacuation",
+        body: "Substation, HT switchgear, transformers, cabling, protection, earthing.",
+        checklist: [
+          utilityScope.electrical,
+          utilityScope.scada,
+          utilityScope.substation,
+          utilityScope.switchgear,
+          utilityScope.transformers,
+          utilityScope.htCabling,
+          utilityScope.protection,
+          utilityScope.earthing,
+          utilityScope.acAux,
+          utilityScope.cableWorks,
+          utilityScope.electricalTesting,
+          utilityScope.commissioning,
+        ],
+      },
+      {
+        title: "O&M",
+        body: "SCADA monitoring, preventive maintenance and performance reporting.",
+      },
+    ],
+    howItWorks: {
       steps: [
-        {
-          title: "Feasibility",
-          body: "Land, irradiation, grid availability and a bankable yield estimate.",
-        },
-        {
-          title: "Engineering & procurement",
-          body: "Detailed design and Tier-1 procurement against a fixed schedule.",
-        },
-        {
-          title: "Construction & commissioning",
-          body: "Parallel civil, mechanical and electrical work, with QA/QC and HSE on site.",
-        },
-        {
-          title: "Operations",
-          body: "SCADA monitoring and O&M to protect generation and IRR.",
-        },
+        { title: "Site and grid study" },
+        { title: "Engineering & procurement" },
+        { title: "Civil, mechanical and electrical execution" },
+        { title: "Testing, commissioning and SCADA handover" },
       ],
     },
-    // ⚠️ DUMMY PLACEHOLDER FIGURES, not verified project data.
-    outcomes: {
-      heading: "What a typical utility-scale project delivers",
-      stats: [
-        { value: "45 MWp", label: "Ground-mounted capacity delivered" },
-        { value: "180 days", label: "Average, mobilisation to commissioning" },
-        { value: "84%", label: "Performance ratio in year one" },
-        { value: "72 GWh", label: "Generated per year across the portfolio" },
-      ],
+    waysToPay: {
+      options: ["EPC contract", "Open access / captive", "Group captive"],
+      link: {
+        label: "Compare in Finance Solutions",
+        href: "/solutions/finance-solutions",
+      },
     },
-    ctaBlock: {
-      heading: "Have land, a PPA or a power requirement?",
-      body: "Tell us about your site and capacity. We'll come back with a feasibility view and an EPC plan.",
-      cta: { label: "Discuss your project", href: "/contact" },
-    },
-    relatedOfferingLinks: [
-      { label: "Finance Solutions", href: "/solutions/finance-solutions" },
-      { label: "Our Approach", href: "/our-approach" },
-      { label: "Global", href: "/global" },
+    faq: [
+      { q: "What project sizes do you take on?" },
+      { q: "Can you do BOS only if we supply modules and inverters?" },
+      { q: "Do you handle evacuation approvals and utility liaison?" },
+      { q: "How do you manage monsoon and remote-site logistics?" },
+      { q: "Do you offer O&M after commissioning?" },
     ],
   },
   {
@@ -600,82 +502,53 @@ export const offerings: {
     title: "Finance Solutions",
     summary:
       "CAPEX, OPEX / RESCO, captive, lease and financing support aligned with your capital, cash-flow and return priorities.",
+    heroHeadline:
+      "Solar finance options: own it, buy the power, or share a plant",
     intro:
-      "We compare ownership, RESCO, captive, lease and financing options against your budget, cash flow and return targets, so your board sees the trade-offs before capital is committed.",
-    heroHeadline: "The right commercial model, before the first panel goes up",
-    heroCtas: [
-      { label: "Get a financial model for your site", href: "/contact" },
-      { label: "Talk to our team", href: "/contact" },
-    ],
-    challenge: {
-      heading: "The best system can still be the wrong deal",
-      items: [
-        {
-          title: "Capital competes",
-          body: "Solar has to beat other uses of capex in your plant.",
-        },
-        {
-          title: "Too many options",
-          body: "CAPEX, RESCO, lease and group captive each shift risk and returns differently.",
-        },
-        {
-          title: "Vendor bias",
-          body: "Most installers push the model that suits their balance sheet, not yours.",
-        },
-        {
-          title: "Hard to defend",
-          body: "Finance teams need numbers they can audit, not a brochure.",
-        },
-      ],
-    },
-    pointsHeading: "A business case your CFO can sign off",
-    points: [
+      "We compare CAPEX, RESCO, lease and captive structures against your budget, cash flow and returns, in a model your CFO can sign off.",
+    heroCta: { label: "Get a financial comparison", href: "/contact" },
+    outcomes: [
       {
-        title: "IRR, ROI & payback",
-        body: "For each model, on your actual tariff and load",
+        title: "True landed cost",
+        body: "Grid, rooftop, open access, captive and storage compared together.",
       },
       {
-        title: "Cash-flow modelling",
-        body: "Month-by-month, over the full asset life",
+        title: "Realistic returns",
+        body: "IRR and payback built on honest generation, tariff and cost assumptions.",
       },
       {
-        title: "Depreciation & tax impact",
-        body: "What ownership does to your tax position",
-      },
-      {
-        title: "Tariff sensitivity",
-        body: "What happens if grid tariffs rise slower or faster",
-      },
-      {
-        title: "Debt & equity scenarios",
-        body: "Leverage options and their effect on returns",
-      },
-      {
-        title: "Investment-grade documentation",
-        body: "Reports banks and boards accept",
+        title: "Fits the balance sheet",
+        body: "A structure matched to your cash-flow priorities.",
       },
     ],
-    extra: {
-      heading: "Why Polaris",
-      items: [
-        {
-          title: "Engineering and finance in one team",
-          body: "So the model matches what will actually be built",
-        },
-        {
-          title: "Model-neutral",
-          body: "We earn from delivering the project, not from pushing one structure",
-        },
-        {
-          title: "Assumptions shown openly",
-          body: "So your finance team can stress-test them",
-        },
+    scope: [
+      { title: "IRR, ROI & payback" },
+      { title: "Cash-flow projections" },
+      { title: "Depreciation & tax impact" },
+      { title: "Tariff & ToD sensitivity" },
+      { title: "Debt / equity structure & lender documentation" },
+      { title: "Policy and subsidy review" },
+    ],
+    howItWorks: {
+      steps: [
+        { title: "Share bills and site details" },
+        { title: "We model every option side by side" },
+        { title: "Board-ready business case" },
+        { title: "Lender coordination and documentation" },
       ],
     },
-    commercialModels: {
-      heading: "Six ways to pay for clean energy",
+    waysToPay: {
+      // Doc columns: Upfront investment · Who owns the asset · Who runs O&M
+      // · Savings profile · Best for. Cell values for "Who runs O&M" and
+      // "Savings profile" weren't supplied yet, so only the three columns
+      // with source content are shown.
       table: {
-        columns: ["Model", "Upfront cost", "Who owns the asset", "Best for"],
+        columns: [
+          "Model",
+          "Upfront investment",
+          "Who owns the asset",
+          "Best for",
+        ],
         rows: [
           [
             "CAPEX",
@@ -696,71 +569,37 @@ export const offerings: {
             "Firms that want to spread cost and own later",
           ],
           [
-            "Open Access / Captive",
+            "Open access / captive",
             "Varies",
             "You or a developer",
             "Large loads with limited roof space",
           ],
           [
-            "Group Captive",
+            "Group captive",
             "Equity share",
             "Group of consumers",
             "Mid-to-large users who want long-term low-cost power",
           ],
-          [
-            "Project finance facilitation",
-            "Reduced",
-            "You",
-            "CAPEX projects that need debt",
-          ],
+        ],
+      },
+      scenarios: {
+        heading: "Which fits you?",
+        items: [
+          { when: "Capital available and tax appetite", then: "CAPEX" },
+          { when: "Want savings without capex", then: "RESCO" },
+          {
+            when: "Large load, not enough roof",
+            then: "Open access or group captive",
+          },
         ],
       },
     },
-    howWeDeliver: {
-      heading: "From bill to board approval",
-      steps: [
-        {
-          title: "Collect",
-          body: "12 months of bills, load data and your finance parameters (hurdle rate, tax rate, budget).",
-        },
-        {
-          title: "Model",
-          body: "Each viable model is sized and priced on the same assumptions.",
-        },
-        {
-          title: "Compare",
-          body: "A side-by-side view of IRR, payback, NPV and risk.",
-        },
-        {
-          title: "Close",
-          body: "Support with lenders, investors and internal approvals, then hand over to execution.",
-        },
-      ],
-    },
-    // ⚠️ DUMMY PLACEHOLDER FIGURES, not verified project data.
-    outcomes: {
-      heading: "What Polaris financial modelling delivers",
-      stats: [
-        { value: "1", label: "Meeting to board approval" },
-        { value: "22%", label: "Average IRR on CAPEX projects" },
-        { value: "₹40 cr", label: "Of projects financed or facilitated" },
-      ],
-    },
-    ctaBlock: {
-      heading: "See your numbers before you commit",
-      body: "Send us your last 12 months of bills. We'll return a side-by-side comparison of every viable model.",
-      cta: { label: "Get my financial model", href: "/contact" },
-    },
-    relatedOfferingLinks: [
-      {
-        label: "Commercial & Industrial",
-        href: "/solutions/commercial-industrial",
-      },
-      { label: "Utility Scale", href: "/solutions/utility-scale" },
-      {
-        label: "Energy Optimisation",
-        href: "/solutions/energy-optimisation-consultant",
-      },
+    faq: [
+      { q: "Which model gives the highest long-term savings?" },
+      { q: "Can we move from RESCO to ownership later?" },
+      { q: "How does accelerated depreciation affect returns?" },
+      { q: "What is group captive and who is eligible?" },
+      { q: "Do you arrange loans?" },
     ],
   },
   {
@@ -768,153 +607,73 @@ export const offerings: {
     title: "Energy Optimisation Consultant",
     summary:
       "A practical energy plan based on load, tariff, solar, storage, demand management and power-sourcing analysis.",
+    heroHeadline: "Energy optimisation: know what to fix before you invest",
     intro:
-      "An independent energy roadmap for your facility. We review how you use power and show where solar, storage, open access and demand management will pay back, and where they won't.",
-    heroHeadline: "Know where every rupee of your power bill goes",
-    heroCtas: [
-      { label: "Book an energy review", href: "/contact" },
-      { label: "See a sample report", href: "/insights" },
-    ],
-    challenge: {
-      heading: "Most sites overpay for power without knowing why",
-      items: [
-        {
-          title: "Hidden demand charges",
-          body: "Short peaks set your contract demand and billing for the whole month.",
-        },
-        {
-          title: "Wrong tariff fit",
-          body: "Time-of-day rates reward shifting load, but few plants plan for it.",
-        },
-        {
-          title: "Oversized proposals",
-          body: "Vendors quote the biggest system, not the one with the best return.",
-        },
-        {
-          title: "Piecemeal decisions",
-          body: "Solar, storage and open access are bought separately, without a single plan.",
-        },
-      ],
-    },
-    pointsHeading: "A full picture of your energy use",
-    points: [
+      "A phased plan built from 12 months of bills and load data, with solar, storage, open access and demand options ranked by cost and return.",
+    heroCta: { label: "Start with your last 12 bills", href: "/contact" },
+    outcomes: [
       {
-        title: "Bills & load data",
-        body: "12 months of bills and interval data to find the real load profile",
+        title: "See where the money goes",
+        body: "A clear breakdown of energy, demand and ToD cost.",
       },
       {
-        title: "Tariff & demand exposure",
-        body: "Where demand charges and ToD rates are costing you",
+        title: "Right-sized, not biggest",
+        body: "The combination that fits your operations and economics.",
       },
       {
-        title: "On-site solar potential",
-        body: "Roof and land, sized to your daytime load",
-      },
-      {
-        title: "Off-site sourcing",
-        body: "Open access and group captive options in your state",
-      },
-      {
-        title: "BESS sizing",
-        body: "Storage for peak shaving and evening shifts",
-      },
-      {
-        title: "Solar + storage options",
-        body: "Combined scenarios and their returns",
-      },
-      {
-        title: "Financial comparison",
-        body: "IRR and payback for each option",
-      },
-      {
-        title: "Phased implementation plan",
-        body: "What to do first, next and later",
-      },
-      {
-        title: "Post-commissioning monitoring",
-        body: "Checking that savings actually arrive",
+        title: "A plan you can measure",
+        body: "Phased steps with KPIs to track savings.",
       },
     ],
-    extra: {
-      heading: "Start with advice, go as far as you need",
-      items: [
-        {
-          title: "Energy review only",
-          body: "A standalone report and roadmap",
-        },
-        {
-          title: "BESS & energy optimisation",
-          body: "Design and supply of storage and demand management through P-ESS",
-        },
-        {
-          title: "Project finance facilitation",
-          body: "Funding support for the recommended projects",
-        },
-        {
-          title: "End-to-end EPC & lifecycle management",
-          body: "Polaris delivers and runs the plan",
-        },
-      ],
-    },
-    howWeDeliver: {
-      heading: "A roadmap in 4–6 weeks",
+    scope: [
+      { title: "Tariff, demand & power factor" },
+      { title: "On-site solar potential" },
+      { title: "Off-site sourcing (open access, captive)" },
+      { title: "Battery sizing (peak shaving, backup)" },
+      { title: "Solar + storage combinations" },
+      { title: "Financial comparison of models" },
+    ],
+    howItWorks: {
+      // The doc has "[x days]" / "[x weeks]" durations still to fill in.
       steps: [
         {
-          title: "Data collection",
-          body: "Bills, load data and a site walk-through.",
+          title: "Share data",
+          body: "12 months of bills and load data.",
         },
         {
           title: "Analysis",
-          body: "Load profile, tariff exposure and technical potential.",
-        },
-        {
-          title: "Options",
-          body: "2–3 scenarios with costs, savings and returns.",
+          body: "Consumption, tariff and every realistic option modelled.",
         },
         {
           title: "Roadmap",
-          body: "A phased plan with a presentation to management.",
-        },
-      ],
-    },
-    extra2: {
-      heading: "Why Polaris",
-      items: [
-        {
-          title: "Technology-agnostic",
-          body: "We recommend what fits, including doing less",
+          body: "Phased plan with outcomes and KPIs, walked through with your team.",
         },
         {
-          title: "Engineering and finance in one report",
-          body: "Not separate conversations with separate teams",
-        },
-        {
-          title: "Backed by a team that has built 120 MWp",
-          body: "So the plan is buildable",
+          title: "Implementation & monitoring",
+          body: "Support to execute and track results.",
         },
       ],
-    },
-    // ⚠️ DUMMY PLACEHOLDER FIGURES, not verified project data.
-    outcomes: {
-      heading: "What a typical energy review delivers",
-      stats: [
-        { value: "18%", label: "Average reduction in energy cost identified" },
-        { value: "25%", label: "Reduction in peak demand with storage" },
-        { value: "3 months", label: "For the review cost to be recovered" },
+      receive: [
+        "Cost breakdown",
+        "Options ranked by payback",
+        "Phased plan",
+        "KPI sheet",
       ],
     },
-    ctaBlock: {
-      heading: "Get a clear energy plan for your facility",
-      body: "Start with your bills. We'll show you where the savings are and what to do first.",
-      cta: { label: "Book an energy review", href: "/contact" },
-    },
-    relatedOfferingLinks: [
-      { label: "P-ESS", href: "/p-ess" },
-      { label: "Finance Solutions", href: "/solutions/finance-solutions" },
-      {
-        label: "Commercial & Industrial",
-        href: "/solutions/commercial-industrial",
+    // The doc also has "The review: [free / fixed fee]", not yet decided.
+    waysToPay: {
+      note: "Projects it recommends",
+      link: {
+        label: "Compare in Finance Solutions",
+        href: "/solutions/finance-solutions",
       },
+    },
+    faq: [
+      { q: "What data do we need to share?" },
+      { q: "How long does the review take?" },
+      { q: "Is it free? Are we obliged to build with Polaris?" },
+      { q: "Does it cover battery storage?" },
+      { q: "Can you review multiple sites together?" },
     ],
   },
 ];
