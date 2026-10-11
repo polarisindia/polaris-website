@@ -270,8 +270,10 @@ export type Offering = {
     note?: string;
     link?: OfferingCta;
   };
-  // Questions are from the doc; answers weren't supplied yet. The FAQ
-  // section only renders entries that have an answer.
+  // Questions are from the content doc. The doc had no answers, so the
+  // answers below are DRAFTS written from existing site content, not
+  // client-approved copy. Review before treating as final. The FAQ section
+  // only renders entries that have an answer.
   faq: OfferingFaq[];
 };
 
@@ -410,11 +412,26 @@ export const offerings: Offering[] = [
       },
     },
     faq: [
-      { q: "Will the installation affect my roof warranty or structure?" },
-      { q: "Will production be disrupted during installation?" },
-      { q: "How long does a 1 MWp rooftop plant take to install?" },
-      { q: "Net metering or gross metering: what applies in my state?" },
-      { q: "Can we add batteries later?" },
+      {
+        q: "Will the installation affect my roof warranty or structure?",
+        a: "We check the roof's structure before any design work, and use zero-penetration mounting where the roof needs it, so the roof isn't drilled into. Warranty terms depend on the roofing material and its manufacturer, so we review your roof's warranty position during the site assessment.",
+      },
+      {
+        q: "Will production be disrupted during installation?",
+        a: "No production downtime is the aim: plants are installed inside running facilities under industrial safety protocols, with the work planned around your operations. If a short, planned shutdown is needed for the electrical connection, it is scheduled with your team in advance.",
+      },
+      {
+        q: "How long does a 1 MWp rooftop plant take to install?",
+        a: "It depends on the roof's condition, any structural work, equipment lead times and approvals. We give you a project schedule after the site assessment, once we have seen the roof and your electrical layout.",
+      },
+      {
+        q: "Net metering or gross metering: what applies in my state?",
+        a: "It depends on your state's regulations and on your connection. We confirm which metering arrangement applies to your site as part of the assessment, and size the plant to suit it.",
+      },
+      {
+        q: "Can we add batteries later?",
+        a: "Yes. The electrical design leaves room for batteries and load growth, so storage can be added later without reworking the plant. Battery and hybrid systems are part of our scope, delivered through P-ESS.",
+      },
     ],
   },
   {
@@ -490,11 +507,26 @@ export const offerings: Offering[] = [
       },
     },
     faq: [
-      { q: "What project sizes do you take on?" },
-      { q: "Can you do BOS only if we supply modules and inverters?" },
-      { q: "Do you handle evacuation approvals and utility liaison?" },
-      { q: "How do you manage monsoon and remote-site logistics?" },
-      { q: "Do you offer O&M after commissioning?" },
+      {
+        q: "What project sizes do you take on?",
+        a: "Tell us the capacity, site location and grid connection point, and we will confirm whether it is a fit and how we would scope it. Our ground-mounted portfolio includes captive plants of around 1 MWp.",
+      },
+      {
+        q: "Can you do BOS only if we supply modules and inverters?",
+        a: "Yes. BOS only covers everything except modules and inverters, which you supply: engineering, civil, mechanical and electrical works, evacuation and commissioning.",
+      },
+      {
+        q: "Do you handle evacuation approvals and utility liaison?",
+        a: "Yes. Grid integration is part of our scope: the evacuation line, the substation interface and liaison for the approvals involved. It is planned from day one, because evacuation sits on the critical path.",
+      },
+      {
+        q: "How do you manage monsoon and remote-site logistics?",
+        a: "By engineering for them at the start. The site and grid study comes first, followed by a geotechnical survey, site-specific foundation and drainage design, and a construction plan that accounts for the monsoon window and access to the site.",
+      },
+      {
+        q: "Do you offer O&M after commissioning?",
+        a: "Yes. O&M is a separate package: SCADA monitoring, preventive maintenance and performance reporting, so the plant keeps delivering after handover.",
+      },
     ],
   },
   {
@@ -595,11 +627,26 @@ export const offerings: Offering[] = [
       },
     },
     faq: [
-      { q: "Which model gives the highest long-term savings?" },
-      { q: "Can we move from RESCO to ownership later?" },
-      { q: "How does accelerated depreciation affect returns?" },
-      { q: "What is group captive and who is eligible?" },
-      { q: "Do you arrange loans?" },
+      {
+        q: "Which model gives the highest long-term savings?",
+        a: "Ownership (CAPEX) typically gives the highest lifetime savings, because you keep all of the generation and claim the tax benefits. It also needs the most capital, so we compare it against the other models on your own numbers.",
+      },
+      {
+        q: "Can we move from RESCO to ownership later?",
+        a: "That depends on the contract. A buy-out option can be written into a RESCO agreement, and lease structures end in ownership. If you may want to own the plant later, we build that into the structure up front.",
+      },
+      {
+        q: "How does accelerated depreciation affect returns?",
+        a: "Under CAPEX, depreciation changes the after-tax cost of the plant and therefore its payback and IRR. We model it against your tax position, and your finance or tax advisers should confirm the current rate and your eligibility.",
+      },
+      {
+        q: "What is group captive and who is eligible?",
+        a: "Group captive is a co-investment structure in which a group of consumers shares ownership of a plant and takes its power under captive-power rules. Eligibility depends on those rules, including shareholding and consumption requirements, so we check it against your state and your load.",
+      },
+      {
+        q: "Do you arrange loans?",
+        a: "We help you arrange the financing: we structure the debt and equity case, prepare the lender documentation and coordinate with lenders and NBFCs for projects that need funding.",
+      },
     ],
   },
   {
@@ -669,11 +716,26 @@ export const offerings: Offering[] = [
       },
     },
     faq: [
-      { q: "What data do we need to share?" },
-      { q: "How long does the review take?" },
-      { q: "Is it free? Are we obliged to build with Polaris?" },
-      { q: "Does it cover battery storage?" },
-      { q: "Can you review multiple sites together?" },
+      {
+        q: "What data do we need to share?",
+        a: "Twelve months of electricity bills and, where available, load or interval data. A site walk-through follows, so we can see the roof, land and electrical layout.",
+      },
+      {
+        q: "How long does the review take?",
+        a: "It depends on how quickly we receive your data and how many options need to be modelled. We confirm the timeline when we scope the review.",
+      },
+      {
+        q: "Is it free? Are we obliged to build with Polaris?",
+        a: "There is no obligation to build with Polaris. The review stands alone as a report and roadmap, and you decide what to do with it. We confirm the commercial terms for the review when we scope it.",
+      },
+      {
+        q: "Does it cover battery storage?",
+        a: "Yes. Battery sizing for peak shaving and backup is part of the review, along with solar + storage combinations ranked on cost and return.",
+      },
+      {
+        q: "Can you review multiple sites together?",
+        a: "Yes. Share the bills and load data for each site and tell us how they are connected through ownership or supply, and we will scope a combined review that compares options across them.",
+      },
     ],
   },
 ];
