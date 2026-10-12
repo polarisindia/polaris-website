@@ -321,174 +321,176 @@ export default async function OfferingDetail({
         )}
       </Section>
 
-      {/* Ways to pay */}
-      <section className="relative isolate overflow-hidden bg-[#15371b]">
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 -z-10"
-        >
-          <Grainient
-            color1="#0e3b16"
-            color2="#065d40"
-            color3="#053726"
-            timeSpeed={1.8}
-            colorBalance={0.0}
-            warpStrength={1.0}
-            warpFrequency={5.0}
-            warpSpeed={2.0}
-            warpAmplitude={50.0}
-            blendAngle={0.0}
-            blendSoftness={0.05}
-            rotationAmount={500.0}
-            noiseScale={2.0}
-            grainAmount={0.1}
-            grainScale={2.0}
-            grainAnimated={false}
-            contrast={1.5}
-            gamma={1.0}
-            saturation={1.0}
-            centerX={0.0}
-            centerY={0.0}
-            zoom={0.9}
-          />
-        </div>
-        <div className="container-px relative mx-auto max-w-[1760px] py-20 lg:py-28">
-          <RevealText
-            text="Ways to pay"
-            className="text-3xl font-semibold tracking-tight text-white sm:text-[58px]"
-          />
+      {/* Ways to pay: only offerings that define it (Finance Solutions) */}
+      {waysToPay && (
+        <section className="relative isolate overflow-hidden bg-[#15371b]">
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 -z-10"
+          >
+            <Grainient
+              color1="#0e3b16"
+              color2="#065d40"
+              color3="#053726"
+              timeSpeed={1.8}
+              colorBalance={0.0}
+              warpStrength={1.0}
+              warpFrequency={5.0}
+              warpSpeed={2.0}
+              warpAmplitude={50.0}
+              blendAngle={0.0}
+              blendSoftness={0.05}
+              rotationAmount={500.0}
+              noiseScale={2.0}
+              grainAmount={0.1}
+              grainScale={2.0}
+              grainAnimated={false}
+              contrast={1.5}
+              gamma={1.0}
+              saturation={1.0}
+              centerX={0.0}
+              centerY={0.0}
+              zoom={0.9}
+            />
+          </div>
+          <div className="container-px relative mx-auto max-w-[1760px] py-20 lg:py-28">
+            <RevealText
+              text="Ways to pay"
+              className="text-3xl font-semibold tracking-tight text-white sm:text-[58px]"
+            />
 
-          {waysToPay.options && (
-            <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              {waysToPay.options.map((o, i) => (
-                <Reveal
-                  key={o.label}
-                  as="li"
-                  variant="up"
-                  delay={(i % 4) * 70}
-                  className="h-full"
-                >
-                  <BorderGlow
-                    className="h-full"
-                    backgroundColor="rgba(7, 26, 20, 0.4)"
-                    borderRadius={12}
-                    glowColor="105 70% 62%"
-                    glowRadius={32}
-                    glowIntensity={0.9}
-                    fillOpacity={0.2}
-                    colors={["#5fcf4b", "#a3e635", "#2dd4bf"]}
-                  >
-                    <div className="relative flex flex-1 flex-col p-6 lg:p-7">
-                      <span className="block h-[60px] w-[60px]">
-                        <SolutionIcon name={o.icon} />
-                      </span>
-                      <span className="mt-5 text-[1.25rem] font-semibold leading-snug tracking-tight text-white">
-                        {o.label}
-                      </span>
-                    </div>
-                  </BorderGlow>
-                </Reveal>
-              ))}
-            </ul>
-          )}
-
-          {waysToPay.table && (
-            <Reveal variant="fade" delay={90}>
-              <div className="mt-10 overflow-x-auto rounded-xl border border-white/10 bg-[rgba(7,26,20,0.35)]">
-                <table className="w-full min-w-[720px] border-collapse text-left text-sm">
-                  <thead>
-                    <tr className="border-b border-white/10">
-                      {waysToPay.table.columns.map((col) => (
-                        <th
-                          key={col}
-                          className="whitespace-nowrap px-5 py-4 font-semibold text-white/60"
-                        >
-                          {col}
-                        </th>
-                      ))}
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {waysToPay.table.rows.map((row, ri) => (
-                      <tr
-                        key={row[0]}
-                        className={
-                          ri > 0 ? "border-t border-white/10" : undefined
-                        }
-                      >
-                        {row.map((cell, ci) => (
-                          <td
-                            key={ci}
-                            className={`px-5 py-4 align-top ${
-                              ci === 0
-                                ? "font-semibold text-white"
-                                : "text-white/70"
-                            }`}
-                          >
-                            {cell}
-                          </td>
-                        ))}
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </Reveal>
-          )}
-
-          {waysToPay.scenarios && (
-            <div className="mt-14">
-              <Reveal variant="fade">
-                <h3 className="text-2xl font-semibold tracking-tight text-white">
-                  {waysToPay.scenarios.heading}
-                </h3>
-              </Reveal>
-              <div className="mt-6 grid gap-4 md:grid-cols-3">
-                {waysToPay.scenarios.items.map((sc, i) => (
+            {waysToPay.options && (
+              <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                {waysToPay.options.map((o, i) => (
                   <Reveal
-                    key={sc.when}
+                    key={o.label}
+                    as="li"
                     variant="up"
-                    delay={i * 80}
+                    delay={(i % 4) * 70}
                     className="h-full"
                   >
-                    <div className="flex h-full items-start gap-4 rounded-xl border border-white/10 bg-[rgba(7,26,20,0.4)] p-6">
-                      <span className="block h-14 w-14 shrink-0">
-                        <SolutionIcon name={sc.icon} />
-                      </span>
-                      <div>
-                        <p className="text-[15px] leading-relaxed text-white/70">
-                          {sc.when}
-                        </p>
-                        <p className="mt-3 flex items-start gap-2 text-lg font-semibold leading-snug text-white">
-                          <ArrowRight className="mt-1 h-4 w-4 shrink-0 text-brand" />
-                          {sc.then}
-                        </p>
+                    <BorderGlow
+                      className="h-full"
+                      backgroundColor="rgba(7, 26, 20, 0.4)"
+                      borderRadius={12}
+                      glowColor="105 70% 62%"
+                      glowRadius={32}
+                      glowIntensity={0.9}
+                      fillOpacity={0.2}
+                      colors={["#5fcf4b", "#a3e635", "#2dd4bf"]}
+                    >
+                      <div className="relative flex flex-1 flex-col p-6 lg:p-7">
+                        <span className="block h-[60px] w-[60px]">
+                          <SolutionIcon name={o.icon} />
+                        </span>
+                        <span className="mt-5 text-[1.25rem] font-semibold leading-snug tracking-tight text-white">
+                          {o.label}
+                        </span>
                       </div>
-                    </div>
+                    </BorderGlow>
                   </Reveal>
                 ))}
-              </div>
-            </div>
-          )}
+              </ul>
+            )}
 
-          {(waysToPay.note || waysToPay.link) && (
-            <Reveal variant="fade" delay={140}>
-              <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3">
-                {waysToPay.note && (
-                  <span className="text-[15px] text-white/70">
-                    {waysToPay.note}
-                  </span>
-                )}
-                {waysToPay.link && (
-                  <ArrowLink href={waysToPay.link.href} tone="light">
-                    {waysToPay.link.label}
-                  </ArrowLink>
-                )}
+            {waysToPay.table && (
+              <Reveal variant="fade" delay={90}>
+                <div className="mt-10 overflow-x-auto rounded-xl border border-white/10 bg-[rgba(7,26,20,0.35)]">
+                  <table className="w-full min-w-[720px] border-collapse text-left text-sm">
+                    <thead>
+                      <tr className="border-b border-white/10">
+                        {waysToPay.table.columns.map((col) => (
+                          <th
+                            key={col}
+                            className="whitespace-nowrap px-5 py-4 font-semibold text-white/60"
+                          >
+                            {col}
+                          </th>
+                        ))}
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {waysToPay.table.rows.map((row, ri) => (
+                        <tr
+                          key={row[0]}
+                          className={
+                            ri > 0 ? "border-t border-white/10" : undefined
+                          }
+                        >
+                          {row.map((cell, ci) => (
+                            <td
+                              key={ci}
+                              className={`px-5 py-4 align-top ${
+                                ci === 0
+                                  ? "font-semibold text-white"
+                                  : "text-white/70"
+                              }`}
+                            >
+                              {cell}
+                            </td>
+                          ))}
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </Reveal>
+            )}
+
+            {waysToPay.scenarios && (
+              <div className="mt-14">
+                <Reveal variant="fade">
+                  <h3 className="text-2xl font-semibold tracking-tight text-white">
+                    {waysToPay.scenarios.heading}
+                  </h3>
+                </Reveal>
+                <div className="mt-6 grid gap-4 md:grid-cols-3">
+                  {waysToPay.scenarios.items.map((sc, i) => (
+                    <Reveal
+                      key={sc.when}
+                      variant="up"
+                      delay={i * 80}
+                      className="h-full"
+                    >
+                      <div className="flex h-full items-start gap-4 rounded-xl border border-white/10 bg-[rgba(7,26,20,0.4)] p-6">
+                        <span className="block h-14 w-14 shrink-0">
+                          <SolutionIcon name={sc.icon} />
+                        </span>
+                        <div>
+                          <p className="text-[15px] leading-relaxed text-white/70">
+                            {sc.when}
+                          </p>
+                          <p className="mt-3 flex items-start gap-2 text-lg font-semibold leading-snug text-white">
+                            <ArrowRight className="mt-1 h-4 w-4 shrink-0 text-brand" />
+                            {sc.then}
+                          </p>
+                        </div>
+                      </div>
+                    </Reveal>
+                  ))}
+                </div>
               </div>
-            </Reveal>
-          )}
-        </div>
-      </section>
+            )}
+
+            {(waysToPay.note || waysToPay.link) && (
+              <Reveal variant="fade" delay={140}>
+                <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3">
+                  {waysToPay.note && (
+                    <span className="text-[15px] text-white/70">
+                      {waysToPay.note}
+                    </span>
+                  )}
+                  {waysToPay.link && (
+                    <ArrowLink href={waysToPay.link.href} tone="light">
+                      {waysToPay.link.label}
+                    </ArrowLink>
+                  )}
+                </div>
+              </Reveal>
+            )}
+          </div>
+        </section>
+      )}
 
       {/* FAQ, only shows questions that have an answer */}
       {faqWithAnswers.length > 0 && (

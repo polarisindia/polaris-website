@@ -301,7 +301,7 @@ export type Offering = {
   outcomes: OfferingOutcome[];
   scope: OfferingScopeItem[];
   howItWorks: { steps: OfferingStep[]; receive?: string[] };
-  waysToPay: {
+  waysToPay?: {
     options?: { label: string; icon: IconName }[];
     table?: { columns: string[]; rows: string[][] };
     scenarios?: {
@@ -469,18 +469,6 @@ export const offerings: Offering[] = [
         },
       ],
     },
-    waysToPay: {
-      options: [
-        { label: "CAPEX", icon: "coins" },
-        { label: "OPEX / RESCO", icon: "cycle" },
-        { label: "Lease", icon: "calendar" },
-        { label: "Open access / group captive", icon: "tower" },
-      ],
-      link: {
-        label: "Compare in Finance Solutions",
-        href: "/solutions/finance-solutions",
-      },
-    },
     faq: [
       {
         q: "Will the installation affect my roof warranty or structure?",
@@ -596,17 +584,6 @@ export const offerings: Offering[] = [
           image: "/img/process/om-25yr.jpg",
         },
       ],
-    },
-    waysToPay: {
-      options: [
-        { label: "EPC contract", icon: "loop" },
-        { label: "Open access / captive", icon: "tower" },
-        { label: "Group captive", icon: "partners" },
-      ],
-      link: {
-        label: "Compare in Finance Solutions",
-        href: "/solutions/finance-solutions",
-      },
     },
     faq: [
       {
@@ -834,14 +811,6 @@ export const offerings: Offering[] = [
         "Phased plan",
         "KPI sheet",
       ],
-    },
-    // The doc also has "The review: [free / fixed fee]", not yet decided.
-    waysToPay: {
-      note: "Projects it recommends",
-      link: {
-        label: "Compare in Finance Solutions",
-        href: "/solutions/finance-solutions",
-      },
     },
     faq: [
       {
