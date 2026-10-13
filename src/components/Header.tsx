@@ -101,6 +101,17 @@ export function Header() {
   // read as more of a jarring flash than the transparency itself did.
   const overlay = isHome && !solid && !open;
 
+  // The mobile menu is a full-screen overlay, so freeze page scroll (Lenis
+  // owns scrolling site-wide) while it is open.
+  useEffect(() => {
+    if (!open) return;
+    const lenis = (
+      window as unknown as { lenis?: { stop(): void; start(): void } }
+    ).lenis;
+    lenis?.stop();
+    return () => lenis?.start();
+  }, [open]);
+
   useEffect(() => {
     setOpen(false);
     setMobileSubOpen(null);
@@ -252,8 +263,11 @@ export function Header() {
       </div>
 
       {open && (
-        <div className="border-t border-line bg-paper xl:hidden">
-          <nav className="container-px mx-auto flex max-w-[1760px] flex-col py-3">
+        <div
+          data-lenis-prevent
+          className="absolute inset-x-0 top-full flex h-[calc(100dvh-83px)] flex-col overflow-y-auto overscroll-contain border-t border-line bg-paper xl:hidden"
+        >
+          <nav className="container-px mx-auto flex w-full max-w-[1760px] flex-1 flex-col py-4">
             {nav.map((item) =>
               item.children ? (
                 <div
@@ -268,7 +282,7 @@ export function Header() {
                       )
                     }
                     aria-expanded={mobileSubOpen === item.href}
-                    className="flex w-full cursor-pointer items-center justify-between py-3.5 text-sm font-medium text-ink"
+                    className="flex w-full cursor-pointer items-center justify-between py-4 text-lg font-medium text-ink"
                   >
                     {item.label}
                     <svg
@@ -296,7 +310,7 @@ export function Header() {
                         <Link
                           key={c.href}
                           href={c.href}
-                          className="py-2.5 text-sm text-ink-soft"
+                          className="py-3 text-base text-ink-soft"
                         >
                           {c.label}
                         </Link>
@@ -308,13 +322,27 @@ export function Header() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="border-b border-line py-3.5 text-sm font-medium text-ink last:border-0"
+                  className="border-b border-line py-4 text-lg font-medium text-ink last:border-0"
                 >
                   {item.label}
                 </Link>
               ),
             )}
           </nav>
+          <div className="container-px mx-auto w-full max-w-[1760px] border-t border-line py-6 text-sm text-ink-soft">
+            <a
+              href={`mailto:${company.email}`}
+              className="block py-1 font-medium text-ink"
+            >
+              {company.email}
+            </a>
+            <a
+              href={`tel:${company.phone.replace(/\s+/g, "")}`}
+              className="block py-1 font-medium text-ink"
+            >
+              {company.phone}
+            </a>
+          </div>
         </div>
       )}
     </header>
