@@ -209,13 +209,6 @@ export function Footprint() {
             text={"From India\nto the world"}
             className="block max-w-xl text-3xl font-semibold tracking-tight text-white sm:text-[58px]"
           />
-          <Reveal variant="up" delay={60}>
-            <div className="mt-8">
-              <ArrowLink href="/global" tone="light">
-                Explore Polaris Global
-              </ArrowLink>
-            </div>
-          </Reveal>
         </div>
 
         <Reveal

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { nav, company, regions, offerings } from "@/lib/content";
+import { nav, company, offerings } from "@/lib/content";
 import { Logo } from "./Logo";
 import { ArrowRight } from "./ui";
 
@@ -71,37 +71,6 @@ const offeringIcons: React.ReactNode[] = [
     <circle cx="24" cy="27" r="4" fill={IL.dark} />
   </svg>,
 ];
-
-function RegionToggle({ overlay }: { overlay: boolean }) {
-  const pathname = usePathname();
-  const isGlobal = pathname.startsWith("/global");
-  const seg =
-    "rounded-md px-2.5 py-1 text-[13px] font-semibold transition-colors";
-  const active = overlay ? "bg-white text-ink" : "bg-ink text-white";
-  const idle = overlay
-    ? "text-white/80 hover:text-white"
-    : "text-ink-soft hover:text-ink";
-  return (
-    <div
-      className={`flex items-center gap-0.5 rounded-lg border p-0.5 ${
-        overlay ? "border-white/30" : "border-ink/15"
-      }`}
-    >
-      {regions.map((r) => {
-        const on = r.label === "Global" ? isGlobal : !isGlobal;
-        return (
-          <Link
-            key={r.label}
-            href={r.href}
-            className={`${seg} ${on ? active : idle}`}
-          >
-            {r.label}
-          </Link>
-        );
-      })}
-    </div>
-  );
-}
 
 // Shared look for a top-level nav item (plain link or dropdown trigger),
 // keyed off whether it's active and whether the transparent hero overlay
@@ -244,9 +213,7 @@ export function Header() {
           })}
         </nav>
 
-        <div className="hidden items-center gap-3 xl:flex">
-          <RegionToggle overlay={overlay} />
-        </div>
+        <div className="hidden items-center gap-3 xl:flex"></div>
 
         <button
           type="button"
@@ -287,25 +254,6 @@ export function Header() {
       {open && (
         <div className="border-t border-line bg-paper xl:hidden">
           <nav className="container-px mx-auto flex max-w-[1760px] flex-col py-3">
-            <div className="mb-2 flex gap-0.5 self-start rounded-lg border border-ink/15 p-0.5">
-              {regions.map((r) => {
-                const on =
-                  r.label === "Global"
-                    ? pathname.startsWith("/global")
-                    : !pathname.startsWith("/global");
-                return (
-                  <Link
-                    key={r.label}
-                    href={r.href}
-                    className={`rounded-md px-3 py-1.5 text-sm font-semibold ${
-                      on ? "bg-ink text-white" : "text-ink-soft"
-                    }`}
-                  >
-                    {r.label}
-                  </Link>
-                );
-              })}
-            </div>
             {nav.map((item) =>
               item.children ? (
                 <div

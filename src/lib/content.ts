@@ -37,23 +37,8 @@ export const offices = [
   },
 ];
 
-export const regions = [
-  { label: "India", href: "/" },
-  { label: "Global", href: "/global" },
-];
-
+// Only `presence` is used now (homepage 'From India to the world').
 export const global = {
-  eyebrow: "Polaris Global",
-  title: "Built in India. Growing internationally.",
-  intro:
-    "Polaris operates through Polaris Renewable Solutions Pvt. Ltd. in India and Polaris Global Energie SARL in Morocco. Working across both markets gives us practical exposure to different regulations, climates, industrial environments and project-delivery requirements.",
-  entity: {
-    name: "Polaris Global Energie SARL",
-    incorporated: "2025",
-    base: "Casablanca, Kingdom of Morocco",
-    directors:
-      "Directed by the Polaris founding team, bringing the same engineering and commercial approach to every market.",
-  },
   presence: [
     {
       market: "India",
@@ -72,20 +57,6 @@ export const global = {
       status: "Regional partners",
       detail:
         "Regional partners add industrial EPC, fabrication and large-project execution capability where required, while international project exposure strengthens our approach to safety, standards, supply chain and project controls.",
-    },
-  ],
-  why: [
-    {
-      title: "One standard, every project",
-      body: "Engineering and design aligned with applicable Indian and internationally recognised codes, with the same QA/QC, HSE and commissioning discipline regardless of project size or location.",
-    },
-    {
-      title: "Financial modelling travels",
-      body: "IRR, payback, cash flow and tariff exposure are compared for each proposal, in local terms, so management sees the trade-offs before capital is committed.",
-    },
-    {
-      title: "Full lifecycle, one responsibility",
-      body: "One point of responsibility from feasibility and design through construction, commissioning, monitoring and long-term support, across both markets.",
     },
   ],
 };

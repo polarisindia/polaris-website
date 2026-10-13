@@ -17,7 +17,6 @@ const columns = [
       { label: "About us", href: "/about" },
       { label: "Our Approach", href: "/our-approach" },
       { label: "Projects", href: "/projects" },
-      { label: "Polaris Global", href: "/global" },
       { label: "Sustainability", href: "/sustainability" },
       { label: "Insights", href: "/insights" },
       { label: "Careers", href: "/careers" },
@@ -90,7 +89,13 @@ export function Footer() {
                   aria-label={`Polaris on ${s.label}`}
                   className="text-ink transition-colors hover:text-brand-strong"
                 >
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <svg
+                    width="22"
+                    height="22"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    aria-hidden="true"
+                  >
                     {socialIcon[s.label]}
                   </svg>
                 </a>
@@ -104,10 +109,16 @@ export function Footer() {
             © {new Date().getFullYear()} {company.legalName}
           </p>
           <div className="flex gap-6">
-            <Link href="/privacy-policy" className="transition-colors hover:text-ink">
+            <Link
+              href="/privacy-policy"
+              className="transition-colors hover:text-ink"
+            >
               Privacy Policy
             </Link>
-            <Link href="/cookie-policy" className="transition-colors hover:text-ink">
+            <Link
+              href="/cookie-policy"
+              className="transition-colors hover:text-ink"
+            >
               Cookie Policy
             </Link>
             <a
