@@ -224,8 +224,6 @@ export function Header() {
           })}
         </nav>
 
-        <div className="hidden items-center gap-3 xl:flex"></div>
-
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
