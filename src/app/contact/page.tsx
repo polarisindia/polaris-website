@@ -110,7 +110,13 @@ export default function ContactPage() {
       <Section>
         <div className="grid gap-14 lg:grid-cols-[1.3fr_1fr]">
           <Reveal variant="up">
-            <ContactForm topics={[...offerings.map((o) => o.title), "Other"]} />
+            <ContactForm
+              topics={[
+                ...offerings.map((o) => o.title),
+                "BESS - Battery Energy Storage Systems",
+                "Other",
+              ]}
+            />
           </Reveal>
 
           <Reveal variant="up" delay={80}>
