@@ -776,12 +776,6 @@ export const offerings: Offering[] = [
           body: "Support to execute and track results.",
         },
       ],
-      receive: [
-        "Cost breakdown",
-        "Options ranked by payback",
-        "Phased plan",
-        "KPI sheet",
-      ],
     },
     faq: [
       {
