@@ -13,6 +13,7 @@ import { Grainient } from "@/components/Grainient";
 import { BorderGlow } from "@/components/BorderGlow";
 import { SolutionIcon } from "@/components/SolutionIcon";
 import { StepsAccordion } from "@/components/StepsAccordion";
+import { OtherSolutions } from "@/components/OtherSolutions";
 import { offerings, projects } from "@/lib/content";
 
 export function generateStaticParams() {
@@ -481,6 +482,9 @@ export default async function OfferingDetail({
           </div>
         </Section>
       )}
+
+      {/* The other three solutions */}
+      <OtherSolutions currentSlug={offering.slug} />
     </>
   );
 }
