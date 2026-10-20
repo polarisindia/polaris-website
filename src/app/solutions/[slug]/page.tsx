@@ -12,6 +12,7 @@ import { RevealText } from "@/components/RevealText";
 import { Grainient } from "@/components/Grainient";
 import { BorderGlow } from "@/components/BorderGlow";
 import { SolutionIcon } from "@/components/SolutionIcon";
+import { StepsAccordion } from "@/components/StepsAccordion";
 import { offerings, projects } from "@/lib/content";
 
 export function generateStaticParams() {
@@ -257,50 +258,7 @@ export default async function OfferingDetail({
       {/* How it works */}
       <Section>
         <SectionHeading title="How it works" />
-        <ol className="mt-10 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
-          {howItWorks.steps.map((step, i) => (
-            <Reveal key={step.title} as="li" variant="up" delay={i * 90}>
-              <div className="relative h-full">
-                <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-brand-tint">
-                  {step.image ? (
-                    <Image
-                      src={step.image}
-                      alt=""
-                      fill
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                      className="object-cover"
-                    />
-                  ) : (
-                    <span className="absolute inset-0 flex items-center justify-center">
-                      <span className="block h-24 w-24">
-                        <SolutionIcon name={step.icon} />
-                      </span>
-                    </span>
-                  )}
-                  <span className="absolute left-3 top-3 flex h-9 w-9 items-center justify-center rounded-full bg-white text-sm font-semibold text-brand-strong shadow-sm">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                </div>
-                <h3 className="mt-5 text-lg font-semibold leading-snug tracking-tight text-ink">
-                  {step.title}
-                </h3>
-                {step.body && (
-                  <p className="mt-2 text-[15px] leading-relaxed text-ink-soft">
-                    {step.body}
-                  </p>
-                )}
-                {i < howItWorks.steps.length - 1 && (
-                  <span
-                    aria-hidden="true"
-                    className="absolute -right-[1.35rem] top-[calc(37.5%-1.125rem)] z-10 hidden h-9 w-9 items-center justify-center rounded-full border border-line bg-white text-brand-strong lg:flex"
-                  >
-                    <ArrowRight className="h-4 w-4" />
-                  </span>
-                )}
-              </div>
-            </Reveal>
-          ))}
-        </ol>
+        <StepsAccordion steps={howItWorks.steps} />
         {howItWorks.receive && (
           <Reveal variant="fade" delay={120}>
             <div className="mt-12 flex flex-wrap items-center gap-3">
