@@ -2,18 +2,9 @@ import type { Metadata } from "next";
 import { Section } from "@/components/ui";
 import { Reveal } from "@/components/Reveal";
 import { RevealText } from "@/components/RevealText";
-import { ProjectCard } from "@/components/ProjectCard";
+import { ProjectsBrowser } from "@/components/ProjectsBrowser";
 import { CTA } from "@/components/CTA";
-import { projects, clients, clientLogos } from "@/lib/content";
-
-// Use the real logo where we have one on file; fall back to a text
-// wordmark for the project-partner names we don't have artwork for.
-const clientEntries = clients.map((name) => ({
-  name,
-  logo: clientLogos.find((l) =>
-    l.name.toLowerCase().startsWith(name.toLowerCase()),
-  ),
-}));
+import { projects } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Projects — Commercial & Industrial Solar Portfolio",
@@ -46,65 +37,8 @@ export default function ProjectsPage() {
       </section>
 
       <Section>
-        <Reveal variant="fade">
-          <h2 className="text-sm font-semibold uppercase tracking-[0.2em] text-brand-strong">
-            Commissioned
-          </h2>
-        </Reveal>
-        <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {commissioned.map((p, i) => (
-            <Reveal key={p.name} delay={(i % 3) * 70}>
-              <ProjectCard project={p} />
-            </Reveal>
-          ))}
-        </div>
-
-        {ongoing.length > 0 && (
-          <>
-            <Reveal variant="fade">
-              <h2 className="mt-20 text-sm font-semibold uppercase tracking-[0.2em] text-brand-strong">
-                Ongoing
-              </h2>
-            </Reveal>
-            <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {ongoing.map((p) => (
-                <Reveal key={p.name}>
-                  <ProjectCard project={p} />
-                </Reveal>
-              ))}
-            </div>
-          </>
-        )}
+        <ProjectsBrowser commissioned={commissioned} ongoing={ongoing} />
       </Section>
-
-      <div className="on-dark bg-[#15371b]">
-        <Section>
-          <Reveal variant="fade">
-            <h2 className="text-sm font-semibold uppercase tracking-[0.2em] text-brand-strong">
-              Trusted by
-            </h2>
-          </Reveal>
-          <div className="marquee mt-8">
-            <div className="marquee-track" aria-hidden="true">
-              {[...clientEntries, ...clientEntries].map((c, i) =>
-                c.logo ? (
-                  <span key={`${c.name}-${i}`} className="marquee-logo">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={c.logo.src} alt="" loading="lazy" />
-                  </span>
-                ) : (
-                  <span key={`${c.name}-${i}`} className="marquee-name">
-                    {c.name}
-                  </span>
-                ),
-              )}
-            </div>
-            <span className="sr-only">
-              Polaris clients include {clients.join(", ")}.
-            </span>
-          </div>
-        </Section>
-      </div>
 
       <CTA />
     </>
