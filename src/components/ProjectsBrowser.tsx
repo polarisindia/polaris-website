@@ -24,9 +24,6 @@ const filters = [
 
 type FilterKey = (typeof filters)[number]["key"];
 
-const heading =
-  "text-sm font-semibold uppercase tracking-[0.2em] text-brand-strong";
-
 export function ProjectsBrowser({
   commissioned,
   ongoing,
@@ -37,10 +34,7 @@ export function ProjectsBrowser({
   const [active, setActive] = useState<FilterKey>("all");
   const current = filters.find((f) => f.key === active) ?? filters[0];
 
-  const shownCommissioned = commissioned.filter(current.match);
-  const shownOngoing = ongoing.filter(current.match);
-  const countFor = (match: (p: Project) => boolean) =>
-    [...commissioned, ...ongoing].filter(match).length;
+  const shown = [...commissioned, ...ongoing].filter(current.match);
 
   return (
     <>
@@ -64,41 +58,18 @@ export function ProjectsBrowser({
               }`}
             >
               {f.label}
-              <span
-                className={`text-xs font-medium ${on ? "text-white/60" : "text-ink-faint"}`}
-              >
-                {countFor(f.match)}
-              </span>
             </button>
           );
         })}
       </div>
 
-      {shownCommissioned.length > 0 && (
-        <>
-          <h2 className={`mt-12 ${heading}`}>Commissioned</h2>
-          <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {shownCommissioned.map((p, i) => (
-              <Reveal key={p.slug} delay={(i % 3) * 70}>
-                <ProjectCard project={p} />
-              </Reveal>
-            ))}
-          </div>
-        </>
-      )}
-
-      {shownOngoing.length > 0 && (
-        <>
-          <h2 className={`mt-20 ${heading}`}>Ongoing</h2>
-          <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {shownOngoing.map((p) => (
-              <Reveal key={p.slug}>
-                <ProjectCard project={p} />
-              </Reveal>
-            ))}
-          </div>
-        </>
-      )}
+      <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {shown.map((p, i) => (
+          <Reveal key={p.slug} delay={(i % 3) * 70}>
+            <ProjectCard project={p} />
+          </Reveal>
+        ))}
+      </div>
     </>
   );
 }
