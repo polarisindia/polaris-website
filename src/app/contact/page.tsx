@@ -5,7 +5,7 @@ import { RevealText } from "@/components/RevealText";
 import { ContactForm } from "@/components/ContactForm";
 import { BorderGlow } from "@/components/BorderGlow";
 import { socialIcon } from "@/components/SocialIcons";
-import { offices, socials } from "@/lib/content";
+import { offerings, offices, socials } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Contact — Nashik & Casablanca Offices",
@@ -110,7 +110,7 @@ export default function ContactPage() {
       <Section>
         <div className="grid gap-14 lg:grid-cols-[1.3fr_1fr]">
           <Reveal variant="up">
-            <ContactForm />
+            <ContactForm topics={[...offerings.map((o) => o.title), "Other"]} />
           </Reveal>
 
           <Reveal variant="up" delay={80}>

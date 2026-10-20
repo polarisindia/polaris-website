@@ -3,18 +3,10 @@
 import { useState } from "react";
 import { ArrowRight } from "./ui";
 
-const topics = [
-  "Power purchase agreement",
-  "Land lease / site referral",
-  "Partnership or supplier",
-  "Press / media",
-  "Something else",
-];
-
 const fieldClass =
   "w-full rounded-lg border border-line bg-paper px-3.5 py-2.5 text-sm text-ink outline-none transition-colors placeholder:text-ink-faint focus:border-brand";
 
-export function ContactForm() {
+export function ContactForm({ topics }: { topics: string[] }) {
   const [sent, setSent] = useState(false);
   const [sending, setSending] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -40,8 +32,8 @@ export function ContactForm() {
           Thanks, message received.
         </h2>
         <p className="mt-2 max-w-sm text-[15px] leading-relaxed text-ink-soft">
-          We&apos;ll get back to you shortly &mdash; usually within one
-          business day.
+          We&apos;ll get back to you shortly &mdash; usually within one business
+          day.
         </p>
         <button
           type="button"
