@@ -358,6 +358,30 @@ export default function AboutPage() {
         </div>
       </Section>
 
+      {/* Quality Policy: the signed policy document, shown as-is */}
+      <Section id="quality-policy" className="scroll-mt-24">
+        <SectionHeading title="Quality Policy" align="center" />
+        <Reveal variant="up" delay={80}>
+          <a
+            href="/img/quality/quality-policy.png"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Open the Polaris Quality Policy at full size"
+            className="mx-auto mt-12 block w-full max-w-[640px] overflow-hidden rounded-lg border border-line/70 bg-paper shadow-[0_18px_50px_-24px_rgba(15,67,56,0.35)] transition-shadow duration-500 hover:shadow-[0_24px_60px_-24px_rgba(15,67,56,0.5)]"
+          >
+            <Image
+              src="/img/quality/quality-policy.png"
+              alt="Polaris Renewable Solutions Pvt. Ltd. Quality Policy, Revision 01, dated 12/01/2026, signed and stamped by the CEO."
+              width={915}
+              height={1299}
+              quality={90}
+              sizes="(max-width: 768px) 100vw, 640px"
+              className="h-auto w-full"
+            />
+          </a>
+        </Reveal>
+      </Section>
+
       <CTA />
     </>
   );
