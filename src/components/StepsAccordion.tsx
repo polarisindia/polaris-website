@@ -22,8 +22,8 @@ export function StepsAccordion({ steps }: { steps: Step[] }) {
   const [active, setActive] = useState(0);
   const hasBody = steps.some((s) => s.body);
   // Fixed heights per state so the open card can ease between them.
-  const openHeight = hasBody ? "lg:h-[560px]" : "lg:h-[500px]";
-  const rowHeight = hasBody ? "lg:h-[560px]" : "lg:h-[500px]";
+  const openHeight = hasBody ? "lg:h-[492px]" : "lg:h-[420px]";
+  const rowHeight = hasBody ? "lg:h-[492px]" : "lg:h-[420px]";
 
   return (
     <ol
@@ -36,7 +36,7 @@ export function StepsAccordion({ steps }: { steps: Step[] }) {
             key={s.title}
             className={`min-w-0 transition-[flex-grow,height] duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] lg:basis-0 ${
               isActive
-                ? `lg:flex-[1.7_1_0%] ${openHeight}`
+                ? `lg:flex-[2_1_0%] ${openHeight}`
                 : "lg:flex-[1_1_0%] lg:h-[380px]"
             }`}
           >
@@ -76,7 +76,7 @@ export function StepsAccordion({ steps }: { steps: Step[] }) {
                     alt=""
                     fill
                     sizes="(max-width: 1024px) 100vw, 40vw"
-                    className="object-cover"
+                    className="object-cover object-[center_30%]"
                   />
                 ) : (
                   <span className="absolute inset-0 flex items-center justify-center">

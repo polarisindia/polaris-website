@@ -437,22 +437,22 @@ export const offerings: Offering[] = [
         {
           title: "Assess your load, tariff and roof structure",
           icon: "gauge",
-          image: "/img/process/model-financial.jpg",
+          image: "/img/process/commercial-industrial/assess.jpg",
         },
         {
           title: "Engineer yield and structure",
           icon: "blocks",
-          image: "/img/process/engineering-design.jpg",
+          image: "/img/process/commercial-industrial/engineer.jpg",
         },
         {
           title: "Build inside your live plant",
           icon: "plug",
-          image: "/img/process/epc-execution.jpg",
+          image: "/img/process/commercial-industrial/build.jpg",
         },
         {
           title: "Monitor via SCADA with preventive O&M",
           icon: "monitor",
-          image: "/img/process/om-25yr.jpg",
+          image: "/img/process/commercial-industrial/monitor.jpg",
         },
       ],
     },
