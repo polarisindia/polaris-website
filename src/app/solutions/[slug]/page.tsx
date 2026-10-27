@@ -29,7 +29,7 @@ export async function generateMetadata({
   const { slug } = await params;
   const offering = offerings.find((o) => o.slug === slug);
   if (!offering) return {};
-  return { title: offering.title, description: offering.summary };
+  return { title: offering.heroTitle, description: offering.summary };
 }
 
 function Chevron() {
@@ -116,6 +116,11 @@ export default async function OfferingDetail({
         />
         <div className="container-px relative mx-auto grid max-w-[1760px] items-center gap-12 pb-16 pt-[calc(83px+2.5rem)] lg:grid-cols-[1.05fr_0.95fr] lg:gap-16 lg:pb-24 lg:pt-[calc(83px+4rem)]">
           <div>
+            <Reveal variant="up">
+              <p className="mb-4 text-lg font-semibold tracking-tight text-brand-strong">
+                {offering.heroTitle}
+              </p>
+            </Reveal>
             <RevealText
               as="h1"
               text={offering.heroHeadline}

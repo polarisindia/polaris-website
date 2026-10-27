@@ -272,6 +272,8 @@ export type Offering = {
   title: string;
   summary: string;
   // Page content, from "Solution Pages Content for Polaris Website".
+  /** Page name shown above the headline, e.g. "Utility-Scale Solar". */
+  heroTitle: string;
   heroHeadline: string;
   intro: string;
   heroCta: OfferingCta;
@@ -370,8 +372,8 @@ export const offerings: Offering[] = [
     title: "Commercial & Industrial",
     summary:
       "On-site and off-site solar, storage and electrical solutions built around industrial load profiles, site conditions and savings goals.",
-    heroHeadline:
-      "Solar for factories, warehouses and campuses, sized to your load",
+    heroTitle: "Commercial & Industrial Solar",
+    heroHeadline: "Solar engineered for the way your business operates",
     intro:
       "Rooftop, ground-mounted and off-site solar with storage and HT/LT works, designed around how your facility actually uses power.",
     heroCta: { label: "Book a site assessment", href: "/contact" },
@@ -484,7 +486,9 @@ export const offerings: Offering[] = [
     title: "Utility Scale",
     summary:
       "Large ground-mounted solar and associated electrical works, from site development and BOS through testing, grid connection and commissioning.",
-    heroHeadline: "Ground-mounted solar EPC, from bare site to grid connection",
+    heroTitle: "Utility-Scale Solar",
+    heroHeadline:
+      "Complete solar EPC, from site development to grid connection",
     intro:
       "Engineering, civil, electrical and HT evacuation under one point of responsibility, so no interface slips between contractors.",
     heroCta: { label: "Share your project scope", href: "/contact" },
@@ -607,8 +611,8 @@ export const offerings: Offering[] = [
     title: "Finance Solutions",
     summary:
       "CAPEX, OPEX / RESCO, captive, lease and financing support aligned with your capital, cash-flow and return priorities.",
-    heroHeadline:
-      "Solar finance options: own it, buy the power, or share a plant",
+    heroTitle: "Solar Financing Solutions",
+    heroHeadline: "Your solar investment, structured around your business",
     intro:
       "We compare CAPEX, RESCO, lease and captive structures against your budget, cash flow and returns, in a model your CFO can sign off.",
     heroCta: { label: "Get a financial comparison", href: "/contact" },
@@ -782,7 +786,8 @@ export const offerings: Offering[] = [
     title: "Energy Optimisation Consultant",
     summary:
       "A practical energy plan based on load, tariff, solar, storage, demand management and power-sourcing analysis.",
-    heroHeadline: "Energy optimisation: know what to fix before you invest",
+    heroTitle: "Energy Optimisation Consulting",
+    heroHeadline: "Understand your energy use. Uncover your savings.",
     intro:
       "A phased plan built from 12 months of bills and load data, with solar, storage, open access and demand options ranked by cost and return.",
     heroCta: { label: "Start with your last 12 bills", href: "/contact" },
