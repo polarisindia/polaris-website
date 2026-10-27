@@ -32,10 +32,10 @@ export async function generateMetadata({
   return { title: offering.heroTitle, description: offering.summary };
 }
 
-function Chevron() {
+function Chevron({ className = "text-brand-strong" }: { className?: string }) {
   return (
     <svg
-      className="h-5 w-5 shrink-0 text-brand-strong transition-transform duration-300 group-open:rotate-180"
+      className={`h-5 w-5 shrink-0 transition-transform duration-300 group-open:rotate-180 ${className}`}
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
@@ -49,10 +49,10 @@ function Chevron() {
   );
 }
 
-function Check() {
+function Check({ className = "text-brand-strong" }: { className?: string }) {
   return (
     <svg
-      className="mt-0.5 h-4 w-4 shrink-0 text-brand-strong"
+      className={`mt-0.5 h-4 w-4 shrink-0 ${className}`}
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
@@ -209,16 +209,45 @@ export default async function OfferingDetail({
       </Section>
 
       {/* Scope */}
-      <div className="bg-brand-tint/40">
+      <section className="relative isolate overflow-hidden bg-[#15371b]">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 -z-10"
+        >
+          <Grainient
+            color1="#0e3b16"
+            color2="#065d40"
+            color3="#053726"
+            timeSpeed={1.8}
+            colorBalance={0.0}
+            warpStrength={1.0}
+            warpFrequency={5.0}
+            warpSpeed={2.0}
+            warpAmplitude={50.0}
+            blendAngle={0.0}
+            blendSoftness={0.05}
+            rotationAmount={500.0}
+            noiseScale={2.0}
+            grainAmount={0.1}
+            grainScale={2.0}
+            grainAnimated={false}
+            contrast={1.5}
+            gamma={1.0}
+            saturation={1.0}
+            centerX={0.0}
+            centerY={0.0}
+            zoom={0.9}
+          />
+        </div>
         <Section>
-          <SectionHeading title="Scope" />
+          <SectionHeading title="Scope" titleClassName="text-white" />
           {scopeIsPlainList ? (
             <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {scope.map((s, i) => (
                 <Reveal key={s.title} as="li" variant="up" delay={(i % 3) * 70}>
-                  <div className="flex h-full items-center gap-4 rounded-2xl border border-line/70 bg-paper px-5 py-5">
+                  <div className="flex h-full items-center gap-4 rounded-xl border border-white/15 bg-[rgba(7,26,20,0.4)] px-5 py-5">
                     <ScopeIcon item={s} className="h-12 w-12" />
-                    <span className="text-[15px] font-semibold leading-snug text-ink">
+                    <span className="text-[15px] font-semibold leading-snug text-white">
                       {s.title}
                     </span>
                   </div>
@@ -234,33 +263,33 @@ export default async function OfferingDetail({
               {scope.map((s, i) => (
                 <Reveal key={s.title} variant="up" delay={(i % 3) * 70}>
                   {s.checklist ? (
-                    <details className="group rounded-2xl border border-line/70 bg-paper">
+                    <details className="group rounded-xl border border-white/15 bg-[rgba(7,26,20,0.4)]">
                       <summary className="flex cursor-pointer list-none items-start gap-4 p-6 [&::-webkit-details-marker]:hidden">
                         <ScopeIcon item={s} className="h-14 w-14" />
                         <span className="min-w-0 flex-1">
-                          <span className="block text-lg font-semibold tracking-tight text-ink">
+                          <span className="block text-lg font-semibold tracking-tight text-white">
                             {s.title}
                           </span>
                           {s.body && (
-                            <span className="mt-1 block text-[15px] leading-relaxed text-ink-soft">
+                            <span className="mt-1 block text-[15px] leading-relaxed text-white/70">
                               {s.body}
                             </span>
                           )}
-                          <span className="mt-3 block text-xs font-semibold uppercase tracking-wide text-brand-strong">
+                          <span className="mt-3 block text-xs font-semibold uppercase tracking-wide text-active-green">
                             {s.checklist.length} items
                           </span>
                         </span>
-                        <Chevron />
+                        <Chevron className="text-active-green" />
                       </summary>
-                      <ul className="space-y-3 border-t border-line/70 px-6 py-5">
+                      <ul className="space-y-3 border-t border-white/15 px-6 py-5">
                         {s.checklist.map((c) => (
                           <li key={c.title} className="flex items-start gap-3">
-                            <Check />
+                            <Check className="text-active-green" />
                             <span>
-                              <span className="block text-[15px] font-medium text-ink">
+                              <span className="block text-[15px] font-medium text-white">
                                 {c.title}
                               </span>
-                              <span className="block text-sm leading-relaxed text-ink-soft">
+                              <span className="block text-sm leading-relaxed text-white/70">
                                 {c.body}
                               </span>
                             </span>
@@ -269,14 +298,14 @@ export default async function OfferingDetail({
                       </ul>
                     </details>
                   ) : (
-                    <div className="flex h-full items-start gap-4 rounded-2xl border border-line/70 bg-paper p-6">
+                    <div className="flex h-full items-start gap-4 rounded-xl border border-white/15 bg-[rgba(7,26,20,0.4)] p-6">
                       <ScopeIcon item={s} className="h-14 w-14" />
                       <span>
-                        <h3 className="text-lg font-semibold tracking-tight text-ink">
+                        <h3 className="text-lg font-semibold tracking-tight text-white">
                           {s.title}
                         </h3>
                         {s.body && (
-                          <p className="mt-1 text-[15px] leading-relaxed text-ink-soft">
+                          <p className="mt-1 text-[15px] leading-relaxed text-white/70">
                             {s.body}
                           </p>
                         )}
@@ -288,7 +317,7 @@ export default async function OfferingDetail({
             </div>
           )}
         </Section>
-      </div>
+      </section>
 
       {/* How it works */}
       <Section>
