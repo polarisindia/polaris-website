@@ -811,12 +811,36 @@ export const offerings: Offering[] = [
       },
     ],
     scope: [
-      { title: "Tariff, demand & power factor", icon: "gauge" },
-      { title: "On-site solar potential", icon: "sun" },
-      { title: "Off-site sourcing (open access, captive)", icon: "tower" },
-      { title: "Battery sizing (peak shaving, backup)", icon: "battery" },
-      { title: "Solar + storage combinations", icon: "sunbattery" },
-      { title: "Financial comparison of models", icon: "bars" },
+      {
+        title: "Tariff, demand & power factor",
+        icon: "gauge",
+        iconSrc: "/icons/scope/tariff-demand.svg",
+      },
+      {
+        title: "On-site solar potential",
+        icon: "sun",
+        iconSrc: "/icons/scope/onsite-solar.svg",
+      },
+      {
+        title: "Off-site sourcing (open access, captive)",
+        icon: "tower",
+        iconSrc: "/icons/scope/offsite-sourcing.svg",
+      },
+      {
+        title: "Battery sizing (peak shaving, backup)",
+        icon: "battery",
+        iconSrc: "/icons/scope/battery-sizing.svg",
+      },
+      {
+        title: "Solar + storage combinations",
+        icon: "sunbattery",
+        iconSrc: "/icons/scope/solar-storage.svg",
+      },
+      {
+        title: "Financial comparison of models",
+        icon: "bars",
+        iconSrc: "/icons/scope/model-comparison.svg",
+      },
     ],
     howItWorks: {
       // The doc has "[x days]" / "[x weeks]" durations still to fill in.
@@ -824,21 +848,25 @@ export const offerings: Offering[] = [
         {
           title: "Share data",
           icon: "doc",
+          image: "/img/process/energy-optimisation/share-data.jpg",
           body: "12 months of bills and load data.",
         },
         {
           title: "Analysis",
           icon: "pie",
+          image: "/img/process/energy-optimisation/analysis.jpg",
           body: "Consumption, tariff and every realistic option modelled.",
         },
         {
           title: "Roadmap",
           icon: "checklist",
+          image: "/img/process/energy-optimisation/roadmap.jpg",
           body: "Phased plan with outcomes and KPIs, walked through with your team.",
         },
         {
           title: "Implementation & monitoring",
           icon: "monitor",
+          image: "/img/process/energy-optimisation/implementation.jpg",
           body: "Support to execute and track results.",
         },
       ],
