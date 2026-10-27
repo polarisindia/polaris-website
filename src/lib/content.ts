@@ -497,16 +497,19 @@ export const offerings: Offering[] = [
       {
         title: "One accountable partner",
         icon: "partners",
+        iconSrc: "/icons/outcomes/partners.svg",
         body: "Civil, mechanical and electrical under one contract.",
       },
       {
         title: "Grid connection planned from day one",
         icon: "tower",
+        iconSrc: "/icons/outcomes/grid-ready.svg",
         body: "Evacuation is on the critical path, not an afterthought.",
       },
       {
         title: "Built for hard sites",
         icon: "mountain",
+        iconSrc: "/icons/outcomes/hard-sites.svg",
         body: "Rock, dust, monsoon and remote logistics.",
       },
     ],
@@ -514,18 +517,21 @@ export const offerings: Offering[] = [
       {
         title: "Full EPC",
         icon: "loop",
+        iconSrc: "/icons/scope/full-epc.svg",
         body: "Design, supply, construction and commissioning of the whole plant.",
         checklist: utilityAll,
       },
       {
         title: "BOS only",
         icon: "blocks",
+        iconSrc: "/icons/scope/bos.svg",
         body: "Everything except modules and inverters.",
         checklist: utilityAll,
       },
       {
         title: "Electrical & evacuation",
         icon: "tower",
+        iconSrc: "/icons/scope/evacuation.svg",
         body: "Substation, HT switchgear, transformers, cabling, protection, earthing.",
         checklist: [
           utilityScope.electrical,
@@ -545,6 +551,7 @@ export const offerings: Offering[] = [
       {
         title: "O&M",
         icon: "monitor",
+        iconSrc: "/icons/scope/om-monitoring.svg",
         body: "SCADA monitoring, preventive maintenance and performance reporting.",
       },
     ],
@@ -553,22 +560,22 @@ export const offerings: Offering[] = [
         {
           title: "Site and grid study",
           icon: "gauge",
-          image: "/img/process/model-financial.jpg",
+          image: "/img/process/utility-scale/site-grid-study.jpg",
         },
         {
           title: "Engineering & procurement",
           icon: "blocks",
-          image: "/img/process/engineering-design.jpg",
+          image: "/img/process/utility-scale/engineering-procurement.jpg",
         },
         {
           title: "Civil, mechanical and electrical execution",
           icon: "plug",
-          image: "/img/process/epc-execution.jpg",
+          image: "/img/process/utility-scale/execution.jpg",
         },
         {
           title: "Testing, commissioning and SCADA handover",
           icon: "monitor",
-          image: "/img/process/om-25yr.jpg",
+          image: "/img/process/utility-scale/commissioning.jpg",
         },
       ],
     },
