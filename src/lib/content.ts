@@ -620,16 +620,19 @@ export const offerings: Offering[] = [
       {
         title: "True landed cost",
         icon: "bars",
+        iconSrc: "/icons/outcomes/landed-cost.svg",
         body: "Grid, rooftop, open access, captive and storage compared together.",
       },
       {
         title: "Realistic returns",
         icon: "trend",
+        iconSrc: "/icons/outcomes/returns.svg",
         body: "IRR and payback built on honest generation, tariff and cost assumptions.",
       },
       {
         title: "Fits the balance sheet",
         icon: "scale",
+        iconSrc: "/icons/outcomes/balance-sheet.svg",
         body: "A structure matched to your cash-flow priorities.",
       },
     ],
