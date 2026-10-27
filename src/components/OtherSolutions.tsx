@@ -1,18 +1,10 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Grainient } from "./Grainient";
 import { BorderGlow } from "./BorderGlow";
 import { Reveal } from "./Reveal";
 import { RevealText } from "./RevealText";
-import { SolutionIcon } from "./SolutionIcon";
 import { offerings } from "@/lib/content";
-import type { IconName } from "@/lib/content";
-
-const iconFor: Record<string, IconName> = {
-  "commercial-industrial": "roof",
-  "utility-scale": "land",
-  "finance-solutions": "coins",
-  "energy-optimisation-consultant": "gauge",
-};
 
 /**
  * Bottom-of-page band on every solution page: the other solutions as the
@@ -77,9 +69,13 @@ export function OtherSolutions({ currentSlug }: { currentSlug: string }) {
                 colors={["#5fcf4b", "#a3e635", "#2dd4bf"]}
               >
                 <div className="relative flex flex-1 flex-col p-5 sm:p-6 lg:p-8">
-                  <span className="block h-[70px] w-[70px]">
-                    <SolutionIcon name={iconFor[o.slug] ?? "coins"} />
-                  </span>
+                  <Image
+                    src={`/icons/solutions/${o.slug}.svg`}
+                    alt=""
+                    width={70}
+                    height={70}
+                    className="h-[70px] w-[70px]"
+                  />
                   <h3 className="mt-6 text-[1.4rem] font-semibold tracking-tight text-white transition-colors duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:text-active-green">
                     {o.title}
                   </h3>

@@ -1,76 +1,12 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { nav, company, offerings } from "@/lib/content";
 import { Logo } from "./Logo";
 import { ArrowRight } from "./ui";
-
-/* ---------- Solutions mega-menu icons (same family/palette as home.tsx's
-   `illos`, same 4 icons used on the homepage's "Our solutions" cards) ---------- */
-const IL = {
-  pale: "#cdeec2",
-  green: "#5fcf4b",
-  dark: "#0f4338",
-  ink: "#0e0e0e",
-};
-const offeringIcons: React.ReactNode[] = [
-  // Commercial & Industrial — solar panel + sun
-  <svg viewBox="0 0 48 48" fill="none" key="ci" aria-hidden="true">
-    <rect x="2" y="7" width="29" height="29" rx="6" fill={IL.pale} />
-    <path d="M7 35 L13 14 H35 L41 35 Z" fill={IL.green} />
-    <path
-      d="M7 35H41M16 24.5H33M22 14l-4 21M29 14l1 21"
-      stroke="#fff"
-      strokeWidth="1.5"
-    />
-    <circle cx="38" cy="12" r="7" fill={IL.ink} />
-  </svg>,
-  // Utility Scale — network
-  <svg viewBox="0 0 48 48" fill="none" key="us" aria-hidden="true">
-    <rect x="3" y="3" width="22" height="22" rx="5" fill={IL.pale} />
-    <rect x="17" y="18" width="27" height="27" rx="6" fill={IL.green} />
-    <path
-      d="M13 13 31 31"
-      stroke={IL.dark}
-      strokeWidth="3"
-      strokeLinecap="round"
-    />
-    <circle cx="13" cy="13" r="4.5" fill={IL.ink} />
-    <circle cx="31" cy="31" r="5" fill="#fff" />
-  </svg>,
-  // Finance Solutions — coins
-  <svg viewBox="0 0 48 48" fill="none" key="fs" aria-hidden="true">
-    <ellipse cx="24" cy="38" rx="17" ry="6" fill={IL.pale} />
-    <rect x="7" y="20" width="34" height="16" rx="8" fill={IL.green} />
-    <ellipse cx="24" cy="20" rx="17" ry="6" fill={IL.dark} />
-    <ellipse cx="24" cy="14" rx="12" ry="4.5" fill={IL.pale} />
-    <path
-      d="M24 9v10M20 12h8"
-      stroke={IL.ink}
-      strokeWidth="2.2"
-      strokeLinecap="round"
-    />
-  </svg>,
-  // Energy Optimisation Consultant — gauge
-  <svg viewBox="0 0 48 48" fill="none" key="eoc" aria-hidden="true">
-    <circle cx="24" cy="27" r="20" fill={IL.pale} />
-    <path
-      d="M8 32A18 18 0 0 1 40 32"
-      stroke={IL.green}
-      strokeWidth="6"
-      strokeLinecap="round"
-    />
-    <path
-      d="M24 27 35 15"
-      stroke={IL.ink}
-      strokeWidth="3.5"
-      strokeLinecap="round"
-    />
-    <circle cx="24" cy="27" r="4" fill={IL.dark} />
-  </svg>,
-];
 
 // Shared look for a top-level nav item (plain link or dropdown trigger),
 // keyed off whether it's active and whether the transparent hero overlay
@@ -192,9 +128,13 @@ export function Header() {
                           href={`/solutions/${o.slug}`}
                           className="group/item rounded-lg p-4 transition-colors hover:bg-brand-tint/60"
                         >
-                          <span className="block h-9 w-9 [&>svg]:h-full [&>svg]:w-full">
-                            {offeringIcons[i]}
-                          </span>
+                          <Image
+                            src={`/icons/solutions/${o.slug}.svg`}
+                            alt=""
+                            width={36}
+                            height={36}
+                            className="h-9 w-9"
+                          />
                           <h3 className="mt-3 text-[14px] font-semibold tracking-tight text-ink transition-colors group-hover/item:text-brand-strong">
                             {o.title}
                           </h3>
