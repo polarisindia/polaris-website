@@ -40,7 +40,7 @@ export function MilestonesMarquee({ milestones }: { milestones: Milestone[] }) {
               className={`relative w-64 shrink-0 pt-9 lg:w-72 ${isDup ? "marquee-dup" : ""}`}
             >
               <span className="absolute left-0 top-0 h-4 w-4 rounded-full border-2 border-brand bg-[#15371b]" />
-              <div className="text-lg font-semibold tracking-tight text-brand-strong">
+              <div className="text-[1.395rem] font-semibold leading-snug tracking-tight text-brand-strong">
                 {m.year}
               </div>
               <div className="text-lg font-semibold tracking-tight text-ink">
