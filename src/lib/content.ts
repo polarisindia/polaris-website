@@ -646,10 +646,26 @@ export const offerings: Offering[] = [
     ],
     howItWorks: {
       steps: [
-        { title: "Share bills and site details", icon: "doc" },
-        { title: "We model every option side by side", icon: "bars" },
-        { title: "Board-ready business case", icon: "checklist" },
-        { title: "Lender coordination and documentation", icon: "partners" },
+        {
+          title: "Share bills and site details",
+          icon: "doc",
+          image: "/img/process/finance-solutions/share-bills.jpg",
+        },
+        {
+          title: "We model every option side by side",
+          icon: "bars",
+          image: "/img/process/finance-solutions/model-options.jpg",
+        },
+        {
+          title: "Board-ready business case",
+          icon: "checklist",
+          image: "/img/process/finance-solutions/business-case.jpg",
+        },
+        {
+          title: "Lender coordination and documentation",
+          icon: "partners",
+          image: "/img/process/finance-solutions/lender-coordination.jpg",
+        },
       ],
     },
     waysToPay: {
