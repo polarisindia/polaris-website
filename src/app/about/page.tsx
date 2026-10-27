@@ -24,6 +24,14 @@ export const metadata: Metadata = {
     "Polaris Renewable Solutions was founded in 2015 and is headquartered in Nashik, Maharashtra, delivering renewable energy projects for commercial, industrial and utility-scale customers across India and Morocco.",
 };
 
+// Supplied line icons for the three values, in the order of `values`:
+// purpose, mission, vision.
+const valueIcons = [
+  "/icons/values/purpose.svg",
+  "/icons/values/mission.svg",
+  "/icons/values/vision.svg",
+];
+
 /* ---------- flat illustrations, same family as the homepage icons ---------- */
 
 const IL = {
@@ -32,40 +40,6 @@ const IL = {
   dark: "#0f4338",
   ink: "#0e0e0e",
 };
-
-const valueIcons: React.ReactNode[] = [
-  // Our purpose — target
-  <svg viewBox="0 0 48 48" fill="none" key="purpose" aria-hidden="true">
-    <rect x="3" y="4" width="26" height="26" rx="6" fill={IL.pale} />
-    <circle cx="26" cy="24" r="18" fill={IL.green} />
-    <circle cx="26" cy="24" r="11" fill="#fff" />
-    <circle cx="26" cy="24" r="5" fill={IL.dark} />
-    <circle cx="26" cy="24" r="1.8" fill={IL.ink} />
-  </svg>,
-  // Our mission — forward arrow
-  <svg viewBox="0 0 48 48" fill="none" key="mission" aria-hidden="true">
-    <rect x="4" y="8" width="26" height="26" rx="6" fill={IL.pale} />
-    <path d="M8 40 L40 8 L30 40 L24 28 L8 40Z" fill={IL.green} />
-    <path
-      d="M24 28 L40 8"
-      stroke={IL.dark}
-      strokeWidth="2.5"
-      strokeLinecap="round"
-    />
-    <circle cx="40" cy="8" r="4" fill={IL.ink} />
-  </svg>,
-  // Our vision — eye
-  <svg viewBox="0 0 48 48" fill="none" key="vision" aria-hidden="true">
-    <rect x="11" y="3" width="26" height="26" rx="6" fill={IL.pale} />
-    <path
-      d="M4 24C4 24 13 10 24 10C35 10 44 24 44 24C44 24 35 38 24 38C13 38 4 24 4 24Z"
-      fill={IL.green}
-    />
-    <circle cx="24" cy="24" r="9" fill={IL.dark} />
-    <circle cx="24" cy="24" r="4" fill={IL.ink} />
-    <circle cx="21" cy="21" r="2" fill="#fff" />
-  </svg>,
-];
 
 // Our philosophy — bulb + leaf, echoing the Polaris mark. Its own dedicated
 // section further down, not part of the valueIcons/values grid above.
@@ -196,9 +170,13 @@ export default function AboutPage() {
                 colors={["#5fcf4b", "#0f4338", "#a3e635"]}
               >
                 <div className="p-6">
-                  <span className="block h-14 w-14 [&>svg]:h-full [&>svg]:w-full">
-                    {valueIcons[i]}
-                  </span>
+                  <Image
+                    src={valueIcons[i]}
+                    alt=""
+                    width={56}
+                    height={56}
+                    className="h-14 w-14 object-contain object-left"
+                  />
                   <h3 className="mt-6 text-[1.3rem] font-semibold tracking-tight text-ink">
                     {v.title}
                   </h3>
