@@ -91,12 +91,7 @@ export function StepsAccordion({ steps }: { steps: Step[] }) {
               </span>
 
               <span className="mt-6 block lg:mt-auto">
-                <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-white shadow-[0_2px_8px_-2px_rgba(0,0,0,0.12)] ring-1 ring-line/60">
-                  <span className="block h-8 w-8">
-                    <SolutionIcon name={s.icon} />
-                  </span>
-                </span>
-                <span className="mt-5 block text-xl font-medium leading-snug tracking-tight text-ink xl:text-[1.4rem]">
+                <span className="block text-xl font-medium leading-snug tracking-tight text-ink xl:text-[1.4rem]">
                   {s.title}
                 </span>
                 {s.body && (
