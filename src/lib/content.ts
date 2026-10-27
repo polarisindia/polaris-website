@@ -794,16 +794,19 @@ export const offerings: Offering[] = [
       {
         title: "See where the money goes",
         icon: "pie",
+        iconSrc: "/icons/outcomes/cost-breakdown.svg",
         body: "A clear breakdown of energy, demand and ToD cost.",
       },
       {
         title: "Right-sized, not biggest",
         icon: "target",
+        iconSrc: "/icons/outcomes/right-sized.svg",
         body: "The combination that fits your operations and economics.",
       },
       {
         title: "A plan you can measure",
         icon: "checklist",
+        iconSrc: "/icons/outcomes/measurable-plan.svg",
         body: "Phased steps with KPIs to track savings.",
       },
     ],
