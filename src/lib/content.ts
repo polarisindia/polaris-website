@@ -240,7 +240,13 @@ export type IconName =
   | "sun"
   | "sunbattery";
 
-export type OfferingOutcome = { title: string; body: string; icon: IconName };
+export type OfferingOutcome = {
+  title: string;
+  body: string;
+  icon: IconName;
+  // A supplied icon file; used instead of the illustration when set.
+  iconSrc?: string;
+};
 export type OfferingChecklistItem = { title: string; body: string };
 export type OfferingScopeItem = {
   title: string;
@@ -376,16 +382,19 @@ export const offerings: Offering[] = [
       {
         title: "Lower power cost",
         icon: "cost",
+        iconSrc: "/icons/outcomes/cost-down.svg",
         body: "A large share of daytime consumption at a fixed, lower cost.",
       },
       {
         title: "No production downtime",
         icon: "shield",
+        iconSrc: "/icons/outcomes/shield-check.svg",
         body: "Installed inside running plants under industrial safety protocols.",
       },
       {
         title: "Ready for what's next",
         icon: "battery",
+        iconSrc: "/icons/outcomes/battery-bolt.svg",
         body: "Electrical design leaves room for batteries and load growth.",
       },
     ],

@@ -153,9 +153,19 @@ export default async function OfferingDetail({
               className="h-full"
             >
               <div className="h-full rounded-2xl border border-line/70 bg-paper p-7 transition-shadow duration-500 hover:shadow-[0_18px_40px_-26px_rgba(15,67,56,0.5)] lg:p-8">
-                <span className="block h-16 w-16">
-                  <SolutionIcon name={o.icon} />
-                </span>
+                {o.iconSrc ? (
+                  <Image
+                    src={o.iconSrc}
+                    alt=""
+                    width={64}
+                    height={64}
+                    className="h-16 w-16 object-contain object-left"
+                  />
+                ) : (
+                  <span className="block h-16 w-16">
+                    <SolutionIcon name={o.icon} />
+                  </span>
+                )}
                 <h3 className="mt-6 text-xl font-semibold tracking-tight text-ink">
                   {o.title}
                 </h3>
