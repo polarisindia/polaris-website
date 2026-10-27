@@ -637,15 +637,36 @@ export const offerings: Offering[] = [
       },
     ],
     scope: [
-      { title: "IRR, ROI & payback", icon: "trend" },
-      { title: "Cash-flow projections", icon: "cashflow" },
-      { title: "Depreciation & tax impact", icon: "percent" },
-      { title: "Tariff & ToD sensitivity", icon: "gauge" },
+      {
+        title: "IRR, ROI & payback",
+        icon: "trend",
+        iconSrc: "/icons/scope/irr-payback.svg",
+      },
+      {
+        title: "Cash-flow projections",
+        icon: "cashflow",
+        iconSrc: "/icons/scope/cash-flow.svg",
+      },
+      {
+        title: "Depreciation & tax impact",
+        icon: "percent",
+        iconSrc: "/icons/scope/tax-impact.svg",
+      },
+      {
+        title: "Tariff & ToD sensitivity",
+        icon: "gauge",
+        iconSrc: "/icons/scope/tariff-tod.svg",
+      },
       {
         title: "Debt / equity structure & lender documentation",
         icon: "coins",
+        iconSrc: "/icons/scope/debt-equity.svg",
       },
-      { title: "Policy and subsidy review", icon: "doc" },
+      {
+        title: "Policy and subsidy review",
+        icon: "doc",
+        iconSrc: "/icons/scope/policy-review.svg",
+      },
     ],
     howItWorks: {
       steps: [
