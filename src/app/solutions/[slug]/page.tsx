@@ -15,6 +15,7 @@ import { SolutionIcon } from "@/components/SolutionIcon";
 import { StepsAccordion } from "@/components/StepsAccordion";
 import { OtherSolutions } from "@/components/OtherSolutions";
 import { offerings, projects } from "@/lib/content";
+import type { IconName } from "@/lib/content";
 
 export function generateStaticParams() {
   return offerings.map((o) => ({ slug: o.slug }));
@@ -62,6 +63,30 @@ function Check() {
     >
       <path d="M5 13l4 4L19 7" />
     </svg>
+  );
+}
+
+function ScopeIcon({
+  item,
+  className,
+}: {
+  item: { icon: IconName; iconSrc?: string };
+  className: string;
+}) {
+  return (
+    <span className={`block shrink-0 ${className}`}>
+      {item.iconSrc ? (
+        <Image
+          src={item.iconSrc}
+          alt=""
+          width={56}
+          height={56}
+          className="h-full w-full object-contain"
+        />
+      ) : (
+        <SolutionIcon name={item.icon} />
+      )}
+    </span>
   );
 }
 
@@ -187,9 +212,7 @@ export default async function OfferingDetail({
               {scope.map((s, i) => (
                 <Reveal key={s.title} as="li" variant="up" delay={(i % 3) * 70}>
                   <div className="flex h-full items-center gap-4 rounded-2xl border border-line/70 bg-paper px-5 py-5">
-                    <span className="block h-12 w-12 shrink-0">
-                      <SolutionIcon name={s.icon} />
-                    </span>
+                    <ScopeIcon item={s} className="h-12 w-12" />
                     <span className="text-[15px] font-semibold leading-snug text-ink">
                       {s.title}
                     </span>
@@ -208,9 +231,7 @@ export default async function OfferingDetail({
                   {s.checklist ? (
                     <details className="group rounded-2xl border border-line/70 bg-paper">
                       <summary className="flex cursor-pointer list-none items-start gap-4 p-6 [&::-webkit-details-marker]:hidden">
-                        <span className="block h-14 w-14 shrink-0">
-                          <SolutionIcon name={s.icon} />
-                        </span>
+                        <ScopeIcon item={s} className="h-14 w-14" />
                         <span className="min-w-0 flex-1">
                           <span className="block text-lg font-semibold tracking-tight text-ink">
                             {s.title}
@@ -244,9 +265,7 @@ export default async function OfferingDetail({
                     </details>
                   ) : (
                     <div className="flex h-full items-start gap-4 rounded-2xl border border-line/70 bg-paper p-6">
-                      <span className="block h-14 w-14 shrink-0">
-                        <SolutionIcon name={s.icon} />
-                      </span>
+                      <ScopeIcon item={s} className="h-14 w-14" />
                       <span>
                         <h3 className="text-lg font-semibold tracking-tight text-ink">
                           {s.title}

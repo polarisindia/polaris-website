@@ -252,6 +252,8 @@ export type OfferingScopeItem = {
   title: string;
   body?: string;
   icon: IconName;
+  // A supplied icon file; used instead of the illustration when set.
+  iconSrc?: string;
   // Opens as a checklist when present.
   checklist?: OfferingChecklistItem[];
 };
@@ -402,26 +404,31 @@ export const offerings: Offering[] = [
       {
         title: "Rooftop",
         icon: "roof",
+        iconSrc: "/icons/scope/rooftop-solar.svg",
         body: "RCC, metal-sheet and bitumen roofs; zero-penetration mounting where the roof needs it.",
       },
       {
         title: "Ground captive",
         icon: "land",
+        iconSrc: "/icons/scope/ground-mounted.svg",
         body: "Plants on land next to your facility.",
       },
       {
         title: "Off-site",
         icon: "tower",
+        iconSrc: "/icons/scope/grid-tower.svg",
         body: "Open access and group captive when your roof isn't enough.",
       },
       {
         title: "BESS & hybrid",
         icon: "battery",
+        iconSrc: "/icons/scope/battery.svg",
         body: "Storage for peak shaving, backup and ToD savings.",
       },
       {
         title: "Electrical & O&M",
         icon: "plug",
+        iconSrc: "/icons/scope/plug.svg",
         body: "HT/LT, transformers, substations, SCADA and long-term O&M.",
       },
     ],
