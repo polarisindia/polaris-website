@@ -28,7 +28,7 @@ export const offices = [
   },
   {
     name: "Morocco Office",
-    entity: "Polaris Global Energie SARL",
+    entity: "Polaris Gofer Energie SARL",
     address:
       "50-52 BIS Boulevard Abdellatif Ben Kaddour, Etage 3, Appt DTE, Casablanca, Kingdom of Morocco",
     phone: "+212 66 06 07626",
@@ -50,7 +50,7 @@ export const global = {
       market: "Morocco",
       status: "Operating base",
       detail:
-        "Polaris Global Energie SARL supports C&I, utility-scale and energy-optimisation opportunities in Morocco, with an early C&I rooftop reference in Tangier.",
+        "Polaris Gofer Energie SARL supports C&I, utility-scale and energy-optimisation opportunities in Morocco, with an early C&I rooftop reference in Tangier.",
     },
     {
       market: "MENA",

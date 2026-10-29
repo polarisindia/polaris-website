@@ -21,7 +21,7 @@ const sections: { heading: string; body: React.ReactNode }[] = [
           </strong>{" "}
           ({company.address}), together with its Morocco affiliate{" "}
           <strong className="font-semibold text-ink">
-            Polaris Global Energie SARL
+            Polaris Gofer Energie SARL
           </strong>{" "}
           (referred to together as &ldquo;Polaris&rdquo;, &ldquo;we&rdquo;,
           &ldquo;us&rdquo;). It explains what information we collect when you
